@@ -81,7 +81,7 @@ cd "C:\Users\Dell\Documents\NhaCongDong\Zero-Cloud LAN Hub\hub"
 
 # 1. Thêm commit đầu tiên
 git add .
-git commit -m "feat: initial release of ZCL Hub ecosystem website and web studio"
+git commit -m "feat: initial release of ZCL Hub website and web studio"
 
 # 2. Tạo repository trên GitHub cá nhân (ví dụ tên repo là zcl-hub hoặc zero-cloud-lan)
 # 3. Liên kết remote và đẩy lên nhánh main:

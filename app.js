@@ -13,13 +13,13 @@ const i18n = {
     brand_sub: "Bộ ứng dụng LAN",
     nav_download: "Tải về",
     nav_pillars: "Kiến trúc",
-    nav_ecosystem: "Sản phẩm",
+    nav_products: "Sản phẩm",
     nav_studio: "Web Studio",
     nav_specs: "Thông số",
     nav_quickstart: "Bắt đầu nhanh",
     nav_faq: "Hỏi đáp",
-    btn_launch_web: "⚡ Mở Web Client",
-    btn_download_desktop: "⬇️ Tải về (.exe)",
+    btn_launch_web: "Mở Web Client",
+    btn_download_desktop: "Tải về (.exe)",
 
     // Download Center
     dl_badge: "TRUNG TÂM TẢI VỀ",
@@ -118,9 +118,9 @@ const i18n = {
     studio_badge: "TRẢI NGHIỆM TRỰC TIẾP",
     studio_title: "ZCL Web Studio",
     studio_sub: "Chạy trực tiếp trên trình duyệt hiện đại mà không cần cài đặt bất kỳ file nào.",
-    studio_tab_tp: "⚡ ZCL Teleport Web",
-    studio_tab_rm: "🖥️ ZCL Remote Web Viewer",
-    studio_tab_bench: "📊 Đo kiểm LAN Benchmark",
+    studio_tab_tp: "ZCL Teleport Web",
+    studio_tab_rm: "ZCL Remote Web Viewer",
+    studio_tab_bench: "Đo kiểm LAN Benchmark",
     studio_status_ready: "Sẵn sàng trong mạng nội bộ",
 
     tp_drop_title: "Kéo thả file vào đây hoặc bấm để chọn",
@@ -211,7 +211,7 @@ const i18n = {
     // PWA & Footer
     pwa_title: "Cài đặt ZCL Hub như một ứng dụng độc lập",
     pwa_desc: "Trang web hỗ trợ chuẩn PWA (Progressive Web App). Cài đặt ngay lên màn hình chính máy tính hoặc điện thoại để dùng offline.",
-    pwa_install_btn: "📲 Cài đặt ZCL Hub (PWA)",
+    pwa_install_btn: "Cài đặt ZCL Hub (PWA)",
 
     footer_desc: "Bộ ứng dụng mạng nội bộ P2P tối ưu tốc độ, bảo mật và quyền làm chủ dữ liệu số của bạn.",
     footer_apps: "Sản phẩm",
@@ -225,13 +225,13 @@ const i18n = {
     brand_sub: "LAN Apps",
     nav_download: "Download",
     nav_pillars: "Architecture",
-    nav_ecosystem: "Products",
+    nav_products: "Products",
     nav_studio: "Web Studio",
     nav_specs: "Specifications",
     nav_quickstart: "Quick Start",
     nav_faq: "FAQ",
-    btn_launch_web: "⚡ Open Web Client",
-    btn_download_desktop: "⬇️ Download (.exe)",
+    btn_launch_web: "Open Web Client",
+    btn_download_desktop: "Download (.exe)",
 
     // Download Center
     dl_badge: "DOWNLOAD CENTER",
@@ -330,9 +330,9 @@ const i18n = {
     studio_badge: "LIVE IN-BROWSER",
     studio_title: "ZCL Web Studio",
     studio_sub: "Run directly in your modern web browser without installing any software.",
-    studio_tab_tp: "⚡ ZCL Teleport Web",
-    studio_tab_rm: "🖥️ ZCL Remote Web Viewer",
-    studio_tab_bench: "📊 LAN Benchmark Tool",
+    studio_tab_tp: "ZCL Teleport Web",
+    studio_tab_rm: "ZCL Remote Web Viewer",
+    studio_tab_bench: "LAN Benchmark Tool",
     studio_status_ready: "LAN Ready · P2P Active",
 
     tp_drop_title: "Drop files here or click to browse",
@@ -423,7 +423,7 @@ const i18n = {
     // PWA & Footer
     pwa_title: "Install ZCL Hub as a Standalone App",
     pwa_desc: "This site is a Progressive Web App (PWA). Add it to your desktop or mobile home screen to access the web clients offline.",
-    pwa_install_btn: "📲 Install ZCL Hub (PWA)",
+    pwa_install_btn: "Install ZCL Hub (PWA)",
 
     footer_desc: "High-speed peer-to-peer local network suite prioritizing performance, security, and digital sovereignty.",
     footer_apps: "Products",
@@ -854,14 +854,14 @@ if ('serviceWorker' in navigator) {
 // ==========================================
 // 6. DOWNLOAD MODAL & TOAST HANDLER
 // ==========================================
-function showToast(message, icon = '⬇️') {
+function showToast(message, iconSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>') {
   const toast = document.getElementById('toastMsg');
   const toastText = document.getElementById('toastText');
   const toastIcon = document.getElementById('toastIcon');
   if (!toast) return;
 
   if (toastText) toastText.innerText = message;
-  if (toastIcon) toastIcon.innerText = icon;
+  if (toastIcon) toastIcon.innerHTML = iconSvg;
 
   toast.classList.add('show');
   setTimeout(() => {
@@ -890,7 +890,7 @@ function initDownloadModal() {
 
     if (app === 'teleport') {
       if (modalIcon) {
-        modalIcon.innerText = '⚡';
+        modalIcon.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L21 16M17 20L13 16"/></svg>';
         modalIcon.style.background = 'var(--mint-dark)';
         modalIcon.style.color = 'var(--mint)';
       }
@@ -902,7 +902,7 @@ function initDownloadModal() {
       if (modalFileSize) modalFileSize.innerText = format === 'zip' ? '11.8 MB' : '12.4 MB';
     } else {
       if (modalIcon) {
-        modalIcon.innerText = '🖥️';
+        modalIcon.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>';
         modalIcon.style.background = 'var(--lilac-dark)';
         modalIcon.style.color = 'var(--lilac)';
       }
