@@ -226,6 +226,12 @@ const i18n = {
     tp_peers_title: "Máy tính phát hiện được trong phòng",
     tp_transfer_demo: "Đang gửi đến: Laptop-LamViec",
     tp_speed: "Tốc độ: Siêu nhanh",
+    studio_clip_title: "Thử nghiệm Đồng bộ Khay nhớ tạm hai chiều",
+    studio_clip_status: "Sẵn sàng dán",
+    studio_clip_label_a: "Máy A (Gõ nội dung cần chép):",
+    studio_clip_btn_copy: "Sao chép",
+    studio_clip_label_b: "Máy B (Tự động nhận tức thì):",
+    studio_clip_done: "Đã dán",
 
     rm_ip_placeholder: "Tên hoặc mã kết nối của máy tính",
     rm_connect_btn: "Bắt đầu điều khiển",
@@ -484,6 +490,12 @@ const i18n = {
     tp_peers_title: "Computers found in this room",
     tp_transfer_demo: "Sending to: Laptop-Work",
     tp_speed: "Speed: Super Fast",
+    studio_clip_title: "Live Two-Way Clipboard Sync Demo",
+    studio_clip_status: "Ready to Sync",
+    studio_clip_label_a: "PC A (Type text to copy):",
+    studio_clip_btn_copy: "Copy",
+    studio_clip_label_b: "PC B (Auto-received instantly):",
+    studio_clip_done: "Pasted",
 
     rm_ip_placeholder: "Computer name or connection code",
     rm_connect_btn: "Start Control",
@@ -595,6 +607,21 @@ function showAppDetail(appName, updateHash = true) {
   }
 }
 
+function updateTabSlidingIndicator() {
+  const bar = document.querySelector('.main-tabs-bar');
+  const indicator = document.getElementById('tabSlidingIndicator');
+  if (!bar || !indicator) return;
+
+  const activePill = bar.querySelector('.main-tab-pill.active');
+  if (activePill) {
+    indicator.style.transform = `translateX(${activePill.offsetLeft}px)`;
+    indicator.style.width = `${activePill.offsetWidth}px`;
+    indicator.style.opacity = '1';
+  } else {
+    indicator.style.opacity = '0';
+  }
+}
+
 function switchMainTab(targetTabId, updateHash = true) {
   if (!targetTabId) return;
 
@@ -661,6 +688,8 @@ function switchMainTab(targetTabId, updateHash = true) {
       }
     }
   });
+
+  updateTabSlidingIndicator();
 
   // 3. Update URL hash
   if (updateHash) {
@@ -784,6 +813,8 @@ function initMainTabs() {
 
   window.addEventListener('popstate', handleHash);
   handleHash();
+  window.addEventListener('resize', updateTabSlidingIndicator);
+  setTimeout(updateTabSlidingIndicator, 80);
 }
 
 // ==========================================
@@ -863,7 +894,36 @@ function initStudio() {
     }, 80);
   }
 
-  // Remote Desktop Canvas Demo
+  // Live Clipboard Sync Demo
+  const btnCopy = document.getElementById('btnTestCopy');
+  const clipInput = document.getElementById('clipInputA');
+  const clipOutput = document.getElementById('clipReceivedText');
+  const clipTargetB = document.getElementById('clipTargetB');
+  const clipStatusBadge = document.getElementById('clipSyncStatusBadge');
+
+  if (btnCopy && clipInput && clipOutput) {
+    btnCopy.addEventListener('click', () => {
+      const text = clipInput.value.trim() || (currentLang === 'vi' ? 'Tài liệu dự án 2026.docx' : 'Project Document 2026.docx');
+      clipOutput.innerText = text;
+
+      if (clipTargetB) {
+        clipTargetB.classList.remove('flash-synced');
+        void clipTargetB.offsetWidth;
+        clipTargetB.classList.add('flash-synced');
+      }
+
+      if (clipStatusBadge) {
+        clipStatusBadge.innerText = currentLang === 'vi' ? 'Đã đồng bộ · 0.01s' : 'Synced · 0.01s';
+        setTimeout(() => {
+          clipStatusBadge.innerText = currentLang === 'vi' ? 'Sẵn sàng dán' : 'Ready to Sync';
+        }, 2200);
+      }
+
+      showToast(currentLang === 'vi' ? 'Đã đồng bộ khay nhớ tạm sang Máy B!' : 'Clipboard synced to PC B instantly!');
+    });
+  }
+
+  // Remote Desktop Canvas Demo with Click Ripples
   const canvas = document.getElementById('remoteCanvas');
   const overlay = document.getElementById('remoteOverlay');
   if (canvas) {
@@ -871,6 +931,7 @@ function initStudio() {
     let mouseX = 140;
     let mouseY = 140;
     let isConnected = true;
+    let clickRipples = [];
 
     function resizeCanvas() {
       const rect = canvas.getBoundingClientRect();
@@ -878,6 +939,23 @@ function initStudio() {
       canvas.height = rect.height * window.devicePixelRatio;
       ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
       drawScreen();
+    }
+
+    function triggerRipple(x, y) {
+      clickRipples.push({ x, y, r: 0, opacity: 1 });
+      function stepRipple() {
+        if (clickRipples.length === 0) return;
+        drawScreen();
+        clickRipples = clickRipples.filter((item) => item.opacity > 0.05);
+        clickRipples.forEach((item) => {
+          item.r += 3.5;
+          item.opacity *= 0.88;
+        });
+        if (clickRipples.length > 0) {
+          requestAnimationFrame(stepRipple);
+        }
+      }
+      requestAnimationFrame(stepRipple);
     }
 
     function drawScreen() {
@@ -934,7 +1012,7 @@ function initStudio() {
         ctx.fillStyle = '#f7f3ec';
         ctx.fillText('• Hình ảnh sắc nét, mượt mà', winX + 26, winY + 144);
         ctx.fillStyle = '#a097ac';
-        ctx.fillText('> Rê chuột trong khung này để cảm nhận độ mượt mà!', winX + 26, winY + 190);
+        ctx.fillText('> Bấm chuột bất kỳ để thử độ phản hồi ăn ngay!', winX + 26, winY + 190);
       } else {
         ctx.fillText('Remote Desktop Screen (Live local connection)', winX + 74, winY + 24);
         ctx.fillStyle = '#85edca';
@@ -944,8 +1022,17 @@ function initStudio() {
         ctx.fillStyle = '#f7f3ec';
         ctx.fillText('• Clear display and responsive control', winX + 26, winY + 144);
         ctx.fillStyle = '#a097ac';
-        ctx.fillText('> Move your mouse inside this screen to feel the responsiveness!', winX + 26, winY + 190);
+        ctx.fillText('> Click anywhere to test instant mouse response!', winX + 26, winY + 190);
       }
+
+      // Draw Click Ripples
+      clickRipples.forEach((item) => {
+        ctx.beginPath();
+        ctx.arc(item.x, item.y, item.r, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(133, 237, 202, ${item.opacity})`;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      });
 
       // Local cursor
       ctx.fillStyle = '#ffffff';
@@ -969,6 +1056,13 @@ function initStudio() {
       drawScreen();
     });
 
+    canvas.addEventListener('click', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const clickY = e.clientY - rect.top;
+      triggerRipple(clickX, clickY);
+    });
+
     if (overlay) {
       overlay.addEventListener('click', () => {
         overlay.classList.add('hidden');
@@ -979,12 +1073,18 @@ function initStudio() {
     setTimeout(resizeCanvas, 100);
   }
 
-  // Benchmark Run
+  // Benchmark Run with Speedometer Needle Animation
   const btnRun = document.getElementById('btnRunBenchmark');
+  const gaugeNeedle = document.getElementById('gaugeNeedleGroup');
+  const speedGaugeNum = document.getElementById('speedGaugeNum');
+
   if (btnRun) {
     btnRun.addEventListener('click', () => {
       btnRun.disabled = true;
       btnRun.innerText = currentLang === 'vi' ? 'Đang đo kiểm...' : 'Testing...';
+
+      if (gaugeNeedle) gaugeNeedle.style.transform = 'rotate(-90deg)';
+      if (speedGaugeNum) speedGaugeNum.innerText = '0';
 
       const fills = [
         document.getElementById('benchFill1'),
@@ -996,15 +1096,33 @@ function initStudio() {
         if (f) f.style.width = '0%';
       });
 
-      setTimeout(() => {
-        if (fills[0]) fills[0].style.width = '45%';
-        if (fills[1]) fills[1].style.width = '85%';
-        if (fills[2]) fills[2].style.width = '100%';
+      const startTime = performance.now();
+      const targetSpeed = 980;
+      const duration = 800;
 
-        btnRun.disabled = false;
-        btnRun.innerText = currentLang === 'vi' ? 'Kiểm tra lại' : 'Test Again';
-        showToast(currentLang === 'vi' ? 'Tốc độ Wi-Fi nội bộ đạt chuẩn siêu nhanh!' : 'Wi-Fi speed test completed!');
-      }, 700);
+      function animateGauge(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(1, elapsed / duration);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const currentVal = Math.round(targetSpeed * ease);
+        const angle = -90 + (165 * ease);
+
+        if (gaugeNeedle) gaugeNeedle.style.transform = `rotate(${angle}deg)`;
+        if (speedGaugeNum) speedGaugeNum.innerText = currentVal.toString();
+
+        if (progress < 1) {
+          requestAnimationFrame(animateGauge);
+        } else {
+          if (fills[0]) fills[0].style.width = '45%';
+          if (fills[1]) fills[1].style.width = '85%';
+          if (fills[2]) fills[2].style.width = '100%';
+
+          btnRun.disabled = false;
+          btnRun.innerText = currentLang === 'vi' ? 'Kiểm tra lại' : 'Test Again';
+          showToast(currentLang === 'vi' ? 'Tốc độ Wi-Fi nội bộ đạt chuẩn siêu nhanh (980 MB/s)!' : 'Wi-Fi speed test completed (980 MB/s)!');
+        }
+      }
+      requestAnimationFrame(animateGauge);
     });
   }
 }
@@ -1338,12 +1456,21 @@ function updateConsoleEnvUI() {
 
 function initConsoleEnvironment() {
   const envButtons = document.querySelectorAll('.env-btn');
+  const scanner = document.getElementById('consoleLaserScanner');
+
   envButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
       envButtons.forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
       const env = btn.getAttribute('data-env') || 'home';
       currentEnv = env;
+
+      if (scanner) {
+        scanner.classList.remove('scanning');
+        void scanner.offsetWidth;
+        scanner.classList.add('scanning');
+      }
+
       updateConsoleEnvUI();
     });
   });
@@ -1440,6 +1567,101 @@ function initDeviceOrbit() {
 }
 
 // ==========================================
+// 8. MICRO-INTERACTIONS & ACCESSIBILITY
+// ==========================================
+function init3DTiltCards() {
+  const cards = document.querySelectorAll('.arch-card');
+  cards.forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -7;
+      const rotateY = ((x - centerX) / centerX) * 7;
+      card.style.transform = `perspective(800px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+}
+
+function initKeyboardShortcuts() {
+  window.addEventListener('keydown', (e) => {
+    if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+
+    if (e.key === '1') {
+      switchMainTab('overview');
+    } else if (e.key === '2') {
+      switchMainTab('apps');
+    } else if (e.key === '3') {
+      switchMainTab('download');
+    } else if (e.key === '4') {
+      switchMainTab('studio');
+    } else if (e.key === '5') {
+      switchMainTab('faq');
+    } else if (e.key === 't' || e.key === 'T') {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      localStorage.setItem(THEME_STORAGE_KEY, next);
+      applyTheme(next);
+      showToast(currentLang === 'vi' 
+        ? (next === 'light' ? 'Đã đổi sang giao diện Sáng' : 'Đã đổi sang giao diện Tối') 
+        : (next === 'light' ? 'Switched to Light Mode' : 'Switched to Dark Mode'));
+    } else if (e.key === 'l' || e.key === 'L') {
+      const next = currentLang === 'vi' ? 'en' : 'vi';
+      setLanguage(next);
+      updateConsoleEnvUI();
+      updateOrbitUI();
+      showToast(next === 'vi' ? 'Ngôn ngữ: Tiếng Việt' : 'Language: English');
+    } else if (e.key === 'Escape') {
+      const modal = document.getElementById('downloadModal');
+      if (modal && modal.classList.contains('active')) {
+        modal.classList.remove('active');
+      }
+    }
+  });
+}
+
+function initBackToTop() {
+  const btn = document.getElementById('btnBackToTop');
+  const ringCircle = document.getElementById('progressRingCircle');
+  if (!btn) return;
+
+  const circumference = 2 * Math.PI * 19;
+  if (ringCircle) {
+    ringCircle.style.strokeDasharray = `${circumference}`;
+  }
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+    if (scrollY > 350) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+
+    if (ringCircle && docHeight > 0) {
+      const progress = Math.min(1, Math.max(0, scrollY / docHeight));
+      const offset = circumference * (1 - progress);
+      ringCircle.style.strokeDashoffset = `${offset}`;
+    }
+  }, { passive: true });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+// ==========================================
 // 9. INITIALIZATION
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -1460,4 +1682,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaq();
   initDownloadModal();
   initMainTabs();
+  init3DTiltCards();
+  initKeyboardShortcuts();
+  initBackToTop();
 });

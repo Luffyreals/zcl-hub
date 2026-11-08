@@ -40,23 +40,24 @@
       <!-- Center: Segmented Navigation Tabs -->
       <nav class="nav-tabs-wrapper" aria-label="Danh mục chức năng">
         <div class="main-tabs-bar" role="tablist">
-          <button class="main-tab-pill active" data-tab="tab-overview" role="tab" aria-selected="true" type="button">
+          <div class="tab-sliding-indicator" id="tabSlidingIndicator" aria-hidden="true"></div>
+          <button class="main-tab-pill active" data-tab="tab-overview" data-key="1" role="tab" aria-selected="true" type="button">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
             <span data-i18n="nav_overview">Tổng quan</span>
           </button>
-          <button class="main-tab-pill" data-tab="tab-apps" role="tab" aria-selected="false" type="button">
+          <button class="main-tab-pill" data-tab="tab-apps" data-key="2" role="tab" aria-selected="false" type="button">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
             <span data-i18n="nav_apps">Ứng dụng</span>
           </button>
-          <button class="main-tab-pill" data-tab="tab-download" role="tab" aria-selected="false" type="button">
+          <button class="main-tab-pill" data-tab="tab-download" data-key="3" role="tab" aria-selected="false" type="button">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             <span data-i18n="nav_download">Tải về</span>
           </button>
-          <button class="main-tab-pill" data-tab="tab-studio" role="tab" aria-selected="false" type="button">
+          <button class="main-tab-pill" data-tab="tab-studio" data-key="4" role="tab" aria-selected="false" type="button">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
             <span data-i18n="nav_studio">Dùng thử trên Web</span>
           </button>
-          <button class="main-tab-pill" data-tab="tab-faq" role="tab" aria-selected="false" type="button">
+          <button class="main-tab-pill" data-tab="tab-faq" data-key="5" role="tab" aria-selected="false" type="button">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
             <span data-i18n="nav_faq">Hướng dẫn &amp; Hỏi đáp</span>
           </button>
@@ -123,6 +124,8 @@
 
           <!-- ZCL Cockpit Console Frame (Trạm Điều Khiển Mạng Nội Bộ) -->
           <div class="zcl-console-frame" id="zclConsoleFrame">
+            <!-- Laser Scanner Effect -->
+            <div class="console-laser-scanner" id="consoleLaserScanner" aria-hidden="true"></div>
             <!-- Console Top Bar -->
             <div class="console-top-bar">
               <div class="console-window-dots">
@@ -1216,6 +1219,37 @@
                         <span id="progressSpeed" data-i18n="tp_speed">Tốc độ: Siêu nhanh</span>
                       </div>
                     </div>
+
+                    <!-- Interactive Clipboard Sync Demo Box -->
+                    <div class="studio-clipboard-sync-card">
+                      <div class="clip-sync-header">
+                        <div class="clip-sync-title">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                          <span data-i18n="studio_clip_title">Thử nghiệm Đồng bộ Khay nhớ tạm hai chiều</span>
+                        </div>
+                        <span class="clip-sync-badge" id="clipSyncStatusBadge" data-i18n="studio_clip_status">Sẵn sàng dán</span>
+                      </div>
+                      <div class="clip-sync-grid">
+                        <div class="clip-box clip-source">
+                          <label for="clipInputA" data-i18n="studio_clip_label_a">Máy A (Gõ nội dung cần chép):</label>
+                          <div class="clip-input-wrap">
+                            <input type="text" id="clipInputA" value="Tài liệu dự án 2026.docx" placeholder="Nhập chữ bất kỳ...">
+                            <button class="btn btn-primary btn-sm" id="btnTestCopy" type="button" data-i18n="studio_clip_btn_copy">Sao chép</button>
+                          </div>
+                        </div>
+                        <div class="clip-arrow-indicator">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                          <span class="clip-latency-tag">0.01s</span>
+                        </div>
+                        <div class="clip-box clip-target" id="clipTargetB">
+                          <label data-i18n="studio_clip_label_b">Máy B (Tự động nhận tức thì):</label>
+                          <div class="clip-output-wrap">
+                            <span class="clip-received-text" id="clipReceivedText">Tài liệu dự án 2026.docx</span>
+                            <span class="clip-done-badge" id="clipDoneBadge" data-i18n="studio_clip_done">Đã dán</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1255,11 +1289,37 @@
 
               <!-- 3. Benchmark Panel -->
               <div class="studio-panel" id="panel-benchmark">
-                <div style="text-align: center; margin-bottom: 28px;">
+                <div style="text-align: center; margin-bottom: 24px;">
                   <h4 style="font-size: 1.3rem; margin-bottom: 8px;" data-i18n="bench_title">Tốc độ gửi file thực tế khi dùng chung Wi-Fi</h4>
                   <button class="btn btn-primary btn-sm" id="btnRunBenchmark" type="button" data-i18n="bench_btn_run">
                     Bấm để kiểm tra tốc độ
                   </button>
+                </div>
+
+                <!-- Speedometer Gauge Graphic -->
+                <div class="speedometer-wrap">
+                  <div class="speedometer-box">
+                    <svg class="speedometer-svg" viewBox="0 0 200 120">
+                      <path class="gauge-bg" d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="var(--border)" stroke-width="12" stroke-linecap="round"/>
+                      <path class="gauge-fill" id="gaugeFill" d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="url(#gaugeGradient)" stroke-width="12" stroke-linecap="round" stroke-dasharray="251.2" stroke-dashoffset="251.2"/>
+                      <defs>
+                        <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%" stop-color="#85edca" />
+                          <stop offset="60%" stop-color="#70b8ff" />
+                          <stop offset="100%" stop-color="#cea3f3" />
+                        </linearGradient>
+                      </defs>
+                      <g id="gaugeNeedleGroup" transform="rotate(-90 100 100)">
+                        <polygon points="98,100 102,100 100,28" fill="var(--mint)"/>
+                        <circle cx="100" cy="100" r="7" fill="#FFFDF8"/>
+                        <circle cx="100" cy="100" r="4" fill="#09080c"/>
+                      </g>
+                    </svg>
+                    <div class="speedometer-readout">
+                      <span class="speed-num" id="speedGaugeNum">0</span>
+                      <span class="speed-unit">MB/s</span>
+                    </div>
+                  </div>
                 </div>
 
                 <div class="benchmark-grid">
@@ -1465,6 +1525,15 @@
     </div>
   </footer>
 
+  <!-- Floating Back to Top Button with Circular Progress -->
+  <button class="back-to-top" id="btnBackToTop" type="button" aria-label="Cuộn lên đầu trang" title="Cuộn lên đầu trang">
+    <svg class="progress-ring-svg" width="46" height="46" viewBox="0 0 46 46">
+      <circle class="progress-ring-circle-bg" cx="23" cy="23" r="19"></circle>
+      <circle class="progress-ring-circle" id="progressRingCircle" cx="23" cy="23" r="19"></circle>
+    </svg>
+    <svg class="arrow-up-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
   <!-- Interactive Download Modal -->
   <div class="modal-overlay" id="downloadModal" role="dialog" aria-modal="true">
     <div class="modal-card">
@@ -1494,10 +1563,13 @@
 
   <!-- Toast Notification -->
   <div class="toast-msg" id="toastMsg">
-    <span id="toastIcon">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-    </span>
-    <span id="toastText">Đang tải xuống tệp cài đặt...</span>
+    <div class="toast-content">
+      <span id="toastIcon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      </span>
+      <span id="toastText">Đang tải xuống tệp cài đặt...</span>
+    </div>
+    <div class="toast-progress-bar" id="toastProgressBar"></div>
   </div>
 
   <script src="src/app.js"></script>
