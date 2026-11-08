@@ -1,102 +1,101 @@
-# ZCL Hub — Zero-Cloud LAN
+# ZCL Hub
 
 <div align="center">
 
 ![ZCL Hub Logo](assets/logo.svg)
 
-### Cổng thông tin & Web Studio cho Bộ ứng dụng Zero-Cloud LAN
-**Làm chủ mạng LAN · Không Cloud · Không Độ Trễ · Bảo Mật Tuyệt Đối**
+### Nhanh hơn · Mượt mà hơn · Hoàn toàn riêng tư
+**Gửi nhận file dung lượng lớn và điều khiển máy tính tức thì qua mạng Wi-Fi chung**
 
 [![Mã nguồn mở GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](LICENSE)
 [![Zero-Dependency](https://img.shields.io/badge/dependencies-zero-brightgreen.svg)]()
 [![PWA Ready](https://img.shields.io/badge/PWA-ready-purple.svg)]()
+[![Platform](https://img.shields.io/badge/Windows-10%20%7C%2011-0078D6.svg)]()
 
-[🌐 Mở Trang Web](https://luffyreals.github.io/zcl-hub/) · [⚡ ZCL Web Studio](#-tính-năng-nổi-bật) · [📦 Các ứng dụng lõi](#-các-ứng-dụng-zcl)
+[🌐 Mở Trang Web](https://luffyreals.github.io/zcl-hub/) · [⚡ Dùng thử trên Web](https://luffyreals.github.io/zcl-hub/#studio) · [📦 Tải về ứng dụng](https://luffyreals.github.io/zcl-hub/#download)
 
 </div>
 
 ---
 
-## 💡 Giới thiệu
+## 🌟 Điểm nổi bật
 
-**ZCL (Zero-Cloud LAN)** là bộ ứng dụng truyền thông và điều khiển ngang hàng (Peer-to-Peer) hoạt động thuần túy trong mạng nội bộ (Wi-Fi / LAN), giải phóng người dùng khỏi sự phụ thuộc vào các dịch vụ đám mây trung gian:
-
-* **Không qua máy chủ relay đám mây**: Dữ liệu đi thẳng giữa các máy trong phòng ở tốc độ tối đa của card mạng (100MB/s – 1GB/s).
-* **Độ trễ tiệm cận 0**: Điều khiển máy tính từ xa với cảm giác chuột tức thì (0ms perceived lag).
-* **Hoạt động 100% khi mất Internet**: Đứt cáp quang biển hay mất mạng diện rộng, các máy tính cạnh nhau vẫn làm việc bình thường.
-* **Quyền riêng tư tuyệt đối**: Không tài khoản, không theo dõi (no telemetry), mã hóa trực tiếp TLS 1.3 / DTLS.
+* **Gửi file siêu tốc**: Chuyển file ảnh, video, tài liệu hàng chục GB giữa 2 máy tính trong phòng chỉ mất vài giây.
+* **Chuột bấm ăn ngay**: Điều khiển máy tính từ xa mượt mà như đang ngồi trước máy thật, không bị giật lag.
+* **Không cần Internet**: Mất mạng hay đứt cáp quang biển vẫn dùng bình thường qua cục phát Wi-Fi chung.
+* **Riêng tư tuyệt đối**: Dữ liệu truyền thẳng giữa 2 máy, không gửi lên bất kỳ máy chủ bên ngoài nào.
 
 ---
 
-## 🌟 Các ứng dụng ZCL
+## 📱 Các ứng dụng
 
-| Ứng dụng | Mục đích | Tốc độ / Độ trễ | Trạng thái | Tải về |
-| :--- | :--- | :--- | :--- | :--- |
-| **ZCL Teleport** | Truyền file chục GB & đồng bộ Clipboard | 100MB/s – 1GB/s (Max LAN) | Thử nghiệm v0.1 | [Tải về trên Web](https://luffyreals.github.io/zcl-hub/#download-teleport) |
-| **ZCL Remote** | Điều khiển máy tính từ xa 60 FPS @ 1080p | &lt; 50ms (LAN &lt; 5ms) | Alpha v0.1.0 | [Tải về trên Web](https://luffyreals.github.io/zcl-hub/#download-remote) |
-| **ZCL Cast** | Chiếu màn hình & âm thanh không dây | Full HD / 4K không nén | Sắp ra mắt | Roadmap |
-| **ZCL Chat** | Tin nhắn & gọi thoại nội bộ bảo mật | Tức thì, không log máy chủ | Lên ý tưởng | Roadmap |
-| **ZCL Sync** | Tự động đồng bộ thư mục 2 chiều | Thời gian thực (Realtime) | Lên ý tưởng | Roadmap |
+| Ứng dụng | Chức năng | Trạng thái | Tải về |
+| :--- | :--- | :--- | :--- |
+| **ZCL Teleport** | Gửi nhận file lớn & copy paste nhanh giữa 2 máy | Thử nghiệm v0.1 | [Tải về](https://luffyreals.github.io/zcl-hub/#download) |
+| **ZCL Remote** | Điều khiển máy tính từ xa siêu mượt qua Wi-Fi | Thử nghiệm v0.1 | [Tải về](https://luffyreals.github.io/zcl-hub/#download) |
+| **ZCL Cast** | Chiếu màn hình không dây lên TV / máy chiếu | Đang phát triển | Sắp ra mắt |
+| **ZCL Chat** | Nhắn tin và gọi thoại nội bộ an toàn | Lên ý tưởng | Sắp ra mắt |
 
 ---
 
-## ✨ Điểm nổi bật của Website này
+## 📂 Cấu trúc Repository
 
-1. **Vừa là Landing Page, vừa là Web Studio (Dùng thử ngay)**:
-   - Tích hợp **Teleport Web**: Thao tác kéo thả chia sẻ file mô phỏng và chuẩn bị sẵn module WebRTC DataChannel.
-   - Tích hợp **Remote Web Viewer**: Mô phỏng màn hình điều khiển với Canvas, HUD đo đạc FPS / Latency thời gian thực, thử nghiệm công nghệ *Local Cursor Rendering*.
-2. **Kiến trúc Zero-Dependency (Đúng tinh thần ZCL)**:
-   - Thuần HTML5, CSS3, ES6+ Javascript.
-   - Không cần `npm`, không cần `node_modules`, không bước build phức tạp.
-   - Tải tức thì (&lt; 50ms), dung lượng siêu nhẹ.
-3. **PWA (Progressive Web App)**:
-   - Có sẵn `manifest.json` và Service Worker `sw.js`.
-   - Có thể cài đặt trực tiếp vào màn hình chính (Desktop / Mobile) để sử dụng ngoại tuyến (Offline).
-4. **Song ngữ hoàn chỉnh (Vietnamese / English)**:
-   - Chuyển đổi 1-click tức thì không cần tải lại trang.
-5. **Giao diện Dark Modern Tech**:
-   - Hệ màu tối sâu (`#0a090d`), phối các điểm nhấn Neon Mint (`#85edca`), Lilac (`#cea3f3`), Pink (`#fdaab3`) đặc trưng của ZCL.
+```text
+hub/
+├── assets/
+│   └── logo.svg          # Logo nhận diện thương hiệu ZCL
+├── index.html            # Trang chủ phân chia 5 tab trực quan, không dồn 1 trang
+├── styles.css            # Giao diện Dark Modern Tech, tối ưu máy tính & điện thoại
+├── app.js                # Xử lý chuyển tab, song ngữ (VI/EN) & bản dùng thử trên Web
+├── manifest.json         # Cấu hình PWA để cài đặt ứng dụng vào máy
+├── sw.js                 # Service Worker lưu trữ bộ nhớ đệm dùng offline
+├── .nojekyll             # Tương thích máy chủ tĩnh GitHub Pages
+├── LICENSE               # Giấy phép mã nguồn mở GPL-3.0
+└── README.md             # Hướng dẫn và tài liệu dự án
+```
 
 ---
 
 ## 🚀 Xem thử trên máy (Local Preview)
 
-Chỉ cần mở trực tiếp file `index.html` bằng bất kỳ trình duyệt nào:
+Chỉ cần mở trực tiếp file `index.html` bằng trình duyệt web:
 
 ```bash
-# Hoặc chạy một web server tĩnh siêu nhanh bằng Python:
-cd "hub"
+# Hoặc mở một web server cục bộ nhanh bằng Python:
 python -m http.server 8000
 ```
-Sau đó truy cập: `http://localhost:8000`
+Sau đó truy cập địa chỉ: `http://localhost:8000`
 
 ---
 
-## 📤 Hướng dẫn đẩy lên GitHub cá nhân (@Luffyreals)
+## 📤 Hướng dẫn xuất bản lên GitHub cá nhân (@Luffyreals)
 
-Trong thư mục `hub`, bạn có thể đẩy lên repo mới trên tài khoản GitHub của mình:
+Trong thư mục `hub`, bạn có thể đẩy lên repo GitHub của mình:
 
 ```bash
 cd "C:\Users\Dell\Documents\NhaCongDong\Zero-Cloud LAN Hub\hub"
 
-# 1. Thêm commit đầu tiên
-git add .
-git commit -m "feat: initial release of ZCL Hub website and web studio"
-
-# 2. Tạo repository trên GitHub cá nhân (ví dụ tên repo là zcl-hub hoặc zero-cloud-lan)
-# 3. Liên kết remote và đẩy lên nhánh main:
-git branch -M main
+# 1. Tạo liên kết với repository của bạn trên GitHub
 git remote add origin https://github.com/Luffyreals/zcl-hub.git
+
+# 2. Đẩy lên nhánh main
+git branch -M main
 git push -u origin main
 ```
 
-Sau khi đẩy lên, bạn vào:
-**Repo Settings -> Pages -> Build and deployment -> Branch: `main` / `root` -> Save**.
-Website sẽ được xuất bản tự động tại: `https://luffyreals.github.io/zcl-hub/`.
+Sau khi đẩy mã nguồn lên GitHub:
+1. Vào mục **Settings** của repository -> chọn thẻ **Pages**.
+2. Tại phần **Build and deployment**, chọn Branch: `main` / `root` -> bấm **Save**.
+3. Trang web sẽ tự động xuất bản tại: `https://luffyreals.github.io/zcl-hub/`.
+
+---
+
+## 👤 Tác giả
+
+Phát triển bởi **Nguyễn Hoàng Tùng** ([@Luffyreals](https://github.com/Luffyreals)).
 
 ---
 
 ## ⚖️ Giấy phép
 
-Phát hành theo giấy phép **GPL-3.0-or-later**. Xem chi tiết tại [LICENSE](LICENSE).  
-Bản quyền © 2026 **Nguyễn Hoàng Tùng**.
+Dự án phát hành dưới giấy phép mã nguồn mở **GNU General Public License v3.0 (GPL-3.0)**. Xem tệp [LICENSE](LICENSE) để biết thêm chi tiết.

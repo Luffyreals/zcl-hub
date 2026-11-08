@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ZCL Hub — Bộ Ứng Dụng Mạng Nội Bộ Zero-Cloud LAN</title>
-  <meta name="description" content="ZCL Hub quy tụ các ứng dụng P2P mạng nội bộ tốc độ phần cứng: ZCL Teleport (truyền file & clipboard) và ZCL Remote Desktop (điều khiển < 50ms, 60 FPS, chuột 0ms). Không cloud, không tài khoản, mã nguồn mở.">
+  <title>ZCL Hub — Truyền file siêu tốc &amp; Điều khiển máy tính</title>
+  <meta name="description" content="ZCL Hub: Gửi nhận file hàng chục GB trong tích tắc và điều khiển máy tính siêu mượt qua mạng Wi-Fi chung. Không cần Internet, không cần tạo tài khoản.">
   <meta name="theme-color" content="#09080c">
   <meta name="color-scheme" content="dark">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Open Graph / Meta -->
-  <meta property="og:title" content="ZCL Hub — Zero-Cloud LAN Suite">
-  <meta property="og:description" content="Làm chủ mạng LAN. Không cloud, không độ trễ. Truyền file chục GB và điều khiển máy tính 60 FPS siêu tốc.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="ZCL Hub — Truyền file siêu tốc &amp; Điều khiển máy tính">
+  <meta property="og:description" content="Nhanh hơn. Mượt mà hơn. Hoàn toàn riêng tư qua mạng Wi-Fi chung.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/logo.svg">
 </head>
 <body>
 
-  <!-- Ambient Glow Effects -->
+  <!-- Background Ambient Glow -->
   <div class="ambient-glow" aria-hidden="true">
     <div class="glow-1"></div>
     <div class="glow-2"></div>
@@ -29,22 +29,19 @@
   <!-- Header -->
   <header class="site-header">
     <div class="container nav-wrap">
-      <a href="#" class="brand">
+      <a href="#overview" class="brand" data-tab="tab-overview">
         <img src="assets/logo.svg" alt="ZCL Logo" class="brand-logo">
         <span>ZCL Hub</span>
-        <span class="brand-badge" data-i18n="brand_sub">Bộ ứng dụng LAN</span>
       </a>
 
-      <!-- Desktop Nav Links -->
-      <nav>
+      <!-- Desktop Navigation Tabs -->
+      <nav aria-label="Điều hướng chính">
         <ul class="nav-links">
-          <li><a href="#download" data-i18n="nav_download">Tải về</a></li>
-          <li><a href="#pillars" data-i18n="nav_pillars">Kiến trúc</a></li>
-          <li><a href="#products" data-i18n="nav_products">Sản phẩm</a></li>
-          <li><a href="#studio" data-i18n="nav_studio">Web Studio</a></li>
-          <li><a href="#specs" data-i18n="nav_specs">Thông số</a></li>
-          <li><a href="#quickstart" data-i18n="nav_quickstart">Bắt đầu nhanh</a></li>
-          <li><a href="#faq" data-i18n="nav_faq">Hỏi đáp</a></li>
+          <li><a href="#overview" class="active" data-tab="tab-overview" data-i18n="nav_overview">Tổng quan</a></li>
+          <li><a href="#apps" data-tab="tab-apps" data-i18n="nav_apps">Ứng dụng</a></li>
+          <li><a href="#download" data-tab="tab-download" data-i18n="nav_download">Tải về</a></li>
+          <li><a href="#studio" data-tab="tab-studio" data-i18n="nav_studio">Dùng thử trên Web</a></li>
+          <li><a href="#faq" data-tab="tab-faq" data-i18n="nav_faq">Hướng dẫn &amp; Hỏi đáp</a></li>
         </ul>
       </nav>
 
@@ -56,821 +53,657 @@
           <button class="lang-btn" data-lang="en" type="button">EN</button>
         </div>
 
-        <a href="#download" class="btn btn-primary btn-sm" data-i18n="btn_download_desktop">
+        <a href="#download" class="btn btn-primary btn-sm" data-tab="tab-download" data-i18n="btn_download_desktop">
           Tải về (.exe)
         </a>
 
-        <a href="#studio" class="btn btn-secondary btn-sm" data-i18n="btn_launch_web">
-          Web Client
+        <a href="#studio" class="btn btn-secondary btn-sm" data-tab="tab-studio" data-i18n="btn_launch_web">
+          Dùng thử
         </a>
 
-        <button class="mobile-toggle" type="button" aria-label="Toggle mobile navigation">
+        <button class="mobile-toggle" type="button" aria-label="Mở menu điều hướng">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
+  <!-- Sticky Tab Bar (Sleek Segmented Tabs) -->
+  <nav class="main-tabs-bar-wrap" aria-label="Danh mục ứng dụng">
     <div class="container">
-      <div class="eyebrow-pill">
-        <span class="pulse-dot"></span>
-        <span data-i18n="hero_eyebrow">BỘ ỨNG DỤNG NỘI BỘ THẾ HỆ MỚI · MÃ NGUỒN MỞ</span>
-      </div>
-
-      <h1 data-i18n="hero_title">
-        Bộ ứng dụng mạng nội bộ không Cloud.<br>
-        <span class="highlight-mint">Tốc độ phần cứng.</span> <span class="highlight-lilac">Độ trễ 0ms.</span>
-      </h1>
-
-      <p class="hero-lede" data-i18n="hero_lede">
-        Giải phóng năng suất giữa các máy tính trong phòng: truyền file chục GB trong nháy mắt, điều khiển màn hình 60 FPS mượt mà không độ trễ chuột. Hoạt động độc lập 100% khi đứt cáp quang Internet.
-      </p>
-
-      <div class="hero-cta">
-        <a href="#download" class="btn btn-primary" data-i18n="btn_download_desktop">
-          Tải về cho Windows (.exe)
-        </a>
-        <a href="#studio" class="btn btn-secondary" data-i18n="btn_launch_web">
-          Dùng ngay trên Web
-        </a>
-      </div>
-
-      <!-- Quick Platform Support Badge -->
-      <div class="terminal-snippet" style="max-width: 520px; justify-content: center; gap: 12px;">
-        <span style="font-size: 0.88rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-          Hỗ trợ Windows 10 &amp; 11 (64-bit) · Trình cài đặt tự động &amp; Bản Portable
-        </span>
-      </div>
-
-      <!-- Real-world Topology Visualizer -->
-      <div class="topology-card">
-        <div class="topology-header">
-          <div class="topology-title">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            <span data-i18n="topo_title">Kiến trúc đường truyền &amp; tiêu chuẩn an toàn nội bộ</span>
-          </div>
-          <span class="pulse-dot" title="Active"></span>
-        </div>
-
-        <div class="topology-grid">
-          <!-- ZCL Route -->
-          <div class="topology-box zcl">
-            <span class="topology-badge" data-i18n="topo_zcl_badge">KẾT NỐI TRỰC TIẾP (P2P LAN)</span>
-            <div class="topology-metric">
-              <span data-i18n="topo_zcl_metric">&lt; 1.5ms</span>
-            </div>
-            <div style="font-size: 0.85rem; color: var(--mint);" data-i18n="topo_zcl_sub">Đường truyền vật lý tốc độ phần cứng</div>
-
-            <div class="topology-route">
-              <div class="route-step">
-                <span class="tag">01</span>
-                <span data-i18n="topo_zcl_step1">Thiết bị Client</span>
-              </div>
-              <div class="route-step">
-                <span class="tag">02</span>
-                <span data-i18n="topo_zcl_step2">Cáp mạng LAN / Wi-Fi phòng</span>
-              </div>
-              <div class="route-step">
-                <span class="tag">03</span>
-                <span data-i18n="topo_zcl_step3">Thiết bị Host (Đến đích ngay)</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Security Standard Box -->
-          <div class="topology-box zcl" style="border-color: rgba(206, 163, 243, 0.4); box-shadow: inset 0 0 24px rgba(206, 163, 243, 0.04);">
-            <span class="topology-badge" style="background: var(--lilac-dark); color: var(--lilac);" data-i18n="topo_sec_badge">MÃ HÓA NỘI BỘ (TLS 1.3)</span>
-            <div class="topology-metric" style="color: var(--lilac);">
-              <span data-i18n="topo_sec_metric">100% Private</span>
-            </div>
-            <div style="font-size: 0.85rem; color: var(--lilac);" data-i18n="topo_sec_sub">Bảo vệ dữ liệu không rời khỏi phòng</div>
-
-            <div class="topology-route">
-              <div class="route-step">
-                <span class="tag">01</span>
-                <span data-i18n="topo_sec_step1">Quét mDNS &amp; mã PIN ghép nối</span>
-              </div>
-              <div class="route-step">
-                <span class="tag">02</span>
-                <span data-i18n="topo_sec_step2">Mã hóa luồng dữ liệu bằng TLS 1.3</span>
-              </div>
-              <div class="route-step">
-                <span class="tag">03</span>
-                <span data-i18n="topo_sec_step3">Không trung gian, không telemetry</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="main-tabs-bar" role="tablist">
+        <button class="main-tab-pill active" data-tab="tab-overview" role="tab" aria-selected="true" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span data-i18n="nav_overview">Tổng quan</span>
+        </button>
+        <button class="main-tab-pill" data-tab="tab-apps" role="tab" aria-selected="false" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <span data-i18n="nav_apps">Ứng dụng</span>
+        </button>
+        <button class="main-tab-pill" data-tab="tab-download" role="tab" aria-selected="false" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span data-i18n="nav_download">Tải về</span>
+        </button>
+        <button class="main-tab-pill" data-tab="tab-studio" role="tab" aria-selected="false" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <span data-i18n="nav_studio">Dùng thử trên Web</span>
+        </button>
+        <button class="main-tab-pill" data-tab="tab-faq" role="tab" aria-selected="false" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span data-i18n="nav_faq">Hướng dẫn &amp; Hỏi đáp</span>
+        </button>
       </div>
     </div>
-  </section>
+  </nav>
 
-  <!-- Section 1: Core Pillars & Architecture -->
-  <section class="section" id="pillars">
-    <div class="container">
-      <div class="section-head">
-        <span class="section-badge" data-i18n="pillar_badge">TRIẾT LÝ CỐT LÕI</span>
-        <h2 data-i18n="pillar_title">4 Cột trụ tạo nên sức mạnh của ZCL</h2>
-        <p data-i18n="pillar_sub">Thiết kế từ đầu để loại bỏ hoàn toàn các điểm yếu của phần mềm phụ thuộc đám mây.</p>
-      </div>
+  <!-- Main View Container -->
+  <main id="mainContent">
 
-      <div class="pillars-grid">
-        <div class="pillar-card">
-          <div class="pillar-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3 data-i18n="pil1_title">100% Zero-Cloud</h3>
-          <p data-i18n="pil1_desc">Dữ liệu không bao giờ rời khỏi phòng của bạn. Không relay server, không rủi ro lộ lọt thông tin bí mật ra Internet.</p>
-        </div>
-
-        <div class="pillar-card">
-          <div class="pillar-icon" style="background: var(--lilac-dark); color: var(--lilac);">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 3 7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="m13 13 6 6"/></svg>
-          </div>
-          <h3 data-i18n="pil2_title">Local Cursor 0ms</h3>
-          <p data-i18n="pil2_desc">Kỹ thuật render con trỏ chuột ngay tại máy điều khiển, đảm bảo phản hồi tức thì với tốc độ phần cứng, chuyển động mượt mà không độ trễ.</p>
-        </div>
-
-        <div class="pillar-card">
-          <div class="pillar-icon" style="background: var(--mint-dark); color: var(--mint);">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-          </div>
-          <h3 data-i18n="pil3_title">Kháng đứt cáp quang</h3>
-          <p data-i18n="pil3_desc">Internet chập chờn hay mất mạng quốc tế, hệ thống ZCL giữa các máy tính trong phòng vẫn chạy với tốc độ tối đa.</p>
-        </div>
-
-        <div class="pillar-card">
-          <div class="pillar-icon" style="background: var(--pink-dark); color: var(--pink);">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          </div>
-          <h3 data-i18n="pil4_title">Mã hóa TLS 1.3 P2P</h3>
-          <p data-i18n="pil4_desc">Mọi gói tin được mã hóa đầu-cuối. Không cần đăng ký tài khoản, không telemetry theo dõi, mã nguồn mở GPL-3.0.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 2: Core Bento Grid Showcase -->
-  <section class="section" id="products" style="background: var(--bg-subtle);">
-    <div class="container">
-      <div class="section-head">
-        <span class="section-badge" data-i18n="bento_badge">BỘ CÔNG CỤ HOÀN THIỆN</span>
-        <h2 data-i18n="bento_title">Các ứng dụng ZCL</h2>
-        <p data-i18n="bento_sub">Đáp ứng trọn vẹn nhu cầu làm việc tốc độ cao giữa các máy tính cùng phòng.</p>
-      </div>
-
-      <div class="bento-grid">
-        <!-- Teleport Bento Card -->
-        <div class="bento-card col-6 card-teleport">
-          <div>
-            <div class="card-top">
-              <div class="app-icon teleport-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L21 16M17 20L13 16"/></svg>
-              </div>
-              <span class="product-pill" data-i18n="tp_status">Thử nghiệm v0.1</span>
-            </div>
-
-            <h3 data-i18n="tp_title">ZCL Teleport</h3>
-            <p class="card-desc" data-i18n="tp_desc">Chuyển file dung lượng không giới hạn và đồng bộ clipboard 2 chiều qua Wi-Fi/LAN. Tốc độ kịch trần card mạng.</p>
-
-            <div class="spec-strip">
-              <div class="spec-node">
-                <span>Băng thông</span>
-                <span>100MB/s - 1GB/s</span>
-              </div>
-              <div class="spec-node">
-                <span>Giao thức</span>
-                <span>P2P Stream</span>
-              </div>
-              <div class="spec-node">
-                <span>Clipboard</span>
-                <span>2 Chiều Text/Img</span>
-              </div>
-            </div>
-
-            <ul class="feature-list">
-              <li>
-                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                <span data-i18n="tp_f1">Băng thông 100MB/s – 1GB/s (chục GB trong tích tắc)</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                <span data-i18n="tp_f2">Tự động tiếp tục khi rớt kết nối (Resumable chunking)</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                <span data-i18n="tp_f3">Đồng bộ Clipboard văn bản và hình ảnh theo thời gian thực</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="card-actions">
-            <a href="#download-teleport" class="btn btn-primary btn-sm btn-open-download" data-app="teleport" data-i18n="tp_btn_dl">
-              Tải Teleport (.exe)
-            </a>
-            <a href="#studio" class="btn btn-secondary btn-sm" data-i18n="tp_btn_web">
-              Dùng Teleport Web
-            </a>
-          </div>
-        </div>
-
-        <!-- Remote Bento Card -->
-        <div class="bento-card col-6 card-remote">
-          <div>
-            <div class="card-top">
-              <div class="app-icon remote-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-              </div>
-              <span class="product-pill" data-i18n="rm_status">Alpha v0.1.0</span>
-            </div>
-
-            <h3 data-i18n="rm_title">ZCL Remote Desktop</h3>
-            <p class="card-desc" data-i18n="rm_desc">Điều khiển máy tính từ xa siêu tốc trong mạng nội bộ. Trải nghiệm cảm giác chuột 0ms, không độ trễ, không quảng cáo.</p>
-
-            <div class="spec-strip">
-              <div class="spec-node">
-                <span>Độ trễ</span>
-                <span>&lt; 50ms (LAN &lt; 5ms)</span>
-              </div>
-              <div class="spec-node">
-                <span>Khung hình</span>
-                <span>60 FPS @ 1080p</span>
-              </div>
-              <div class="spec-node">
-                <span>Bảo mật</span>
-                <span>TLS 1.3 Direct</span>
-              </div>
-            </div>
-
-            <ul class="feature-list">
-              <li>
-                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                <span data-i18n="rm_f1">Độ trễ truyền nhận &lt; 50ms (mạng LAN &lt; 5ms)</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                <span data-i18n="rm_f2">Stream mượt mà 60 FPS @ 1080p, tối ưu băng thông</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                <span data-i18n="rm_f3">Local Cursor Rendering (chuột không có độ trễ)</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                <span data-i18n="rm_f4">Floating Kill-switch ngắt quyền kiểm soát lập tức</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="card-actions">
-            <a href="#download-remote" class="btn btn-lilac btn-sm btn-open-download" data-app="remote" data-i18n="rm_btn_dl">
-              Tải Remote (.exe)
-            </a>
-            <a href="#studio" class="btn btn-secondary btn-sm" data-i18n="rm_btn_web">
-              Mở Remote Viewer
-            </a>
-          </div>
-        </div>
-
-        <!-- Protocol & Engine Architecture Card -->
-        <div class="bento-card col-12">
-          <div class="card-top">
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <div class="app-icon" style="background: var(--blue-dark); color: var(--blue); border: 1px solid var(--blue);">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
-              </div>
-              <div>
-                <h3 data-i18n="proto_title">ZCL Engine &amp; Giao thức P2P</h3>
-                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 4px;" data-i18n="proto_desc">
-                  Kiến trúc nền tảng giúp các thiết bị tự phát hiện qua mDNS (_zcl._tcp), bắt tay bằng chứng chỉ tự ký TLS 1.3 và truyền stream trực tiếp với bộ đệm RAM tối thiểu.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Product Roadmap Bento Card -->
-        <div class="bento-card col-12" id="roadmap">
-          <div class="card-top">
-            <h3 data-i18n="road_title">Lộ trình phát triển sản phẩm</h3>
-          </div>
-          <div class="roadmap-grid">
-            <div class="roadmap-item">
-              <span class="roadmap-status">Đang phát triển</span>
-              <h4 data-i18n="road_cast_h">ZCL Cast</h4>
-              <p data-i18n="road_cast_p">Chiếu màn hình &amp; âm thanh không nén chất lượng cao cho phòng họp, thay thế hoàn toàn cáp HDMI.</p>
-            </div>
-            <div class="roadmap-item">
-              <span class="roadmap-status planned">Lên ý tưởng</span>
-              <h4 data-i18n="road_chat_h">ZCL Chat</h4>
-              <p data-i18n="road_chat_p">Kênh nhắn tin &amp; gọi thoại nội bộ tức thì, dữ liệu tan biến khi đóng phiên, không lưu log máy chủ.</p>
-            </div>
-            <div class="roadmap-item">
-              <span class="roadmap-status planned">Lên ý tưởng</span>
-              <h4 data-i18n="road_sync_h">ZCL Sync</h4>
-              <p data-i18n="road_sync_p">Tự động đồng bộ hóa thư mục 2 chiều giữa PC bàn và Laptop thời gian thực.</p>
-            </div>
-            <div class="roadmap-item">
-              <span class="roadmap-status planned">Lên ý tưởng</span>
-              <h4 data-i18n="road_bridge_h">ZCL Bridge</h4>
-              <p data-i18n="road_bridge_p">CLI daemon siêu nhẹ hỗ trợ máy chủ Linux headless, Raspberry Pi và thiết bị IoT gia đình.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section: Download Center -->
-  <section class="section download-section" id="download">
-    <div class="container">
-      <div class="section-head">
-        <span class="section-badge" data-i18n="dl_badge">TRUNG TÂM TẢI VỀ</span>
-        <h2 data-i18n="dl_title">Tải ứng dụng ZCL cho Windows</h2>
-        <p data-i18n="dl_sub">Bản phát hành chính thức, không cần đăng ký tài khoản, tải trực tiếp và sử dụng ngay.</p>
-      </div>
-
-      <div class="download-grid">
-        <!-- Teleport Download Card -->
-        <div class="download-card teleport" id="download-teleport">
-          <div>
-            <div class="download-card-header">
-              <div class="app-icon teleport-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L21 16M17 20L13 16"/></svg>
-              </div>
-              <span class="download-badge" style="color: var(--mint);">Windows 10 / 11</span>
-            </div>
-
-            <h3 data-i18n="dl_tp_name">ZCL Teleport</h3>
-            <div class="download-version">
-              <span data-i18n="dl_tp_ver">Phiên bản v0.1.0 · Windows 10/11 (64-bit)</span> · <span>12.4 MB</span>
-            </div>
-            <p class="desc" data-i18n="dl_tp_desc">
-              Ứng dụng truyền file tốc độ kịch trần card mạng (100MB/s - 1GB/s) và đồng bộ clipboard 2 chiều trong cùng mạng Wi-Fi/LAN.
-            </p>
-
-            <div class="download-meta-info">
-              <div><span data-i18n="dl_sha">Mã băm SHA-256</span>: <code>e8b1d24c9019b88ef114b09c2a8d11c7621f</code></div>
-              <div data-i18n="dl_req_tp">Yêu cầu: Windows 10/11 64-bit, mạng Wi-Fi hoặc cáp LAN</div>
-            </div>
-          </div>
-
-          <div class="download-actions-wrap">
-            <button class="btn-download-main teleport btn-open-download" data-app="teleport" data-format="exe" type="button">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              <span data-i18n="dl_btn_installer">Tải bản cài đặt (.exe)</span>
-            </button>
-            <div class="download-alt-links">
-              <a class="btn-open-download" data-app="teleport" data-format="zip" data-i18n="dl_btn_portable">Tải bản Portable (.zip - 11.8 MB)</a>
-              <a href="#studio">Dùng ngay trên Web &rarr;</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Remote Download Card -->
-        <div class="download-card remote" id="download-remote">
-          <div>
-            <div class="download-card-header">
-              <div class="app-icon remote-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-              </div>
-              <span class="download-badge" style="color: var(--lilac);">Windows 10 / 11</span>
-            </div>
-
-            <h3 data-i18n="dl_rm_name">ZCL Remote Desktop</h3>
-            <div class="download-version">
-              <span data-i18n="dl_rm_ver">Phiên bản v0.1.0-alpha · Windows 10/11 (64-bit)</span> · <span>16.8 MB</span>
-            </div>
-            <p class="desc" data-i18n="dl_rm_desc">
-              Điều khiển máy tính từ xa siêu tốc trong mạng nội bộ. Màn hình 60 FPS @ 1080p, công nghệ Local Cursor 0ms và Floating Kill-switch.
-            </p>
-
-            <div class="download-meta-info">
-              <div><span data-i18n="dl_sha">Mã băm SHA-256</span>: <code>9f3c71a065dbb8214fa733d1c809e2ba41cd</code></div>
-              <div data-i18n="dl_req_rm">Yêu cầu: Windows 10/11 64-bit, card đồ họa DirectX 11 / NVENC</div>
-            </div>
-          </div>
-
-          <div class="download-actions-wrap">
-            <button class="btn-download-main remote btn-open-download" data-app="remote" data-format="exe" type="button">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              <span data-i18n="dl_btn_installer">Tải bản cài đặt (.exe)</span>
-            </button>
-            <div class="download-alt-links">
-              <a class="btn-open-download" data-app="remote" data-format="zip" data-i18n="dl_btn_portable">Tải bản Portable (.zip - 15.6 MB)</a>
-              <a href="#studio">Mở Web Viewer &rarr;</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 3: Interactive ZCL Web Studio -->
-  <section class="studio-section" id="studio">
-    <div class="container">
-      <div class="section-head">
-        <span class="section-badge" data-i18n="studio_badge">TRẢI NGHIỆM TRỰC TIẾP</span>
-        <h2 data-i18n="studio_title">ZCL Web Studio</h2>
-        <p data-i18n="studio_sub">Chạy trực tiếp trên trình duyệt hiện đại mà không cần cài đặt bất kỳ file nào.</p>
-      </div>
-
-      <div class="studio-container">
-        <!-- Studio Header & Tabs -->
-        <div class="studio-header">
-          <div class="studio-tabs">
-            <button class="studio-tab-btn active" data-app="teleport" type="button">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L21 16M17 20L13 16"/></svg>
-              <span data-i18n="studio_tab_tp">ZCL Teleport Web</span>
-            </button>
-            <button class="studio-tab-btn" data-app="remote" type="button">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-              <span data-i18n="studio_tab_rm">ZCL Remote Web Viewer</span>
-            </button>
-            <button class="studio-tab-btn" data-app="benchmark" type="button">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-              <span data-i18n="studio_tab_bench">Đo kiểm LAN Benchmark</span>
-            </button>
-          </div>
-          <div class="studio-status-indicator">
+    <!-- ============================================== -->
+    <!-- TAB 1: TỔNG QUAN (OVERVIEW)                     -->
+    <!-- ============================================== -->
+    <div class="tab-view active" id="tab-overview" role="tabpanel">
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="container">
+          <div class="eyebrow-pill">
             <span class="pulse-dot"></span>
-            <span data-i18n="studio_status_ready">Sẵn sàng trong mạng nội bộ</span>
+            <span data-i18n="hero_eyebrow">MIỄN PHÍ · MÃ NGUỒN MỞ · AN TOÀN TUYỆT ĐỐI</span>
+          </div>
+
+          <h1 data-i18n="hero_title">
+            Nhanh hơn. Mượt mà hơn.<br>
+            <span class="highlight-mint">Hoàn toàn riêng tư</span> giữa các máy tính.
+          </h1>
+
+          <p class="hero-lede" data-i18n="hero_lede">
+            Gửi nhận file dung lượng lớn và điều khiển máy tính tức thì qua mạng Wi-Fi chung trong phòng. Không cần Internet, không cần tạo tài khoản.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#download" class="btn btn-primary" data-tab="tab-download" data-i18n="btn_download_desktop">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Tải về cho Windows (.exe)</span>
+            </a>
+            <a href="#studio" class="btn btn-secondary" data-tab="tab-studio" data-i18n="btn_launch_web">
+              <span>Dùng thử ngay trên Web</span> &rarr;
+            </a>
+          </div>
+
+          <!-- Quick Feature Visuals (4 Cột trụ dễ hiểu) -->
+          <div class="pillars-grid" style="margin-top: 56px;">
+            <div class="pillar-card">
+              <div class="pillar-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
+              <h3 data-i18n="pil1_title">Gửi file siêu tốc</h3>
+              <p data-i18n="pil1_desc">Chuyển file dung lượng hàng chục GB trong vài giây giữa hai máy tính cùng phòng mà không lo bị nghẽn mạng.</p>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-icon" style="background: var(--lilac-dark); color: var(--lilac);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 3 7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="m13 13 6 6"/></svg>
+              </div>
+              <h3 data-i18n="pil2_title">Chuột bấm ăn ngay</h3>
+              <p data-i18n="pil2_desc">Điều khiển máy tính từ xa mượt mà như đang ngồi trực tiếp trước màn hình thật, không có độ trễ giật lắc.</p>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-icon" style="background: var(--mint-dark); color: var(--mint);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+              </div>
+              <h3 data-i18n="pil3_title">Không cần Internet</h3>
+              <p data-i18n="pil3_desc">Kể cả khi bị mất mạng ngoài hay đứt cáp, các máy tính kết nối chung một cục Wi-Fi vẫn làm việc bình thường.</p>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-icon" style="background: var(--pink-dark); color: var(--pink);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </div>
+              <h3 data-i18n="pil4_title">Bảo mật riêng tư</h3>
+              <p data-i18n="pil4_desc">Dữ liệu truyền thẳng trực tiếp giữa hai máy tính của bạn, không gửi qua bất kỳ máy chủ bên ngoài nào.</p>
+            </div>
+          </div>
+
+          <!-- Quick Navigation Hub -->
+          <div class="overview-hub-grid">
+            <a href="#apps" class="overview-hub-card card-tp" data-tab="tab-apps">
+              <div>
+                <div class="overview-hub-card-header">
+                  <div class="app-icon teleport-icon" style="width: 38px; height: 38px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L21 16M17 20L13 16"/></svg>
+                  </div>
+                  <h4>ZCL Teleport</h4>
+                </div>
+                <p data-i18n="hub_card_tp_sub">Truyền file siêu nhanh và copy paste chữ, ảnh tức thì giữa các máy.</p>
+              </div>
+              <div class="card-link-text">
+                <span data-i18n="hub_card_view_action">Xem chi tiết</span> &rarr;
+              </div>
+            </a>
+
+            <a href="#apps" class="overview-hub-card card-rm" data-tab="tab-apps">
+              <div>
+                <div class="overview-hub-card-header">
+                  <div class="app-icon remote-icon" style="width: 38px; height: 38px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  </div>
+                  <h4>ZCL Remote</h4>
+                </div>
+                <p data-i18n="hub_card_rm_sub">Điều khiển màn hình máy tính từ xa mượt mà, chuột không độ trễ.</p>
+              </div>
+              <div class="card-link-text" style="color: var(--lilac);">
+                <span data-i18n="hub_card_view_action">Xem chi tiết</span> &rarr;
+              </div>
+            </a>
+
+            <a href="#studio" class="overview-hub-card card-studio" data-tab="tab-studio">
+              <div>
+                <div class="overview-hub-card-header">
+                  <div class="app-icon" style="width: 38px; height: 38px; background: var(--blue-dark); color: var(--blue); border: 1px solid var(--blue);">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  </div>
+                  <h4>Dùng thử trên Web</h4>
+                </div>
+                <p data-i18n="hub_card_studio_sub">Trải nghiệm gửi file và thử di chuột điều khiển ngay trên trình duyệt.</p>
+              </div>
+              <div class="card-link-text" style="color: var(--blue);">
+                <span>Mở dùng thử</span> &rarr;
+              </div>
+            </a>
+
+            <a href="#download" class="overview-hub-card card-specs" data-tab="tab-download">
+              <div>
+                <div class="overview-hub-card-header">
+                  <div class="app-icon" style="width: 38px; height: 38px; background: var(--pink-dark); color: var(--pink); border: 1px solid var(--pink);">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  </div>
+                  <h4>Tải về ứng dụng</h4>
+                </div>
+                <p data-i18n="dl_sub">Tải miễn phí cho Windows 10 và 11. Bấm tải là dùng được ngay.</p>
+              </div>
+              <div class="card-link-text" style="color: var(--pink);">
+                <span>Tải miễn phí</span> &rarr;
+              </div>
+            </a>
           </div>
         </div>
+      </section>
+    </div>
 
-        <div class="studio-content">
-          <!-- 1. Teleport Web Panel -->
-          <div class="studio-panel active" id="panel-teleport">
-            <div class="teleport-web-ui">
-              <!-- Drop Zone -->
-              <div class="drop-zone" id="dropZone">
-                <input type="file" id="fileInput" style="display: none;" multiple>
-                <div class="drop-icon">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+    <!-- ============================================== -->
+    <!-- TAB 2: ỨNG DỤNG (APPS)                          -->
+    <!-- ============================================== -->
+    <div class="tab-view" id="tab-apps" role="tabpanel">
+      <section class="section" id="products">
+        <div class="container">
+          <div class="section-head">
+            <span class="section-badge" data-i18n="bento_badge">CÁC ỨNG DỤNG CHÍNH</span>
+            <h2 data-i18n="bento_title">Dễ dùng · Siêu tốc · Tiện lợi</h2>
+            <p data-i18n="bento_sub">Được thiết kế để giải quyết nhu cầu làm việc hàng ngày giữa các máy tính.</p>
+          </div>
+
+          <div class="bento-grid">
+            <!-- Teleport Bento Card -->
+            <div class="bento-card col-6 card-teleport">
+              <div>
+                <div class="card-top">
+                  <div class="app-icon teleport-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L21 16M17 20L13 16"/></svg>
+                  </div>
+                  <span class="product-pill" data-i18n="tp_status">Bản thử nghiệm</span>
                 </div>
-                <h4 data-i18n="tp_drop_title">Kéo thả file vào đây hoặc bấm để chọn</h4>
-                <p style="color: var(--text-muted); font-size: 0.85rem;" data-i18n="tp_drop_sub">
-                  Hỗ trợ file đơn hoặc thư mục hàng chục GB qua WebRTC DataChannel
+
+                <h3 data-i18n="tp_title">ZCL Teleport</h3>
+                <p class="card-desc" data-i18n="tp_desc">Gửi nhận file dung lượng không giới hạn và sao chép dữ liệu tức thì giữa hai máy tính cùng mạng Wi-Fi.</p>
+
+                <ul class="feature-list" style="margin-top: 24px;">
+                  <li>
+                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                    <span data-i18n="tp_f1">Gửi file phim, ảnh, tài liệu hàng chục GB chỉ trong vài giây</span>
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                    <span data-i18n="tp_f2">Tự động truyền tiếp nếu lỡ bị rút dây mạng hoặc chập chờn Wi-Fi</span>
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                    <span data-i18n="tp_f3">Copy chữ hoặc ảnh ở máy này là dán được ngay sang máy kia</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="card-actions">
+                <a href="#download" class="btn btn-primary btn-sm btn-open-download" data-app="teleport" data-i18n="tp_btn_dl">
+                  Tải Teleport (.exe)
+                </a>
+                <a href="#studio" class="btn btn-secondary btn-sm" data-tab="tab-studio" data-i18n="tp_btn_web">
+                  Dùng thử trên Web
+                </a>
+              </div>
+            </div>
+
+            <!-- Remote Bento Card -->
+            <div class="bento-card col-6 card-remote">
+              <div>
+                <div class="card-top">
+                  <div class="app-icon remote-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  </div>
+                  <span class="product-pill" data-i18n="rm_status">Bản thử nghiệm</span>
+                </div>
+
+                <h3 data-i18n="rm_title">ZCL Remote</h3>
+                <p class="card-desc" data-i18n="rm_desc">Điều khiển máy tính từ xa siêu mượt qua Wi-Fi. Trải nghiệm chuột nhanh nhạy, không giật hình, không quảng cáo.</p>
+
+                <ul class="feature-list" style="margin-top: 24px;">
+                  <li>
+                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                    <span data-i18n="rm_f1">Màn hình rõ nét, chuyển động mượt mà không bị trễ hình</span>
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                    <span data-i18n="rm_f2">Di chuột và bấm phím phản hồi tức thì như đang ngồi trước máy</span>
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                    <span data-i18n="rm_f3">Có nút ngắt kết nối khẩn cấp bất cứ khi nào bạn muốn</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="card-actions">
+                <a href="#download" class="btn btn-lilac btn-sm btn-open-download" data-app="remote" data-i18n="rm_btn_dl">
+                  Tải Remote (.exe)
+                </a>
+                <a href="#studio" class="btn btn-secondary btn-sm" data-tab="tab-studio" data-i18n="rm_btn_web">
+                  Dùng thử trên Web
+                </a>
+              </div>
+            </div>
+
+            <!-- Future Roadmap Card -->
+            <div class="bento-card col-12" id="roadmap">
+              <div class="card-top">
+                <h3 data-i18n="road_title">Các ứng dụng dự kiến ra mắt</h3>
+              </div>
+              <div class="roadmap-grid">
+                <div class="roadmap-item">
+                  <span class="roadmap-status">Đang phát triển</span>
+                  <h4>ZCL Cast</h4>
+                  <p>Chiếu màn hình và âm thanh không dây từ máy tính lên TV hoặc máy chiếu phòng họp.</p>
+                </div>
+                <div class="roadmap-item">
+                  <span class="roadmap-status planned">Lên ý tưởng</span>
+                  <h4>ZCL Chat</h4>
+                  <p>Nhắn tin và gọi thoại nhanh giữa các máy cùng phòng, bảo mật tuyệt đối.</p>
+                </div>
+                <div class="roadmap-item">
+                  <span class="roadmap-status planned">Lên ý tưởng</span>
+                  <h4>ZCL Sync</h4>
+                  <p>Tự động cập nhật thư mục làm việc giữa máy tính bàn và laptop cá nhân.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- TAB 3: TẢI VỀ (DOWNLOAD)                        -->
+    <!-- ============================================== -->
+    <div class="tab-view" id="tab-download" role="tabpanel">
+      <section class="section download-section" id="download">
+        <div class="container">
+          <div class="section-head">
+            <span class="section-badge" data-i18n="dl_badge">TRUNG TÂM TẢI VỀ</span>
+            <h2 data-i18n="dl_title">Tải ứng dụng cho Windows</h2>
+            <p data-i18n="dl_sub">Miễn phí hoàn toàn. Không cần tài khoản, tải về và dùng ngay.</p>
+          </div>
+
+          <div class="download-grid">
+            <!-- Teleport Download Card -->
+            <div class="download-card teleport" id="download-teleport">
+              <div>
+                <div class="download-card-header">
+                  <div class="app-icon teleport-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L21 16M17 20L13 16"/></svg>
+                  </div>
+                  <span class="download-badge" style="color: var(--mint);">Windows 10 / 11</span>
+                </div>
+
+                <h3 data-i18n="dl_tp_name">ZCL Teleport</h3>
+                <div class="download-version">
+                  <span>Phiên bản v0.1.0 · Windows 10/11</span> · <span>12.4 MB</span>
+                </div>
+                <p class="desc" data-i18n="dl_tp_desc">
+                  Ứng dụng gửi nhận file siêu nhanh và copy paste tức thì giữa các máy tính trong cùng mạng Wi-Fi.
                 </p>
-                <button class="btn btn-primary btn-sm" type="button">Chọn file từ máy tính</button>
+
+                <div class="download-meta-info">
+                  <div>Yêu cầu: Máy tính Windows 10 hoặc Windows 11</div>
+                </div>
               </div>
 
-              <!-- Transfer Monitor -->
-              <div class="transfer-monitor">
-                <div>
-                  <div class="peer-list-title" data-i18n="tp_peers_title">Máy tính trong mạng LAN phát hiện được</div>
-                  
-                  <div class="peer-item">
-                    <div class="peer-info">
-                      <div class="peer-avatar">LV</div>
-                      <div>
-                        <strong>Laptop-VanPhong</strong>
-                        <div style="font-size: 0.78rem; color: var(--text-dim);" class="mono">192.168.1.18 · Windows 11</div>
-                      </div>
-                    </div>
-                    <span class="product-pill" style="color: var(--mint);">Đã ghép nối</span>
-                  </div>
+              <div class="download-actions-wrap">
+                <button class="btn-download-main teleport btn-open-download" data-app="teleport" data-format="exe" type="button">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  <span data-i18n="dl_btn_installer">Tải bản cài đặt (.exe)</span>
+                </button>
+                <div class="download-alt-links">
+                  <a class="btn-open-download" data-app="teleport" data-format="zip" data-i18n="dl_btn_portable">Tải bản chạy ngay không cần cài (.zip - 11.8 MB)</a>
+                </div>
+              </div>
+            </div>
 
-                  <div class="peer-item">
-                    <div class="peer-info">
-                      <div class="peer-avatar" style="background: var(--lilac-dark); color: var(--lilac);">PC</div>
-                      <div>
-                        <strong>PC-DoHoa-Studio</strong>
-                        <div style="font-size: 0.78rem; color: var(--text-dim);" class="mono">192.168.1.42 · LAN Gigabit</div>
-                      </div>
-                    </div>
-                    <button class="btn btn-secondary btn-sm" type="button">Ghép nối</button>
+            <!-- Remote Download Card -->
+            <div class="download-card remote" id="download-remote">
+              <div>
+                <div class="download-card-header">
+                  <div class="app-icon remote-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                   </div>
+                  <span class="download-badge" style="color: var(--lilac);">Windows 10 / 11</span>
                 </div>
 
-                <div class="progress-card">
-                  <div class="progress-header">
-                    <strong data-i18n="tp_transfer_demo">Đang truyền đến: Laptop-VanPhong</strong>
-                    <span class="mono" id="progressPercent">82%</span>
-                  </div>
-                  <div class="progress-bar-wrap">
-                    <div class="progress-fill" id="progressFill"></div>
-                  </div>
-                  <div class="progress-meta">
-                    <span id="progressBytes">1.92 GB / 2.34 GB</span>
-                    <span id="progressSpeed" data-i18n="tp_speed">Tốc độ: 94.6 MB/s (Wi-Fi 6 LAN)</span>
-                  </div>
+                <h3 data-i18n="dl_rm_name">ZCL Remote</h3>
+                <div class="download-version">
+                  <span>Phiên bản v0.1.0 · Windows 10/11</span> · <span>16.8 MB</span>
+                </div>
+                <p class="desc" data-i18n="dl_rm_desc">
+                  Ứng dụng điều khiển máy tính từ xa siêu mượt. Chuột bấm ăn ngay, màn hình mượt mà không giật lag.
+                </p>
+
+                <div class="download-meta-info">
+                  <div>Yêu cầu: Máy tính Windows 10 hoặc Windows 11</div>
+                </div>
+              </div>
+
+              <div class="download-actions-wrap">
+                <button class="btn-download-main remote btn-open-download" data-app="remote" data-format="exe" type="button">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  <span data-i18n="dl_btn_installer">Tải bản cài đặt (.exe)</span>
+                </button>
+                <div class="download-alt-links">
+                  <a class="btn-open-download" data-app="remote" data-format="zip" data-i18n="dl_btn_portable">Tải bản chạy ngay không cần cài (.zip - 15.6 MB)</a>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- 2. Remote Web Panel -->
-          <div class="studio-panel" id="panel-remote">
-            <div class="remote-web-ui">
-              <div class="remote-toolbar">
-                <div class="remote-connection-bar">
-                  <input type="text" class="ip-input" id="remoteIpInput" value="192.168.1.15:8443" data-i18n-placeholder="rm_ip_placeholder" placeholder="Nhập IP hoặc mã PIN (VD: 192.168.1.15:8443)">
-                  <button class="btn btn-lilac btn-sm" id="btnRemoteConnect" type="button" data-i18n="rm_connect_btn">Kết nối</button>
-                  <button class="btn btn-secondary btn-sm" id="btnRemoteDisconnect" type="button" data-i18n="rm_disconnect_btn">Ngắt kết nối (Kill-switch)</button>
-                </div>
-                <div>
-                  <button class="btn btn-secondary btn-sm" id="btnRemoteFullscreen" type="button" data-i18n="rm_fullscreen">Toàn màn hình</button>
-                </div>
-              </div>
+          <!-- PWA Standalone Install Banner -->
+          <div class="pwa-banner" style="margin-top: 48px;">
+            <h3 data-i18n="pwa_title">Cài đặt trực tiếp từ trình duyệt</h3>
+            <p data-i18n="pwa_desc">Trang web có thể cài vào máy tính hoặc điện thoại như một ứng dụng độc lập để mở nhanh bất cứ lúc nào.</p>
+            <button class="btn btn-primary" id="btnInstallPwa" type="button">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+              <span data-i18n="pwa_install_btn">Cài đặt ZCL Hub</span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
 
-              <!-- Remote Screen Canvas Stage -->
-              <div class="remote-screen-stage">
-                <canvas id="remoteCanvas" class="remote-canvas"></canvas>
-
-                <!-- HUD -->
-                <div class="remote-hud">
-                  <div class="hud-item latency">LAN RTT: <span id="hudLatency">1.5 ms</span></div>
-                  <div class="hud-item fps">Stream: <span id="hudFps">60 FPS</span></div>
-                  <div class="hud-item security">Security: <span>TLS 1.3 Direct</span></div>
-                </div>
-
-                <!-- Overlay Initial Guide -->
-                <div class="remote-screen-overlay" id="remoteOverlay">
-                  <h4 style="margin-bottom: 8px;" data-i18n="rm_overlay_title">Bấm để khởi động Remote Viewer</h4>
-                  <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;" data-i18n="rm_overlay_sub">
-                    Thử di chuột để trải nghiệm công nghệ Local Cursor Rendering 0ms lag
-                  </p>
-                  <button class="btn btn-lilac btn-sm" type="button">Bắt đầu phiên điều khiển</button>
-                </div>
-              </div>
-            </div>
+    <!-- ============================================== -->
+    <!-- TAB 4: DÙNG THỬ TRÊN WEB (STUDIO)              -->
+    <!-- ============================================== -->
+    <div class="tab-view" id="tab-studio" role="tabpanel">
+      <section class="studio-section" id="studio">
+        <div class="container">
+          <div class="section-head">
+            <span class="section-badge" data-i18n="studio_badge">TRẢI NGHIỆM TRỰC TIẾP</span>
+            <h2 data-i18n="studio_title">Dùng thử ngay trên trình duyệt</h2>
+            <p data-i18n="studio_sub">Bạn có thể thử kéo thả file và rê thử chuột điều khiển ngay tại đây.</p>
           </div>
 
-          <!-- 3. Benchmark Panel -->
-          <div class="studio-panel" id="panel-benchmark">
-            <div style="text-align: center; margin-bottom: 28px;">
-              <h4 style="font-size: 1.3rem; margin-bottom: 8px;" data-i18n="bench_title">Kiểm tra tốc độ truyền thực tế trên hạ tầng LAN</h4>
-              <button class="btn btn-primary btn-sm" id="btnRunBenchmark" type="button" data-i18n="bench_btn_run">
-                Chạy thử nghiệm băng thông
-              </button>
+          <div class="studio-container">
+            <!-- Studio Tabs -->
+            <div class="studio-header">
+              <div class="studio-tabs">
+                <button class="studio-tab-btn active" data-app="teleport" type="button">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L21 16M17 20L13 16"/></svg>
+                  <span data-i18n="studio_tab_tp">Thử gửi file (Teleport)</span>
+                </button>
+                <button class="studio-tab-btn" data-app="remote" type="button">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  <span data-i18n="studio_tab_rm">Thử điều khiển chuột (Remote)</span>
+                </button>
+                <button class="studio-tab-btn" data-app="benchmark" type="button">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                  <span data-i18n="studio_tab_bench">Kiểm tra tốc độ Wi-Fi</span>
+                </button>
+              </div>
+              <div class="studio-status-indicator">
+                <span class="pulse-dot"></span>
+                <span data-i18n="studio_status_ready">Đang kết nối</span>
+              </div>
             </div>
 
-            <div class="benchmark-grid">
-              <div class="bench-card">
-                <h4>Wi-Fi 5 (802.11ac 5GHz)</h4>
-                <div class="bench-metric" id="benchVal1">68 MB/s</div>
-                <div class="bench-desc">Thực tế truyền file qua router Wi-Fi gia đình thông thường.</div>
-                <div class="bench-bar"><div class="bench-bar-fill" id="benchFill1" style="width: 45%;"></div></div>
+            <div class="studio-content">
+              <!-- 1. Teleport Simulator Panel -->
+              <div class="studio-panel active" id="panel-teleport">
+                <div class="teleport-web-ui">
+                  <div class="drop-zone" id="dropZone">
+                    <input type="file" id="fileInput" style="display: none;" multiple>
+                    <div class="drop-icon">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                    </div>
+                    <h4 data-i18n="tp_drop_title">Kéo thả file vào đây hoặc bấm để chọn</h4>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;" data-i18n="tp_drop_sub">
+                      File sẽ được truyền trực tiếp sang máy tính nhận trong phòng
+                    </p>
+                    <button class="btn btn-primary btn-sm" type="button">Chọn file từ máy</button>
+                  </div>
+
+                  <div class="transfer-monitor">
+                    <div>
+                      <div class="peer-list-title" data-i18n="tp_peers_title">Máy tính phát hiện được trong phòng</div>
+                      
+                      <div class="peer-item">
+                        <div class="peer-info">
+                          <div class="peer-avatar">LV</div>
+                          <div>
+                            <strong>Laptop-LamViec</strong>
+                            <div style="font-size: 0.78rem; color: var(--text-dim);">Chung mạng Wi-Fi</div>
+                          </div>
+                        </div>
+                        <span class="product-pill" style="color: var(--mint);">Đã ghép nối</span>
+                      </div>
+
+                      <div class="peer-item">
+                        <div class="peer-info">
+                          <div class="peer-avatar" style="background: var(--lilac-dark); color: var(--lilac);">PC</div>
+                          <div>
+                            <strong>May-Ban-Phong-Khach</strong>
+                            <div style="font-size: 0.78rem; color: var(--text-dim);">Dây mạng LAN</div>
+                          </div>
+                        </div>
+                        <button class="btn btn-secondary btn-sm" type="button">Kết nối</button>
+                      </div>
+                    </div>
+
+                    <div class="progress-card">
+                      <div class="progress-header">
+                        <strong data-i18n="tp_transfer_demo">Đang gửi đến: Laptop-LamViec</strong>
+                        <span class="mono" id="progressPercent">82%</span>
+                      </div>
+                      <div class="progress-bar-wrap">
+                        <div class="progress-fill" id="progressFill"></div>
+                      </div>
+                      <div class="progress-meta">
+                        <span id="progressBytes">1.92 GB / 2.34 GB</span>
+                        <span id="progressSpeed" data-i18n="tp_speed">Tốc độ: Siêu nhanh</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div class="bench-card">
-                <h4>Wi-Fi 6 / Mạng LAN Gigabit</h4>
-                <div class="bench-metric" id="benchVal2" style="color: var(--mint);">118 MB/s</div>
-                <div class="bench-desc">Đạt kịch trần cổng mạng 1 Gbps, 10GB chuyển trong 1 phút 25 giây.</div>
-                <div class="bench-bar"><div class="bench-bar-fill" id="benchFill2" style="width: 85%;"></div></div>
+              <!-- 2. Remote Simulator Panel -->
+              <div class="studio-panel" id="panel-remote">
+                <div class="remote-web-ui">
+                  <div class="remote-toolbar">
+                    <div class="remote-connection-bar">
+                      <input type="text" class="ip-input" id="remoteIpInput" value="Máy tính phòng khách" data-i18n-placeholder="rm_ip_placeholder" placeholder="Tên hoặc mã kết nối của máy tính">
+                      <button class="btn btn-lilac btn-sm" id="btnRemoteConnect" type="button" data-i18n="rm_connect_btn">Bắt đầu điều khiển</button>
+                      <button class="btn btn-secondary btn-sm" id="btnRemoteDisconnect" type="button" data-i18n="rm_disconnect_btn">Dừng lại</button>
+                    </div>
+                    <div>
+                      <button class="btn btn-secondary btn-sm" id="btnRemoteFullscreen" type="button" data-i18n="rm_fullscreen">Toàn màn hình</button>
+                    </div>
+                  </div>
+
+                  <div class="remote-screen-stage">
+                    <canvas id="remoteCanvas" class="remote-canvas"></canvas>
+
+                    <div class="remote-hud">
+                      <div class="hud-item latency">Độ trễ: <span id="hudLatency">0 ms</span></div>
+                      <div class="hud-item fps">Độ mượt: <span id="hudFps">Rất mượt (60 khung hình/giây)</span></div>
+                    </div>
+
+                    <div class="remote-screen-overlay" id="remoteOverlay">
+                      <h4 style="margin-bottom: 8px;" data-i18n="rm_overlay_title">Bấm để thử điều khiển chuột</h4>
+                      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;" data-i18n="rm_overlay_sub">
+                        Di chuột vào khu vực này để cảm nhận chuột ăn ngay, không hề giật lag
+                      </p>
+                      <button class="btn btn-lilac btn-sm" type="button">Bắt đầu thử</button>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div class="bench-card">
-                <h4>Mạng LAN 2.5 GbE</h4>
-                <div class="bench-metric" id="benchVal3" style="color: var(--lilac);">285 MB/s</div>
-                <div class="bench-desc">Dành cho switch 2.5G văn phòng đồ họa, stream 4K 120 FPS không độ trễ.</div>
-                <div class="bench-bar"><div class="bench-bar-fill" id="benchFill3" style="width: 100%;"></div></div>
+              <!-- 3. Benchmark Panel -->
+              <div class="studio-panel" id="panel-benchmark">
+                <div style="text-align: center; margin-bottom: 28px;">
+                  <h4 style="font-size: 1.3rem; margin-bottom: 8px;" data-i18n="bench_title">Tốc độ gửi file thực tế khi dùng chung Wi-Fi</h4>
+                  <button class="btn btn-primary btn-sm" id="btnRunBenchmark" type="button" data-i18n="bench_btn_run">
+                    Bấm để kiểm tra tốc độ
+                  </button>
+                </div>
+
+                <div class="benchmark-grid">
+                  <div class="bench-card">
+                    <h4>Wi-Fi thông thường</h4>
+                    <div class="bench-metric" id="benchVal1">Gửi 1 bộ phim mất 20 giây</div>
+                    <div class="bench-desc">Tốc độ router Wi-Fi gia đình thông thường.</div>
+                    <div class="bench-bar"><div class="bench-bar-fill" id="benchFill1" style="width: 45%;"></div></div>
+                  </div>
+
+                  <div class="bench-card">
+                    <h4>Wi-Fi thế hệ mới / Cắm dây mạng</h4>
+                    <div class="bench-metric" id="benchVal2" style="color: var(--mint);">Gửi 1 bộ phim chỉ mất 8 giây</div>
+                    <div class="bench-desc">Gửi file nhanh gấp nhiều lần so với gửi qua mạng Internet.</div>
+                    <div class="bench-bar"><div class="bench-bar-fill" id="benchFill2" style="width: 85%;"></div></div>
+                  </div>
+
+                  <div class="bench-card">
+                    <h4>Dây mạng tốc độ cao</h4>
+                    <div class="bench-metric" id="benchVal3" style="color: var(--lilac);">Gửi xong ngay lập tức</div>
+                    <div class="bench-desc">Thích hợp cho phòng làm việc dựng phim, đồ họa chuyên nghiệp.</div>
+                    <div class="bench-bar"><div class="bench-bar-fill" id="benchFill3" style="width: 100%;"></div></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
-  </section>
 
-  <!-- Section 4: Technical Specifications -->
-  <section class="section" id="specs">
-    <div class="container">
-      <div class="section-head">
-        <span class="section-badge" data-i18n="specs_badge">THÔNG SỐ VẬN HÀNH</span>
-        <h2 data-i18n="specs_title">Tiêu chuẩn kỹ thuật của ZCL</h2>
-      </div>
+    <!-- ============================================== -->
+    <!-- TAB 5: HƯỚNG DẪN & HỎI ĐÁP (FAQ)               -->
+    <!-- ============================================== -->
+    <div class="tab-view" id="tab-faq" role="tabpanel">
+      <!-- 3 Simple Steps Section -->
+      <section class="section" id="quickstart">
+        <div class="container">
+          <div class="section-head">
+            <span class="section-badge" data-i18n="qs_badge">3 BƯỚC ĐƠN GIẢN</span>
+            <h2 data-i18n="qs_title">Cách sử dụng trong 1 phút</h2>
+            <p data-i18n="qs_sub">Bất kỳ ai cũng có thể làm theo một cách dễ dàng.</p>
+          </div>
 
-      <div class="comparison-table-wrap">
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th data-i18n="specs_th_feature">Hạng mục</th>
-              <th class="zcl-col" data-i18n="specs_th_val">Thông số vận hành ZCL</th>
-              <th data-i18n="specs_th_note">Ghi chú kỹ thuật</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong data-i18n="s_speed">Băng thông dữ liệu</strong></td>
-              <td class="zcl-col" data-i18n="s_speed_val">1 Gbps – 2.5 Gbps (Tối đa card mạng)</td>
-              <td data-i18n="s_speed_note">Truyền trực tiếp qua Switch/Wi-Fi, không giới hạn dung lượng</td>
-            </tr>
-            <tr>
-              <td><strong data-i18n="s_latency">Độ trễ điều khiển</strong></td>
-              <td class="zcl-col" data-i18n="s_latency_val">&lt; 1.5ms – 5ms (Local Cursor 0ms)</td>
-              <td data-i18n="s_latency_note">Trải nghiệm chuột tức thì với công nghệ Local Cursor Rendering</td>
-            </tr>
-            <tr>
-              <td><strong data-i18n="s_internet">Hoạt động ngoại tuyến</strong></td>
-              <td class="zcl-col" data-i18n="s_internet_val">100% Độc lập không cần Internet</td>
-              <td data-i18n="s_internet_note">Các máy tính kết nối liên tục kể cả khi đứt cáp quang biển</td>
-            </tr>
-            <tr>
-              <td><strong data-i18n="s_privacy">Chuẩn mã hóa</strong></td>
-              <td class="zcl-col" data-i18n="s_privacy_val">TLS 1.3 P2P Direct &amp; DTLS</td>
-              <td data-i18n="s_privacy_note">Xác thực bằng chứng chỉ nội bộ, dữ liệu không rời khỏi phòng</td>
-            </tr>
-            <tr>
-              <td><strong data-i18n="s_limit">Giới hạn phiên làm việc</strong></td>
-              <td class="zcl-col" data-i18n="s_limit_val">Không giới hạn thời gian</td>
-              <td data-i18n="s_limit_note">Không ngắt phiên tự động, không quảng cáo nag-screen</td>
-            </tr>
-            <tr>
-              <td><strong data-i18n="s_license">Giấy phép &amp; Bản quyền</strong></td>
-              <td class="zcl-col" data-i18n="s_license_val">GPL-3.0 Mã nguồn mở tự do</td>
-              <td data-i18n="s_license_note">Miễn phí vĩnh viễn cho mọi mục đích sử dụng cá nhân và văn phòng</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 5: Quick Start Guide -->
-  <section class="section" id="quickstart" style="background: var(--bg-subtle);">
-    <div class="container">
-      <div class="section-head">
-        <span class="section-badge" data-i18n="qs_badge">HƯỚNG DẪN BẮT ĐẦU</span>
-        <h2 data-i18n="qs_title">Chọn cách sử dụng phù hợp với bạn</h2>
-      </div>
-
-      <div class="quickstart-tabs">
-        <button class="qs-tab-btn active" data-tab="exe" type="button" data-i18n="qs_tab_exe">
-          1. Bản cài đặt Windows (.exe)
-        </button>
-        <button class="qs-tab-btn" data-tab="web" type="button" data-i18n="qs_tab_web">
-          2. Dùng trên Web (PWA)
-        </button>
-        <button class="qs-tab-btn" data-tab="dev" type="button" data-i18n="qs_tab_dev">
-          3. Dành cho Lập trình viên
-        </button>
-      </div>
-
-      <div class="qs-content">
-        <!-- Panel 1: EXE -->
-        <div class="qs-panel active" id="qs-exe">
           <div class="qs-steps">
             <div class="qs-step">
               <div class="qs-num">1</div>
               <div class="qs-text">
-                <h4>Tải bản phát hành</h4>
-                <p data-i18n="qs_exe_step1">Tải bộ cài đặt mới nhất từ [Trung tâm tải về] ở phía trên (chọn ZCL Teleport hoặc ZCL Remote).</p>
+                <h4>Tải ứng dụng về máy</h4>
+                <p data-i18n="qs_step1">Mở tab [Tải về] trên trang web này và tải file cài đặt về cho 2 chiếc máy tính cần kết nối.</p>
               </div>
             </div>
             <div class="qs-step">
               <div class="qs-num">2</div>
               <div class="qs-text">
-                <h4>Khởi chạy trên các máy tính</h4>
-                <p data-i18n="qs_exe_step2">Chạy file `.exe` trên cả 2 máy tính cần kết nối (cùng chung mạng Wi-Fi hoặc dây LAN).</p>
+                <h4>Mở ứng dụng lên</h4>
+                <p data-i18n="qs_step2">Đảm bảo cả 2 máy tính cùng bắt chung 1 mạng Wi-Fi (hoặc cắm chung dây mạng), rồi mở ứng dụng lên.</p>
               </div>
             </div>
             <div class="qs-step">
               <div class="qs-num">3</div>
               <div class="qs-text">
                 <h4>Bắt đầu làm việc</h4>
-                <p data-i18n="qs_exe_step3">Mở ứng dụng, nhập mã PIN hoặc chọn máy tính tìm thấy để bắt đầu làm việc ngay.</p>
+                <p data-i18n="qs_step3">Hai máy tính sẽ tự động nhìn thấy nhau. Bạn chỉ cần chọn máy và bắt đầu gửi file hoặc điều khiển ngay.</p>
               </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <!-- Panel 2: Web / PWA -->
-        <div class="qs-panel" id="qs-web">
-          <div class="qs-steps">
-            <div class="qs-step">
-              <div class="qs-num">1</div>
-              <div class="qs-text">
-                <h4>Mở trình duyệt</h4>
-                <p data-i18n="qs_web_step1">Mở trang web này trên trình duyệt Chrome, Edge hoặc Safari.</p>
-              </div>
-            </div>
-            <div class="qs-step">
-              <div class="qs-num">2</div>
-              <div class="qs-text">
-                <h4>Cài đặt PWA offline</h4>
-                <p data-i18n="qs_web_step2">Chuyển đến phần [ZCL Web Studio] và bấm 'Cài đặt ứng dụng' (PWA) để dùng offline.</p>
-              </div>
-            </div>
-            <div class="qs-step">
-              <div class="qs-num">3</div>
-              <div class="qs-text">
-                <h4>Kết nối P2P tức thì</h4>
-                <p data-i18n="qs_web_step3">Kéo thả file hoặc nhập IP máy chủ để kết nối trực tiếp không cần cài thêm phần mềm.</p>
-              </div>
-            </div>
+      <!-- FAQ Section -->
+      <section class="section" id="faq" style="background: var(--bg-subtle);">
+        <div class="container">
+          <div class="section-head">
+            <span class="section-badge" data-i18n="faq_badge">HỎI ĐÁP</span>
+            <h2 data-i18n="faq_title">Những thắc mắc thường gặp</h2>
           </div>
-        </div>
 
-        <!-- Panel 3: Dev / CLI -->
-        <div class="qs-panel" id="qs-dev">
-          <div class="qs-steps">
-            <div class="qs-step">
-              <div class="qs-num">1</div>
-              <div class="qs-text">
-                <h4>Tải mã nguồn</h4>
-                <p data-i18n="qs_dev_step1">Tải gói mã nguồn hoặc giải nén bản Portable từ [Trung tâm tải về].</p>
+          <div class="faq-grid">
+            <div class="faq-item active">
+              <button class="faq-question" type="button">
+                <span data-i18n="faq_q1">Nhà tôi bị mất mạng Internet thì có dùng được không?</span>
+                <svg class="faq-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" data-i18n="faq_a1">
+                Hoàn toàn dùng được. Ứng dụng chỉ cần 2 máy tính bắt chung vào một cục phát Wi-Fi (hoặc cắm dây mạng chung) là có thể gửi nhận file và điều khiển nhau với tốc độ tối đa, kể cả khi dây cáp quang ra ngoài Internet bị đứt.
               </div>
             </div>
-            <div class="qs-step">
-              <div class="qs-num">2</div>
-              <div class="qs-text">
-                <h4>Cài đặt Dependencies</h4>
-                <p data-i18n="qs_dev_step2">Cài đặt môi trường Python 3.11+ và chạy `pip install -e .`</p>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span data-i18n="faq_q2">Dữ liệu của tôi có bị ai xem trộm hay gửi ra ngoài không?</span>
+                <svg class="faq-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" data-i18n="faq_a2">
+                Tuyệt đối không. Dữ liệu chỉ truyền thẳng trực tiếp giữa 2 chiếc máy tính của bạn trong phòng. Ứng dụng không có máy chủ lưu trữ bên ngoài, không yêu cầu đăng nhập tài khoản và không thu thập bất kỳ thông tin nào của bạn.
               </div>
             </div>
-            <div class="qs-step">
-              <div class="qs-num">3</div>
-              <div class="qs-text">
-                <h4>Chạy lệnh CLI</h4>
-                <p data-i18n="qs_dev_step3">Chạy lệnh CLI: `zcl-remote --host 0.0.0.0` hoặc `zcl-teleport --share`</p>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span data-i18n="faq_q3">Ứng dụng có miễn phí không? Có giới hạn thời gian điều khiển không?</span>
+                <svg class="faq-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" data-i18n="faq_a3">
+                Hoàn toàn miễn phí 100%. Bạn có thể truyền bao nhiêu file tùy thích, điều khiển bao lâu tùy ý mà không lo bị ngắt kết nối giữa chừng hay bị quấy rầy bởi quảng cáo.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span data-i18n="faq_q4">Khi mở lên máy tính báo bảo vệ (Windows Defender) thì làm thế nào?</span>
+                <svg class="faq-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" data-i18n="faq_a4">
+                Nếu Windows hiện bảng thông báo màu xanh, bạn chỉ cần bấm vào chữ "More info" (Thông tin thêm) rồi chọn "Run anyway" (Vẫn chạy). Nếu máy tính hỏi quyền truy cập mạng, hãy tick chọn "Private networks" (Mạng riêng tư) để 2 máy tìm thấy nhau.
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
-  </section>
 
-  <!-- Section 6: FAQ Accordion -->
-  <section class="section" id="faq">
-    <div class="container">
-      <div class="section-head">
-        <span class="section-badge" data-i18n="faq_badge">GIẢI ĐÁP THẮC MẮC</span>
-        <h2 data-i18n="faq_title">Câu hỏi thường gặp</h2>
-      </div>
-
-      <div class="faq-grid">
-        <div class="faq-item active">
-          <button class="faq-question" type="button">
-            <span data-i18n="faq_q1">ZCL có bắt buộc phải có kết nối Internet để hoạt động không?</span>
-            <svg class="faq-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer" data-i18n="faq_a1">
-            Hoàn toàn không. ZCL được thiết kế từ gốc để chạy độc lập 100% trong mạng cục bộ. Ngay cả khi nhà bạn bị mất mạng Internet hoặc đứt cáp quang biển, các máy tính kết nối chung một cục router/switch Wi-Fi vẫn truyền file và điều khiển nhau với tốc độ tối đa.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" type="button">
-            <span data-i18n="faq_q2">Làm thế nào hai máy tính tìm thấy nhau trong mạng LAN?</span>
-            <svg class="faq-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer" data-i18n="faq_a2">
-            ZCL sử dụng giao thức mDNS (Multicast DNS) với định danh `_zcl._tcp` để tự động phát hiện các thiết bị ZCL đang hoạt động trong cùng subnet. Ngoài ra, bạn luôn có thể kết nối trực tiếp thông qua địa chỉ IP nội bộ (ví dụ: `192.168.1.15`) hoặc quét mã QR.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" type="button">
-            <span data-i18n="faq_q3">Công nghệ Local Cursor Rendering của ZCL Remote là gì?</span>
-            <svg class="faq-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer" data-i18n="faq_a3">
-            Khi điều khiển từ xa, nếu chờ hình ảnh từ máy chủ phản hồi về mới hiển thị chuột thì sẽ sinh ra độ trễ khó chịu. ZCL Remote xử lý và vẽ con trỏ chuột cục bộ tức thì với độ trễ 0ms dựa trên phần cứng máy bạn, tạo cảm giác mượt mà như đang ngồi trực tiếp trước màn hình máy thật.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" type="button">
-            <span data-i18n="faq_q4">Dữ liệu của tôi có bị gửi lên bất kỳ máy chủ bên ngoài nào không?</span>
-            <svg class="faq-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer" data-i18n="faq_a4">
-            Không một byte dữ liệu nào rời khỏi mạng của bạn. Các ứng dụng ZCL không có relay server, không có máy chủ telemetry thu thập thói quen sử dụng, và toàn bộ mã nguồn đều công khai theo giấy phép GPL-3.0 để cộng đồng kiểm tra.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" type="button">
-            <span data-i18n="faq_q5">Tường lửa (Windows Firewall) có chặn ZCL không?</span>
-            <svg class="faq-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer" data-i18n="faq_a5">
-            Trong lần đầu tiên mở ứng dụng, Windows Defender Firewall sẽ hiển thị hộp thoại hỏi quyền truy cập mạng. Bạn chỉ cần tick chọn 'Private networks' (Mạng riêng tư) là ứng dụng có thể truyền nhận mượt mà trong phòng.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PWA Install Banner -->
-  <section class="section" style="padding-top: 0;">
-    <div class="container">
-      <div class="pwa-banner">
-        <h3 data-i18n="pwa_title">Cài đặt ZCL Hub như một ứng dụng độc lập</h3>
-        <p data-i18n="pwa_desc">Trang web hỗ trợ chuẩn PWA (Progressive Web App). Cài đặt ngay lên màn hình chính máy tính hoặc điện thoại để dùng offline.</p>
-        <button class="btn btn-primary" id="btnInstallPwa" type="button">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-          <span data-i18n="pwa_install_btn">Cài đặt ZCL Hub (PWA)</span>
-        </button>
-      </div>
-    </div>
-  </section>
+  </main>
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -881,27 +714,25 @@
             <img src="assets/logo.svg" alt="ZCL Logo" class="brand-logo">
             <span>ZCL Hub</span>
           </div>
-          <p data-i18n="footer_desc">Bộ ứng dụng mạng nội bộ P2P tối ưu tốc độ, bảo mật và quyền làm chủ dữ liệu số của bạn.</p>
+          <p data-i18n="footer_desc">Nhanh hơn, mượt hơn và hoàn toàn riêng tư giữa các máy tính cùng phòng.</p>
         </div>
 
         <div class="footer-col">
-          <h5 data-i18n="footer_apps">Sản phẩm</h5>
+          <h5 data-i18n="footer_apps">Ứng dụng</h5>
           <ul>
-            <li><a href="#download-teleport">ZCL Teleport</a></li>
-            <li><a href="#download-remote">ZCL Remote Desktop</a></li>
-            <li><a href="#roadmap">ZCL Cast</a></li>
-            <li><a href="#roadmap">ZCL Chat</a></li>
-            <li><a href="#roadmap">ZCL Sync</a></li>
+            <li><a href="#apps" data-tab="tab-apps">ZCL Teleport</a></li>
+            <li><a href="#apps" data-tab="tab-apps">ZCL Remote</a></li>
+            <li><a href="#apps" data-tab="tab-apps">ZCL Cast</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h5 data-i18n="footer_res">Tài nguyên</h5>
+          <h5 data-i18n="footer_res">Danh mục</h5>
           <ul>
-            <li><a href="#download" data-i18n="nav_download">Trung tâm tải về</a></li>
-            <li><a href="#studio" data-i18n="nav_studio">ZCL Web Studio</a></li>
-            <li><a href="#specs" data-i18n="nav_specs">Thông số vận hành</a></li>
-            <li><a href="#faq" data-i18n="nav_faq">Hỏi đáp thường gặp</a></li>
+            <li><a href="#overview" data-tab="tab-overview" data-i18n="nav_overview">Tổng quan</a></li>
+            <li><a href="#download" data-tab="tab-download" data-i18n="nav_download">Tải về</a></li>
+            <li><a href="#studio" data-tab="tab-studio" data-i18n="nav_studio">Dùng thử trên Web</a></li>
+            <li><a href="#faq" data-tab="tab-faq" data-i18n="nav_faq">Hướng dẫn &amp; Hỏi đáp</a></li>
           </ul>
         </div>
 
@@ -914,8 +745,8 @@
       </div>
 
       <div class="footer-bottom">
-        <p data-i18n="footer_rights">Mã nguồn mở theo giấy phép GPL-3.0. Phát triển bởi Nguyễn Hoàng Tùng.</p>
-        <p class="mono">v1.0.0 · Pure LAN Direct</p>
+        <p data-i18n="footer_rights">Mã nguồn mở GPL-3.0. Phát triển bởi Nguyễn Hoàng Tùng.</p>
+        <p class="mono">v1.0.0</p>
       </div>
     </div>
   </footer>
@@ -923,12 +754,12 @@
   <!-- Interactive Download Modal -->
   <div class="modal-overlay" id="downloadModal" role="dialog" aria-modal="true">
     <div class="modal-card">
-      <button class="modal-close" id="btnModalClose" type="button" aria-label="Close modal">&times;</button>
+      <button class="modal-close" id="btnModalClose" type="button" aria-label="Đóng">&times;</button>
       <div class="modal-icon" id="modalIcon">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L21 16M17 20L13 16"/></svg>
       </div>
       <h3 class="modal-title" id="modalTitle">Tải ZCL Teleport</h3>
-      <p class="modal-desc" id="modalDesc">Bản cài đặt chính thức cho Windows 10/11 (64-bit).</p>
+      <p class="modal-desc" id="modalDesc">Bản chính thức cho máy tính Windows 10/11.</p>
 
       <div class="modal-download-box">
         <div class="modal-file-info">
@@ -942,7 +773,7 @@
       </div>
 
       <div class="modal-tips">
-        <strong>Lưu ý bảo mật:</strong> Nếu Windows SmartScreen hiển thị cảnh báo file mới, bạn chỉ cần bấm <em>"More info" (Thông tin thêm)</em> &rarr; chọn <em>"Run anyway" (Vẫn chạy)</em> để hoàn tất cài đặt.
+        <strong>Mẹo nhỏ:</strong> Nếu máy tính hiện cảnh báo file mới, bạn chỉ cần bấm <em>"More info" (Thông tin thêm)</em> &rarr; chọn <em>"Run anyway" (Vẫn chạy)</em> là xong.
       </div>
     </div>
   </div>
