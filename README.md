@@ -30,10 +30,10 @@
 
 ## 🌟 Các ứng dụng ZCL
 
-| Ứng dụng | Mục đích | Tốc độ / Độ trễ | Trạng thái | Mã nguồn |
+| Ứng dụng | Mục đích | Tốc độ / Độ trễ | Trạng thái | Tải về |
 | :--- | :--- | :--- | :--- | :--- |
-| **ZCL Teleport** | Truyền file chục GB & đồng bộ Clipboard | 100MB/s – 1GB/s (Max LAN) | Thử nghiệm v0.1 | [GitHub](https://github.com/Nha-Cong-Dong/zero-cloud-lan-teleport) |
-| **ZCL Remote** | Điều khiển máy tính từ xa 60 FPS @ 1080p | &lt; 50ms (LAN &lt; 5ms) | Alpha v0.1.0 | [GitHub](https://github.com/Luffyreals/zero-cloud-lan-remote) |
+| **ZCL Teleport** | Truyền file chục GB & đồng bộ Clipboard | 100MB/s – 1GB/s (Max LAN) | Thử nghiệm v0.1 | [Tải về trên Web](https://luffyreals.github.io/zcl-hub/#download-teleport) |
+| **ZCL Remote** | Điều khiển máy tính từ xa 60 FPS @ 1080p | &lt; 50ms (LAN &lt; 5ms) | Alpha v0.1.0 | [Tải về trên Web](https://luffyreals.github.io/zcl-hub/#download-remote) |
 | **ZCL Cast** | Chiếu màn hình & âm thanh không dây | Full HD / 4K không nén | Sắp ra mắt | Roadmap |
 | **ZCL Chat** | Tin nhắn & gọi thoại nội bộ bảo mật | Tức thì, không log máy chủ | Lên ý tưởng | Roadmap |
 | **ZCL Sync** | Tự động đồng bộ thư mục 2 chiều | Thời gian thực (Realtime) | Lên ý tưởng | Roadmap |

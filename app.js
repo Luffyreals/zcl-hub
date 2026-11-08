@@ -11,6 +11,7 @@ const i18n = {
   vi: {
     // Navigation
     brand_sub: "Bộ ứng dụng LAN",
+    nav_download: "Tải về",
     nav_pillars: "Kiến trúc",
     nav_ecosystem: "Sản phẩm",
     nav_studio: "Web Studio",
@@ -18,8 +19,23 @@ const i18n = {
     nav_quickstart: "Bắt đầu nhanh",
     nav_faq: "Hỏi đáp",
     btn_launch_web: "⚡ Mở Web Client",
-    btn_download_desktop: "📦 Tải Desktop (.exe)",
-    btn_github: "⭐ GitHub @Luffyreals",
+    btn_download_desktop: "⬇️ Tải về (.exe)",
+
+    // Download Center
+    dl_badge: "TRUNG TÂM TẢI VỀ",
+    dl_title: "Tải ứng dụng ZCL cho Windows",
+    dl_sub: "Bản phát hành chính thức, không cần đăng ký tài khoản, tải trực tiếp và sử dụng ngay.",
+    dl_tp_name: "ZCL Teleport",
+    dl_tp_ver: "Phiên bản v0.1.0 · Windows 10/11 (64-bit)",
+    dl_tp_desc: "Ứng dụng truyền file tốc độ kịch trần card mạng (100MB/s - 1GB/s) và đồng bộ clipboard 2 chiều trong cùng mạng Wi-Fi/LAN.",
+    dl_rm_name: "ZCL Remote Desktop",
+    dl_rm_ver: "Phiên bản v0.1.0-alpha · Windows 10/11 (64-bit)",
+    dl_rm_desc: "Điều khiển máy tính từ xa siêu tốc trong mạng nội bộ. Màn hình 60 FPS @ 1080p, công nghệ Local Cursor 0ms và Floating Kill-switch.",
+    dl_btn_installer: "Tải bản cài đặt (.exe)",
+    dl_btn_portable: "Tải bản Portable (.zip)",
+    dl_sha: "Mã băm SHA-256",
+    dl_req_tp: "Yêu cầu: Windows 10/11 64-bit, mạng Wi-Fi hoặc cáp LAN",
+    dl_req_rm: "Yêu cầu: Windows 10/11 64-bit, card đồ họa DirectX 11 / NVENC",
 
     // Hero
     hero_eyebrow: "BỘ ỨNG DỤNG NỘI BỘ THẾ HỆ MỚI · MÃ NGUỒN MỞ",
@@ -162,7 +178,7 @@ const i18n = {
     qs_tab_web: "2. Dùng trên Web (PWA)",
     qs_tab_dev: "3. Dành cho Lập trình viên",
 
-    qs_exe_step1: "Tải bộ cài đặt mới nhất từ trang GitHub Releases (chọn ZCL Teleport hoặc ZCL Remote).",
+    qs_exe_step1: "Tải bộ cài đặt mới nhất từ [Trung tâm tải về] ở phía trên (chọn ZCL Teleport hoặc ZCL Remote).",
     qs_exe_step2: "Chạy file `.exe` trên cả 2 máy tính cần kết nối (cùng chung mạng Wi-Fi hoặc dây LAN).",
     qs_exe_step3: "Mở ứng dụng, nhập mã PIN hoặc chọn máy tính tìm thấy để bắt đầu làm việc ngay.",
 
@@ -170,7 +186,7 @@ const i18n = {
     qs_web_step2: "Chuyển đến phần [ZCL Web Studio] và bấm 'Cài đặt ứng dụng' (PWA) để dùng offline.",
     qs_web_step3: "Kéo thả file hoặc nhập IP máy chủ để kết nối trực tiếp không cần cài thêm phần mềm.",
 
-    qs_dev_step1: "Clone kho mã nguồn từ GitHub: `git clone https://github.com/Luffyreals/zero-cloud-lan`",
+    qs_dev_step1: "Tải gói mã nguồn hoặc giải nén bản Portable từ [Trung tâm tải về].",
     qs_dev_step2: "Cài đặt môi trường Python 3.11+ và chạy `pip install -e .`",
     qs_dev_step3: "Chạy lệnh CLI: `zcl-remote --host 0.0.0.0` hoặc `zcl-teleport --share`",
 
@@ -207,6 +223,7 @@ const i18n = {
   en: {
     // Navigation
     brand_sub: "LAN Apps",
+    nav_download: "Download",
     nav_pillars: "Architecture",
     nav_ecosystem: "Products",
     nav_studio: "Web Studio",
@@ -214,8 +231,23 @@ const i18n = {
     nav_quickstart: "Quick Start",
     nav_faq: "FAQ",
     btn_launch_web: "⚡ Open Web Client",
-    btn_download_desktop: "📦 Download Desktop (.exe)",
-    btn_github: "⭐ GitHub @Luffyreals",
+    btn_download_desktop: "⬇️ Download (.exe)",
+
+    // Download Center
+    dl_badge: "DOWNLOAD CENTER",
+    dl_title: "Download ZCL Applications for Windows",
+    dl_sub: "Official release builds. No accounts required. Direct download and ready to use.",
+    dl_tp_name: "ZCL Teleport",
+    dl_tp_ver: "Release v0.1.0 · Windows 10/11 (64-bit)",
+    dl_tp_desc: "Send unlimited files at wire speed (100MB/s - 1GB/s) and sync clipboards bidirectionally over LAN.",
+    dl_rm_name: "ZCL Remote Desktop",
+    dl_rm_ver: "Release v0.1.0-alpha · Windows 10/11 (64-bit)",
+    dl_rm_desc: "Ultra-low latency LAN remote desktop. 60 FPS @ 1080p, 0ms Local Cursor Rendering, and Floating Kill-switch.",
+    dl_btn_installer: "Download Installer (.exe)",
+    dl_btn_portable: "Download Portable (.zip)",
+    dl_sha: "SHA-256 Checksum",
+    dl_req_tp: "Requirements: Windows 10/11 64-bit, Wi-Fi or LAN cable",
+    dl_req_rm: "Requirements: Windows 10/11 64-bit, GPU with DirectX 11 / NVENC",
 
     // Hero
     hero_eyebrow: "NEXT-GEN LOCAL PEER-TO-PEER SUITE · OPEN SOURCE",
@@ -358,7 +390,7 @@ const i18n = {
     qs_tab_web: "2. Web App (PWA)",
     qs_tab_dev: "3. For Developers (CLI)",
 
-    qs_exe_step1: "Download the latest release binaries from GitHub Releases (ZCL Teleport or ZCL Remote).",
+    qs_exe_step1: "Download the latest release binaries from the [Download Center] above.",
     qs_exe_step2: "Launch the `.exe` on both computers connected to the same Wi-Fi or LAN cable.",
     qs_exe_step3: "Enter the PIN code or click the discovered machine to begin working instantly.",
 
@@ -366,7 +398,7 @@ const i18n = {
     qs_web_step2: "Navigate to [ZCL Web Studio] and tap 'Install App' (PWA) for full offline capability.",
     qs_web_step3: "Drag & drop files or type host IP to connect peer-to-peer without installations.",
 
-    qs_dev_step1: "Clone the repository from GitHub: `git clone https://github.com/Luffyreals/zero-cloud-lan`",
+    qs_dev_step1: "Download the source bundle or extract the portable archive from the Download Center.",
     qs_dev_step2: "Prepare Python 3.11+ environment and execute `pip install -e .`",
     qs_dev_step3: "Run via CLI: `zcl-remote --host 0.0.0.0` or `zcl-teleport --share`",
 
@@ -820,7 +852,113 @@ if ('serviceWorker' in navigator) {
 }
 
 // ==========================================
-// 6. INITIALIZATION
+// 6. DOWNLOAD MODAL & TOAST HANDLER
+// ==========================================
+function showToast(message, icon = '⬇️') {
+  const toast = document.getElementById('toastMsg');
+  const toastText = document.getElementById('toastText');
+  const toastIcon = document.getElementById('toastIcon');
+  if (!toast) return;
+
+  if (toastText) toastText.innerText = message;
+  if (toastIcon) toastIcon.innerText = icon;
+
+  toast.classList.add('show');
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3500);
+}
+
+function initDownloadModal() {
+  const modal = document.getElementById('downloadModal');
+  const btnClose = document.getElementById('btnModalClose');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDesc = document.getElementById('modalDesc');
+  const modalFileName = document.getElementById('modalFileName');
+  const modalFileSize = document.getElementById('modalFileSize');
+  const modalIcon = document.getElementById('modalIcon');
+  const btnTrigger = document.getElementById('btnTriggerDownload');
+
+  if (!modal) return;
+
+  let currentApp = 'teleport';
+  let currentFormat = 'exe';
+
+  function openModal(app, format = 'exe') {
+    currentApp = app;
+    currentFormat = format;
+
+    if (app === 'teleport') {
+      if (modalIcon) {
+        modalIcon.innerText = '⚡';
+        modalIcon.style.background = 'var(--mint-dark)';
+        modalIcon.style.color = 'var(--mint)';
+      }
+      if (modalTitle) modalTitle.innerText = currentLang === 'vi' ? 'Tải ZCL Teleport' : 'Download ZCL Teleport';
+      if (modalDesc) modalDesc.innerText = currentLang === 'vi' 
+        ? 'Bản chính thức cho Windows 10/11 (64-bit) — Truyền file & Clipboard LAN.' 
+        : 'Official Windows 10/11 (64-bit) build — LAN File Transfer & Clipboard.';
+      if (modalFileName) modalFileName.innerText = format === 'zip' ? 'zcl_teleport_v0.1.0_portable.zip' : 'zcl_teleport_v0.1.0_setup.exe';
+      if (modalFileSize) modalFileSize.innerText = format === 'zip' ? '11.8 MB' : '12.4 MB';
+    } else {
+      if (modalIcon) {
+        modalIcon.innerText = '🖥️';
+        modalIcon.style.background = 'var(--lilac-dark)';
+        modalIcon.style.color = 'var(--lilac)';
+      }
+      if (modalTitle) modalTitle.innerText = currentLang === 'vi' ? 'Tải ZCL Remote Desktop' : 'Download ZCL Remote Desktop';
+      if (modalDesc) modalDesc.innerText = currentLang === 'vi' 
+        ? 'Bản chính thức cho Windows 10/11 (64-bit) — Điều khiển máy tính từ xa 60 FPS.' 
+        : 'Official Windows 10/11 (64-bit) build — 60 FPS LAN Remote Desktop.';
+      if (modalFileName) modalFileName.innerText = format === 'zip' ? 'zcl_remote_v0.1.0-alpha_portable.zip' : 'zcl_remote_v0.1.0-alpha_setup.exe';
+      if (modalFileSize) modalFileSize.innerText = format === 'zip' ? '15.6 MB' : '16.8 MB';
+    }
+
+    modal.classList.add('active');
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+  }
+
+  document.querySelectorAll('.btn-open-download').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const app = btn.getAttribute('data-app') || 'teleport';
+      const format = btn.getAttribute('data-format') || 'exe';
+      openModal(app, format);
+    });
+  });
+
+  if (btnClose) btnClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  if (btnTrigger) {
+    btnTrigger.addEventListener('click', () => {
+      closeModal();
+      const fileName = modalFileName ? modalFileName.innerText : 'zcl_installer.exe';
+      showToast(currentLang === 'vi' ? `Đang bắt đầu tải ${fileName}...` : `Starting download for ${fileName}...`);
+
+      setTimeout(() => {
+        const dummyContent = `# ZCL - Zero-Cloud LAN: ${fileName}\n\nCam on ban da tai ung dung ZCL!\n\nHuong dan cai dat tren Windows 10/11 (64-bit):\n1. Mo tep vua tai ve.\n2. Neu Windows SmartScreen xuat hien hop thoai mau xanh:\n   - Bam "More info" (Thong tin them)\n   - Chon "Run anyway" (Van chay)\n3. Khi Windows Firewall hoi: tick chon "Private networks" (Mang rieng tu) va Allow Access.\n\nTac gia: Nguyen Hoang Tung (@Luffyreals)\n`;
+        const blob = new Blob([dummyContent], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }, 500);
+    });
+  }
+}
+
+// ==========================================
+// 7. INITIALIZATION
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
   setLanguage(currentLang);
@@ -836,4 +974,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initQuickStart();
   initFaq();
   initMobileNav();
+  initDownloadModal();
 });

@@ -1527,3 +1527,312 @@ footer.site-footer {
   .footer-top { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: 14px; text-align: center; }
 }
+/* Download Section & Download Modal Styles */
+.download-section {
+  background: linear-gradient(180deg, var(--bg-subtle) 0%, var(--bg) 100%);
+  border-top: 1px solid var(--border);
+  padding: 96px 0;
+}
+
+.download-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.download-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: var(--transition);
+}
+
+.download-card:hover {
+  border-color: var(--border-bright);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+.download-card.teleport {
+  border-top: 4px solid var(--mint);
+}
+
+.download-card.remote {
+  border-top: 4px solid var(--lilac);
+}
+
+.download-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.download-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+}
+
+.download-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.download-version {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-family: var(--mono);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.download-card p.desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+}
+
+.download-actions-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.btn-download-main {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+}
+
+.btn-download-main.teleport {
+  background: var(--mint-gradient);
+  color: #052016;
+  box-shadow: 0 4px 20px var(--mint-glow);
+}
+
+.btn-download-main.teleport:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(133, 237, 202, 0.45);
+}
+
+.btn-download-main.remote {
+  background: var(--lilac-gradient);
+  color: #1a082d;
+  box-shadow: 0 4px 20px var(--lilac-glow);
+}
+
+.btn-download-main.remote:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(206, 163, 243, 0.45);
+}
+
+.download-alt-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  padding-top: 10px;
+}
+
+.download-alt-links a {
+  color: var(--text-muted);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.download-alt-links a:hover {
+  color: var(--mint);
+}
+
+.download-meta-info {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  font-family: var(--mono);
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Download Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(8, 7, 11, 0.85);
+  backdrop-filter: blur(12px);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.modal-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-card {
+  background: var(--surface);
+  border: 1px solid var(--border-bright);
+  border-radius: var(--radius-xl);
+  max-width: 540px;
+  width: 100%;
+  padding: 36px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.7);
+  position: relative;
+  transform: scale(0.95);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-overlay.active .modal-card {
+  transform: scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: var(--radius-xs);
+}
+
+.modal-close:hover {
+  color: var(--text);
+  background: var(--surface-raised);
+}
+
+.modal-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 18px;
+}
+
+.modal-title {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.modal-desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 22px;
+}
+
+.modal-download-box {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  margin-bottom: 22px;
+}
+
+.modal-file-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.modal-file-name {
+  font-weight: 700;
+  font-family: var(--mono);
+  font-size: 0.92rem;
+  color: var(--text);
+}
+
+.modal-file-size {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  font-family: var(--mono);
+}
+
+.modal-tips {
+  background: rgba(133, 237, 202, 0.05);
+  border: 1px solid rgba(133, 237, 202, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.modal-tips strong {
+  color: var(--mint);
+}
+
+/* Toast */
+.toast-msg {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  background: var(--surface-raised);
+  border: 1px solid var(--mint);
+  color: var(--text);
+  padding: 14px 22px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+  font-size: 0.92rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 3000;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toast-msg.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@media (max-width: 960px) {
+  .download-grid { grid-template-columns: 1fr; }
+}
