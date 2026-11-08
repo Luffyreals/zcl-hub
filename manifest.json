@@ -1,7 +1,7 @@
 {
-  "name": "ZCL Hub — Zero-Cloud LAN Ecosystem",
+  "name": "ZCL Hub — Zero-Cloud LAN",
   "short_name": "ZCL Hub",
-  "description": "Hệ sinh thái ứng dụng mạng nội bộ P2P không qua Cloud: ZCL Teleport & ZCL Remote.",
+  "description": "Bộ ứng dụng mạng nội bộ P2P không qua Cloud: ZCL Teleport & ZCL Remote.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0b0a0e",

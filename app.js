@@ -10,7 +10,7 @@
 const i18n = {
   vi: {
     // Navigation
-    brand_sub: "Hệ sinh thái LAN",
+    brand_sub: "Bộ ứng dụng LAN",
     nav_pillars: "Kiến trúc",
     nav_ecosystem: "Sản phẩm",
     nav_studio: "Web Studio",
@@ -22,8 +22,8 @@ const i18n = {
     btn_github: "⭐ GitHub @Luffyreals",
 
     // Hero
-    hero_eyebrow: "HỆ SINH THÁI ỨNG DỤNG NỘI BỘ THẾ HỆ MỚI · MÃ NGUỒN MỞ",
-    hero_title: "Hệ sinh thái mạng nội bộ không Cloud.<br><span class=\"highlight-mint\">Tốc độ phần cứng.</span> <span class=\"highlight-lilac\">Độ trễ 0ms.</span>",
+    hero_eyebrow: "BỘ ỨNG DỤNG NỘI BỘ THẾ HỆ MỚI · MÃ NGUỒN MỞ",
+    hero_title: "Bộ ứng dụng mạng nội bộ không Cloud.<br><span class=\"highlight-mint\">Tốc độ phần cứng.</span> <span class=\"highlight-lilac\">Độ trễ 0ms.</span>",
     hero_lede: "Giải phóng năng suất giữa các máy tính trong phòng: truyền file chục GB trong nháy mắt, điều khiển màn hình 60 FPS mượt mà không độ trễ chuột. Hoạt động độc lập 100% khi đứt cáp quang Internet.",
     copy_text: "Sao chép",
     copied_text: "Đã chép!",
@@ -63,7 +63,7 @@ const i18n = {
 
     // Core Apps Bento
     bento_badge: "BỘ CÔNG CỤ HOÀN THIỆN",
-    bento_title: "Các ứng dụng trong Hệ sinh thái",
+    bento_title: "Các ứng dụng ZCL",
     bento_sub: "Đáp ứng trọn vẹn nhu cầu làm việc tốc độ cao giữa các máy tính cùng phòng.",
 
     tp_title: "ZCL Teleport",
@@ -88,7 +88,7 @@ const i18n = {
     proto_title: "ZCL Engine & Giao thức P2P",
     proto_desc: "Kiến trúc nền tảng giúp các thiết bị tự phát hiện qua mDNS (_zcl._tcp), bắt tay bằng chứng chỉ tự ký TLS 1.3 và truyền stream trực tiếp với bộ đệm RAM tối thiểu.",
 
-    road_title: "Lộ trình mở rộng Hệ sinh thái",
+    road_title: "Lộ trình phát triển sản phẩm",
     road_cast_h: "ZCL Cast",
     road_cast_p: "Chiếu màn hình & âm thanh không nén chất lượng cao cho phòng họp, thay thế hoàn toàn cáp HDMI.",
     road_chat_h: "ZCL Chat",
@@ -126,9 +126,9 @@ const i18n = {
 
     // Comparison
     comp_badge: "ĐỐI CHIẾU THỰC TẾ",
-    comp_title: "Vì sao chọn Hệ sinh thái ZCL?",
+    comp_title: "Vì sao chọn ZCL?",
     comp_th_feature: "Tiêu chí",
-    comp_th_zcl: "Hệ sinh thái ZCL",
+    comp_th_zcl: "Ứng dụng ZCL",
     comp_th_cloud: "Phần mềm Cloud thông thường",
 
     c_speed: "Tốc độ truyền dữ liệu",
@@ -187,7 +187,7 @@ const i18n = {
     faq_a3: "Ở các phần mềm truyền thống (như TeamViewer/UltraViewer), khi bạn di chuột, tọa độ phải gửi lên server rồi chờ hình ảnh màn hình phản hồi về mới thấy chuột di chuyển (trễ 150ms - 300ms gây chóng mặt). ZCL Remote vẽ con trỏ chuột cục bộ tức thì với độ trễ 0ms dựa trên phản hồi phần cứng máy bạn, tạo cảm giác mượt như ngồi trước máy thật.",
 
     faq_q4: "Dữ liệu của tôi có bị gửi lên bất kỳ máy chủ bên ngoài nào không?",
-    faq_a4: "Không một byte dữ liệu nào rời khỏi mạng của bạn. Hệ sinh thái ZCL không có relay server, không có máy chủ telemetry thu thập thói quen sử dụng, và toàn bộ mã nguồn đều công khai theo giấy phép GPL-3.0 để cộng đồng kiểm tra.",
+    faq_a4: "Không một byte dữ liệu nào rời khỏi mạng của bạn. Các ứng dụng ZCL không có relay server, không có máy chủ telemetry thu thập thói quen sử dụng, và toàn bộ mã nguồn đều công khai theo giấy phép GPL-3.0 để cộng đồng kiểm tra.",
 
     faq_q5: "Tường lửa (Windows Firewall) có chặn ZCL không?",
     faq_a5: "Trong lần đầu tiên mở ứng dụng, Windows Defender Firewall sẽ hiển thị hộp thoại hỏi quyền truy cập mạng. Bạn chỉ cần tick chọn 'Private networks' (Mạng riêng tư) là ứng dụng có thể truyền nhận mượt mà trong phòng.",
@@ -197,7 +197,7 @@ const i18n = {
     pwa_desc: "Trang web hỗ trợ chuẩn PWA (Progressive Web App). Cài đặt ngay lên màn hình chính máy tính hoặc điện thoại để dùng offline.",
     pwa_install_btn: "📲 Cài đặt ZCL Hub (PWA)",
 
-    footer_desc: "Hệ sinh thái ứng dụng mạng nội bộ P2P tối ưu tốc độ, bảo mật và quyền làm chủ dữ liệu số của bạn.",
+    footer_desc: "Bộ ứng dụng mạng nội bộ P2P tối ưu tốc độ, bảo mật và quyền làm chủ dữ liệu số của bạn.",
     footer_apps: "Sản phẩm",
     footer_res: "Tài nguyên",
     footer_author: "Tác giả",
@@ -206,7 +206,7 @@ const i18n = {
 
   en: {
     // Navigation
-    brand_sub: "LAN Ecosystem",
+    brand_sub: "LAN Apps",
     nav_pillars: "Architecture",
     nav_ecosystem: "Products",
     nav_studio: "Web Studio",
@@ -218,7 +218,7 @@ const i18n = {
     btn_github: "⭐ GitHub @Luffyreals",
 
     // Hero
-    hero_eyebrow: "NEXT-GEN LOCAL PEER-TO-PEER ECOSYSTEM · OPEN SOURCE",
+    hero_eyebrow: "NEXT-GEN LOCAL PEER-TO-PEER SUITE · OPEN SOURCE",
     hero_title: "Master your local network without the cloud.<br><span class=\"highlight-mint\">Hardware Speed.</span> <span class=\"highlight-lilac\">0ms Latency.</span>",
     hero_lede: "Unleash productivity across computers in your room: transfer multi-gigabyte files instantly and control desktops at 60 FPS with zero mouse lag. Operates 100% offline without Internet.",
     copy_text: "Copy",
@@ -259,7 +259,7 @@ const i18n = {
 
     // Core Apps Bento
     bento_badge: "COMPREHENSIVE SUITE",
-    bento_title: "Applications in the Ecosystem",
+    bento_title: "ZCL Applications",
     bento_sub: "Everything you need for lightning-fast workflows across nearby devices.",
 
     tp_title: "ZCL Teleport",
@@ -284,7 +284,7 @@ const i18n = {
     proto_title: "ZCL Engine & P2P Protocol",
     proto_desc: "Underlying architecture featuring mDNS auto-discovery (_zcl._tcp), TLS 1.3 mutual self-signed handshakes, and zero-RAM memory streaming.",
 
-    road_title: "Ecosystem Expansion Roadmap",
+    road_title: "Product Expansion Roadmap",
     road_cast_h: "ZCL Cast",
     road_cast_p: "Lossless uncompressed screen & audio casting for conference rooms, completely replacing HDMI cables.",
     road_chat_h: "ZCL Chat",
@@ -322,9 +322,9 @@ const i18n = {
 
     // Comparison
     comp_badge: "REAL-WORLD BENCHMARKS",
-    comp_title: "Why Choose the ZCL Ecosystem?",
+    comp_title: "Why Choose ZCL?",
     comp_th_feature: "Features & Metrics",
-    comp_th_zcl: "ZCL Ecosystem",
+    comp_th_zcl: "ZCL Suite",
     comp_th_cloud: "Traditional Cloud Apps",
 
     c_speed: "Data Transfer Speed",
@@ -393,7 +393,7 @@ const i18n = {
     pwa_desc: "This site is a Progressive Web App (PWA). Add it to your desktop or mobile home screen to access the web clients offline.",
     pwa_install_btn: "📲 Install ZCL Hub (PWA)",
 
-    footer_desc: "High-speed peer-to-peer local network ecosystem prioritizing performance, security, and digital sovereignty.",
+    footer_desc: "High-speed peer-to-peer local network suite prioritizing performance, security, and digital sovereignty.",
     footer_apps: "Products",
     footer_res: "Resources",
     footer_author: "Author",

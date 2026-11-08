@@ -1,17 +1,17 @@
-# ZCL Hub — Zero-Cloud LAN Ecosystem
+# ZCL Hub — Zero-Cloud LAN
 
 <div align="center">
 
 ![ZCL Hub Logo](assets/logo.svg)
 
-### Cổng thông tin & Web Studio cho Hệ sinh thái Zero-Cloud LAN
+### Cổng thông tin & Web Studio cho Bộ ứng dụng Zero-Cloud LAN
 **Làm chủ mạng LAN · Không Cloud · Không Độ Trễ · Bảo Mật Tuyệt Đối**
 
 [![Mã nguồn mở GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](LICENSE)
 [![Zero-Dependency](https://img.shields.io/badge/dependencies-zero-brightgreen.svg)]()
 [![PWA Ready](https://img.shields.io/badge/PWA-ready-purple.svg)]()
 
-[🌐 Mở Trang Web](https://luffyreals.github.io/zcl-hub/) · [⚡ ZCL Web Studio](#-tính-năng-nổi-bật) · [📦 Các ứng dụng lõi](#-các-ứng-dụng-trong-hệ-sinh-thái)
+[🌐 Mở Trang Web](https://luffyreals.github.io/zcl-hub/) · [⚡ ZCL Web Studio](#-tính-năng-nổi-bật) · [📦 Các ứng dụng lõi](#-các-ứng-dụng-zcl)
 
 </div>
 
@@ -19,7 +19,7 @@
 
 ## 💡 Giới thiệu
 
-**ZCL (Zero-Cloud LAN)** là hệ sinh thái các ứng dụng truyền thông và điều khiển ngang hàng (Peer-to-Peer) hoạt động thuần túy trong mạng nội bộ (Wi-Fi / LAN), giải phóng người dùng khỏi sự phụ thuộc vào các dịch vụ đám mây trung gian:
+**ZCL (Zero-Cloud LAN)** là bộ ứng dụng truyền thông và điều khiển ngang hàng (Peer-to-Peer) hoạt động thuần túy trong mạng nội bộ (Wi-Fi / LAN), giải phóng người dùng khỏi sự phụ thuộc vào các dịch vụ đám mây trung gian:
 
 * **Không qua máy chủ relay đám mây**: Dữ liệu đi thẳng giữa các máy trong phòng ở tốc độ tối đa của card mạng (100MB/s – 1GB/s).
 * **Độ trễ tiệm cận 0**: Điều khiển máy tính từ xa với cảm giác chuột tức thì (0ms perceived lag).
@@ -28,7 +28,7 @@
 
 ---
 
-## 🌟 Các ứng dụng trong Hệ sinh thái
+## 🌟 Các ứng dụng ZCL
 
 | Ứng dụng | Mục đích | Tốc độ / Độ trễ | Trạng thái | Mã nguồn |
 | :--- | :--- | :--- | :--- | :--- |
