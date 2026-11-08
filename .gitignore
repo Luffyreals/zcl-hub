@@ -1,0 +1,22 @@
+# Gemini & Antigravity Agent Configurations
+gemini.md
+GEMINI.md
+.gemini/
+.agents/
+subagents/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor & IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs & Temporary Files
+*.log
+tmp/
+temp/
