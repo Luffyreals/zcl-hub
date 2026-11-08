@@ -26,232 +26,587 @@
     <div class="glow-3"></div>
   </div>
 
-  <!-- Header -->
-  <header class="site-header">
+  <!-- Header (Unified Modern Nav Bar with Integrated Tabs & Theme Switcher) -->
+  <header class="site-header" id="siteHeader">
     <div class="container nav-wrap">
-      <a href="#overview" class="brand" data-tab="tab-overview">
-        <img src="assets/logo.svg" alt="ZCL Logo" class="brand-logo">
-        <span>ZCL Hub</span>
-      </a>
+      <!-- Left: Brand -->
+      <div class="nav-brand-wrap">
+        <a href="#overview" class="brand" data-tab="tab-overview" aria-label="ZCL Hub - Trang chủ">
+          <img src="assets/logo.svg" alt="ZCL Logo" class="brand-logo">
+          <span class="brand-name">ZCL Hub</span>
+        </a>
+      </div>
 
-      <!-- Desktop Navigation Tabs -->
-      <nav aria-label="Điều hướng chính">
-        <ul class="nav-links">
-          <li><a href="#overview" class="active" data-tab="tab-overview" data-i18n="nav_overview">Tổng quan</a></li>
-          <li><a href="#apps" data-tab="tab-apps" data-i18n="nav_apps">Ứng dụng</a></li>
-          <li><a href="#download" data-tab="tab-download" data-i18n="nav_download">Tải về</a></li>
-          <li><a href="#studio" data-tab="tab-studio" data-i18n="nav_studio">Dùng thử trên Web</a></li>
-          <li><a href="#faq" data-tab="tab-faq" data-i18n="nav_faq">Hướng dẫn &amp; Hỏi đáp</a></li>
-        </ul>
+      <!-- Center: Segmented Navigation Tabs -->
+      <nav class="nav-tabs-wrapper" aria-label="Danh mục chức năng">
+        <div class="main-tabs-bar" role="tablist">
+          <button class="main-tab-pill active" data-tab="tab-overview" role="tab" aria-selected="true" type="button">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span data-i18n="nav_overview">Tổng quan</span>
+          </button>
+          <button class="main-tab-pill" data-tab="tab-apps" role="tab" aria-selected="false" type="button">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <span data-i18n="nav_apps">Ứng dụng</span>
+          </button>
+          <button class="main-tab-pill" data-tab="tab-download" role="tab" aria-selected="false" type="button">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span data-i18n="nav_download">Tải về</span>
+          </button>
+          <button class="main-tab-pill" data-tab="tab-studio" role="tab" aria-selected="false" type="button">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span data-i18n="nav_studio">Dùng thử trên Web</span>
+          </button>
+          <button class="main-tab-pill" data-tab="tab-faq" role="tab" aria-selected="false" type="button">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <span data-i18n="nav_faq">Hướng dẫn &amp; Hỏi đáp</span>
+          </button>
+        </div>
       </nav>
 
-      <!-- Nav Actions -->
+      <!-- Right: Action Controls (Theme Mode + Language) -->
       <div class="nav-actions">
+        <!-- Dark / Light Theme Toggle -->
+        <button class="theme-toggle-btn" id="themeToggleBtn" type="button" aria-label="Chuyển chế độ sáng / tối" title="Chuyển chế độ giao diện" data-i18n-title="theme_toggle">
+          <svg class="theme-icon theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
         <!-- Language Switcher -->
         <div class="lang-toggle" role="group" aria-label="Language selection">
           <button class="lang-btn active" data-lang="vi" type="button">VI</button>
           <button class="lang-btn" data-lang="en" type="button">EN</button>
         </div>
-
-        <a href="#download" class="btn btn-primary btn-sm" data-tab="tab-download" data-i18n="btn_download_desktop">
-          Tải về (.exe)
-        </a>
-
-        <a href="#studio" class="btn btn-secondary btn-sm" data-tab="tab-studio" data-i18n="btn_launch_web">
-          Dùng thử
-        </a>
-
-        <button class="mobile-toggle" type="button" aria-label="Mở menu điều hướng">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-        </button>
       </div>
     </div>
   </header>
-
-  <!-- Sticky Tab Bar (Sleek Segmented Tabs) -->
-  <nav class="main-tabs-bar-wrap" aria-label="Danh mục ứng dụng">
-    <div class="container">
-      <div class="main-tabs-bar" role="tablist">
-        <button class="main-tab-pill active" data-tab="tab-overview" role="tab" aria-selected="true" type="button">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          <span data-i18n="nav_overview">Tổng quan</span>
-        </button>
-        <button class="main-tab-pill" data-tab="tab-apps" role="tab" aria-selected="false" type="button">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          <span data-i18n="nav_apps">Ứng dụng</span>
-        </button>
-        <button class="main-tab-pill" data-tab="tab-download" role="tab" aria-selected="false" type="button">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          <span data-i18n="nav_download">Tải về</span>
-        </button>
-        <button class="main-tab-pill" data-tab="tab-studio" role="tab" aria-selected="false" type="button">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          <span data-i18n="nav_studio">Dùng thử trên Web</span>
-        </button>
-        <button class="main-tab-pill" data-tab="tab-faq" role="tab" aria-selected="false" type="button">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          <span data-i18n="nav_faq">Hướng dẫn &amp; Hỏi đáp</span>
-        </button>
-      </div>
-    </div>
-  </nav>
 
   <!-- Main View Container -->
   <main id="mainContent">
 
     <!-- ============================================== -->
-    <!-- TAB 1: TỔNG QUAN (OVERVIEW)                     -->
+    <!-- TAB 1: TỔNG QUAN (LANDING PAGE KHO ỨNG DỤNG)    -->
     <!-- ============================================== -->
     <div class="tab-view active" id="tab-overview" role="tabpanel">
       <!-- Hero Section -->
       <section class="hero">
         <div class="container">
-          <div class="eyebrow-pill">
-            <span class="pulse-dot"></span>
-            <span data-i18n="hero_eyebrow">MIỄN PHÍ · MÃ NGUỒN MỞ · AN TOÀN TUYỆT ĐỐI</span>
-          </div>
-
-          <h1 data-i18n="hero_title">
-            Nhanh hơn. Mượt mà hơn.<br>
-            <span class="highlight-mint">Hoàn toàn riêng tư</span> giữa các máy tính.
+          <h1 class="hero-brand-title" data-i18n="hero_title">
+            <span class="title-gradient">Zero-Cloud LAN Hub</span>
           </h1>
 
           <p class="hero-lede" data-i18n="hero_lede">
-            Gửi nhận file dung lượng lớn và điều khiển máy tính tức thì qua mạng Wi-Fi chung trong phòng. Không cần Internet, không cần tạo tài khoản.
+            Truyền file siêu tốc &amp; Điều khiển máy tính tức thì qua Wi-Fi chung. Không cần Internet, không cần tạo tài khoản.
           </p>
 
           <div class="hero-cta">
-            <a href="#download" class="btn btn-primary" data-tab="tab-download" data-i18n="btn_download_desktop">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              <span>Tải về cho Windows (.exe)</span>
+            <a href="#apps" class="btn btn-primary" data-tab="tab-apps" data-i18n="hero_btn_apps">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              <span>Khám phá Kho ứng dụng</span>
             </a>
-            <a href="#studio" class="btn btn-secondary" data-tab="tab-studio" data-i18n="btn_launch_web">
-              <span>Dùng thử ngay trên Web</span> &rarr;
+            <a href="#studio" class="btn btn-secondary" data-tab="tab-studio" data-i18n="hero_btn_studio">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <span>Dùng thử ngay trên Web</span>
             </a>
           </div>
 
-          <!-- Quick Feature Visuals (4 Cột trụ dễ hiểu) -->
-          <div class="pillars-grid" style="margin-top: 56px;">
-            <div class="pillar-card">
-              <div class="pillar-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <!-- ZCL Cockpit Console Frame (Trạm Điều Khiển Mạng Nội Bộ) -->
+          <div class="zcl-console-frame" id="zclConsoleFrame">
+            <!-- Console Top Bar -->
+            <div class="console-top-bar">
+              <div class="console-window-dots">
+                <span class="dot-red"></span>
+                <span class="dot-yellow"></span>
+                <span class="dot-green"></span>
+                <span class="console-title-tag">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                  <span data-i18n="console_tag">TRẠM ĐIỀU KHIỂN MẠNG NỘI BỘ (ZCL STATION)</span>
+                </span>
               </div>
-              <h3 data-i18n="pil1_title">Gửi file siêu tốc</h3>
-              <p data-i18n="pil1_desc">Chuyển file dung lượng hàng chục GB trong vài giây giữa hai máy tính cùng phòng mà không lo bị nghẽn mạng.</p>
+              <div class="console-live-status">
+                <span class="pulse-dot"></span>
+                <span id="consoleEnvBadge" data-i18n="console_status">2 máy tính sẵn sàng · 100% Nội bộ</span>
+              </div>
             </div>
 
-            <div class="pillar-card">
-              <div class="pillar-icon" style="background: var(--lilac-dark); color: var(--lilac);">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 3 7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="m13 13 6 6"/></svg>
+            <!-- Console Assistant Dialog Box -->
+            <div class="console-assistant-box">
+              <div class="assistant-avatar">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8.01" y2="16"/><line x1="16" y1="16" x2="16.01" y2="16"/></svg>
               </div>
-              <h3 data-i18n="pil2_title">Chuột bấm ăn ngay</h3>
-              <p data-i18n="pil2_desc">Điều khiển máy tính từ xa mượt mà như đang ngồi trực tiếp trước màn hình thật, không có độ trễ giật lắc.</p>
+              <div class="assistant-content">
+                <div class="assistant-name" data-i18n="assistant_name">Trợ lý kết nối ZCL Hub</div>
+                <p class="assistant-speech" id="assistantSpeech" data-i18n="assistant_text">
+                  Phát hiện 2 máy tính kết nối chung mạng Wi-Fi phòng bạn. Bạn muốn chuyển file lớn hay điều khiển máy tính từ xa?
+                </p>
+              </div>
+              <div class="assistant-actions">
+                <a href="#studio" class="btn-console-pill mint" data-tab="tab-studio" data-studio-tab="teleport">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L21 16M17 20L13 16"/></svg>
+                  <span data-i18n="btn_assist_tp">Thử gửi file</span>
+                </a>
+                <a href="#studio" class="btn-console-pill lilac" data-tab="tab-studio" data-studio-tab="remote">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 3 7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="m13 13 6 6"/></svg>
+                  <span data-i18n="btn_assist_rm">Thử điều khiển</span>
+                </a>
+              </div>
             </div>
 
-            <div class="pillar-card">
-              <div class="pillar-icon" style="background: var(--mint-dark); color: var(--mint);">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            <!-- Graphic Stage -->
+            <div class="visual-stage" id="consoleVisualStage">
+              <!-- Device Left (Laptop A - Teleport) -->
+              <div class="stage-device device-left">
+                <div class="device-icon-wrap">
+                  <svg class="device-svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <rect x="3" y="4" width="18" height="12" rx="2"/>
+                    <line x1="2" y1="20" x2="22" y2="20"/>
+                  </svg>
+                  <div class="screen-glow"></div>
+                </div>
+                <div class="device-info">
+                  <span class="device-name" id="stageDevAName" data-i18n="visual_dev_a">Máy tính A</span>
+                  <span class="device-role" id="stageDevARole" data-i18n="visual_dev_a_role">Laptop gửi file</span>
+                </div>
+                <div class="device-chip chip-teleport">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L21 16M17 20L13 16"/></svg>
+                  <span id="stageDevAChip" data-i18n="visual_dev_a_chip">Gửi 4.2 GB trong 5s</span>
+                </div>
               </div>
-              <h3 data-i18n="pil3_title">Không cần Internet</h3>
-              <p data-i18n="pil3_desc">Kể cả khi bị mất mạng ngoài hay đứt cáp, các máy tính kết nối chung một cục Wi-Fi vẫn làm việc bình thường.</p>
+
+              <!-- Center Animated Connection Line & Pulse Beam -->
+              <div class="stage-center-beam">
+                <div class="beam-line">
+                  <div class="beam-pulse beam-pulse-right"></div>
+                  <div class="beam-pulse beam-pulse-left"></div>
+                </div>
+                <div class="center-hub-node">
+                  <div class="radar-circle circle-1"></div>
+                  <div class="radar-circle circle-2"></div>
+                  <div class="hub-icon-inner">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+                      <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+                      <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+                      <line x1="12" y1="20" x2="12.01" y2="20"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="beam-metric-badge">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                  <span id="stageSpeedBadge">100MB/s – 1GB/s</span>
+                </div>
+              </div>
+
+              <!-- Device Right (PC B - Remote) -->
+              <div class="stage-device device-right">
+                <div class="device-icon-wrap">
+                  <svg class="device-svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <rect x="2" y="3" width="20" height="14" rx="2"/>
+                    <line x1="8" y1="21" x2="16" y2="21"/>
+                    <line x1="12" y1="17" x2="12" y2="21"/>
+                  </svg>
+                  <div class="screen-glow lilac"></div>
+                </div>
+                <div class="device-info">
+                  <span class="device-name" id="stageDevBName" data-i18n="visual_dev_b">Máy tính B</span>
+                  <span class="device-role" id="stageDevBRole" data-i18n="visual_dev_b_role">Màn hình điều khiển</span>
+                </div>
+                <div class="device-chip chip-remote">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 3 7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="m13 13 6 6"/></svg>
+                  <span id="stageDevBChip" data-i18n="visual_dev_b_chip">Chuột ăn ngay · 0ms</span>
+                </div>
+              </div>
             </div>
 
-            <div class="pillar-card">
-              <div class="pillar-icon" style="background: var(--pink-dark); color: var(--pink);">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <!-- Graphic Quick Features Footer -->
+            <div class="visual-card-footer">
+              <div class="visual-feature-pill">
+                <span class="feat-dot mint"></span>
+                <span id="stageFeat1" data-i18n="visual_feat_1">Tốc độ: 100MB/s – 1GB/s qua Wi-Fi</span>
               </div>
-              <h3 data-i18n="pil4_title">Bảo mật riêng tư</h3>
-              <p data-i18n="pil4_desc">Dữ liệu truyền thẳng trực tiếp giữa hai máy tính của bạn, không gửi qua bất kỳ máy chủ bên ngoài nào.</p>
+              <div class="visual-feature-pill">
+                <span class="feat-dot lilac"></span>
+                <span id="stageFeat2" data-i18n="visual_feat_2">Điều khiển: Chuột 0ms mượt mà</span>
+              </div>
+              <div class="visual-feature-pill">
+                <span class="feat-dot pink"></span>
+                <span id="stageFeat3" data-i18n="visual_feat_3">Riêng tư: 100% trong phòng, 0 máy chủ ngoài</span>
+              </div>
+            </div>
+
+            <!-- Environment Switcher Bar (Bottom Bar) -->
+            <div class="console-env-bar">
+              <span class="env-bar-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                <span data-i18n="env_label">Chọn bối cảnh sử dụng:</span>
+              </span>
+              <div class="env-buttons-group" role="tablist">
+                <button class="env-btn active" data-env="home" type="button">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                  <span data-i18n="env_home">Phòng làm việc gia đình</span>
+                </button>
+                <button class="env-btn" data-env="office" type="button">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="9" y1="22" x2="9" y2="22.01"/><line x1="15" y1="22" x2="15.01" y2="22"/><line x1="9" y1="6" x2="9" y2="6.01"/><line x1="15" y1="6" x2="15.01" y2="6"/><line x1="9" y1="10" x2="9" y2="10.01"/><line x1="15" y1="10" x2="15.01" y2="10"/><line x1="9" y1="14" x2="9" y2="14.01"/><line x1="15" y1="14" x2="15.01" y2="14"/><line x1="9" y1="18" x2="9" y2="18.01"/><line x1="15" y1="18" x2="15.01" y2="18"/></svg>
+                  <span data-i18n="env_office">Văn phòng công ty</span>
+                </button>
+                <button class="env-btn" data-env="cafe" type="button">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                  <span data-i18n="env_cafe">Quán Cafe</span>
+                </button>
+                <button class="env-btn" data-env="offline" type="button">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="1" y1="2" x2="23" y2="24"/></svg>
+                  <span data-i18n="env_offline">Khi mất Internet</span>
+                </button>
+              </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <!-- Quick Navigation Hub -->
-          <div class="overview-hub-grid">
-            <a href="#apps" class="overview-hub-card card-tp" data-tab="tab-apps">
-              <div>
-                <div class="overview-hub-card-header">
-                  <div class="app-icon teleport-icon" style="width: 38px; height: 38px;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L21 16M17 20L13 16"/></svg>
-                  </div>
-                  <h4>ZCL Teleport</h4>
-                </div>
-                <p data-i18n="hub_card_tp_sub">Truyền file siêu nhanh và copy paste chữ, ảnh tức thì giữa các máy.</p>
-              </div>
-              <div class="card-link-text">
-                <span data-i18n="hub_card_view_action">Xem chi tiết</span> &rarr;
-              </div>
-            </a>
+      <!-- ============================================== -->
+      <!-- SECTION 2: DẢI THẺ VÒM CUNG (ARCH CARDS SHOWCASE) -->
+      <!-- ============================================== -->
+      <section class="section arch-showcase-section">
+        <div class="container">
+          <div class="section-head">
+            <span class="section-badge" data-i18n="arch_badge">BỘ ỨNG DỤNG MẠNG NỘI BỘ</span>
+            <h2 data-i18n="arch_title">Khám phá các sản phẩm ZCL</h2>
+            <p data-i18n="arch_sub">Được thiết kế cho nhu cầu làm việc hàng ngày trong phòng: truyền file siêu tốc, điều khiển máy tính và kết nối tức thì.</p>
+          </div>
 
-            <a href="#apps" class="overview-hub-card card-rm" data-tab="tab-apps">
-              <div>
-                <div class="overview-hub-card-header">
-                  <div class="app-icon remote-icon" style="width: 38px; height: 38px;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                  </div>
-                  <h4>ZCL Remote</h4>
-                </div>
-                <p data-i18n="hub_card_rm_sub">Điều khiển màn hình máy tính từ xa mượt mà, chuột không độ trễ.</p>
-              </div>
-              <div class="card-link-text" style="color: var(--lilac);">
-                <span data-i18n="hub_card_view_action">Xem chi tiết</span> &rarr;
-              </div>
-            </a>
+          <!-- Arch Track Container with Glowing Cable -->
+          <div class="arch-cards-track">
+            <!-- Animated SVG LAN Cable running behind cards -->
+            <svg class="arch-cable-svg" viewBox="0 0 1200 60" preserveAspectRatio="none" fill="none">
+              <path d="M 0 30 Q 300 5, 600 30 T 1200 30" stroke="var(--border-bright)" stroke-width="2" stroke-dasharray="6 6"/>
+              <path class="cable-pulse-path" d="M 0 30 Q 300 5, 600 30 T 1200 30" stroke="var(--mint)" stroke-width="2"/>
+            </svg>
 
-            <a href="#studio" class="overview-hub-card card-studio" data-tab="tab-studio">
-              <div>
-                <div class="overview-hub-card-header">
-                  <div class="app-icon" style="width: 38px; height: 38px; background: var(--blue-dark); color: var(--blue); border: 1px solid var(--blue);">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                  </div>
-                  <h4>Dùng thử trên Web</h4>
+            <div class="arch-cards-grid">
+              <!-- Card 01: Teleport -->
+              <div class="arch-card arch-card-teleport" data-app="teleport">
+                <div class="arch-card-pill">
+                  <span class="arch-num">01</span>
+                  <span class="arch-zone" data-i18n="arch_z1">VÙNG 01 · GỬI FILE</span>
                 </div>
-                <p data-i18n="hub_card_studio_sub">Trải nghiệm gửi file và thử di chuột điều khiển ngay trên trình duyệt.</p>
+                <!-- Floating Icon Badge -->
+                <div class="arch-floating-badge mint">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L21 16M17 20L13 16"/></svg>
+                </div>
+                <!-- Arch Preview Window -->
+                <div class="arch-window">
+                  <div class="arch-preview-content">
+                    <div class="arch-file-anim">
+                      <div class="arch-file-name">Phim_4K_BanGoc.mov</div>
+                      <div class="arch-bar-wrap"><div class="arch-bar-fill"></div></div>
+                      <div class="arch-speed-chip mint">960 MB/s (Wi-Fi 6)</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="arch-card-body">
+                  <h3>ZCL Teleport</h3>
+                  <p data-i18n="arch_desc_tp">Gửi nhận file dung lượng không giới hạn và copy-paste tức thì giữa hai máy tính cùng phòng.</p>
+                  <a href="#apps/teleport" class="arch-explore-btn mint" data-tab="tab-apps" data-app-target="teleport">
+                    <span data-i18n="arch_explore">Khám phá</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                </div>
               </div>
-              <div class="card-link-text" style="color: var(--blue);">
-                <span>Mở dùng thử</span> &rarr;
-              </div>
-            </a>
 
-            <a href="#download" class="overview-hub-card card-specs" data-tab="tab-download">
-              <div>
-                <div class="overview-hub-card-header">
-                  <div class="app-icon" style="width: 38px; height: 38px; background: var(--pink-dark); color: var(--pink); border: 1px solid var(--pink);">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                  </div>
-                  <h4>Tải về ứng dụng</h4>
+              <!-- Card 02: Remote -->
+              <div class="arch-card arch-card-remote" data-app="remote">
+                <div class="arch-card-pill">
+                  <span class="arch-num">02</span>
+                  <span class="arch-zone" data-i18n="arch_z2">VÙNG 02 · ĐIỀU KHIỂN</span>
                 </div>
-                <p data-i18n="dl_sub">Tải miễn phí cho Windows 10 và 11. Bấm tải là dùng được ngay.</p>
+                <div class="arch-floating-badge lilac">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 3 7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="m13 13 6 6"/></svg>
+                </div>
+                <div class="arch-window">
+                  <div class="arch-preview-content">
+                    <div class="arch-remote-anim">
+                      <div class="arch-remote-hud"><span class="pulse-dot"></span> 60 FPS</div>
+                      <div class="arch-cursor-tracer">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 3 7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/></svg>
+                        <span class="arch-latency-tag">0.2ms</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="arch-card-body">
+                  <h3>ZCL Remote</h3>
+                  <p data-i18n="arch_desc_rm">Điều khiển máy tính từ xa mượt mà như ngồi trước máy thật, chuột bấm ăn ngay không giật lag.</p>
+                  <a href="#apps/remote" class="arch-explore-btn lilac" data-tab="tab-apps" data-app-target="remote">
+                    <span data-i18n="arch_explore">Khám phá</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                </div>
               </div>
-              <div class="card-link-text" style="color: var(--pink);">
-                <span>Tải miễn phí</span> &rarr;
+
+              <!-- Card 03: Cast -->
+              <div class="arch-card arch-card-cast" data-app="cast">
+                <div class="arch-card-pill">
+                  <span class="arch-num">03</span>
+                  <span class="arch-zone" data-i18n="arch_z3">VÙNG 03 · CHIẾU MÀN HÌNH</span>
+                </div>
+                <div class="arch-floating-badge blue">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
+                </div>
+                <div class="arch-window">
+                  <div class="arch-preview-content">
+                    <div class="arch-cast-anim">
+                      <div class="arch-tv-screen">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg>
+                        <div class="cast-waves"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="arch-card-body">
+                  <h3>ZCL Cast</h3>
+                  <p data-i18n="arch_desc_cast">Chiếu màn hình và âm thanh không dây từ máy tính lên TV hoặc máy chiếu phòng họp.</p>
+                  <div class="arch-badge-pill blue" data-i18n="road_dev">Đang phát triển</div>
+                </div>
               </div>
-            </a>
+
+              <!-- Card 04: Chat -->
+              <div class="arch-card arch-card-chat" data-app="chat">
+                <div class="arch-card-pill">
+                  <span class="arch-num">04</span>
+                  <span class="arch-zone" data-i18n="arch_z4">VÙNG 04 · NHẮN TIN</span>
+                </div>
+                <div class="arch-floating-badge pink">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div class="arch-window">
+                  <div class="arch-preview-content">
+                    <div class="arch-chat-anim">
+                      <div class="arch-bubble left">File đã gửi xong!</div>
+                      <div class="arch-bubble right">Nhận được rồi, cực nhanh!</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="arch-card-body">
+                  <h3>ZCL Chat</h3>
+                  <p data-i18n="arch_desc_chat">Nhắn tin và gọi thoại nhanh giữa các máy cùng phòng, bảo mật riêng tư tuyệt đối.</p>
+                  <div class="arch-badge-pill planned" data-i18n="road_plan">Lên ý tưởng</div>
+                </div>
+              </div>
+
+              <!-- Card 05: Sync -->
+              <div class="arch-card arch-card-sync" data-app="sync">
+                <div class="arch-card-pill">
+                  <span class="arch-num">05</span>
+                  <span class="arch-zone" data-i18n="arch_z5">VÙNG 05 · ĐỒNG BỘ</span>
+                </div>
+                <div class="arch-floating-badge amber">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg>
+                </div>
+                <div class="arch-window">
+                  <div class="arch-preview-content">
+                    <div class="arch-sync-anim">
+                      <div class="arch-sync-folder">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                      </div>
+                      <div class="arch-sync-arrows">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><polyline points="3 3 3 8 8 8"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><polyline points="16 16 21 16 21 21"/></svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="arch-card-body">
+                  <h3>ZCL Sync</h3>
+                  <p data-i18n="arch_desc_sync">Tự động sao lưu và đồng bộ hai chiều thư mục làm việc giữa máy bàn và laptop.</p>
+                  <div class="arch-badge-pill planned" data-i18n="road_plan">Lên ý tưởng</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- SECTION 3: VÒNG XOAY THIẾT BỊ NỘI BỘ (LAN ORBIT)-->
+      <!-- ============================================== -->
+      <section class="section orbit-showcase-section">
+        <div class="container">
+          <div class="section-head">
+            <span class="section-badge" data-i18n="orbit_badge">KẾT NỐI KHÔNG DÂY NỘI BỘ</span>
+            <h2 data-i18n="orbit_title">Quỹ đạo liên kết đa thiết bị</h2>
+            <p data-i18n="orbit_sub">Chọn bất kỳ thiết bị nào trên vòng tròn để xem đường truyền kết nối trực tiếp trong phòng.</p>
+          </div>
+
+          <div class="orbit-container">
+            <!-- Left: Live Connection Data Card -->
+            <div class="orbit-info-card">
+              <div class="orbit-info-header">
+                <div class="orbit-pair-badge" id="orbitPairBadge">
+                  <span class="device-tag-a" id="orbitTagA">Laptop A</span>
+                  <span class="pair-arrow">&harr;</span>
+                  <span class="device-tag-b" id="orbitTagB">Máy tính bàn B</span>
+                </div>
+                <span class="orbit-live-pill">
+                  <span class="pulse-dot"></span>
+                  <span data-i18n="orbit_live">Trực tiếp · Không qua Cloud</span>
+                </span>
+              </div>
+
+              <div class="orbit-stats-list">
+                <div class="orbit-stat-item">
+                  <div class="stat-icon mint">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                  </div>
+                  <div class="stat-meta">
+                    <span class="stat-label" data-i18n="orbit_stat_speed">Tốc độ đo được</span>
+                    <span class="stat-value" id="orbitStatSpeed">960 MB/s (Wi-Fi 6)</span>
+                  </div>
+                </div>
+
+                <div class="orbit-stat-item">
+                  <div class="stat-icon lilac">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  </div>
+                  <div class="stat-meta">
+                    <span class="stat-label" data-i18n="orbit_stat_latency">Độ trễ phản hồi</span>
+                    <span class="stat-value" id="orbitStatLatency">0.2ms (Chuột ăn ngay)</span>
+                  </div>
+                </div>
+
+                <div class="orbit-stat-item">
+                  <div class="stat-icon pink">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  </div>
+                  <div class="stat-meta">
+                    <span class="stat-label" data-i18n="orbit_stat_security">Bảo mật dữ liệu</span>
+                    <span class="stat-value" id="orbitStatSec">100% Trong phòng, 0 máy chủ ngoài</span>
+                  </div>
+                </div>
+
+                <div class="orbit-stat-item">
+                  <div class="stat-icon blue">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                  </div>
+                  <div class="stat-meta">
+                    <span class="stat-label" data-i18n="orbit_stat_route">Tuyến đường truyền</span>
+                    <span class="stat-value" id="orbitStatRoute">Sóng Wi-Fi phòng &rarr; Truyền thẳng</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="orbit-actions">
+                <a href="#apps/teleport" class="btn btn-primary btn-sm" data-tab="tab-apps" data-app-target="teleport" data-i18n="hero_btn_apps">
+                  Xem ứng dụng Teleport
+                </a>
+                <a href="#studio" class="btn btn-secondary btn-sm" data-tab="tab-studio" data-studio-tab="teleport" data-i18n="bento_try_teleport">
+                  Dùng thử gửi file ngay
+                </a>
+              </div>
+            </div>
+
+            <!-- Right: Interactive Orbit Ring -->
+            <div class="orbit-stage-wrap">
+              <div class="orbit-stage" id="orbitStage">
+                <!-- Orbit Outer Circles -->
+                <div class="orbit-ring-line ring-outer"></div>
+                <div class="orbit-ring-line ring-inner"></div>
+
+                <!-- Center Wi-Fi Hub -->
+                <div class="orbit-center-node">
+                  <div class="center-pulse-glow"></div>
+                  <div class="center-icon">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                  </div>
+                  <span class="center-label">Wi-Fi Router</span>
+                </div>
+
+                <!-- 5 Orbit Devices positioned symmetrically -->
+                <!-- Device 1: Laptop (Top) -->
+                <button class="orbit-device-node node-1 active" data-device="laptop" type="button" aria-label="Laptop làm việc">
+                  <div class="device-node-bubble mint">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
+                  </div>
+                  <span class="node-label">Laptop</span>
+                </button>
+
+                <!-- Device 2: PC Desktop (Top Right) -->
+                <button class="orbit-device-node node-2 active" data-device="pc" type="button" aria-label="Máy tính bàn PC">
+                  <div class="device-node-bubble lilac">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  </div>
+                  <span class="node-label">Máy PC</span>
+                </button>
+
+                <!-- Device 3: Smartphone (Bottom Right) -->
+                <button class="orbit-device-node node-3" data-device="phone" type="button" aria-label="Điện thoại di động">
+                  <div class="device-node-bubble pink">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                  </div>
+                  <span class="node-label">Điện thoại</span>
+                </button>
+
+                <!-- Device 4: Tablet (Bottom Left) -->
+                <button class="orbit-device-node node-4" data-device="tablet" type="button" aria-label="Máy tính bảng">
+                  <div class="device-node-bubble amber">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                  </div>
+                  <span class="node-label">Tablet</span>
+                </button>
+
+                <!-- Device 5: Smart TV (Top Left) -->
+                <button class="orbit-device-node node-5" data-device="tv" type="button" aria-label="Smart TV phòng họp">
+                  <div class="device-node-bubble blue">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
+                  </div>
+                  <span class="node-label">Smart TV</span>
+                </button>
+
+                <!-- Dynamic SVG Connecting Beam -->
+                <svg class="orbit-beam-svg" id="orbitBeamSvg" viewBox="0 0 360 360">
+                  <line id="orbitBeamLine" x1="180" y1="42" x2="305" y2="135" stroke="var(--mint)" stroke-width="2.5" stroke-dasharray="6 4"/>
+                </svg>
+              </div>
+            </div>
           </div>
         </div>
       </section>
     </div>
 
     <!-- ============================================== -->
-    <!-- TAB 2: ỨNG DỤNG (APPS)                          -->
+    <!-- TAB 2: ỨNG DỤNG (KHO ỨNG DỤNG & TRANG RIÊNG APP)-->
     <!-- ============================================== -->
     <div class="tab-view" id="tab-apps" role="tabpanel">
-      <section class="section" id="products">
+      <!-- 2.1. TẦNG 1: DANH MỤC KHO ỨNG DỤNG (APP CATALOG) -->
+      <section class="section apps-view active-app-view" id="appsCatalogView">
         <div class="container">
           <div class="section-head">
-            <span class="section-badge" data-i18n="bento_badge">CÁC ỨNG DỤNG CHÍNH</span>
-            <h2 data-i18n="bento_title">Dễ dùng · Siêu tốc · Tiện lợi</h2>
-            <p data-i18n="bento_sub">Được thiết kế để giải quyết nhu cầu làm việc hàng ngày giữa các máy tính.</p>
+            <span class="section-badge" data-i18n="store_catalog_badge">CỬA HÀNG ỨNG DỤNG ZCL</span>
+            <h2 data-i18n="store_catalog_title">Danh mục ứng dụng mạng nội bộ</h2>
+            <p data-i18n="store_catalog_sub">Chọn một ứng dụng bên dưới để xem trang giới thiệu chi tiết, thông số và trải nghiệm.</p>
           </div>
 
           <div class="bento-grid">
-            <!-- Teleport Bento Card -->
-            <div class="bento-card col-6 card-teleport">
+            <!-- Teleport Store Card -->
+            <div class="bento-card col-6 card-teleport store-app-card">
               <div>
                 <div class="card-top">
                   <div class="app-icon teleport-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L21 16M17 20L13 16"/></svg>
                   </div>
-                  <span class="product-pill" data-i18n="tp_status">Bản thử nghiệm</span>
+                  <div class="store-badge-group">
+                    <span class="product-pill" data-i18n="tp_status">Bản thử nghiệm</span>
+                    <span class="store-version-tag">v0.1.0</span>
+                  </div>
                 </div>
 
                 <h3 data-i18n="tp_title">ZCL Teleport</h3>
@@ -273,24 +628,28 @@
                 </ul>
               </div>
 
-              <div class="card-actions">
-                <a href="#download" class="btn btn-primary btn-sm btn-open-download" data-app="teleport" data-i18n="tp_btn_dl">
-                  Tải Teleport (.exe)
-                </a>
-                <a href="#studio" class="btn btn-secondary btn-sm" data-tab="tab-studio" data-i18n="tp_btn_web">
+              <div class="card-actions store-actions">
+                <button class="btn btn-primary btn-sm" data-action="open-detail" data-app-target="teleport" type="button">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  <span data-i18n="store_btn_view_teleport">Xem trang chi tiết Teleport</span>
+                </button>
+                <a href="#studio" class="btn btn-secondary btn-sm" data-tab="tab-studio" data-studio-tab="teleport" data-i18n="tp_btn_web">
                   Dùng thử trên Web
                 </a>
               </div>
             </div>
 
-            <!-- Remote Bento Card -->
-            <div class="bento-card col-6 card-remote">
+            <!-- Remote Store Card -->
+            <div class="bento-card col-6 card-remote store-app-card">
               <div>
                 <div class="card-top">
                   <div class="app-icon remote-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                   </div>
-                  <span class="product-pill" data-i18n="rm_status">Bản thử nghiệm</span>
+                  <div class="store-badge-group">
+                    <span class="product-pill" data-i18n="rm_status">Bản thử nghiệm</span>
+                    <span class="store-version-tag lilac">v0.1.0</span>
+                  </div>
                 </div>
 
                 <h3 data-i18n="rm_title">ZCL Remote</h3>
@@ -312,11 +671,12 @@
                 </ul>
               </div>
 
-              <div class="card-actions">
-                <a href="#download" class="btn btn-lilac btn-sm btn-open-download" data-app="remote" data-i18n="rm_btn_dl">
-                  Tải Remote (.exe)
-                </a>
-                <a href="#studio" class="btn btn-secondary btn-sm" data-tab="tab-studio" data-i18n="rm_btn_web">
+              <div class="card-actions store-actions">
+                <button class="btn btn-lilac btn-sm" data-action="open-detail" data-app-target="remote" type="button">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  <span data-i18n="store_btn_view_remote">Xem trang chi tiết Remote</span>
+                </button>
+                <a href="#studio" class="btn btn-secondary btn-sm" data-tab="tab-studio" data-studio-tab="remote" data-i18n="rm_btn_web">
                   Dùng thử trên Web
                 </a>
               </div>
@@ -343,6 +703,326 @@
                   <h4>ZCL Sync</h4>
                   <p>Tự động cập nhật thư mục làm việc giữa máy tính bàn và laptop cá nhân.</p>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2.2. TẦNG 2A: TRANG CHI TIẾT RIÊNG - ZCL TELEPORT -->
+      <section class="section apps-view app-detail-view" id="appDetailTeleport">
+        <div class="container">
+          <!-- Back Nav Bar -->
+          <div class="app-detail-nav-bar">
+            <button class="btn-back-catalog" data-action="back-to-catalog" type="button">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+              <span data-i18n="store_back_catalog">Quay lại Kho ứng dụng</span>
+            </button>
+            <div class="app-detail-crumb">
+              <span data-i18n="crumb_store">Kho ứng dụng</span> / <span class="crumb-current">ZCL Teleport</span>
+            </div>
+          </div>
+
+          <!-- App Detail Hero -->
+          <div class="app-detail-hero">
+            <div class="detail-hero-icon-box mint">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L21 16M17 20L13 16"/></svg>
+            </div>
+            <div class="detail-hero-content">
+              <div class="detail-tag-row">
+                <span class="detail-category-badge" data-i18n="dt_tp_category">Truyền file siêu tốc &amp; Khay nhớ tạm</span>
+                <span class="detail-status-pill">Sẵn sàng · v0.1.0</span>
+              </div>
+              <h2 class="detail-app-title">ZCL Teleport</h2>
+              <p class="detail-app-lede" data-i18n="dt_tp_lede">
+                Gửi nhận file dung lượng lớn hàng chục GB trong vài giây &amp; tự động đồng bộ khay nhớ tạm hai chiều giữa hai máy tính cùng phòng qua Wi-Fi chung.
+              </p>
+              <div class="detail-meta-chips">
+                <span class="chip-item">Windows 10 / 11 (64-bit)</span>
+                <span class="chip-item">Mã nguồn mở GPL-3.0</span>
+                <span class="chip-item">Tác giả: Nguyễn Hoàng Tùng</span>
+              </div>
+              <div class="detail-cta-row">
+                <button class="btn btn-primary btn-open-download" data-app="teleport" data-format="exe" type="button">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  <span data-i18n="dt_tp_btn_dl">Tải bản cài đặt Teleport (.exe)</span>
+                </button>
+                <a href="#studio" class="btn btn-secondary" data-tab="tab-studio" data-studio-tab="teleport">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  <span data-i18n="dt_tp_btn_web">Dùng thử gửi file ngay trên Web</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- App Visual Showcase -->
+          <div class="detail-showcase-box">
+            <h3 class="showcase-title" data-i18n="dt_tp_showcase_title">Trình diễn trực quan tính năng ZCL Teleport</h3>
+            <div class="visual-bento-grid" style="margin-top: 16px;">
+              <div class="bento-visual-card">
+                <div class="bento-visual-header">
+                  <span class="bento-badge mint">Tốc độ gửi file</span>
+                  <span class="bento-metric-tag">100MB/s – 1GB/s</span>
+                </div>
+                <div class="bento-graphic-box">
+                  <div class="file-transfer-simulation">
+                    <div class="sim-file-icon">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    </div>
+                    <div class="sim-transfer-details">
+                      <div class="sim-file-title">
+                        <span class="sim-file-name">Thu_Muc_Du_An_4K.zip</span>
+                        <span class="sim-file-percent">100%</span>
+                      </div>
+                      <div class="sim-progress-track">
+                        <div class="sim-progress-fill"></div>
+                      </div>
+                      <div class="sim-stats-row">
+                        <span>12.5 GB / 12.5 GB</span>
+                        <span class="sim-speed-text">980 MB/s (Wi-Fi 6)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bento-visual-card">
+                <div class="bento-visual-header">
+                  <span class="bento-badge mint">Khay nhớ tạm hai chiều</span>
+                  <span class="bento-metric-tag">Tức thì · 0s</span>
+                </div>
+                <div class="bento-graphic-box">
+                  <div class="sim-clipboard-badge" style="margin-top: 24px; padding: 18px 20px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                    <span data-i18n="dt_tp_clip_desc">Copy đoạn chữ hoặc hình ảnh tại Máy A &rarr; Dán tức thì sang Máy B</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 Core Highlights -->
+          <div class="detail-features-section">
+            <h3 class="detail-section-heading" data-i18n="dt_features_title">4 Điểm nổi bật nhất của ứng dụng</h3>
+            <div class="detail-features-grid">
+              <div class="detail-feature-card">
+                <div class="feat-icon-bubble mint">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <h4 data-i18n="dt_tp_f1_title">Gửi file dung lượng không giới hạn</h4>
+                <p data-i18n="dt_tp_f1_desc">Chuyển các tệp dung lượng hàng chục GB (video gốc, bộ cài, ảnh RAW) giữa các máy trong vài giây mà không lo nghẽn mạng.</p>
+              </div>
+
+              <div class="detail-feature-card">
+                <div class="feat-icon-bubble mint">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <h4 data-i18n="dt_tp_f2_title">Tự động tìm thấy máy trong phòng</h4>
+                <p data-i18n="dt_tp_f2_desc">Chỉ cần hai máy kết nối chung một cục Wi-Fi hoặc dây mạng là tự động nhận diện ra nhau ngay lập tức, không cần gõ địa chỉ IP.</p>
+              </div>
+
+              <div class="detail-feature-card">
+                <div class="feat-icon-bubble mint">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                </div>
+                <h4 data-i18n="dt_tp_f3_title">Tự động truyền tiếp khi mất mạng</h4>
+                <p data-i18n="dt_tp_f3_desc">Nếu sóng Wi-Fi bị ngắt quãng hoặc tuột dây mạng, ứng dụng sẽ tự động tiếp tục truyền ngay khi kết nối lại mà không phải gửi lại từ đầu.</p>
+              </div>
+
+              <div class="detail-feature-card">
+                <div class="feat-icon-bubble mint">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                </div>
+                <h4 data-i18n="dt_tp_f4_title">Đồng bộ khay nhớ tạm hai chiều</h4>
+                <p data-i18n="dt_tp_f4_desc">Vừa copy đường link, văn bản hay hình ảnh ở laptop là có thể dán ngay sang máy tính bàn một cách tự nhiên và liền mạch.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- App Specs -->
+          <div class="detail-specs-box">
+            <h3 class="detail-section-heading" data-i18n="dt_specs_title">Thông số kỹ thuật thực tế</h3>
+            <div class="specs-table-grid">
+              <div class="spec-cell">
+                <span class="spec-label" data-i18n="spec_speed">Tốc độ truyền</span>
+                <span class="spec-value mint">100 MB/s – 1 GB/s (tối đa đường truyền mạng)</span>
+              </div>
+              <div class="spec-cell">
+                <span class="spec-label" data-i18n="spec_limit">Dung lượng tệp</span>
+                <span class="spec-value">Không giới hạn (đã thử nghiệm tệp 150 GB)</span>
+              </div>
+              <div class="spec-cell">
+                <span class="spec-label" data-i18n="spec_os">Hệ điều hành</span>
+                <span class="spec-value">Windows 10, Windows 11 (64-bit)</span>
+              </div>
+              <div class="spec-cell">
+                <span class="spec-label" data-i18n="spec_security">Bảo mật</span>
+                <span class="spec-value">Dữ liệu đi thẳng trong phòng, 0 máy chủ ngoài</span>
+              </div>
+              <div class="spec-cell">
+                <span class="spec-label" data-i18n="spec_license">Bản quyền &amp; Tác giả</span>
+                <span class="spec-value">GPL-3.0 · Nguyễn Hoàng Tùng (@Luffyreals)</span>
+              </div>
+              <div class="spec-cell">
+                <span class="spec-label" data-i18n="spec_internet">Kết nối Internet</span>
+                <span class="spec-value">Không cần Internet, chỉ cần mạng Wi-Fi chung</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2.3. TẦNG 2B: TRANG CHI TIẾT RIÊNG - ZCL REMOTE -->
+      <section class="section apps-view app-detail-view" id="appDetailRemote">
+        <div class="container">
+          <!-- Back Nav Bar -->
+          <div class="app-detail-nav-bar">
+            <button class="btn-back-catalog" data-action="back-to-catalog" type="button">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+              <span data-i18n="store_back_catalog">Quay lại Kho ứng dụng</span>
+            </button>
+            <div class="app-detail-crumb">
+              <span data-i18n="crumb_store">Kho ứng dụng</span> / <span class="crumb-current">ZCL Remote</span>
+            </div>
+          </div>
+
+          <!-- App Detail Hero -->
+          <div class="app-detail-hero">
+            <div class="detail-hero-icon-box lilac">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div class="detail-hero-content">
+              <div class="detail-tag-row">
+                <span class="detail-category-badge lilac" data-i18n="dt_rm_category">Điều khiển máy tính từ xa</span>
+                <span class="detail-status-pill lilac">Sẵn sàng · v0.1.0</span>
+              </div>
+              <h2 class="detail-app-title">ZCL Remote</h2>
+              <p class="detail-app-lede" data-i18n="dt_rm_lede">
+                Điều khiển máy tính từ xa mượt mà, phản hồi tức thì, chuột bấm ăn ngay không giật lag qua mạng Wi-Fi chung trong phòng.
+              </p>
+              <div class="detail-meta-chips">
+                <span class="chip-item">Windows 10 / 11 (64-bit)</span>
+                <span class="chip-item">Mã nguồn mở GPL-3.0</span>
+                <span class="chip-item">Tác giả: Nguyễn Hoàng Tùng</span>
+              </div>
+              <div class="detail-cta-row">
+                <button class="btn btn-lilac btn-open-download" data-app="remote" data-format="exe" type="button">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  <span data-i18n="dt_rm_btn_dl">Tải bản cài đặt Remote (.exe)</span>
+                </button>
+                <a href="#studio" class="btn btn-secondary" data-tab="tab-studio" data-studio-tab="remote">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  <span data-i18n="dt_rm_btn_web">Dùng thử di chuột ngay trên Web</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- App Visual Showcase -->
+          <div class="detail-showcase-box">
+            <h3 class="showcase-title" data-i18n="dt_rm_showcase_title">Trình diễn trực quan tính năng ZCL Remote</h3>
+            <div class="visual-bento-grid" style="margin-top: 16px;">
+              <div class="bento-visual-card">
+                <div class="bento-visual-header">
+                  <span class="bento-badge lilac">Tốc độ khung hình</span>
+                  <span class="bento-metric-tag lilac">60 FPS · Mượt mà</span>
+                </div>
+                <div class="bento-graphic-box">
+                  <div class="remote-screen-simulation">
+                    <div class="sim-screen-grid"></div>
+                    <div class="sim-desktop-item item-1">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg>
+                    </div>
+                    <div class="sim-neon-cursor">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 3 7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="m13 13 6 6"/></svg>
+                      <span class="cursor-latency-pill">0.2ms</span>
+                    </div>
+                    <div class="sim-remote-hud">
+                      <span class="hud-item"><span class="pulse-dot"></span> 60 FPS</span>
+                      <span class="hud-item">Chuột: Tức thì</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bento-visual-card">
+                <div class="bento-visual-header">
+                  <span class="bento-badge lilac">Độ trễ phản hồi</span>
+                  <span class="bento-metric-tag lilac">Dưới 1ms · Không trễ</span>
+                </div>
+                <div class="bento-graphic-box">
+                  <div class="sim-clipboard-badge lilac" style="margin-top: 24px; padding: 18px 20px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 3 7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/></svg>
+                    <span data-i18n="dt_rm_hud_desc">Di chuột, nhấp chuột và gõ phím phản hồi tức thì như đang ngồi trực tiếp trước màn hình thật</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 Core Highlights -->
+          <div class="detail-features-section">
+            <h3 class="detail-section-heading" data-i18n="dt_features_title">4 Điểm nổi bật nhất của ứng dụng</h3>
+            <div class="detail-features-grid">
+              <div class="detail-feature-card">
+                <div class="feat-icon-bubble lilac">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 3 7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/></svg>
+                </div>
+                <h4 data-i18n="dt_rm_f1_title">Chuột bấm ăn ngay, không giật hình</h4>
+                <p data-i18n="dt_rm_f1_desc">Dữ liệu truyền thẳng trực tiếp trong mạng nội bộ mang lại trải nghiệm điều khiển tức thì, xóa tan độ trễ giật lắc khó chịu.</p>
+              </div>
+
+              <div class="detail-feature-card">
+                <div class="feat-icon-bubble lilac">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg>
+                </div>
+                <h4 data-i18n="dt_rm_f2_title">Màn hình tự tối ưu độ nét</h4>
+                <p data-i18n="dt_rm_f2_desc">Ứng dụng tự động điều chỉnh chất lượng hình ảnh theo tốc độ Wi-Fi để luôn duy trì khung hình chuyển động 60 FPS sắc nét.</p>
+              </div>
+
+              <div class="detail-feature-card">
+                <div class="feat-icon-bubble lilac">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l22 22M16.72 11.06A10.94 10.94 0 0 1 19 12.55M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/></svg>
+                </div>
+                <h4 data-i18n="dt_rm_f3_title">Hoạt động bình thường khi mất Internet</h4>
+                <p data-i18n="dt_rm_f3_desc">Kể cả khi bị đứt cáp quang biển hoặc mất kết nối mạng ngoài, hai máy tính kết nối cùng Wi-Fi vẫn điều khiển nhau trơn tru.</p>
+              </div>
+
+              <div class="detail-feature-card">
+                <div class="feat-icon-bubble lilac">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <h4 data-i18n="dt_rm_f4_title">Bảo mật cao &amp; Ngắt kết nối khẩn cấp</h4>
+                <p data-i18n="dt_rm_f4_desc">Luôn hiển thị thông báo xin phép trước khi kết nối, kèm thanh ngắt kết nối một chạm an toàn tuyệt đối bất cứ lúc nào.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- App Specs -->
+          <div class="detail-specs-box">
+            <h3 class="detail-section-heading" data-i18n="dt_specs_title">Thông số kỹ thuật thực tế</h3>
+            <div class="specs-table-grid">
+              <div class="spec-cell">
+                <span class="spec-label" data-i18n="spec_fps">Tốc độ khung hình</span>
+                <span class="spec-value lilac">60 FPS mượt mà</span>
+              </div>
+              <div class="spec-cell">
+                <span class="spec-label" data-i18n="spec_mouse">Độ trễ phản hồi</span>
+                <span class="spec-value lilac">Dưới 1ms (phản hồi tức thì)</span>
+              </div>
+              <div class="spec-cell">
+                <span class="spec-label" data-i18n="spec_os">Hệ điều hành</span>
+                <span class="spec-value">Windows 10, Windows 11 (64-bit)</span>
+              </div>
+              <div class="spec-cell">
+                <span class="spec-label" data-i18n="spec_security">Bảo mật</span>
+                <span class="spec-value">Dữ liệu truyền thẳng trong phòng, 0 máy chủ ngoài</span>
+              </div>
+              <div class="spec-cell">
+                <span class="spec-label" data-i18n="spec_license">Bản quyền &amp; Tác giả</span>
+                <span class="spec-value">GPL-3.0 · Nguyễn Hoàng Tùng (@Luffyreals)</span>
+              </div>
+              <div class="spec-cell">
+                <span class="spec-label" data-i18n="spec_internet">Kết nối Internet</span>
+                <span class="spec-value">Không cần Internet, chỉ cần mạng Wi-Fi chung</span>
               </div>
             </div>
           </div>
@@ -707,6 +1387,19 @@
 
   <!-- Footer -->
   <footer class="site-footer">
+    <!-- Organic Tech Wave Divider -->
+    <div class="footer-wave-wrap" aria-hidden="true">
+      <svg class="footer-wave-svg" viewBox="0 0 1440 80" preserveAspectRatio="none" fill="none">
+        <path d="M 0,35 C 320,70 480,10 720,40 C 960,70 1180,15 1440,35 L 1440,80 L 0,80 Z" fill="var(--surface)"/>
+        <path d="M 0,45 C 360,75 520,20 720,48 C 920,75 1160,25 1440,45" stroke="var(--border)" stroke-width="1.5"/>
+      </svg>
+      <div class="footer-wave-nodes">
+        <span class="wave-signal-node node-a"><span class="pulse-dot"></span></span>
+        <span class="wave-signal-node node-b"><span class="pulse-dot"></span></span>
+        <span class="wave-signal-node node-c"><span class="pulse-dot"></span></span>
+      </div>
+    </div>
+
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
@@ -730,6 +1423,7 @@
           <h5 data-i18n="footer_res">Danh mục</h5>
           <ul>
             <li><a href="#overview" data-tab="tab-overview" data-i18n="nav_overview">Tổng quan</a></li>
+            <li><a href="#apps" data-tab="tab-apps" data-i18n="nav_apps">Ứng dụng</a></li>
             <li><a href="#download" data-tab="tab-download" data-i18n="nav_download">Tải về</a></li>
             <li><a href="#studio" data-tab="tab-studio" data-i18n="nav_studio">Dùng thử trên Web</a></li>
             <li><a href="#faq" data-tab="tab-faq" data-i18n="nav_faq">Hướng dẫn &amp; Hỏi đáp</a></li>
@@ -737,9 +1431,29 @@
         </div>
 
         <div class="footer-col">
-          <h5 data-i18n="footer_author">Tác giả</h5>
-          <ul>
-            <li><span style="color: var(--text); font-weight: 600;">Nguyễn Hoàng Tùng</span></li>
+          <h5 data-i18n="footer_contact">Tác giả &amp; Liên hệ</h5>
+          <ul class="footer-contact-list">
+            <li>
+              <span class="footer-author-name">Nguyễn Hoàng Tùng</span>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/luffyreals/" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                <span>Facebook</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:hoangtungcnh@gmail.com" class="footer-contact-link">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span>hoangtungcnh@gmail.com</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/Luffyreals" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                <span>GitHub (@Luffyreals)</span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>

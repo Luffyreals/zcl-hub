@@ -18,10 +18,142 @@ const i18n = {
     btn_launch_web: "Dùng thử",
     btn_download_desktop: "Tải về (.exe)",
 
+    // Theme Switcher
+    theme_toggle: "Chuyển giao diện Sáng / Tối",
+    theme_dark: "Chuyển sang giao diện tối",
+    theme_light: "Chuyển sang giao diện sáng",
+
     // Hero
     hero_eyebrow: "MIỄN PHÍ · MÃ NGUỒN MỞ · AN TOÀN TUYỆT ĐỐI",
-    hero_title: "Nhanh hơn. Mượt mà hơn.<br><span class=\"highlight-mint\">Hoàn toàn riêng tư</span> giữa các máy tính.",
-    hero_lede: "Gửi nhận file dung lượng lớn và điều khiển máy tính tức thì qua mạng Wi-Fi chung trong phòng. Không cần Internet, không cần tạo tài khoản.",
+    hero_store_badge: "KHO ỨNG DỤNG MẠNG NỘI BỘ WI-FI / LAN",
+    hero_title: "<span class=\"title-gradient\">Zero-Cloud LAN Hub</span>",
+    hero_lede: "Truyền file siêu tốc &amp; Điều khiển máy tính tức thì qua Wi-Fi chung. Không cần Internet, không cần tạo tài khoản.",
+    hero_btn_studio: "Dùng thử ngay trên Web",
+    hero_btn_apps: "Khám phá Kho ứng dụng",
+
+    // Impact Metrics
+    metric_speed: "Tốc độ gửi file tối đa",
+    metric_latency: "Chuột ăn ngay tức thì",
+    metric_privacy: "Không gửi ra máy chủ ngoài",
+    metric_setup: "Hoạt động ngay cả khi đứt mạng",
+
+    // Hero Visual Graphic
+    visual_tag: "Mạng nội bộ kết nối trực tiếp",
+    visual_direct: "Trực tiếp · Không qua Cloud",
+    visual_dev_a: "Máy tính A",
+    visual_dev_a_role: "Laptop gửi file",
+    visual_dev_a_chip: "Gửi 4.2 GB trong 5s",
+    visual_dev_b: "Máy tính B",
+    visual_dev_b_role: "Màn hình điều khiển",
+    visual_dev_b_chip: "Chuột ăn ngay · 0ms",
+    visual_feat_1: "Tốc độ: 100MB/s – 1GB/s qua Wi-Fi",
+    visual_feat_2: "Điều khiển: Chuột 0ms mượt mà",
+    visual_feat_3: "Riêng tư: 100% trong phòng, 0 máy chủ ngoài",
+
+    // ZCL Console Cockpit Frame
+    console_tag: "TRẠM ĐIỀU KHIỂN MẠNG NỘI BỘ (ZCL STATION)",
+    console_status: "2 máy tính sẵn sàng · 100% Nội bộ",
+    assistant_name: "Trợ lý kết nối ZCL Hub",
+    assistant_text: "Phát hiện 2 máy tính kết nối chung mạng Wi-Fi phòng bạn. Bạn muốn chuyển file lớn hay điều khiển máy tính từ xa?",
+    btn_assist_tp: "Thử gửi file",
+    btn_assist_rm: "Thử điều khiển",
+    env_label: "Chọn bối cảnh sử dụng:",
+    env_home: "Phòng làm việc gia đình",
+    env_office: "Văn phòng công ty",
+    env_cafe: "Quán Cafe",
+    env_offline: "Khi mất Internet",
+
+    // Arch Cards Showcase
+    arch_badge: "BỘ ỨNG DỤNG MẠNG NỘI BỘ",
+    arch_title: "Khám phá các sản phẩm ZCL",
+    arch_sub: "Được thiết kế cho nhu cầu làm việc hàng ngày trong phòng: truyền file siêu tốc, điều khiển máy tính và kết nối tức thì.",
+    arch_z1: "VÙNG 01 · GỬI FILE",
+    arch_z2: "VÙNG 02 · ĐIỀU KHIỂN",
+    arch_z3: "VÙNG 03 · CHIẾU MÀN HÌNH",
+    arch_z4: "VÙNG 04 · NHẮN TIN",
+    arch_z5: "VÙNG 05 · ĐỒNG BỘ",
+    arch_desc_tp: "Gửi nhận file dung lượng không giới hạn và copy-paste tức thì giữa hai máy tính cùng phòng.",
+    arch_desc_rm: "Điều khiển máy tính từ xa mượt mà như ngồi trước máy thật, chuột bấm ăn ngay không giật lag.",
+    arch_desc_cast: "Chiếu màn hình và âm thanh không dây từ máy tính lên TV hoặc máy chiếu phòng họp.",
+    arch_desc_chat: "Nhắn tin và gọi thoại nhanh giữa các máy cùng phòng, bảo mật riêng tư tuyệt đối.",
+    arch_desc_sync: "Tự động sao lưu và đồng bộ hai chiều thư mục làm việc giữa máy bàn và laptop.",
+    arch_explore: "Khám phá",
+    road_dev: "Đang phát triển",
+    road_plan: "Lên ý tưởng",
+
+    // LAN Device Orbit
+    orbit_badge: "KẾT NỐI KHÔNG DÂY NỘI BỘ",
+    orbit_title: "Quỹ đạo liên kết đa thiết bị",
+    orbit_sub: "Chọn bất kỳ thiết bị nào trên vòng tròn để xem đường truyền kết nối trực tiếp trong phòng.",
+    orbit_live: "Trực tiếp · Không qua Cloud",
+    orbit_stat_speed: "Tốc độ đo được",
+    orbit_stat_latency: "Độ trễ phản hồi",
+    orbit_stat_security: "Bảo mật dữ liệu",
+    orbit_stat_route: "Tuyến đường truyền",
+
+    // Visual Bento Showcase
+    bento_tp_speed: "1.1 GB/s",
+    bento_tp_clip: "Copy máy A &rarr; Dán tức thì sang máy B",
+    bento_view_app: "Xem ứng dụng",
+    bento_view_teleport: "Khám phá ZCL Teleport",
+    bento_view_remote: "Khám phá ZCL Remote",
+    bento_try_teleport: "Thử gửi file ngay",
+    bento_rm_hud: "Chuột: Tức thì",
+    bento_rm_sub: "Điều khiển máy tính mượt mà như ngồi trước máy thật",
+    bento_try_remote: "Thử di chuột ngay",
+
+    // Store Catalog & Dedicated App Pages
+    store_catalog_badge: "CỬA HÀNG ỨNG DỤNG ZCL",
+    store_catalog_title: "Danh mục ứng dụng mạng nội bộ",
+    store_catalog_sub: "Chọn một ứng dụng bên dưới để xem trang giới thiệu chi tiết, thông số và trải nghiệm.",
+    store_btn_view_teleport: "Xem trang chi tiết Teleport",
+    store_btn_view_remote: "Xem trang chi tiết Remote",
+    store_back_catalog: "Quay lại Kho ứng dụng",
+    crumb_store: "Kho ứng dụng",
+
+    // Dedicated App: Teleport
+    dt_tp_category: "Truyền file siêu tốc & Khay nhớ tạm",
+    dt_tp_lede: "Gửi nhận file dung lượng lớn hàng chục GB trong vài giây & tự động đồng bộ khay nhớ tạm hai chiều giữa hai máy tính cùng phòng qua Wi-Fi chung.",
+    dt_tp_btn_dl: "Tải bản cài đặt Teleport (.exe)",
+    dt_tp_btn_web: "Dùng thử gửi file ngay trên Web",
+    dt_tp_showcase_title: "Trình diễn trực quan tính năng ZCL Teleport",
+    dt_tp_clip_desc: "Copy đoạn chữ hoặc hình ảnh tại Máy A &rarr; Dán tức thì sang Máy B",
+    dt_features_title: "4 Điểm nổi bật nhất của ứng dụng",
+    dt_tp_f1_title: "Gửi file dung lượng không giới hạn",
+    dt_tp_f1_desc: "Chuyển các tệp dung lượng hàng chục GB (video gốc, bộ cài, ảnh RAW) giữa các máy trong vài giây mà không lo nghẽn mạng.",
+    dt_tp_f2_title: "Tự động tìm thấy máy trong phòng",
+    dt_tp_f2_desc: "Chỉ cần hai máy kết nối chung một cục Wi-Fi hoặc dây mạng là tự động nhận diện ra nhau ngay lập tức, không cần gõ địa chỉ IP.",
+    dt_tp_f3_title: "Tự động truyền tiếp khi mất mạng",
+    dt_tp_f3_desc: "Nếu sóng Wi-Fi bị ngắt quãng hoặc tuột dây mạng, ứng dụng sẽ tự động tiếp tục truyền ngay khi kết nối lại mà không phải gửi lại từ đầu.",
+    dt_tp_f4_title: "Đồng bộ khay nhớ tạm hai chiều",
+    dt_tp_f4_desc: "Vừa copy đường link, văn bản hay hình ảnh ở laptop là có thể dán ngay sang máy tính bàn một cách tự nhiên và liền mạch.",
+
+    // Dedicated App: Remote
+    dt_rm_category: "Điều khiển máy tính từ xa",
+    dt_rm_lede: "Điều khiển máy tính từ xa mượt mà, phản hồi tức thì, chuột bấm ăn ngay không giật lag qua mạng Wi-Fi chung trong phòng.",
+    dt_rm_btn_dl: "Tải bản cài đặt Remote (.exe)",
+    dt_rm_btn_web: "Dùng thử di chuột ngay trên Web",
+    dt_rm_showcase_title: "Trình diễn trực quan tính năng ZCL Remote",
+    dt_rm_hud_desc: "Di chuột, nhấp chuột và gõ phím phản hồi tức thì như đang ngồi trực tiếp trước màn hình thật",
+    dt_rm_f1_title: "Chuột bấm ăn ngay, không giật hình",
+    dt_rm_f1_desc: "Dữ liệu truyền thẳng trực tiếp trong mạng nội bộ mang lại trải nghiệm điều khiển tức thì, xóa tan độ trễ giật lắc khó chịu.",
+    dt_rm_f2_title: "Màn hình tự tối ưu độ nét",
+    dt_rm_f2_desc: "Ứng dụng tự động điều chỉnh chất lượng hình ảnh theo tốc độ Wi-Fi để luôn duy trì khung hình chuyển động 60 FPS sắc nét.",
+    dt_rm_f3_title: "Hoạt động bình thường khi mất Internet",
+    dt_rm_f3_desc: "Kể cả khi bị đứt cáp quang biển hoặc mất kết nối mạng ngoài, hai máy tính kết nối cùng Wi-Fi vẫn điều khiển nhau trơn tru.",
+    dt_rm_f4_title: "Bảo mật cao & Ngắt kết nối khẩn cấp",
+    dt_rm_f4_desc: "Luôn hiển thị thông báo xin phép trước khi kết nối, kèm thanh ngắt kết nối một chạm an toàn tuyệt đối bất cứ lúc nào.",
+
+    // Specifications
+    dt_specs_title: "Thông số kỹ thuật thực tế",
+    spec_speed: "Tốc độ truyền",
+    spec_limit: "Dung lượng tệp",
+    spec_os: "Hệ điều hành",
+    spec_security: "Bảo mật",
+    spec_license: "Bản quyền & Tác giả",
+    spec_internet: "Kết nối Internet",
+    spec_fps: "Tốc độ khung hình",
+    spec_mouse: "Độ trễ phản hồi",
 
     // 4 Highlights
     pil1_title: "Gửi file siêu tốc",
@@ -38,6 +170,8 @@ const i18n = {
     hub_card_rm_sub: "Điều khiển màn hình máy tính từ xa mượt mà, chuột không độ trễ.",
     hub_card_studio_sub: "Trải nghiệm gửi file và thử di chuột điều khiển ngay trên trình duyệt.",
     hub_card_view_action: "Xem chi tiết",
+    hub_card_dl_title: "Mục Tải về",
+    hub_card_dl_action: "Mở mục Tải về",
 
     // Apps Bento
     bento_badge: "CÁC ỨNG DỤNG CHÍNH",
@@ -50,6 +184,7 @@ const i18n = {
     tp_f2: "Tự động truyền tiếp nếu lỡ bị rút dây mạng hoặc chập chờn Wi-Fi",
     tp_f3: "Copy chữ hoặc ảnh ở máy này là dán được ngay sang máy kia",
     tp_btn_dl: "Tải Teleport (.exe)",
+    tp_btn_dl_view: "Xem trong mục Tải về",
     tp_btn_web: "Dùng thử trên Web",
 
     rm_status: "Bản thử nghiệm",
@@ -59,6 +194,7 @@ const i18n = {
     rm_f2: "Di chuột và bấm phím phản hồi tức thì như đang ngồi trước máy",
     rm_f3: "Có nút ngắt kết nối khẩn cấp bất cứ khi nào bạn muốn",
     rm_btn_dl: "Tải Remote (.exe)",
+    rm_btn_dl_view: "Xem trong mục Tải về",
     rm_btn_web: "Dùng thử trên Web",
     road_title: "Các ứng dụng dự kiến ra mắt",
 
@@ -125,6 +261,7 @@ const i18n = {
     footer_apps: "Ứng dụng",
     footer_res: "Danh mục",
     footer_author: "Tác giả",
+    footer_contact: "Tác giả & Liên hệ",
     footer_rights: "Mã nguồn mở GPL-3.0. Phát triển bởi Nguyễn Hoàng Tùng.",
     modal_btn_start: "Bắt đầu tải xuống"
   },
@@ -139,10 +276,142 @@ const i18n = {
     btn_launch_web: "Try on Web",
     btn_download_desktop: "Download (.exe)",
 
+    // Theme Switcher
+    theme_toggle: "Toggle Light / Dark mode",
+    theme_dark: "Switch to dark mode",
+    theme_light: "Switch to light mode",
+
     // Hero
     hero_eyebrow: "FREE · OPEN SOURCE · COMPLETELY SECURE",
-    hero_title: "Faster. Smoother.<br><span class=\"highlight-mint\">Completely private</span> between your computers.",
-    hero_lede: "Send huge files and control computers smoothly over your local Wi-Fi. No internet required, no account needed.",
+    hero_store_badge: "LOCAL WI-FI / LAN APP STORE & HUB",
+    hero_title: "<span class=\"title-gradient\">Zero-Cloud LAN Hub</span>",
+    hero_lede: "Ultra-fast file transfers &amp; instant remote control over local Wi-Fi. No internet required, no account needed.",
+    hero_btn_studio: "Try Right on Web",
+    hero_btn_apps: "Explore App Store",
+
+    // Impact Metrics
+    metric_speed: "Max transfer speed",
+    metric_latency: "Instant mouse feedback",
+    metric_privacy: "Zero external cloud servers",
+    metric_setup: "Works during internet outages",
+
+    // Hero Visual Graphic
+    visual_tag: "Direct Local Wi-Fi / LAN Network",
+    visual_direct: "Direct · No Cloud Servers",
+    visual_dev_a: "Computer A",
+    visual_dev_a_role: "Sending Laptop",
+    visual_dev_a_chip: "Sent 4.2 GB in 5s",
+    visual_dev_b: "Computer B",
+    visual_dev_b_role: "Remote Screen",
+    visual_dev_b_chip: "Instant Mouse · 0ms",
+    visual_feat_1: "Speed: 100MB/s – 1GB/s over Wi-Fi",
+    visual_feat_2: "Control: 0ms smooth mouse response",
+    visual_feat_3: "Privacy: 100% in-room, zero Cloud",
+
+    // ZCL Console Cockpit Frame
+    console_tag: "LOCAL LAN COCKPIT (ZCL STATION)",
+    console_status: "2 devices ready · 100% Local",
+    assistant_name: "ZCL Hub Connect Assistant",
+    assistant_text: "Detected 2 computers on your room's Wi-Fi. Would you like to transfer large files or remote control?",
+    btn_assist_tp: "Try File Transfer",
+    btn_assist_rm: "Try Remote",
+    env_label: "Select scenario:",
+    env_home: "Home workspace",
+    env_office: "Corporate office",
+    env_cafe: "Coffee shop",
+    env_offline: "When Internet is down",
+
+    // Arch Cards Showcase
+    arch_badge: "LOCAL LAN APP SUITE",
+    arch_title: "Explore ZCL Products",
+    arch_sub: "Engineered for daily room workflows: ultra-fast file transfer, remote desktop control, and instant peer sync.",
+    arch_z1: "ZONE 01 · FILE TRANSFER",
+    arch_z2: "ZONE 02 · REMOTE CONTROL",
+    arch_z3: "ZONE 03 · SCREEN CAST",
+    arch_z4: "ZONE 04 · LOCAL CHAT",
+    arch_z5: "ZONE 05 · FOLDER SYNC",
+    arch_desc_tp: "Send unlimited size files and instant 2-way clipboard sync between room PCs.",
+    arch_desc_rm: "Fluid remote PC control with 0ms instant mouse response, feels like sitting in front of the real machine.",
+    arch_desc_cast: "Cast desktop screen and audio wirelessly to conference TVs or projectors.",
+    arch_desc_chat: "Direct peer chat and quick voice between room computers with zero cloud routing.",
+    arch_desc_sync: "Automatic bidirectional folder sync between your desktop and laptop in local LAN.",
+    arch_explore: "Explore",
+    road_dev: "In Development",
+    road_plan: "Planned",
+
+    // LAN Device Orbit
+    orbit_badge: "LOCAL WIRELESS TOPOLOGY",
+    orbit_title: "Multi-Device Peer Orbit",
+    orbit_sub: "Click any device on the orbit to inspect direct room-level routing and live transfer metrics.",
+    orbit_live: "Direct · Zero Cloud",
+    orbit_stat_speed: "Measured Speed",
+    orbit_stat_latency: "Response Latency",
+    orbit_stat_security: "Data Security",
+    orbit_stat_route: "Routing Path",
+
+    // Visual Bento Showcase
+    bento_tp_speed: "1.1 GB/s",
+    bento_tp_clip: "Copy on PC A &rarr; Paste instantly on PC B",
+    bento_view_app: "View App",
+    bento_view_teleport: "Explore ZCL Teleport",
+    bento_view_remote: "Explore ZCL Remote",
+    bento_try_teleport: "Try Sending Files",
+    bento_rm_hud: "Mouse: Instant",
+    bento_rm_sub: "Remote desktop as smooth as sitting in front of the PC",
+    bento_try_remote: "Try Mouse Control",
+
+    // Store Catalog & Dedicated App Pages
+    store_catalog_badge: "ZCL APP STORE",
+    store_catalog_title: "Local Network Application Catalog",
+    store_catalog_sub: "Choose an application below to view detailed features, specifications, and demo.",
+    store_btn_view_teleport: "View Teleport Page",
+    store_btn_view_remote: "View Remote Page",
+    store_back_catalog: "Back to App Store",
+    crumb_store: "App Store",
+
+    // Dedicated App: Teleport
+    dt_tp_category: "Ultra-Fast Transfers & Clipboard",
+    dt_tp_lede: "Transfer large files of tens of gigabytes in seconds & automatically sync 2-way clipboard between two local PCs over shared Wi-Fi.",
+    dt_tp_btn_dl: "Download Teleport (.exe)",
+    dt_tp_btn_web: "Try File Transfer on Web",
+    dt_tp_showcase_title: "Visual Demonstration of ZCL Teleport",
+    dt_tp_clip_desc: "Copy text or images on PC A &rarr; Paste instantly on PC B",
+    dt_features_title: "4 Key Product Highlights",
+    dt_tp_f1_title: "Unlimited file transfer size",
+    dt_tp_f1_desc: "Move huge files (raw 4K footage, large folders, installers) in seconds without worrying about network bottlenecks.",
+    dt_tp_f2_title: "Automatic local peer discovery",
+    dt_tp_f2_desc: "Computers connected to the same Wi-Fi find each other automatically with zero manual IP configuration.",
+    dt_tp_f3_title: "Automatic resume on network drop",
+    dt_tp_f3_desc: "If Wi-Fi drops momentarily, the transfer automatically resumes where it left off without starting over.",
+    dt_tp_f4_title: "Instant 2-way clipboard sync",
+    dt_tp_f4_desc: "Copy links, text, or images on your laptop and paste directly onto your desktop smoothly.",
+
+    // Dedicated App: Remote
+    dt_rm_category: "Remote Desktop Control",
+    dt_rm_lede: "Smooth remote desktop control with instant mouse response and zero lag over local Wi-Fi in the same room.",
+    dt_rm_btn_dl: "Download Remote (.exe)",
+    dt_rm_btn_web: "Try Remote Control on Web",
+    dt_rm_showcase_title: "Visual Demonstration of ZCL Remote",
+    dt_rm_hud_desc: "Mouse motion, clicks, and keystrokes respond instantaneously as if sitting right in front of the PC",
+    dt_rm_f1_title: "Instant mouse feedback, zero lag",
+    dt_rm_f1_desc: "Direct peer transmission eliminates cloud delays, giving you fluid and immediate computer control.",
+    dt_rm_f2_title: "Auto-tuned visual sharpness",
+    dt_rm_f2_desc: "Intelligently balances picture clarity to guarantee smooth 60 FPS motion on your local connection.",
+    dt_rm_f3_title: "Fully operational without Internet",
+    dt_rm_f3_desc: "Even during broadband or undersea cable outages, your local Wi-Fi devices remain fully connected.",
+    dt_rm_f4_title: "High privacy & one-touch disconnect",
+    dt_rm_f4_desc: "Always requires permission before connecting, featuring an emergency disconnect bar for complete safety.",
+
+    // Specifications
+    dt_specs_title: "Technical Specifications",
+    spec_speed: "Transfer Speed",
+    spec_limit: "File Size Limit",
+    spec_os: "Operating System",
+    spec_security: "Security & Privacy",
+    spec_license: "License & Author",
+    spec_internet: "Internet Requirement",
+    spec_fps: "Frame Rate",
+    spec_mouse: "Response Latency",
 
     // 4 Highlights
     pil1_title: "Ultra-Fast Transfers",
@@ -159,6 +428,8 @@ const i18n = {
     hub_card_rm_sub: "Smooth remote desktop control with zero mouse delay.",
     hub_card_studio_sub: "Experience file dropping and mouse control right in your browser.",
     hub_card_view_action: "Explore",
+    hub_card_dl_title: "Download Center",
+    hub_card_dl_action: "Open Download Tab",
 
     // Apps Bento
     bento_badge: "CORE APPLICATIONS",
@@ -171,6 +442,7 @@ const i18n = {
     tp_f2: "Auto-resumes if Wi-Fi or cables temporarily disconnect",
     tp_f3: "Copy text or images on one PC and paste on another instantly",
     tp_btn_dl: "Download Teleport (.exe)",
+    tp_btn_dl_view: "View in Download Center",
     tp_btn_web: "Try on Web",
 
     rm_status: "Preview build",
@@ -180,6 +452,7 @@ const i18n = {
     rm_f2: "Instant mouse and keyboard response with zero delay",
     rm_f3: "Emergency stop button to disconnect immediately whenever you want",
     rm_btn_dl: "Download Remote (.exe)",
+    rm_btn_dl_view: "View in Download Center",
     rm_btn_web: "Try on Web",
     road_title: "Upcoming Applications",
 
@@ -246,6 +519,7 @@ const i18n = {
     footer_apps: "Apps",
     footer_res: "Categories",
     footer_author: "Author",
+    footer_contact: "Author & Contact",
     footer_rights: "Open source under GPL-3.0. Developed by Nguyen Hoang Tung.",
     modal_btn_start: "Start Download"
   }
@@ -272,6 +546,24 @@ function setLanguage(lang) {
     }
   });
 
+  document.querySelectorAll('[data-i18n-title]').forEach((el) => {
+    const key = el.getAttribute('data-i18n-title');
+    if (i18n[lang][key]) {
+      el.setAttribute('title', i18n[lang][key]);
+      el.setAttribute('aria-label', i18n[lang][key]);
+    }
+  });
+
+  const themeBtn = document.getElementById('themeToggleBtn');
+  if (themeBtn) {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    const key = isLight ? 'theme_dark' : 'theme_light';
+    if (i18n[lang][key]) {
+      themeBtn.setAttribute('title', i18n[lang][key]);
+      themeBtn.setAttribute('aria-label', i18n[lang][key]);
+    }
+  }
+
   document.querySelectorAll('.lang-btn').forEach((btn) => {
     btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
   });
@@ -280,12 +572,45 @@ function setLanguage(lang) {
 }
 
 // ==========================================
-// 2. MAIN TABS SWITCHER
+// 2. MAIN TABS SWITCHER & STORE APP VIEWS
 // ==========================================
+function showAppDetail(appName, updateHash = true) {
+  const catalogView = document.getElementById('appsCatalogView');
+  const teleportView = document.getElementById('appDetailTeleport');
+  const remoteView = document.getElementById('appDetailRemote');
+
+  if (catalogView) catalogView.classList.remove('active-app-view');
+  if (teleportView) teleportView.classList.remove('active-app-view');
+  if (remoteView) remoteView.classList.remove('active-app-view');
+
+  if (appName === 'teleport') {
+    if (teleportView) teleportView.classList.add('active-app-view');
+    if (updateHash) history.pushState(null, '', '#apps/teleport');
+  } else if (appName === 'remote') {
+    if (remoteView) remoteView.classList.add('active-app-view');
+    if (updateHash) history.pushState(null, '', '#apps/remote');
+  } else {
+    if (catalogView) catalogView.classList.add('active-app-view');
+    if (updateHash) history.pushState(null, '', '#apps');
+  }
+}
+
 function switchMainTab(targetTabId, updateHash = true) {
   if (!targetTabId) return;
 
   let cleanId = targetTabId.replace(/^#/, '').replace(/^tab-/, '');
+
+  // Sub-app routing for dedicated app pages
+  let subApp = null;
+  if (cleanId === 'apps/teleport' || cleanId === 'teleport') {
+    cleanId = 'apps';
+    subApp = 'teleport';
+  } else if (cleanId === 'apps/remote' || cleanId === 'remote') {
+    cleanId = 'apps';
+    subApp = 'remote';
+  } else if (cleanId === 'apps') {
+    subApp = null;
+  }
 
   const tabAliases = {
     'home': 'overview',
@@ -318,6 +643,11 @@ function switchMainTab(targetTabId, updateHash = true) {
   });
   targetView.classList.add('active');
 
+  // If in apps tab, toggle catalog or dedicated view
+  if (cleanId === 'apps') {
+    showAppDetail(subApp, false);
+  }
+
   // 2. Update active status on buttons
   document.querySelectorAll('[data-tab]').forEach((btn) => {
     const btnTab = btn.getAttribute('data-tab').replace(/^tab-/, '');
@@ -334,7 +664,11 @@ function switchMainTab(targetTabId, updateHash = true) {
 
   // 3. Update URL hash
   if (updateHash) {
-    history.pushState(null, '', '#' + cleanId);
+    if (cleanId === 'apps' && subApp) {
+      history.pushState(null, '', '#apps/' + subApp);
+    } else {
+      history.pushState(null, '', '#' + cleanId);
+    }
   }
 
   // 4. Scroll smoothly to top
@@ -354,15 +688,54 @@ function initMainTabs() {
     const cleanTab = tabTarget.replace(/^tab-/, '');
     if (['overview', 'apps', 'download', 'studio', 'faq'].includes(cleanTab)) {
       btn.addEventListener('click', (e) => {
+        // If it's a specific app target, handled separately
+        if (btn.hasAttribute('data-app-target')) return;
         e.preventDefault();
         switchMainTab(tabTarget);
-
-        const navLinks = document.querySelector('.nav-links');
-        if (navLinks && navLinks.classList.contains('open')) {
-          navLinks.classList.remove('open');
-        }
       });
     }
+  });
+
+  // Dedicated App Detail view handlers
+  document.querySelectorAll('[data-action="open-detail"]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const appTarget = btn.getAttribute('data-app-target');
+      switchMainTab('apps', false);
+      showAppDetail(appTarget, true);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  document.querySelectorAll('[data-action="back-to-catalog"]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      showAppDetail(null, true);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  document.querySelectorAll('[data-app-target]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const app = link.getAttribute('data-app-target');
+      if (app && link.getAttribute('data-tab') === 'tab-apps') {
+        e.preventDefault();
+        switchMainTab('apps', false);
+        showAppDetail(app, true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Fast jumper to Studio specific panels
+  document.querySelectorAll('[data-studio-tab]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const targetStudio = link.getAttribute('data-studio-tab');
+      if (targetStudio) {
+        setTimeout(() => {
+          const studioBtn = document.querySelector(`.studio-tab-btn[data-app="${targetStudio}"]`);
+          if (studioBtn) studioBtn.click();
+        }, 100);
+      }
+    });
   });
 
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -370,6 +743,12 @@ function initMainTabs() {
       const href = anchor.getAttribute('href');
       if (href && href !== '#') {
         const target = href.replace(/^#/, '');
+        if (target.startsWith('apps/') || target === 'teleport' || target === 'remote') {
+          e.preventDefault();
+          switchMainTab(target);
+          return;
+        }
+
         const validTargets = [
           'overview', 'home', 'hero', 'pillars',
           'products', 'apps', 'roadmap',
@@ -649,25 +1028,8 @@ function initFaq() {
 }
 
 // ==========================================
-// 5. MOBILE NAVIGATION & PWA INSTALL
+// 5. PWA INSTALLATION & OFFLINE CACHE
 // ==========================================
-function initMobileNav() {
-  const toggle = document.querySelector('.mobile-toggle');
-  const links = document.querySelector('.nav-links');
-
-  if (toggle && links) {
-    toggle.addEventListener('click', () => {
-      links.classList.toggle('open');
-    });
-
-    links.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        links.classList.remove('open');
-      });
-    });
-  }
-}
-
 let deferredPrompt;
 const installBtn = document.getElementById('btnInstallPwa');
 
@@ -803,20 +1165,299 @@ function initDownloadModal() {
 }
 
 // ==========================================
-// 7. INITIALIZATION
+// 7. THEME SWITCHER (DARK / LIGHT MODE)
+// ==========================================
+const THEME_STORAGE_KEY = 'zcl_theme';
+
+function getPreferredTheme() {
+  const saved = localStorage.getItem(THEME_STORAGE_KEY);
+  if (saved === 'light' || saved === 'dark') return saved;
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    return 'light';
+  }
+  return 'dark';
+}
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  const isLight = theme === 'light';
+
+  const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+  if (metaThemeColor) {
+    metaThemeColor.setAttribute('content', isLight ? '#f8fafc' : '#09080c');
+  }
+
+  const metaColorScheme = document.querySelector('meta[name="color-scheme"]');
+  if (metaColorScheme) {
+    metaColorScheme.setAttribute('content', isLight ? 'light' : 'dark');
+  }
+
+  const btn = document.getElementById('themeToggleBtn');
+  if (btn) {
+    btn.setAttribute('aria-pressed', isLight ? 'true' : 'false');
+    const titleKey = isLight ? 'theme_dark' : 'theme_light';
+    const langDict = i18n[currentLang] || i18n.vi;
+    const titleText = langDict[titleKey] || (isLight ? 'Chuyển sang giao diện tối' : 'Chuyển sang giao diện sáng');
+    btn.setAttribute('title', titleText);
+    btn.setAttribute('aria-label', titleText);
+  }
+
+  // Redraw studio canvas if on screen
+  setTimeout(() => {
+    window.dispatchEvent(new Event('resize'));
+  }, 60);
+}
+
+function initThemeToggle() {
+  const initialTheme = getPreferredTheme();
+  applyTheme(initialTheme);
+
+  const btn = document.getElementById('themeToggleBtn');
+  if (btn) {
+    btn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      localStorage.setItem(THEME_STORAGE_KEY, next);
+      applyTheme(next);
+    });
+  }
+
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (!localStorage.getItem(THEME_STORAGE_KEY)) {
+        applyTheme(e.matches ? 'dark' : 'light');
+      }
+    });
+  }
+}
+
+// ==========================================
+// 8. CONSOLE COCKPIT & DEVICE ORBIT
+// ==========================================
+const CONSOLE_ENV_DATA = {
+  home: {
+    statusVi: "2 máy tính sẵn sàng · Wi-Fi 6 gia đình",
+    statusEn: "2 computers ready · Home Wi-Fi 6",
+    speechVi: "Phát hiện 2 máy tính kết nối chung mạng Wi-Fi phòng bạn. Bạn muốn chuyển file lớn hay điều khiển máy tính từ xa?",
+    speechEn: "Detected 2 computers on your room's Wi-Fi. Would you like to transfer large files or remote control?",
+    chipAVi: "Gửi 4.8 GB trong 5s",
+    chipAEn: "Sent 4.8 GB in 5s",
+    speedBadge: "960 MB/s (Wi-Fi 6)",
+    chipBVi: "Chuột ăn ngay · 0.2ms",
+    chipBEn: "Instant mouse · 0.2ms",
+    feat1Vi: "Tốc độ: 960 MB/s qua Wi-Fi 6",
+    feat1En: "Speed: 960 MB/s over Wi-Fi 6",
+    feat2Vi: "Điều khiển: Chuột 0.2ms cực nhạy",
+    feat2En: "Control: 0.2ms instant mouse feedback",
+    feat3Vi: "Riêng tư: 100% trong phòng, 0 máy chủ ngoài",
+    feat3En: "Privacy: 100% in-room, zero cloud",
+  },
+  office: {
+    statusVi: "Mạng dây LAN công ty · 10Gbps nội bộ",
+    statusEn: "Corporate LAN Cable · 10Gbps local link",
+    speechVi: "Đã thiết lập kết nối mạng dây nội bộ công ty. Tốc độ truyền tối đa 1.1 GB/s, gửi tệp video và bộ cài cực nhanh!",
+    speechEn: "Corporate local LAN cable active. Max transfer speed 1.1 GB/s, lightning-fast media asset transfers!",
+    chipAVi: "Gửi 12.5 GB trong 11s",
+    chipAEn: "Sent 12.5 GB in 11s",
+    speedBadge: "1.1 GB/s (Mạng dây LAN)",
+    chipBVi: "Chuột ăn ngay · 0.1ms",
+    chipBEn: "Instant mouse · 0.1ms",
+    feat1Vi: "Tốc độ: 1.1 GB/s qua mạng dây LAN",
+    feat1En: "Speed: 1.1 GB/s over LAN cable",
+    feat2Vi: "Điều khiển: Phản hồi tức thì 0.1ms",
+    feat2En: "Control: 0.1ms instantaneous response",
+    feat3Vi: "Nội bộ: Không chiếm băng thông Internet văn phòng",
+    feat3En: "Local: Zero impact on office internet bandwidth",
+  },
+  cafe: {
+    statusVi: "Wi-Fi công cộng · Mã hóa nội bộ trực tiếp",
+    statusEn: "Public Cafe Wi-Fi · Direct Peer Encryption",
+    speechVi: "Đang ở quán Cafe? ZCL Hub tự động mã hóa dữ liệu trực tiếp giữa 2 máy tính, an toàn tuyệt đối ngay cả trên Wi-Fi mở.",
+    speechEn: "At a coffee shop? ZCL Hub automatically encrypts data directly between peers, completely secure even on open Wi-Fi.",
+    chipAVi: "Gửi 2.1 GB trong 5s",
+    chipAEn: "Sent 2.1 GB in 5s",
+    speedBadge: "450 MB/s (Wi-Fi Cafe)",
+    chipBVi: "Chuột ăn ngay · 0.8ms",
+    chipBEn: "Instant mouse · 0.8ms",
+    feat1Vi: "Tốc độ: 450 MB/s qua Wi-Fi Cafe",
+    feat1En: "Speed: 450 MB/s over cafe Wi-Fi",
+    feat2Vi: "Điều khiển: Chuột mượt mà không quảng cáo",
+    feat2En: "Control: Smooth remote control, no ads",
+    feat3Vi: "An toàn: Dữ liệu mã hóa thẳng, không ai xem trộm",
+    feat3En: "Security: Direct peer encryption, eavesdrop-proof",
+  },
+  offline: {
+    statusVi: "Đứt cáp quang Internet · Vẫn làm việc 100%",
+    statusEn: "Internet Cable Cut · 100% Fully Operational",
+    speechVi: "Cáp quang Internet bị đứt? Không vấn đề! Chỉ cần chung sóng Wi-Fi hoặc cắm dây mạng, bạn vẫn gửi file và điều khiển máy bình thường.",
+    speechEn: "Internet cable disconnected? No worries! As long as peers share local Wi-Fi or LAN, transfers and remote desktop work at full speed.",
+    chipAVi: "Gửi 4.8 GB trong 5s",
+    chipAEn: "Sent 4.8 GB in 5s",
+    speedBadge: "820 MB/s (Offline LAN)",
+    chipBVi: "Chuột ăn ngay · 0.2ms",
+    chipBEn: "Instant mouse · 0.2ms",
+    feat1Vi: "Tốc độ: 820 MB/s không cần Internet",
+    feat1En: "Speed: 820 MB/s with zero internet",
+    feat2Vi: "Điều khiển: Hoạt động trơn tru khi rớt mạng ngoài",
+    feat2En: "Control: Flawless control during ISP blackouts",
+    feat3Vi: "Độc lập: 0 phụ thuộc bất kỳ máy chủ bên ngoài",
+    feat3En: "Independence: Zero reliance on external servers",
+  }
+};
+
+let currentEnv = 'home';
+
+function updateConsoleEnvUI() {
+  const data = CONSOLE_ENV_DATA[currentEnv] || CONSOLE_ENV_DATA.home;
+  const isEn = currentLang === 'en';
+
+  const badge = document.getElementById('consoleEnvBadge');
+  if (badge) badge.textContent = isEn ? data.statusEn : data.statusVi;
+
+  const speech = document.getElementById('assistantSpeech');
+  if (speech) speech.textContent = isEn ? data.speechEn : data.speechVi;
+
+  const chipA = document.getElementById('stageDevAChip');
+  if (chipA) chipA.textContent = isEn ? data.chipAEn : data.chipAVi;
+
+  const speedBadge = document.getElementById('stageSpeedBadge');
+  if (speedBadge) speedBadge.textContent = data.speedBadge;
+
+  const chipB = document.getElementById('stageDevBChip');
+  if (chipB) chipB.textContent = isEn ? data.chipBEn : data.chipBVi;
+
+  const feat1 = document.getElementById('stageFeat1');
+  if (feat1) feat1.textContent = isEn ? data.feat1En : data.feat1Vi;
+
+  const feat2 = document.getElementById('stageFeat2');
+  if (feat2) feat2.textContent = isEn ? data.feat2En : data.feat2Vi;
+
+  const feat3 = document.getElementById('stageFeat3');
+  if (feat3) feat3.textContent = isEn ? data.feat3En : data.feat3Vi;
+}
+
+function initConsoleEnvironment() {
+  const envButtons = document.querySelectorAll('.env-btn');
+  envButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      envButtons.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      const env = btn.getAttribute('data-env') || 'home';
+      currentEnv = env;
+      updateConsoleEnvUI();
+    });
+  });
+}
+
+// Device Orbit Config & Logic
+const ORBIT_NODES = {
+  laptop: { nameVi: "Laptop A (Teleport)", nameEn: "Laptop A (Teleport)", x: 180, y: 45 },
+  pc: { nameVi: "Máy tính bàn PC B", nameEn: "Desktop PC B", x: 308, y: 138 },
+  phone: { nameVi: "Điện thoại di động", nameEn: "Smartphone", x: 259, y: 289 },
+  tablet: { nameVi: "Máy tính bảng", nameEn: "Tablet", x: 101, y: 289 },
+  tv: { nameVi: "Smart TV phòng họp", nameEn: "Conference Smart TV", x: 52, y: 138 }
+};
+
+let activeOrbitPair = ['laptop', 'pc'];
+
+function updateOrbitUI() {
+  const isEn = currentLang === 'en';
+  const devA = ORBIT_NODES[activeOrbitPair[0]] || ORBIT_NODES.laptop;
+  const devB = ORBIT_NODES[activeOrbitPair[1]] || ORBIT_NODES.pc;
+
+  const tagA = document.getElementById('orbitTagA');
+  if (tagA) tagA.textContent = isEn ? devA.nameEn : devA.nameVi;
+
+  const tagB = document.getElementById('orbitTagB');
+  if (tagB) tagB.textContent = isEn ? devB.nameEn : devB.nameVi;
+
+  // Update SVG line connecting the two active devices
+  const beamLine = document.getElementById('orbitBeamLine');
+  if (beamLine) {
+    beamLine.setAttribute('x1', devA.x);
+    beamLine.setAttribute('y1', devA.y);
+    beamLine.setAttribute('x2', devB.x);
+    beamLine.setAttribute('y2', devB.y);
+  }
+
+  // Update dynamic metric readout based on paired device types
+  const speedEl = document.getElementById('orbitStatSpeed');
+  const latencyEl = document.getElementById('orbitStatLatency');
+  const routeEl = document.getElementById('orbitStatRoute');
+  const secEl = document.getElementById('orbitStatSec');
+
+  const pairKey = [activeOrbitPair[0], activeOrbitPair[1]].sort().join('-');
+
+  if (pairKey.includes('tv')) {
+    if (speedEl) speedEl.textContent = isEn ? "60 FPS (Ultra HD Cast)" : "60 FPS (Chiếu màn hình Ultra HD)";
+    if (latencyEl) latencyEl.textContent = isEn ? "< 16ms (Instant Cast)" : "< 16ms (Chiếu tức thì, không giật hình)";
+    if (routeEl) routeEl.textContent = isEn ? "Wi-Fi LAN → Screen Cast Direct" : "Sóng Wi-Fi → Chiếu thẳng không dây";
+  } else if (pairKey.includes('phone') || pairKey.includes('tablet')) {
+    if (speedEl) speedEl.textContent = isEn ? "480 MB/s (Direct Mobile Wi-Fi)" : "480 MB/s (Wi-Fi truyền thẳng di động)";
+    if (latencyEl) latencyEl.textContent = isEn ? "0.4ms (Instant Sync)" : "0.4ms (Đồng bộ tức thì)";
+    if (routeEl) routeEl.textContent = isEn ? "Direct Wi-Fi → No Cloud Routing" : "Sóng Wi-Fi phòng → Không qua máy chủ ngoài";
+  } else {
+    if (speedEl) speedEl.textContent = isEn ? "960 MB/s – 1.1 GB/s (Max Wire/Wi-Fi 6)" : "960 MB/s – 1.1 GB/s (Wi-Fi 6 / Mạng dây)";
+    if (latencyEl) latencyEl.textContent = isEn ? "0.2ms (Zero Lag Response)" : "0.2ms (Chuột bấm ăn ngay)";
+    if (routeEl) routeEl.textContent = isEn ? "Local Link → In-Room Direct Peers" : "Mạng nội bộ phòng → Truyền thẳng trực tiếp";
+  }
+
+  if (secEl) {
+    secEl.textContent = isEn ? "100% In-room, zero cloud servers" : "100% Trong phòng, 0 máy chủ ngoài";
+  }
+}
+
+function initDeviceOrbit() {
+  const deviceButtons = document.querySelectorAll('.orbit-device-node');
+  deviceButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const dev = btn.getAttribute('data-device');
+      if (!dev) return;
+
+      if (activeOrbitPair.includes(dev)) {
+        // If clicking one that's already in the pair, do nothing or keep it
+        return;
+      }
+
+      // Shift pair: replace the oldest selected device
+      activeOrbitPair = [activeOrbitPair[1], dev];
+
+      // Update node active visual classes
+      deviceButtons.forEach((b) => {
+        const d = b.getAttribute('data-device');
+        if (activeOrbitPair.includes(d)) {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
+      });
+
+      updateOrbitUI();
+    });
+  });
+
+  updateOrbitUI();
+}
+
+// ==========================================
+// 9. INITIALIZATION
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
+  initThemeToggle();
   setLanguage(currentLang);
 
   document.querySelectorAll('.lang-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       setLanguage(btn.getAttribute('data-lang'));
+      updateConsoleEnvUI();
+      updateOrbitUI();
     });
   });
 
+  initConsoleEnvironment();
+  initDeviceOrbit();
   initStudio();
   initFaq();
-  initMobileNav();
   initDownloadModal();
   initMainTabs();
 });

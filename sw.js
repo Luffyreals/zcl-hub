@@ -1,5 +1,5 @@
 // ZCL Hub Service Worker - Pure Offline & Cache First
-const CACHE_NAME = 'zcl-hub-v4';
+const CACHE_NAME = 'zcl-hub-v15';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
