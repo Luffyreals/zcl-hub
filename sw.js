@@ -1,5 +1,5 @@
 // ZCL Hub Service Worker - Pure Offline & Cache First
-const CACHE_NAME = 'zcl-hub-v1';
+const CACHE_NAME = 'zcl-hub-v2';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -37,7 +37,6 @@ self.addEventListener('fetch', (event) => {
       return (
         cachedResponse ||
         fetch(event.request).catch(() => {
-          // Fallback to cached index.html for navigation requests
           if (event.request.mode === 'navigate') {
             return caches.match('./index.html');
           }
