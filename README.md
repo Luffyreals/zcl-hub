@@ -38,12 +38,28 @@
 
 ---
 
+## 📚 Tài liệu dự án (Docs)
+
+Toàn bộ tài liệu chi tiết được lưu trong thư mục [`docs/`](docs/README.md):
+* [**Hướng dẫn sử dụng chi tiết**](docs/user-guide.md): Từng bước tải, cài đặt và kết nối hai máy tính.
+* [**Nguyên lý hoạt động**](docs/architecture.md): Cách truyền file và điều khiển chuột mượt mà qua Wi-Fi chung.
+* [**Hỏi đáp & Xử lý sự cố**](docs/faq.md): Tường lửa Windows, mạng riêng tư và mẹo đạt tốc độ cao nhất.
+* [**Lộ trình phát triển**](docs/roadmap.md): Kế hoạch cho ZCL Cast, ZCL Chat và ZCL Sync.
+
+---
+
 ## 📂 Cấu trúc Repository
 
 ```text
 hub/
 ├── assets/
 │   └── logo.svg          # Logo nhận diện thương hiệu ZCL
+├── docs/                 # Thư mục tài liệu dự án
+│   ├── README.md         # Tổng quan tài liệu
+│   ├── user-guide.md     # Hướng dẫn sử dụng chi tiết
+│   ├── architecture.md   # Nguyên lý hoạt động
+│   ├── faq.md            # Hỏi đáp & xử lý sự cố
+│   └── roadmap.md        # Lộ trình phát triển
 ├── index.html            # Trang chủ phân chia 5 tab trực quan, không dồn 1 trang
 ├── styles.css            # Giao diện Dark Modern Tech, tối ưu máy tính & điện thoại
 ├── app.js                # Xử lý chuyển tab, song ngữ (VI/EN) & bản dùng thử trên Web
@@ -51,7 +67,7 @@ hub/
 ├── sw.js                 # Service Worker lưu trữ bộ nhớ đệm dùng offline
 ├── .nojekyll             # Tương thích máy chủ tĩnh GitHub Pages
 ├── LICENSE               # Giấy phép mã nguồn mở GPL-3.0
-└── README.md             # Hướng dẫn và tài liệu dự án
+└── README.md             # Giới thiệu tổng quan dự án
 ```
 
 ---
