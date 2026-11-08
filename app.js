@@ -15,7 +15,7 @@ const i18n = {
     nav_pillars: "Kiến trúc",
     nav_ecosystem: "Sản phẩm",
     nav_studio: "Web Studio",
-    nav_compare: "So sánh",
+    nav_specs: "Thông số",
     nav_quickstart: "Bắt đầu nhanh",
     nav_faq: "Hỏi đáp",
     btn_launch_web: "⚡ Mở Web Client",
@@ -45,20 +45,20 @@ const i18n = {
     copied_text: "Đã chép!",
 
     // Topology
-    topo_title: "Trực quan hóa đường truyền dữ liệu thực tế",
-    topo_zcl_badge: "ZCL DIRECT LAN (P2P)",
+    topo_title: "Kiến trúc đường truyền & tiêu chuẩn an toàn nội bộ",
+    topo_zcl_badge: "KẾT NỐI TRỰC TIẾP (P2P LAN)",
     topo_zcl_metric: "< 1.5ms",
-    topo_zcl_sub: "Tốc độ đường truyền phần cứng",
+    topo_zcl_sub: "Đường truyền vật lý tốc độ phần cứng",
     topo_zcl_step1: "Thiết bị Client",
     topo_zcl_step2: "Cáp mạng LAN / Wi-Fi phòng",
     topo_zcl_step3: "Thiết bị Host (Đến đích ngay)",
 
-    topo_cloud_badge: "TRUYỀN QUA CLOUD RELAY",
-    topo_cloud_metric: "180ms - 350ms",
-    topo_cloud_sub: "Nghẽn mạng khi đứt cáp quang biển",
-    topo_cloud_step1: "Thiết bị Client",
-    topo_cloud_step2: "ISP Nhà mạng ➔ Cáp quang biển ➔ Relay Server nước ngoài",
-    topo_cloud_step3: "Vòng ngược lại ➔ Thiết bị Host",
+    topo_sec_badge: "MÃ HÓA NỘI BỘ (TLS 1.3)",
+    topo_sec_metric: "100% Private",
+    topo_sec_sub: "Bảo vệ dữ liệu không rời khỏi phòng",
+    topo_sec_step1: "Quét mDNS & mã PIN ghép nối",
+    topo_sec_step2: "Mã hóa luồng dữ liệu bằng TLS 1.3",
+    topo_sec_step3: "Không trung gian, không telemetry",
 
     // Pillars
     pillar_badge: "TRIẾT LÝ CỐT LÕI",
@@ -69,7 +69,7 @@ const i18n = {
     pil1_desc: "Dữ liệu không bao giờ rời khỏi phòng của bạn. Không relay server, không rủi ro lộ lọt thông tin bí mật ra Internet.",
 
     pil2_title: "Local Cursor 0ms",
-    pil2_desc: "Kỹ thuật render con trỏ chuột ngay tại máy điều khiển, xóa bỏ hoàn toàn cảm giác giật lag chuột ức chế của UltraViewer/TeamViewer.",
+    pil2_desc: "Kỹ thuật render con trỏ chuột ngay tại máy điều khiển, đảm bảo phản hồi tức thì với tốc độ phần cứng, chuyển động mượt mà không độ trễ.",
 
     pil3_title: "Kháng đứt cáp quang",
     pil3_desc: "Internet chập chờn hay mất mạng quốc tế, hệ thống ZCL giữa các máy tính trong phòng vẫn chạy với tốc độ tối đa.",
@@ -140,36 +140,36 @@ const i18n = {
     bench_btn_run: "Chạy thử nghiệm băng thông",
     bench_running: "Đang đo kiểm...",
 
-    // Comparison
-    comp_badge: "ĐỐI CHIẾU THỰC TẾ",
-    comp_title: "Vì sao chọn ZCL?",
-    comp_th_feature: "Tiêu chí",
-    comp_th_zcl: "Ứng dụng ZCL",
-    comp_th_cloud: "Phần mềm Cloud thông thường",
+    // Technical Specifications
+    specs_badge: "THÔNG SỐ VẬN HÀNH",
+    specs_title: "Tiêu chuẩn kỹ thuật của ZCL",
+    specs_th_feature: "Hạng mục",
+    specs_th_val: "Thông số vận hành ZCL",
+    specs_th_note: "Ghi chú kỹ thuật",
 
-    c_speed: "Tốc độ truyền dữ liệu",
-    c_speed_zcl: "Tối đa card mạng (1 Gbps - 2.5 Gbps)",
-    c_speed_cloud: "Bị bóp bởi đường truyền Internet (20 - 100 Mbps)",
+    s_speed: "Băng thông dữ liệu",
+    s_speed_val: "1 Gbps – 2.5 Gbps (Tối đa card mạng)",
+    s_speed_note: "Truyền trực tiếp qua Switch/Wi-Fi, không giới hạn dung lượng",
 
-    c_latency: "Độ trễ điều khiển",
-    c_latency_zcl: "1ms - 15ms (Cảm giác chuột 0ms)",
-    c_latency_cloud: "120ms - 350ms (Giật lag khi relay nước ngoài)",
+    s_latency: "Độ trễ điều khiển",
+    s_latency_val: "< 1.5ms – 5ms (Local Cursor 0ms)",
+    s_latency_note: "Trải nghiệm chuột tức thì với công nghệ Local Cursor Rendering",
 
-    c_internet: "Khi đứt cáp quang biển",
-    c_internet_zcl: "Chạy bình thường 100%",
-    c_internet_cloud: "Mất kết nối hoàn toàn",
+    s_internet: "Hoạt động ngoại tuyến",
+    s_internet_val: "100% Độc lập không cần Internet",
+    s_internet_note: "Các máy tính kết nối liên tục kể cả khi đứt cáp quang biển",
 
-    c_privacy: "Quyền riêng tư & Bảo mật",
-    c_privacy_zcl: "Dữ liệu ở trong phòng bạn (TLS 1.3 P2P)",
-    c_privacy_cloud: "Đi qua máy chủ công ty bên thứ ba",
+    s_privacy: "Chuẩn mã hóa",
+    s_privacy_val: "TLS 1.3 P2P Direct & DTLS",
+    s_privacy_note: "Xác thực bằng chứng chỉ nội bộ, dữ liệu không rời khỏi phòng",
 
-    c_limit: "Giới hạn phiên & Quảng cáo",
-    c_limit_zcl: "Không giới hạn, không quảng cáo nag-screen",
-    c_limit_cloud: "Bị ngắt sau 5 phút, cảnh báo thương mại",
+    s_limit: "Giới hạn phiên làm việc",
+    s_limit_val: "Không giới hạn thời gian",
+    s_limit_note: "Không ngắt phiên tự động, không quảng cáo nag-screen",
 
-    c_license: "Chi phí & Bản quyền",
-    c_license_zcl: "Miễn phí vĩnh viễn, GPL-3.0 mã nguồn mở",
-    c_license_cloud: "Gói tháng đắt đỏ hoặc bị khóa bản quyền",
+    s_license: "Giấy phép & Bản quyền",
+    s_license_val: "GPL-3.0 Mã nguồn mở tự do",
+    s_license_note: "Miễn phí vĩnh viễn cho mọi mục đích sử dụng cá nhân và văn phòng",
 
     // Quick Start
     qs_badge: "HƯỚNG DẪN BẮT ĐẦU",
@@ -200,7 +200,7 @@ const i18n = {
     faq_a2: "ZCL sử dụng giao thức mDNS (Multicast DNS) với định danh `_zcl._tcp` để tự động phát hiện các thiết bị ZCL đang hoạt động trong cùng subnet. Ngoài ra, bạn luôn có thể kết nối trực tiếp thông qua địa chỉ IP nội bộ (ví dụ: `192.168.1.15`) hoặc quét mã QR.",
 
     faq_q3: "Công nghệ Local Cursor Rendering của ZCL Remote là gì?",
-    faq_a3: "Ở các phần mềm truyền thống (như TeamViewer/UltraViewer), khi bạn di chuột, tọa độ phải gửi lên server rồi chờ hình ảnh màn hình phản hồi về mới thấy chuột di chuyển (trễ 150ms - 300ms gây chóng mặt). ZCL Remote vẽ con trỏ chuột cục bộ tức thì với độ trễ 0ms dựa trên phản hồi phần cứng máy bạn, tạo cảm giác mượt như ngồi trước máy thật.",
+    faq_a3: "Khi điều khiển từ xa, nếu chờ hình ảnh từ máy chủ phản hồi về mới hiển thị chuột thì sẽ sinh ra độ trễ khó chịu. ZCL Remote xử lý và vẽ con trỏ chuột cục bộ tức thì với độ trễ 0ms dựa trên phần cứng máy bạn, tạo cảm giác mượt mà như đang ngồi trực tiếp trước màn hình máy thật.",
 
     faq_q4: "Dữ liệu của tôi có bị gửi lên bất kỳ máy chủ bên ngoài nào không?",
     faq_a4: "Không một byte dữ liệu nào rời khỏi mạng của bạn. Các ứng dụng ZCL không có relay server, không có máy chủ telemetry thu thập thói quen sử dụng, và toàn bộ mã nguồn đều công khai theo giấy phép GPL-3.0 để cộng đồng kiểm tra.",
@@ -227,7 +227,7 @@ const i18n = {
     nav_pillars: "Architecture",
     nav_ecosystem: "Products",
     nav_studio: "Web Studio",
-    nav_compare: "Comparison",
+    nav_specs: "Specifications",
     nav_quickstart: "Quick Start",
     nav_faq: "FAQ",
     btn_launch_web: "⚡ Open Web Client",
@@ -257,20 +257,20 @@ const i18n = {
     copied_text: "Copied!",
 
     // Topology
-    topo_title: "Real-world network routing comparison",
-    topo_zcl_badge: "ZCL DIRECT LAN (P2P)",
+    topo_title: "LAN Routing Architecture & Security Standards",
+    topo_zcl_badge: "DIRECT CONNECTION (P2P LAN)",
     topo_zcl_metric: "< 1.5ms",
-    topo_zcl_sub: "Pure hardware transmission speed",
+    topo_zcl_sub: "Hardware-level transmission speed",
     topo_zcl_step1: "Client Device",
     topo_zcl_step2: "Local LAN Cable / Wi-Fi Router",
     topo_zcl_step3: "Host Device (Instant arrival)",
 
-    topo_cloud_badge: "CLOUD RELAY ROUTING",
-    topo_cloud_metric: "180ms - 350ms",
-    topo_cloud_sub: "Bottlenecks during international outages",
-    topo_cloud_step1: "Client Device",
-    topo_cloud_step2: "ISP ➔ Undersea Fiber Cables ➔ Overseas Relay Server",
-    topo_cloud_step3: "Round trip back ➔ Host Device",
+    topo_sec_badge: "LOCAL ENCRYPTION (TLS 1.3)",
+    topo_sec_metric: "100% Private",
+    topo_sec_sub: "Data strictly remains inside the room",
+    topo_sec_step1: "mDNS scan & PIN pairing",
+    topo_sec_step2: "Stream encrypted with TLS 1.3",
+    topo_sec_step3: "Zero relays, zero telemetry",
 
     // Pillars
     pillar_badge: "CORE PHILOSOPHY",
@@ -281,7 +281,7 @@ const i18n = {
     pil1_desc: "Data never leaves your room. No central relay servers, zero risk of data leaks to external infrastructure.",
 
     pil2_title: "0ms Local Cursor",
-    pil2_desc: "Hardware-accelerated cursor rendering at the client, eradicating the dizzying mouse lag found in TeamViewer.",
+    pil2_desc: "Hardware-accelerated cursor rendering at the client, ensuring instant responsiveness and a fluid 0ms latency feel.",
 
     pil3_title: "Outage Immune",
     pil3_desc: "When internet drops or undersea cables snap, all local ZCL machines continue running at peak throughput.",
@@ -352,36 +352,36 @@ const i18n = {
     bench_btn_run: "Run Throughput Benchmark",
     bench_running: "Benchmarking...",
 
-    // Comparison
-    comp_badge: "REAL-WORLD BENCHMARKS",
-    comp_title: "Why Choose ZCL?",
-    comp_th_feature: "Features & Metrics",
-    comp_th_zcl: "ZCL Suite",
-    comp_th_cloud: "Traditional Cloud Apps",
+    // Technical Specifications
+    specs_badge: "ENGINEERING STANDARDS",
+    specs_title: "ZCL Technical Specifications",
+    specs_th_feature: "Item",
+    specs_th_val: "ZCL Operating Spec",
+    specs_th_note: "Technical Notes",
 
-    c_speed: "Data Transfer Speed",
-    c_speed_zcl: "Hardware interface cap (1 Gbps - 2.5 Gbps)",
-    c_speed_cloud: "Throttled by ISP upload limits (20 - 100 Mbps)",
+    s_speed: "Data Throughput",
+    s_speed_val: "1 Gbps – 2.5 Gbps (Interface speed)",
+    s_speed_note: "Direct transmission over Switch/Wi-Fi, unlimited file sizes",
 
-    c_latency: "Control Latency",
-    c_latency_zcl: "1ms - 15ms (0ms perceived cursor feel)",
-    c_latency_cloud: "120ms - 350ms (Jittery overseas relays)",
+    s_latency: "Control Latency",
+    s_latency_val: "< 1.5ms – 5ms (0ms Local Cursor)",
+    s_latency_note: "Instant cursor reaction via Local Cursor Rendering engine",
 
-    c_internet: "Undersea Cable Outages",
-    c_internet_zcl: "100% normal operation",
-    c_internet_cloud: "Completely dead / unreachable",
+    s_internet: "Offline Resilience",
+    s_internet_val: "100% Independent without Internet",
+    s_internet_note: "Continuous connectivity even during international cable severed events",
 
-    c_privacy: "Privacy & Security",
-    c_privacy_zcl: "Data strictly stays inside your room (TLS 1.3)",
-    c_privacy_cloud: "Traverses third-party cloud servers",
+    s_privacy: "Encryption Protocol",
+    s_privacy_val: "TLS 1.3 P2P Direct & DTLS",
+    s_privacy_note: "Mutual certificate verification, zero telemetry collection",
 
-    c_limit: "Session Limits & Ads",
-    c_limit_zcl: "Unlimited sessions, zero commercial nag-screens",
-    c_limit_cloud: "Timed out after 5 mins, annoying warnings",
+    s_limit: "Session Limits",
+    s_limit_val: "No time limits",
+    s_limit_note: "No artificial timeouts, no commercial nag-screens",
 
-    c_license: "Cost & Licensing",
-    c_license_zcl: "Free forever, open-source GPL-3.0",
-    c_license_cloud: "Expensive monthly subscriptions",
+    s_license: "Software License",
+    s_license_val: "GPL-3.0 Free & Open Source",
+    s_license_note: "Free forever for all personal and office workflows",
 
     // Quick Start
     qs_badge: "GETTING STARTED",
@@ -412,7 +412,7 @@ const i18n = {
     faq_a2: "ZCL employs mDNS (Multicast DNS) under the service identifier `_zcl._tcp` to automatically discover active peers on your subnet. You can also connect manually via local IP (e.g. `192.168.1.15`) or scan a QR code.",
 
     faq_q3: "What is Local Cursor Rendering in ZCL Remote?",
-    faq_a3: "In conventional tools like TeamViewer or UltraViewer, cursor movement coordinates must travel to the server and wait for a video frame update to show movement (150ms-300ms delay causing mouse lag). ZCL Remote draws the pointer locally at 0ms latency, matching the fluid feel of sitting directly at the physical machine.",
+    faq_a3: "When remote controlling a desktop, waiting for server video frame updates to show cursor movement causes noticeable input lag. ZCL Remote draws the pointer locally at 0ms latency, providing the fluid response of sitting directly at the physical machine.",
 
     faq_q4: "Is my data ever routed to external servers?",
     faq_a4: "Never. Not a single byte leaves your private subnet. ZCL operates without central relay servers or telemetry trackers, and the full source code is released under the GPL-3.0 license for independent verification.",
