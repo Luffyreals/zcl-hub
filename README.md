@@ -99,4 +99,4 @@ Website sẽ được xuất bản tự động tại: `https://luffyreals.githu
 ## ⚖️ Giấy phép
 
 Phát hành theo giấy phép **GPL-3.0-or-later**. Xem chi tiết tại [LICENSE](LICENSE).  
-Bản quyền © 2026 **Luffyreals** & **Nhà Cộng Đồng**.
+Bản quyền © 2026 **Nguyễn Hoàng Tùng**.

@@ -123,7 +123,7 @@ const i18n = {
     footer_apps: "Sản phẩm",
     footer_res: "Tài nguyên",
     footer_author: "Tác giả",
-    footer_rights: "Mã nguồn mở theo giấy phép GPL-3.0. Phát triển bởi Luffyreals & Nhà Cộng Đồng."
+    footer_rights: "Mã nguồn mở theo giấy phép GPL-3.0. Phát triển bởi Nguyễn Hoàng Tùng."
   },
   en: {
     brand_sub: "LAN Ecosystem",
@@ -241,7 +241,7 @@ const i18n = {
     footer_apps: "Products",
     footer_res: "Resources",
     footer_author: "Author",
-    footer_rights: "Open source under GPL-3.0 License. Developed by Luffyreals & Nha Cong Dong."
+    footer_rights: "Open source under GPL-3.0 License. Developed by Nguyen Hoang Tung."
   }
 };
 
