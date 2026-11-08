@@ -617,6 +617,13 @@ function updateTabSlidingIndicator() {
     indicator.style.transform = `translateX(${activePill.offsetLeft}px)`;
     indicator.style.width = `${activePill.offsetWidth}px`;
     indicator.style.opacity = '1';
+
+    if (bar.parentElement) {
+      const wrapper = bar.parentElement;
+      const pillCenter = activePill.offsetLeft + activePill.offsetWidth / 2;
+      const scrollTarget = pillCenter - wrapper.clientWidth / 2;
+      wrapper.scrollTo({ left: scrollTarget, behavior: 'smooth' });
+    }
   } else {
     indicator.style.opacity = '0';
   }
@@ -1062,6 +1069,25 @@ function initStudio() {
       const clickY = e.clientY - rect.top;
       triggerRipple(clickX, clickY);
     });
+
+    function handleTouch(e) {
+      if (e.touches && e.touches.length > 0) {
+        const rect = canvas.getBoundingClientRect();
+        mouseX = e.touches[0].clientX - rect.left;
+        mouseY = e.touches[0].clientY - rect.top;
+        drawScreen();
+      }
+    }
+
+    canvas.addEventListener('touchstart', (e) => {
+      handleTouch(e);
+      if (e.touches && e.touches.length > 0) {
+        const rect = canvas.getBoundingClientRect();
+        triggerRipple(e.touches[0].clientX - rect.left, e.touches[0].clientY - rect.top);
+      }
+    }, { passive: true });
+
+    canvas.addEventListener('touchmove', handleTouch, { passive: true });
 
     if (overlay) {
       overlay.addEventListener('click', () => {
