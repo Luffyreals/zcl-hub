@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZCL Hub — Hệ Sinh Thái Ứng Dụng Mạng Nội Bộ Zero-Cloud LAN</title>
+  <meta name="description" content="ZCL Hub quy tụ các ứng dụng P2P mạng nội bộ tốc độ cao: ZCL Teleport (chuyển file & clipboard) và ZCL Remote Desktop (điều khiển < 50ms, 60 FPS). Không cloud, không tài khoản, mã nguồn mở.">
+  <meta name="theme-color" content="#0a090d">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ZCL Hub — Zero-Cloud LAN Ecosystem">
+  <meta property="og:description" content="Làm chủ mạng LAN. Không cloud, không độ trễ. Truyền file chục GB và điều khiển máy tính 60 FPS siêu tốc.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/logo.svg">
+</head>
+<body>
+
+  <!-- Background Ambient Glows -->
+  <div class="ambient-glow" aria-hidden="true">
+    <div class="glow-1"></div>
+    <div class="glow-2"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="#" class="brand">
+        <img src="assets/logo.svg" alt="ZCL Logo" class="brand-logo">
+        <span>ZCL Hub</span>
+        <span class="brand-badge" data-i18n="brand_sub">Hệ sinh thái LAN</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#ecosystem" data-i18n="nav_ecosystem">Hệ sinh thái</a></li>
+          <li><a href="#studio" data-i18n="nav_studio">Web Studio (Dùng thử)</a></li>
+          <li><a href="#compare" data-i18n="nav_compare">So sánh</a></li>
+          <li><a href="#philosophy" data-i18n="nav_philosophy">Triết lý</a></li>
+          <li><a href="#roadmap" data-i18n="nav_roadmap">Lộ trình</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Language Switcher -->
+        <div class="lang-toggle" role="group" aria-label="Language selection">
+          <button class="lang-btn active" data-lang="vi" type="button">VI</button>
+          <button class="lang-btn" data-lang="en" type="button">EN</button>
+        </div>
+
+        <a href="#studio" class="btn btn-primary btn-sm" data-i18n="btn_launch_web">
+          ⚡ Mở Web Client
+        </a>
+
+        <a href="https://github.com/Luffyreals/zero-cloud-lan" target="_blank" rel="noopener noreferrer" class="btn btn-icon" title="GitHub">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow-pill">
+        <span class="pulse-dot"></span>
+        <span data-i18n="hero_eyebrow">HỆ SINH THÁI ỨNG DỤNG NỘI BỘ SIÊU TỐC</span>
+      </div>
+
+      <h1 data-i18n="hero_title">
+        Làm chủ mạng LAN.<br>
+        <span class="highlight-mint">Không Cloud.</span> <span class="highlight-lilac">Không Độ Trễ.</span>
+      </h1>
+
+      <p class="hero-lede" data-i18n="hero_lede">
+        Truyền file chục GB với tốc độ phần cứng, điều khiển máy tính 60 FPS mượt mà ngay trong cùng mạng Wi-Fi/LAN. Không qua máy chủ relay, không tài khoản, bảo mật tuyệt đối.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#studio" class="btn btn-primary" data-i18n="btn_launch_web">
+          ⚡ Mở Web Client
+        </a>
+        <a href="#ecosystem" class="btn btn-secondary" data-i18n="btn_download_desktop">
+          📦 Tải bản Desktop (.exe)
+        </a>
+        <a href="https://github.com/Luffyreals" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" data-i18n="btn_github">
+          ⭐ GitHub @Luffyreals
+        </a>
+      </div>
+
+      <!-- Live Speed / Latency Showcase -->
+      <div class="latency-showcase">
+        <div class="latency-item cloud">
+          <span class="latency-tag" data-i18n="latency_cloud_label">Phần mềm Cloud (TeamViewer / Drive)</span>
+          <div class="latency-value">
+            <span>~180ms - 320ms</span>
+          </div>
+          <span class="latency-desc" data-i18n="latency_cloud_desc">Đi vòng qua relay nước ngoài, nghẽn khi đứt cáp</span>
+        </div>
+
+        <div class="latency-divider"></div>
+
+        <div class="latency-item zcl">
+          <span class="latency-tag" data-i18n="latency_zcl_label">Hệ sinh thái ZCL Direct LAN</span>
+          <div class="latency-value">
+            <span>&lt; 1.5ms</span>
+          </div>
+          <span class="latency-desc" data-i18n="latency_zcl_desc">P2P mã hóa nội bộ, đứt Internet vẫn chạy 100%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bento Grid Showcase (Core Products) -->
+  <section class="section" id="ecosystem">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-badge" data-i18n="bento_badge">CÁC ỨNG DỤNG LÕI</span>
+        <h2 data-i18n="bento_title">Hệ sinh thái ZCL có những gì?</h2>
+        <p data-i18n="bento_sub">Bộ công cụ mã nguồn mở hoàn chỉnh thay thế các giải pháp phụ thuộc đám mây.</p>
+      </div>
+
+      <div class="bento-grid">
+        <!-- Teleport Bento Card -->
+        <div class="bento-card col-6 card-teleport">
+          <div>
+            <div class="card-top">
+              <div class="app-icon teleport-icon">⚡</div>
+              <span class="product-pill" data-i18n="tp_status">Bản thử nghiệm v0.1</span>
+            </div>
+
+            <h3 data-i18n="tp_title">ZCL Teleport</h3>
+            <p data-i18n="tp_desc">Gửi file hàng chục GB và đồng bộ clipboard 2 chiều giữa các máy tính trong cùng Wi-Fi/LAN. Tốc độ kịch trần card mạng.</p>
+
+            <div class="spec-strip">
+              <div class="spec-node">
+                <span>Băng thông</span>
+                <span>100MB/s - 1GB/s</span>
+              </div>
+              <div class="spec-node">
+                <span>Giao thức</span>
+                <span>P2P Stream</span>
+              </div>
+              <div class="spec-node">
+                <span>Clipboard</span>
+                <span>2 Chiều Text/Img</span>
+              </div>
+            </div>
+
+            <ul class="feature-list">
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span data-i18n="tp_f1">Tốc độ 100MB/s – 1GB/s (tùy Switch/Wi-Fi)</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span data-i18n="tp_f2">Tự động tiếp tục khi rớt mạng (Resumable)</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span data-i18n="tp_f3">Đồng bộ Clipboard văn bản & hình ảnh</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card-actions">
+            <a href="https://github.com/Nha-Cong-Dong/zero-cloud-lan-teleport/releases" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" data-i18n="tp_btn_dl">
+              Tải Teleport (.exe)
+            </a>
+            <a href="#studio" class="btn btn-secondary btn-sm" data-i18n="tp_btn_web">
+              Dùng Teleport Web
+            </a>
+            <a href="https://github.com/Nha-Cong-Dong/zero-cloud-lan-teleport" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+              Repo GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Remote Bento Card -->
+        <div class="bento-card col-6 card-remote">
+          <div>
+            <div class="card-top">
+              <div class="app-icon remote-icon">🖥️</div>
+              <span class="product-pill" data-i18n="rm_status">Alpha v0.1.0</span>
+            </div>
+
+            <h3 data-i18n="rm_title">ZCL Remote Desktop</h3>
+            <p data-i18n="rm_desc">Điều khiển máy tính từ xa siêu tốc trong mạng nội bộ. Trải nghiệm cảm giác chuột 0ms, không độ trễ, không quảng cáo.</p>
+
+            <div class="spec-strip">
+              <div class="spec-node">
+                <span>Độ trễ</span>
+                <span>&lt; 50ms (LAN &lt; 5ms)</span>
+              </div>
+              <div class="spec-node">
+                <span>Khung hình</span>
+                <span>60 FPS @ 1080p</span>
+              </div>
+              <div class="spec-node">
+                <span>Bảo mật</span>
+                <span>TLS 1.3 Direct</span>
+              </div>
+            </div>
+
+            <ul class="feature-list">
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span data-i18n="rm_f1">Độ trễ truyền nhận &lt; 50ms (LAN Gigabit &lt; 5ms)</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span data-i18n="rm_f2">Màn hình 60 FPS @ 1080p, tối ưu băng thông</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span data-i18n="rm_f3">Local Cursor Rendering (chuột không có độ trễ)</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span data-i18n="rm_f4">Floating Kill-switch ngắt quyền lập tức</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card-actions">
+            <a href="https://github.com/Luffyreals/zero-cloud-lan-remote/releases" target="_blank" rel="noopener noreferrer" class="btn btn-lilac btn-sm" data-i18n="rm_btn_dl">
+              Tải Remote (.exe)
+            </a>
+            <a href="#studio" class="btn btn-secondary btn-sm" data-i18n="rm_btn_web">
+              Mở Remote Viewer
+            </a>
+            <a href="https://github.com/Luffyreals/zero-cloud-lan-remote" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+              Repo GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Philosophy Bento Card -->
+        <div class="bento-card col-12" id="philosophy">
+          <div class="card-top">
+            <h3 data-i18n="phil_title">Triết lý Zero-Cloud</h3>
+          </div>
+          <div class="philosophy-grid">
+            <div class="philosophy-item">
+              <h4>🛡️ <span data-i18n="phil_1_h">100% Không Cloud</span></h4>
+              <p data-i18n="phil_1_p">Dữ liệu không bao giờ rời khỏi phòng bạn. Không máy chủ relay, không nguy cơ rò rỉ.</p>
+            </div>
+            <div class="philosophy-item">
+              <h4>🔑 <span data-i18n="phil_2_h">Không Cần Tài Khoản</span></h4>
+              <p data-i18n="phil_2_p">Không đăng ký, không email, không quảng cáo 'thương mại' hay giới hạn thời gian phiên.</p>
+            </div>
+            <div class="philosophy-item">
+              <h4>📖 <span data-i18n="phil_3_h">Mã Nguồn Mở Tự Do</span></h4>
+              <p data-i18n="phil_3_p">Phát hành theo giấy phép GPL-3.0. Bất kỳ ai cũng có thể tự kiểm tra mã nguồn.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Roadmap Bento Card -->
+        <div class="bento-card col-12" id="roadmap">
+          <div class="card-top">
+            <h3 data-i18n="road_title">Ứng dụng tiếp theo trong lộ trình</h3>
+          </div>
+          <div class="roadmap-grid">
+            <div class="roadmap-item">
+              <span class="roadmap-status">Đang phát triển</span>
+              <h4 data-i18n="road_cast_h">ZCL Cast</h4>
+              <p data-i18n="road_cast_p">Chia sẻ màn hình và âm thanh độ nét cao trong phòng họp không cần dây cáp HDMI.</p>
+            </div>
+            <div class="roadmap-item">
+              <span class="roadmap-status">Lên ý tưởng</span>
+              <h4 data-i18n="road_chat_h">ZCL Chat</h4>
+              <p data-i18n="road_chat_p">Kênh chat & gọi thoại nội bộ mã hóa tức thì cho văn phòng, không lưu lịch sử máy chủ.</p>
+            </div>
+            <div class="roadmap-item">
+              <span class="roadmap-status">Lên ý tưởng</span>
+              <h4 data-i18n="road_sync_h">ZCL Sync</h4>
+              <p data-i18n="road_sync_p">Tự động đồng bộ hóa thư mục làm việc giữa máy bàn và laptop theo thời gian thực.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive ZCL Web Studio (Run App directly in browser) -->
+  <section class="studio-section" id="studio">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-badge" data-i18n="studio_badge">TRẢI NGHIỆM TRỰC TIẾP</span>
+        <h2 data-i18n="studio_title">ZCL Web Studio</h2>
+        <p data-i18n="studio_sub">Dùng trực tiếp trên trình duyệt mà không cần cài đặt bất kỳ phần mềm nào.</p>
+      </div>
+
+      <div class="studio-container">
+        <!-- Studio Header & Tabs -->
+        <div class="studio-header">
+          <div class="studio-tabs">
+            <button class="studio-tab-btn active" data-app="teleport" type="button">
+              <span data-i18n="studio_tab_tp">⚡ ZCL Teleport Web</span>
+            </button>
+            <button class="studio-tab-btn" data-app="remote" type="button">
+              <span data-i18n="studio_tab_rm">🖥️ ZCL Remote Web Viewer</span>
+            </button>
+          </div>
+          <div class="studio-status-indicator">
+            <span class="pulse-dot"></span>
+            <span data-i18n="studio_status_ready">Sẵn sàng trong mạng nội bộ</span>
+          </div>
+        </div>
+
+        <div class="studio-content">
+          <!-- 1. Teleport Web Studio Panel -->
+          <div class="studio-panel active" id="panel-teleport">
+            <div class="teleport-web-ui">
+              <!-- Drag and drop zone -->
+              <div class="drop-zone" id="dropZone">
+                <input type="file" id="fileInput" style="display: none;" multiple>
+                <div class="drop-icon">📁</div>
+                <h4 data-i18n="tp_drop_title">Kéo thả file vào đây hoặc bấm để chọn</h4>
+                <p style="color: var(--text-muted); font-size: 0.85rem;" data-i18n="tp_drop_sub">
+                  Hỗ trợ file đơn hoặc thư mục hàng chục GB qua WebRTC DataChannel
+                </p>
+                <button class="btn btn-primary btn-sm" type="button">Chọn file từ máy</button>
+              </div>
+
+              <!-- Transfer Monitor -->
+              <div class="transfer-monitor">
+                <div>
+                  <div class="peer-list-title" data-i18n="tp_peers_title">Máy tính trong mạng LAN phát hiện được</div>
+                  
+                  <div class="peer-item">
+                    <div class="peer-info">
+                      <div class="peer-avatar">LV</div>
+                      <div>
+                        <strong>Laptop-VanPhong</strong>
+                        <div style="font-size: 0.78rem; color: var(--text-dim);" class="mono">192.168.1.18 · Windows 11</div>
+                      </div>
+                    </div>
+                    <span class="product-pill" style="color: var(--mint);">Đã ghép nối</span>
+                  </div>
+
+                  <div class="peer-item">
+                    <div class="peer-info">
+                      <div class="peer-avatar" style="background: var(--lilac-dark); color: var(--lilac);">PC</div>
+                      <div>
+                        <strong>PC-DoHoa-Studio</strong>
+                        <div style="font-size: 0.78rem; color: var(--text-dim);" class="mono">192.168.1.42 · LAN Gigabit</div>
+                      </div>
+                    </div>
+                    <button class="btn btn-secondary btn-sm" type="button">Ghép nối</button>
+                  </div>
+                </div>
+
+                <div class="progress-card">
+                  <div class="progress-header">
+                    <strong data-i18n="tp_transfer_demo">Đang truyền đến: Laptop-VanPhong</strong>
+                    <span class="mono" id="progressPercent">78%</span>
+                  </div>
+                  <div class="progress-bar-wrap">
+                    <div class="progress-fill" id="progressFill"></div>
+                  </div>
+                  <div class="progress-meta">
+                    <span id="progressBytes">1.82 GB / 2.34 GB</span>
+                    <span id="progressSpeed" data-i18n="tp_speed">Tốc độ: 94.6 MB/s (Wi-Fi 6 LAN)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Remote Web Studio Panel -->
+          <div class="studio-panel" id="panel-remote">
+            <div class="remote-web-ui">
+              <div class="remote-toolbar">
+                <div class="remote-connection-bar">
+                  <input type="text" class="ip-input" id="remoteIpInput" value="192.168.1.15:8443" data-i18n-placeholder="rm_ip_placeholder" placeholder="Nhập IP hoặc mã PIN (VD: 192.168.1.15)">
+                  <button class="btn btn-lilac btn-sm" id="btnRemoteConnect" type="button" data-i18n="rm_connect_btn">Kết nối</button>
+                  <button class="btn btn-secondary btn-sm" id="btnRemoteDisconnect" type="button" data-i18n="rm_disconnect_btn">Ngắt kết nối (Kill-switch)</button>
+                </div>
+                <div>
+                  <button class="btn btn-secondary btn-sm" id="btnRemoteFullscreen" type="button" data-i18n="rm_fullscreen">Toàn màn hình</button>
+                </div>
+              </div>
+
+              <!-- Remote Screen Stage -->
+              <div class="remote-screen-stage">
+                <canvas id="remoteCanvas" class="remote-canvas"></canvas>
+
+                <!-- HUD -->
+                <div class="remote-hud">
+                  <div class="hud-item latency">LAN RTT: <span id="hudLatency">1.6 ms</span></div>
+                  <div class="hud-item fps">Stream: <span id="hudFps">60 FPS</span></div>
+                  <div class="hud-item security">Security: <span>TLS 1.3 Direct</span></div>
+                </div>
+
+                <!-- Overlay Initial Guide -->
+                <div class="remote-screen-overlay" id="remoteOverlay">
+                  <h4 style="margin-bottom: 8px;" data-i18n="rm_overlay_title">Bấm để khởi động Remote Viewer</h4>
+                  <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;" data-i18n="rm_overlay_sub">
+                    Thử di chuột để trải nghiệm công nghệ Local Cursor Rendering 0ms lag
+                  </p>
+                  <button class="btn btn-lilac btn-sm" type="button">Bắt đầu phiên điều khiển</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Section -->
+  <section class="section" id="compare">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-badge" data-i18n="comp_badge">ĐỐI CHIẾU THỰC TẾ</span>
+        <h2 data-i18n="comp_title">Vì sao chọn Hệ sinh thái ZCL?</h2>
+      </div>
+
+      <div class="comparison-table-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th data-i18n="comp_th_feature">Tiêu chí</th>
+              <th class="zcl-col" data-i18n="comp_th_zcl">Hệ sinh thái ZCL</th>
+              <th data-i18n="comp_th_cloud">Phần mềm Cloud thông thường</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong data-i18n="c_speed">Tốc độ truyền dữ liệu</strong></td>
+              <td class="zcl-col" data-i18n="c_speed_zcl">Tối đa card mạng (1 Gbps - 2.5 Gbps)</td>
+              <td class="cloud-col" data-i18n="c_speed_cloud">Bị bóp bởi đường truyền Internet (20 - 100 Mbps)</td>
+            </tr>
+            <tr>
+              <td><strong data-i18n="c_latency">Độ trễ điều khiển</strong></td>
+              <td class="zcl-col" data-i18n="c_latency_zcl">1ms - 15ms (Cảm giác chuột 0ms)</td>
+              <td class="cloud-col" data-i18n="c_latency_cloud">120ms - 350ms (Giật lag khi relay nước ngoài)</td>
+            </tr>
+            <tr>
+              <td><strong data-i18n="c_internet">Khi đứt cáp quang biển</strong></td>
+              <td class="zcl-col" data-i18n="c_internet_zcl">Chạy bình thường 100%</td>
+              <td class="cloud-col" data-i18n="c_internet_cloud">Mất kết nối hoàn toàn</td>
+            </tr>
+            <tr>
+              <td><strong data-i18n="c_privacy">Quyền riêng tư & Bảo mật</strong></td>
+              <td class="zcl-col" data-i18n="c_privacy_zcl">Dữ liệu ở trong phòng bạn (TLS 1.3)</td>
+              <td class="cloud-col" data-i18n="c_privacy_cloud">Đi qua máy chủ công ty bên thứ ba</td>
+            </tr>
+            <tr>
+              <td><strong data-i18n="c_license">Chi phí & Giới hạn</strong></td>
+              <td class="zcl-col" data-i18n="c_license_zcl">Miễn phí vĩnh viễn, GPL-3.0 mở</td>
+              <td class="cloud-col" data-i18n="c_license_cloud">Cảnh báo dùng thương mại, tính phí hàng tháng</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- PWA Install Banner -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="pwa-banner">
+        <h3 data-i18n="pwa_title">Cài đặt ZCL Hub như ứng dụng độc lập</h3>
+        <p data-i18n="pwa_desc">Trang web hỗ trợ chuẩn PWA (Progressive Web App). Cài đặt ngay lên màn hình chính máy tính hoặc điện thoại để dùng offline.</p>
+        <button class="btn btn-primary" id="btnInstallPwa" type="button" data-i18n="pwa_install_btn">
+          📲 Cài đặt ZCL Hub (PWA)
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand">
+            <img src="assets/logo.svg" alt="ZCL Logo" class="brand-logo">
+            <span>ZCL Hub</span>
+          </div>
+          <p data-i18n="footer_desc">Hệ sinh thái ứng dụng mạng nội bộ P2P tối ưu tốc độ, bảo mật và quyền làm chủ dữ liệu của bạn.</p>
+        </div>
+
+        <div class="footer-col">
+          <h5 data-i18n="footer_apps">Sản phẩm</h5>
+          <ul>
+            <li><a href="https://github.com/Nha-Cong-Dong/zero-cloud-lan-teleport" target="_blank" rel="noopener noreferrer">ZCL Teleport</a></li>
+            <li><a href="https://github.com/Luffyreals/zero-cloud-lan-remote" target="_blank" rel="noopener noreferrer">ZCL Remote Desktop</a></li>
+            <li><a href="#roadmap">ZCL Cast</a></li>
+            <li><a href="#roadmap">ZCL Chat</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5 data-i18n="footer_res">Tài nguyên</h5>
+          <ul>
+            <li><a href="https://github.com/Luffyreals/zero-cloud-lan" target="_blank" rel="noopener noreferrer">Mã nguồn Hub</a></li>
+            <li><a href="https://github.com/Luffyreals/zero-cloud-lan-remote/releases" target="_blank" rel="noopener noreferrer">Bản phát hành Remote</a></li>
+            <li><a href="https://github.com/Nha-Cong-Dong/zero-cloud-lan-teleport/releases" target="_blank" rel="noopener noreferrer">Bản phát hành Teleport</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5 data-i18n="footer_author">Tác giả</h5>
+          <ul>
+            <li><a href="https://github.com/Luffyreals" target="_blank" rel="noopener noreferrer">GitHub @Luffyreals</a></li>
+            <li><a href="https://github.com/Nha-Cong-Dong" target="_blank" rel="noopener noreferrer">Nhà Cộng Đồng</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p data-i18n="footer_rights">Mã nguồn mở theo giấy phép GPL-3.0. Phát triển bởi Luffyreals &amp; Nhà Cộng Đồng.</p>
+        <p class="mono">v1.0.0 · Pure LAN Direct</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
