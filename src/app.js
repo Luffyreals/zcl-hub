@@ -843,11 +843,11 @@ function setLanguage(lang) {
     if (isDirA) {
       clipTagSource.innerText = lang === 'vi' ? 'Máy A (Laptop cá nhân)' : 'PC A (Laptop)';
       clipTagTarget.innerText = lang === 'vi' ? 'Máy B (Máy bàn làm việc)' : 'PC B (Desktop)';
-      if (btnCopy) btnCopy.querySelector('span').innerText = lang === 'vi' ? 'Sao chép sang Máy B' : 'Copy to PC B';
+      if (btnCopy) { const span = btnCopy.querySelector('span'); if (span) span.innerText = lang === 'vi' ? 'Sao chép sang Máy B' : 'Copy to PC B'; }
     } else {
       clipTagSource.innerText = lang === 'vi' ? 'Máy B (Máy bàn làm việc)' : 'PC B (Desktop)';
       clipTagTarget.innerText = lang === 'vi' ? 'Máy A (Laptop cá nhân)' : 'PC A (Laptop)';
-      if (btnCopy) btnCopy.querySelector('span').innerText = lang === 'vi' ? 'Sao chép sang Máy A' : 'Copy to PC A';
+      if (btnCopy) { const span = btnCopy.querySelector('span'); if (span) span.innerText = lang === 'vi' ? 'Sao chép sang Máy A' : 'Copy to PC A'; }
     }
   }
 
@@ -1428,11 +1428,11 @@ function initStudio() {
         if (clipDirection === 'A_TO_B') {
           clipTagSource.innerText = currentLang === 'vi' ? 'Máy A (Laptop cá nhân)' : 'PC A (Laptop)';
           clipTagTarget.innerText = currentLang === 'vi' ? 'Máy B (Máy bàn làm việc)' : 'PC B (Desktop)';
-          if (btnCopy) btnCopy.querySelector('span').innerText = currentLang === 'vi' ? 'Sao chép sang Máy B' : 'Copy to PC B';
+          if (btnCopy) { const span = btnCopy.querySelector('span'); if (span) span.innerText = currentLang === 'vi' ? 'Sao chép sang Máy B' : 'Copy to PC B'; }
         } else {
           clipTagSource.innerText = currentLang === 'vi' ? 'Máy B (Máy bàn làm việc)' : 'PC B (Desktop)';
           clipTagTarget.innerText = currentLang === 'vi' ? 'Máy A (Laptop cá nhân)' : 'PC A (Laptop)';
-          if (btnCopy) btnCopy.querySelector('span').innerText = currentLang === 'vi' ? 'Sao chép sang Máy A' : 'Copy to PC A';
+          if (btnCopy) { const span = btnCopy.querySelector('span'); if (span) span.innerText = currentLang === 'vi' ? 'Sao chép sang Máy A' : 'Copy to PC A'; }
         }
       }
 
@@ -1930,8 +1930,8 @@ function initStudio() {
 
       if (targetTag) {
         targetTag.innerText = currentLang === 'vi' 
-          ? `Đo trên chuẩn: ${btn.querySelector('span').innerText}` 
-          : `Mode: ${btn.querySelector('span').innerText}`;
+          ? `Đo trên chuẩn: ${(btn.querySelector('span') || btn).innerText}` 
+          : `Mode: ${(btn.querySelector('span') || btn).innerText}`;
       }
 
       // Update speed preview metrics
@@ -3121,26 +3121,34 @@ function initBackgroundEffects() {
 // 9. INITIALIZATION
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
-  initThemeToggle();
-  setLanguage(currentLang);
+  const safeRun = (name, fn) => {
+    try {
+      fn();
+    } catch (err) {
+      console.error(`[ZCL Init Error] ${name}:`, err);
+    }
+  };
+
+  safeRun('ThemeToggle', initThemeToggle);
+  safeRun('Language', () => setLanguage(currentLang));
 
   document.querySelectorAll('.lang-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       setLanguage(btn.getAttribute('data-lang'));
-      updateConsoleEnvUI();
-      updateOrbitUI();
+      if (typeof updateConsoleEnvUI === 'function') updateConsoleEnvUI();
+      if (typeof updateOrbitUI === 'function') updateOrbitUI();
     });
   });
 
-  initConsoleEnvironment();
-  initDeviceOrbit();
-  initStudio();
-  initFaq();
-  initDownloadModal();
-  syncReleasesFromGitHub();
-  initMainTabs();
-  init3DTiltCards();
-  initKeyboardShortcuts();
-  initBackToTop();
-  initBackgroundEffects();
+  safeRun('MainTabs', initMainTabs);
+  safeRun('ConsoleEnvironment', initConsoleEnvironment);
+  safeRun('DeviceOrbit', initDeviceOrbit);
+  safeRun('Studio', initStudio);
+  safeRun('Faq', initFaq);
+  safeRun('DownloadModal', initDownloadModal);
+  safeRun('GitHubReleases', syncReleasesFromGitHub);
+  safeRun('3DTiltCards', init3DTiltCards);
+  safeRun('KeyboardShortcuts', initKeyboardShortcuts);
+  safeRun('BackToTop', initBackToTop);
+  safeRun('BackgroundEffects', initBackgroundEffects);
 });
