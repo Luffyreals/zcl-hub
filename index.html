@@ -9,7 +9,7 @@
   <meta name="color-scheme" content="dark">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="src/styles.css">
+  <link rel="stylesheet" href="src/styles.css?v=34">
 
   <!-- Open Graph -->
   <meta property="og:title" content="ZCL Hub — Truyền file siêu tốc &amp; Điều khiển máy tính">
@@ -44,23 +44,19 @@
   <!-- Header (Unified Modern Nav Bar with Integrated Tabs & Theme Switcher) -->
   <header class="site-header" id="siteHeader">
     <div class="container nav-wrap">
-      <!-- Left: Brand -->
+      <!-- Left: Brand (Acts as Home / Overview Navigation) -->
       <div class="nav-brand-wrap">
-        <a href="#overview" class="brand" data-tab="tab-overview" aria-label="ZCL Hub - Trang chủ">
+        <a href="#overview" class="brand active" data-tab="tab-overview" data-key="1" aria-label="ZCL Hub - Trang chủ" title="Về trang chủ ZCL Hub" data-i18n-title="nav_brand_tooltip">
           <img src="assets/logo.svg" alt="ZCL Logo" class="brand-logo">
           <span class="brand-name">ZCL Hub</span>
         </a>
       </div>
 
-      <!-- Center: Segmented Navigation Tabs -->
+      <!-- Center: Segmented Navigation Tabs (Functional Sections) -->
       <nav class="nav-tabs-wrapper" id="navTabsWrapper" aria-label="Danh mục chức năng">
         <div class="nav-tabs-scroll-fade fade-left" id="tabFadeLeft" aria-hidden="true"></div>
         <div class="main-tabs-bar" role="tablist">
           <div class="tab-sliding-indicator" id="tabSlidingIndicator" aria-hidden="true"></div>
-          <button class="main-tab-pill active" data-tab="tab-overview" data-key="1" role="tab" aria-selected="true" type="button">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            <span data-i18n="nav_overview">Tổng quan</span>
-          </button>
           <button class="main-tab-pill" data-tab="tab-apps" data-key="2" role="tab" aria-selected="false" type="button">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
             <span data-i18n="nav_apps">Ứng dụng</span>
@@ -83,6 +79,25 @@
 
       <!-- Right: Action Controls (Theme Mode + Language) -->
       <div class="nav-actions">
+        <!-- Feedback Quick Button -->
+        <button class="nav-action-btn" id="btnHeaderFeedback" type="button" aria-label="Góp ý &amp; Báo lỗi" title="Góp ý &amp; Báo lỗi" data-i18n-title="nav_feedback">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          <span class="nav-action-text" data-i18n="nav_feedback">Góp ý</span>
+        </button>
+
+        <!-- Donate Quick Button -->
+        <button class="nav-action-btn nav-donate-btn" id="btnHeaderDonate" type="button" aria-label="Ủng hộ tác giả" title="Ủng hộ tác giả" data-i18n-title="nav_donate">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          <span class="nav-action-text" data-i18n="nav_donate">Ủng hộ</span>
+        </button>
+
+        <!-- Elegant Group Divider -->
+        <span class="nav-action-divider" aria-hidden="true"></span>
+
         <!-- Dark / Light Theme Toggle -->
         <!-- Eco Mode / Low Power Mode Toggle -->
         <button class="eco-toggle-btn" id="ecoToggleBtn" type="button" aria-label="Chế độ tiết kiệm pin / Giảm hiệu ứng" title="Chế độ tiết kiệm pin / Giảm hiệu ứng" data-i18n-title="eco_toggle">
@@ -1974,6 +1989,7 @@
           </div>
         </div>
       </section>
+
     </div>
 
   </main>
@@ -2003,7 +2019,7 @@
           <p data-i18n="footer_desc">Nhanh hơn, mượt hơn và hoàn toàn riêng tư giữa các máy tính cùng phòng.</p>
         </div>
 
-        <div class="footer-col">
+        <div class="footer-col footer-col-apps">
           <h5 data-i18n="footer_apps">Ứng dụng</h5>
           <ul>
             <li><a href="#apps" data-tab="tab-apps">ZCL Teleport</a></li>
@@ -2012,7 +2028,7 @@
           </ul>
         </div>
 
-        <div class="footer-col">
+        <div class="footer-col footer-col-nav">
           <h5 data-i18n="footer_res">Danh mục</h5>
           <ul>
             <li><a href="#overview" data-tab="tab-overview" data-i18n="nav_overview">Tổng quan</a></li>
@@ -2020,29 +2036,31 @@
             <li><a href="#download" data-tab="tab-download" data-i18n="nav_download">Tải về</a></li>
             <li><a href="#studio" data-tab="tab-studio" data-i18n="nav_studio">Dùng thử trên Web</a></li>
             <li><a href="#faq" data-tab="tab-faq" data-i18n="nav_faq">Hướng dẫn &amp; Hỏi đáp</a></li>
+            <li><a href="#feedback" id="footerLinkFeedback" data-i18n="footer_feedback">Góp ý &amp; Báo lỗi</a></li>
+            <li><a href="#donate" id="footerLinkDonate" data-i18n="footer_donate">Ủng hộ dự án (Donate)</a></li>
           </ul>
         </div>
 
-        <div class="footer-col">
+        <div class="footer-col footer-col-contact">
           <h5 data-i18n="footer_contact">Tác giả &amp; Liên hệ</h5>
           <ul class="footer-contact-list">
             <li>
               <span class="footer-author-name">Nguyễn Hoàng Tùng</span>
             </li>
             <li>
-              <a href="https://www.facebook.com/luffyreals/" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
+              <a href="https://www.facebook.com/luffyreals/" target="_blank" rel="noopener noreferrer" class="footer-contact-link" title="Facebook (@luffyreals)">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                 <span>Facebook</span>
               </a>
             </li>
             <li>
-              <a href="mailto:hoangtungcnh@gmail.com" class="footer-contact-link">
+              <a href="mailto:hoangtungcnh@gmail.com" class="footer-contact-link" title="hoangtungcnh@gmail.com">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 <span>hoangtungcnh@gmail.com</span>
               </a>
             </li>
             <li>
-              <a href="https://github.com/Luffyreals" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
+              <a href="https://github.com/Luffyreals" target="_blank" rel="noopener noreferrer" class="footer-contact-link" title="GitHub (@Luffyreals)">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
                 <span>GitHub (@Luffyreals)</span>
               </a>
@@ -2070,7 +2088,7 @@
   <!-- Interactive Download Modal -->
   <div class="modal-overlay" id="downloadModal" role="dialog" aria-modal="true">
     <div class="modal-card">
-      <button class="modal-close" id="btnModalClose" type="button" aria-label="Đóng">&times;</button>
+      <button class="modal-close" id="btnModalClose" type="button" aria-label="Đóng" title="Đóng" data-i18n-title="modal_close_btn">&times;</button>
       <div class="modal-icon" id="modalIcon">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L21 16M17 20L13 16"/></svg>
       </div>
@@ -2101,7 +2119,240 @@
     </div>
   </div>
 
-  <!-- Toast Notification -->
+  <!-- Interactive Feedback & Donate Modal -->
+  <div class="modal-overlay" id="feedbackModal" role="dialog" aria-modal="true" aria-labelledby="feedbackModalTitle">
+    <!-- Anchor for donateModal to preserve full DOM query & test compatibility -->
+    <div id="donateModal" class="modal-alias-anchor" aria-hidden="true" style="display:none;"></div>
+    <div class="modal-card modal-card-lg" id="modalHubCard">
+      <button class="modal-close" id="btnFeedbackModalClose" type="button" aria-label="Đóng" title="Đóng" data-i18n-title="modal_close_btn">&times;</button>
+      <button class="modal-close" id="btnDonateModalClose" type="button" aria-label="Đóng" title="Đóng" data-i18n-title="modal_close_btn" style="display:none;">&times;</button>
+      
+      <!-- Top Segmented Tabs: 1. Feedback (LEFT), 2. Donate (RIGHT) -->
+      <div class="modal-segmented-tabs" role="tablist">
+        <button type="button" class="modal-tab-pill active" id="modalTabBtnFeedback" data-target-tab="feedback" data-modal-target="feedback" role="tab" aria-selected="true">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span data-i18n="nav_feedback">Góp ý</span>
+        </button>
+        <button type="button" class="modal-tab-pill" id="modalTabBtnDonate" data-target-tab="donate" data-modal-target="donate" role="tab" aria-selected="false">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span data-i18n="nav_donate">Ủng hộ</span>
+        </button>
+      </div>
+
+      <!-- Tab Panels Viewport with Smooth CSS Slide Animation -->
+      <div class="modal-tabs-viewport">
+        <!-- Panel 1: Feedback Form -->
+        <div class="modal-tab-panel active" id="modalPanelFeedback" role="tabpanel">
+          <div class="modal-icon feedback-modal-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <h3 class="modal-title" id="feedbackModalTitle" data-i18n="fb_modal_title">Góp ý &amp; Báo lỗi</h3>
+          <p class="modal-desc" data-i18n="fb_modal_desc">Đóng góp ý kiến trực tiếp giúp ZCL Hub ngày càng hoàn thiện hơn.</p>
+
+          <form class="feedback-form" id="modalFeedbackForm" novalidate>
+            <!-- 1. Star Rating -->
+            <div class="fb-form-group">
+              <label class="fb-label" data-i18n="fb_rating_label">Mức độ hài lòng của bạn:</label>
+              <div class="fb-rating-stars-wrap">
+                <div class="fb-rating-stars" id="modalFbRatingStars" role="radiogroup" aria-label="Đánh giá sao">
+                  <button type="button" class="fb-star-btn active" data-rating="1" aria-label="1 sao">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  </button>
+                  <button type="button" class="fb-star-btn active" data-rating="2" aria-label="2 sao">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  </button>
+                  <button type="button" class="fb-star-btn active" data-rating="3" aria-label="3 sao">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  </button>
+                  <button type="button" class="fb-star-btn active" data-rating="4" aria-label="4 sao">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  </button>
+                  <button type="button" class="fb-star-btn active" data-rating="5" aria-label="5 sao">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  </button>
+                </div>
+                <span class="fb-rating-text" id="modalFbRatingText" data-i18n="fb_rating_5">Rất tuyệt vời (5 sao)</span>
+              </div>
+            </div>
+
+            <!-- 2. Category Chips -->
+            <div class="fb-form-group">
+              <label class="fb-label" data-i18n="fb_type_label">Loại phản hồi:</label>
+              <div class="fb-chip-group" id="modalFbCatGroup">
+                <button type="button" class="fb-chip active" data-cat="feature">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                  <span data-i18n="fb_cat_feature">Đề xuất tính năng</span>
+                </button>
+                <button type="button" class="fb-chip" data-cat="bug">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                  <span data-i18n="fb_cat_bug">Báo lỗi trải nghiệm</span>
+                </button>
+                <button type="button" class="fb-chip" data-cat="review">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                  <span data-i18n="fb_cat_review">Chia sẻ cảm nhận</span>
+                </button>
+                <button type="button" class="fb-chip" data-cat="other">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                  <span data-i18n="fb_cat_other">Khác</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- 3. Target App Chips -->
+            <div class="fb-form-group">
+              <label class="fb-label" data-i18n="fb_app_label">Ứng dụng liên quan:</label>
+              <div class="fb-chip-group" id="modalFbAppGroup">
+                <button type="button" class="fb-chip active" data-app="all">
+                  <span data-i18n="fb_app_all">ZCL Hub (Chung)</span>
+                </button>
+                <button type="button" class="fb-chip" data-app="teleport">
+                  <span data-i18n="fb_app_tp">ZCL Teleport (Truyền file)</span>
+                </button>
+                <button type="button" class="fb-chip" data-app="remote">
+                  <span data-i18n="fb_app_rm">ZCL Remote (Điều khiển)</span>
+                </button>
+                <button type="button" class="fb-chip" data-app="studio">
+                  <span data-i18n="fb_app_studio">Dùng thử trên Web</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- 4. Textarea -->
+            <div class="fb-form-group">
+              <label class="fb-label" for="modalFbMessage" data-i18n="fb_msg_label">Nội dung phản hồi hoặc mô tả lỗi:</label>
+              <textarea id="modalFbMessage" class="fb-textarea" rows="3" placeholder="Hãy viết cảm nhận, tính năng bạn mong muốn hoặc chi tiết lỗi gặp phải..." data-i18n-placeholder="fb_msg_ph" required></textarea>
+            </div>
+
+            <!-- 5. Name & Email -->
+            <div class="fb-form-row">
+              <div class="fb-form-group">
+                <label class="fb-label" for="modalFbName" data-i18n="fb_name_label">Họ tên hoặc biệt danh (tùy chọn):</label>
+                <input type="text" id="modalFbName" class="fb-input" placeholder="Ví dụ: Minh Quân, Thu Hà..." data-i18n-placeholder="fb_name_ph">
+              </div>
+              <div class="fb-form-group">
+                <label class="fb-label" for="modalFbEmail" data-i18n="fb_email_label">Email liên hệ (tùy chọn):</label>
+                <input type="email" id="modalFbEmail" class="fb-input" placeholder="email@cuaban.com" data-i18n-placeholder="fb_email_ph">
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary fb-submit-btn" id="modalFbSubmitBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              <span data-i18n="fb_btn_submit">Gửi ý kiến đóng góp</span>
+            </button>
+          </form>
+
+          <!-- Modal Success State -->
+          <div class="feedback-success-state" id="modalFbSuccessState" style="display: none;">
+            <div class="fb-success-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 class="fb-success-title" data-i18n="fb_success_title">Cảm ơn bạn đã gửi đóng góp!</h3>
+            <p class="fb-success-desc" data-i18n="fb_success_desc">Ý kiến của bạn đã được ghi nhận vào hệ thống. Bạn cũng có thể gửi nhanh qua Email hoặc thảo luận cùng tác giả trên GitHub.</p>
+
+            <div class="fb-success-actions">
+              <a href="mailto:hoangtungcnh@gmail.com" class="btn btn-secondary btn-sm" id="modalFbBtnMail" target="_blank" rel="noopener noreferrer">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span data-i18n="fb_btn_mail">Gửi email cho tác giả</span>
+              </a>
+              <a href="https://github.com/Luffyreals/zcl-hub/issues" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                <span data-i18n="fb_btn_github">Mở thảo luận GitHub</span>
+              </a>
+              <button type="button" class="btn btn-text btn-sm" id="modalFbBtnAnother">
+                <span data-i18n="fb_btn_another">Gửi thêm ý kiến khác</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 2: Donate Details & QR -->
+        <div class="modal-tab-panel" id="modalPanelDonate" role="tabpanel">
+          <div class="modal-icon donate-modal-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <h3 class="modal-title" id="donateModalTitle" data-i18n="dn_modal_title">Ủng hộ dự án ZCL Hub</h3>
+          <p class="modal-desc" data-i18n="dn_modal_desc">Quét mã VietQR để tiếp sức cho dự án ZCL Hub.</p>
+
+          <div class="donate-amount-picker modal-amount-picker">
+            <button type="button" class="donate-amount-pill active" data-amount="20000" data-memo="ZCL Hub">
+              <span data-i18n="dn_amount_20k">20.000đ · Ly cà phê</span>
+            </button>
+            <button type="button" class="donate-amount-pill" data-amount="50000" data-memo="ZCL Hub">
+              <span data-i18n="dn_amount_50k">50.000đ · Tiếp sức</span>
+            </button>
+            <button type="button" class="donate-amount-pill" data-amount="100000" data-memo="ZCL Hub">
+              <span data-i18n="dn_amount_100k">100.000đ · Đồng hành</span>
+            </button>
+            <button type="button" class="donate-amount-pill" data-amount="0" data-memo="ZCL Hub">
+              <span data-i18n="dn_amount_custom">Tùy tâm</span>
+            </button>
+          </div>
+
+          <div class="donate-qr-content-row modal-qr-row">
+            <div class="donate-qr-frame">
+              <div class="donate-qr-wrapper">
+                <img id="modalDonateQrImg" src="https://img.vietqr.io/image/MB-0906279876-compact2.png?amount=20000&addInfo=ZCL%20Hub" alt="VietQR MB Bank - ZCL Hub" class="donate-qr-img" loading="lazy">
+                <div class="donate-qr-corners">
+                  <span class="corner tl"></span>
+                  <span class="corner tr"></span>
+                  <span class="corner bl"></span>
+                  <span class="corner br"></span>
+                </div>
+              </div>
+              <span class="donate-qr-scan-line" aria-hidden="true"></span>
+              <span class="donate-qr-caption">VietQR · MB Bank</span>
+            </div>
+
+            <div class="donate-info-fields">
+              <div class="donate-info-item">
+                <span class="donate-info-label" data-i18n="dn_bank_label">Ngân hàng:</span>
+                <strong class="donate-info-val" data-i18n="dn_bank_val">MB Bank (Quân Đội)</strong>
+              </div>
+              <div class="donate-info-item">
+                <span class="donate-info-label" data-i18n="dn_acc_num_label">Số tài khoản:</span>
+                <div class="donate-copy-row">
+                  <strong class="donate-info-val highlight-val" id="modalDonateAccNum">0906279876</strong>
+                  <button type="button" class="donate-copy-btn" id="btnModalCopyAcc" title="Sao chép số tài khoản" aria-label="Sao chép số tài khoản" data-i18n-title="dn_btn_copy_acc">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    <span data-i18n="dn_btn_copy_acc">Sao chép số tài khoản</span>
+                  </button>
+                </div>
+              </div>
+              <div class="donate-info-item">
+                <span class="donate-info-label" data-i18n="dn_msg_label">Nội dung chuyển khoản:</span>
+                <div class="donate-copy-row">
+                  <strong class="donate-info-val" id="modalDonateMemo">ZCL Hub</strong>
+                  <button type="button" class="donate-copy-btn" id="btnModalCopyMemo" title="Sao chép nội dung" aria-label="Sao chép nội dung" data-i18n-title="dn_btn_copy_msg">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    <span data-i18n="dn_btn_copy_msg">Sao chép nội dung</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="donate-modal-footer-channels">
+            <div class="donate-channel-pill">
+              <span>MoMo: <strong>0906279876</strong></span>
+              <button type="button" class="btn-copy-tiny" id="btnModalCopyMomo" title="Sao chép số MoMo" aria-label="Sao chép số MoMo" data-i18n-title="dn_btn_copy_momo">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              </button>
+            </div>
+            <a href="https://github.com/sponsors/Luffyreals" target="_blank" rel="noopener noreferrer" class="donate-channel-pill link-pill">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span>GitHub Sponsors</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Toast Notification -->
   <div class="toast-msg" id="toastMsg">
     <div class="toast-content">
       <span id="toastIcon">
@@ -2112,6 +2363,6 @@
     <div class="toast-progress-bar" id="toastProgressBar"></div>
   </div>
 
-  <script src="src/app.js"></script>
+  <script src="src/app.js?v=34"></script>
 </body>
 </html>

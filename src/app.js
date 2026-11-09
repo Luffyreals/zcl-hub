@@ -417,6 +417,93 @@ const i18n = {
     studio_toast_tab_detected: "Đã phát hiện 2 tab ZCL Hub mở song song! Thao tác copy và gửi file sẽ truyền qua lại tức thì.",
     studio_toast_clipboard_received: "Đã nhận văn bản mới từ Tab bên cạnh qua kết nối nội bộ!",
     studio_toast_file_received: "Đã nhận file từ Tab bên cạnh: ",
+
+    // Navigation Action Buttons
+    nav_brand_tooltip: "Về trang chủ ZCL Hub",
+    nav_feedback: "Góp ý",
+    nav_donate: "Ủng hộ",
+
+    // Feedback Section & Modal
+    fb_badge: "GÓP Ý &amp; BÁO LỖI",
+    fb_title: "Đóng góp ý kiến để hoàn thiện ZCL Hub",
+    fb_sub: "Mọi chia sẻ, ý tưởng tính năng hay phản hồi lỗi từ bạn đều là tài sản vô giá giúp ZCL Hub ngày càng hoàn thiện hơn.",
+    fb_card_title: "Gửi phản hồi trực tiếp đến tác giả",
+    fb_card_desc: "Bạn có thể gửi ẩn danh hoặc để lại email nếu muốn nhận phản hồi trực tiếp từ tác giả.",
+    fb_rating_label: "Mức độ hài lòng của bạn:",
+    fb_rating_5: "Rất tuyệt vời (5 sao)",
+    fb_rating_4: "Hài lòng (4 sao)",
+    fb_rating_3: "Bình thường (3 sao)",
+    fb_rating_2: "Cần cải thiện (2 sao)",
+    fb_rating_1: "Chưa hài lòng (1 sao)",
+    fb_type_label: "Loại phản hồi:",
+    fb_cat_feature: "Đề xuất tính năng",
+    fb_cat_bug: "Báo lỗi trải nghiệm",
+    fb_cat_review: "Chia sẻ cảm nhận",
+    fb_cat_other: "Khác",
+    fb_app_label: "Ứng dụng liên quan:",
+    fb_app_all: "ZCL Hub (Chung)",
+    fb_app_tp: "ZCL Teleport (Truyền file)",
+    fb_app_rm: "ZCL Remote (Điều khiển)",
+    fb_app_studio: "Dùng thử trên Web",
+    fb_msg_label: "Nội dung phản hồi hoặc mô tả lỗi:",
+    fb_msg_ph: "Hãy viết cảm nhận, tính năng bạn mong muốn hoặc chi tiết lỗi gặp phải...",
+    fb_name_label: "Họ tên hoặc biệt danh (tùy chọn):",
+    fb_name_ph: "Ví dụ: Minh Quân, Thu Hà...",
+    fb_email_label: "Email liên hệ (tùy chọn):",
+    fb_email_ph: "email@cuaban.com",
+    fb_btn_submit: "Gửi ý kiến đóng góp",
+    fb_success_title: "Cảm ơn bạn đã gửi đóng góp!",
+    fb_success_desc: "Ý kiến của bạn đã được ghi nhận vào hệ thống. Bạn cũng có thể gửi nhanh qua Email hoặc thảo luận cùng tác giả trên GitHub.",
+    fb_btn_mail: "Gửi email cho tác giả",
+    fb_btn_github: "Mở thảo luận GitHub",
+    fb_btn_copy: "Sao chép nội dung",
+    fb_btn_another: "Gửi thêm ý kiến khác",
+    fb_community_badge: "NGƯỜI DÙNG THỰC TẾ",
+    fb_community_title: "Cảm nhận từ cộng đồng",
+    fb_testi_1_text: "Gửi các video dựng phim 30GB qua Wi-Fi phòng làm việc chỉ mất chưa đầy một phút. Không còn phải mất công cắm rút USB nữa!",
+    fb_testi_1_author: "Trần Tuấn Anh · Biên tập video",
+    fb_testi_2_text: "Điều khiển máy phụ bên cạnh mà cảm giác chuột mượt như máy thật. Quan trọng nhất là dữ liệu không chạy ra ngoài mạng công ty.",
+    fb_testi_2_author: "Lê Hoàng Nam · Kỹ sư phần mềm",
+    fb_testi_3_text: "Giao diện tối rất hiện đại, trực quan. Thao tác copy ở máy này dán sang máy kia siêu tiện lợi khi làm việc văn phòng.",
+    fb_testi_3_author: "Nguyễn Phương Linh · Quản lý dự án",
+    fb_toast_submitted: "Đã lưu góp ý của bạn thành công!",
+    fb_toast_copied: "Đã sao chép nội dung góp ý vào khay nhớ tạm!",
+    fb_modal_title: "Góp ý &amp; Báo lỗi",
+    fb_modal_desc: "Đóng góp ý kiến trực tiếp giúp ZCL Hub ngày càng hoàn thiện hơn.",
+
+    // Donate Section & Modal
+    dn_badge: "ỦNG HỘ DỰ ÁN",
+    dn_title: "Ủng hộ dự án ZCL Hub",
+    dn_sub: "ZCL Hub là bộ ứng dụng mã nguồn mở hoàn toàn miễn phí. Mọi sự ủng hộ đều giúp dự án duy trì và phát triển tính năng mới.",
+    dn_qr_scan_tag: "Quét mã VietQR bằng mọi ứng dụng ngân hàng",
+    dn_bank_name: "MB Bank (Ngân hàng Quân Đội)",
+    dn_amount_20k: "20.000đ · Ly cà phê",
+    dn_amount_50k: "50.000đ · Tiếp sức",
+    dn_amount_100k: "100.000đ · Đồng hành",
+    dn_amount_custom: "Tùy tâm",
+    dn_bank_label: "Ngân hàng:",
+    dn_bank_val: "MB Bank (Quân Đội)",
+    dn_acc_num_label: "Số tài khoản:",
+    dn_acc_name_label: "Chủ tài khoản:",
+    dn_msg_label: "Nội dung chuyển khoản:",
+    dn_btn_copy_acc: "Sao chép số tài khoản",
+    dn_btn_copy_msg: "Sao chép nội dung",
+    dn_momo_title: "Ví điện tử MoMo",
+    dn_momo_num_label: "Số MoMo:",
+    dn_btn_copy_momo: "Sao chép số MoMo",
+    dn_github_title: "GitHub Sponsors",
+    dn_github_desc: "Ủng hộ dự án qua GitHub Sponsors.",
+    dn_btn_open_github: "Mở GitHub Sponsors",
+    dn_project_note: "Mọi đóng góp từ cộng đồng đều được dùng 100% để duy trì hạ tầng máy chủ tải về và nâng cấp tính năng mới.",
+    dn_author_quote: "Mọi đóng góp từ cộng đồng đều được dùng 100% để duy trì hạ tầng máy chủ tải về và nâng cấp tính năng mới.",
+    dn_toast_acc_copied: "Đã sao chép số tài khoản MB Bank: 0906279876",
+    dn_toast_msg_copied: "Đã sao chép nội dung: ZCL Hub",
+    dn_toast_momo_copied: "Đã sao chép số MoMo: 0906279876",
+    dn_modal_title: "Ủng hộ dự án ZCL Hub",
+    dn_modal_desc: "Quét mã VietQR để tiếp sức cho dự án ZCL Hub.",
+    footer_donate: "Ủng hộ dự án (Donate)",
+    footer_feedback: "Góp ý &amp; Báo lỗi",
+    modal_close_btn: "Đóng",
   },
 
   en: {
@@ -828,6 +915,93 @@ const i18n = {
     studio_toast_tab_detected: "Detected 2 parallel ZCL Hub tabs! Clipboard copies and file transfers will sync live.",
     studio_toast_clipboard_received: "Received new clipboard text from peer tab via local sync!",
     studio_toast_file_received: "Received file from peer tab: ",
+
+    // Navigation Action Buttons
+    nav_brand_tooltip: "Go to ZCL Hub Home",
+    nav_feedback: "Feedback",
+    nav_donate: "Donate",
+
+    // Feedback Section & Modal
+    fb_badge: "FEEDBACK &amp; ISSUES",
+    fb_title: "Help Us Improve ZCL Hub",
+    fb_sub: "Every comment, feature idea, or bug report from you is valuable for refining our applications.",
+    fb_card_title: "Send Direct Feedback to Author",
+    fb_card_desc: "You may submit anonymously or leave an email for follow-up responses from the author.",
+    fb_rating_label: "Your satisfaction level:",
+    fb_rating_5: "Outstanding (5 stars)",
+    fb_rating_4: "Satisfied (4 stars)",
+    fb_rating_3: "Neutral (3 stars)",
+    fb_rating_2: "Needs work (2 stars)",
+    fb_rating_1: "Unsatisfied (1 star)",
+    fb_type_label: "Feedback category:",
+    fb_cat_feature: "Feature request",
+    fb_cat_bug: "Bug report",
+    fb_cat_review: "User experience",
+    fb_cat_other: "Other",
+    fb_app_label: "Target application:",
+    fb_app_all: "ZCL Hub (General)",
+    fb_app_tp: "ZCL Teleport (Transfer)",
+    fb_app_rm: "ZCL Remote (Control)",
+    fb_app_studio: "Web Studio",
+    fb_msg_label: "Your message or bug description:",
+    fb_msg_ph: "Write your thoughts, requested features, or issue details here...",
+    fb_name_label: "Name or nickname (optional):",
+    fb_name_ph: "e.g. Alex, Sarah...",
+    fb_email_label: "Contact email (optional):",
+    fb_email_ph: "yourname@domain.com",
+    fb_btn_submit: "Submit Feedback",
+    fb_success_title: "Thank You for Your Feedback!",
+    fb_success_desc: "Your thoughts have been logged into the system. You can also send a direct email or join GitHub discussions.",
+    fb_btn_mail: "Send Email to Author",
+    fb_btn_github: "Open GitHub Discussion",
+    fb_btn_copy: "Copy Content",
+    fb_btn_another: "Send Another Feedback",
+    fb_community_badge: "REAL USERS",
+    fb_community_title: "Community Thoughts",
+    fb_testi_1_text: "Transferring 30GB video projects across our studio Wi-Fi takes under a minute. No more plugging and unplugging USB drives!",
+    fb_testi_1_author: "Tuan Anh · Video Editor",
+    fb_testi_2_text: "Controlling my secondary workstation feels as smooth as sitting right in front of it. Zero data leaves our local office network.",
+    fb_testi_2_author: "Hoang Nam · Software Engineer",
+    fb_testi_3_text: "Sleek dark interface, completely intuitive. Copying on one PC and pasting instantly onto another makes daily work a breeze.",
+    fb_testi_3_author: "Phuong Linh · Project Manager",
+    fb_toast_submitted: "Feedback saved successfully!",
+    fb_toast_copied: "Copied feedback content to clipboard!",
+    fb_modal_title: "Feedback &amp; Issues",
+    fb_modal_desc: "Share your thoughts to help ZCL Hub improve continuously.",
+
+    // Donate Section & Modal
+    dn_badge: "SUPPORT PROJECT",
+    dn_title: "Support ZCL Hub",
+    dn_sub: "ZCL Hub is completely free, open-source, and ad-free. Every contribution fuels the project to maintain and develop new features.",
+    dn_qr_scan_tag: "Scan VietQR with any banking app",
+    dn_bank_name: "MB Bank (Military Bank)",
+    dn_amount_20k: "20,000₫ · Coffee",
+    dn_amount_50k: "50,000₫ · Fuel",
+    dn_amount_100k: "100,000₫ · Partner",
+    dn_amount_custom: "Custom",
+    dn_bank_label: "Bank:",
+    dn_bank_val: "MB Bank (Military Bank)",
+    dn_acc_num_label: "Account number:",
+    dn_acc_name_label: "Account name:",
+    dn_msg_label: "Transfer memo:",
+    dn_btn_copy_acc: "Copy Account Number",
+    dn_btn_copy_msg: "Copy Transfer Memo",
+    dn_momo_title: "MoMo E-Wallet",
+    dn_momo_num_label: "MoMo number:",
+    dn_btn_copy_momo: "Copy MoMo Number",
+    dn_github_title: "GitHub Sponsors",
+    dn_github_desc: "Support the project via GitHub Sponsors.",
+    dn_btn_open_github: "Open GitHub Sponsors",
+    dn_project_note: "All community contributions directly power open-source maintenance and future feature development.",
+    dn_author_quote: "All community contributions directly power open-source maintenance and future feature development.",
+    dn_toast_acc_copied: "Copied MB Bank account number: 0906279876",
+    dn_toast_msg_copied: "Copied transfer memo: ZCL Hub",
+    dn_toast_momo_copied: "Copied MoMo number: 0906279876",
+    dn_modal_title: "Support ZCL Hub",
+    dn_modal_desc: "Scan VietQR to support ZCL Hub development.",
+    footer_donate: "Donate &amp; Sponsor",
+    footer_feedback: "Feedback &amp; Issues",
+    modal_close_btn: "Close",
   }
 };
 
@@ -936,6 +1110,19 @@ function setLanguage(lang) {
   if (typeof window.updateCalcComparison === 'function') {
     window.updateCalcComparison();
   }
+
+  // Cập nhật ngay vị trí và kích thước thanh chỉ báo trượt tab khi đổi ngôn ngữ
+  if (typeof renderUserRecentFeedbacks === 'function') {
+    renderUserRecentFeedbacks();
+  }
+
+  if (typeof updateTabSlidingIndicator === 'function') {
+    updateTabSlidingIndicator();
+    requestAnimationFrame(() => updateTabSlidingIndicator());
+    setTimeout(updateTabSlidingIndicator, 30);
+    setTimeout(updateTabSlidingIndicator, 100);
+    setTimeout(updateTabSlidingIndicator, 250);
+  }
 }
 
 // ==========================================
@@ -968,19 +1155,27 @@ function updateTabSlidingIndicator() {
   if (!bar || !indicator) return;
 
   const activePill = bar.querySelector('.main-tab-pill.active');
-  if (activePill) {
+  const wrapper = bar.parentElement;
+
+  if (activePill && activePill.offsetWidth > 0) {
     indicator.style.transform = `translateX(${activePill.offsetLeft}px)`;
     indicator.style.width = `${activePill.offsetWidth}px`;
     indicator.style.opacity = '1';
 
-    if (bar.parentElement) {
-      const wrapper = bar.parentElement;
+    if (wrapper) {
       const pillCenter = activePill.offsetLeft + activePill.offsetWidth / 2;
       const scrollTarget = pillCenter - wrapper.clientWidth / 2;
       wrapper.scrollTo({ left: scrollTarget, behavior: 'smooth' });
     }
-  } else {
+  } else if (!activePill) {
     indicator.style.opacity = '0';
+    if (wrapper) {
+      wrapper.scrollTo({ left: 0, behavior: 'smooth' });
+    }
+  }
+
+  if (typeof window.updateNavTabFades === 'function') {
+    setTimeout(window.updateNavTabFades, 50);
   }
 }
 
@@ -1015,8 +1210,27 @@ function switchMainTab(targetTabId, updateHash = true) {
     'studio': 'studio',
     'quickstart': 'faq',
     'guide': 'faq',
-    'faq': 'faq'
+    'faq': 'faq',
+    'feedback': 'faq',
+    'feedback-section': 'faq',
+    'donate': 'faq',
+    'donate-section': 'faq'
   };
+
+  const originalTarget = targetTabId.replace(/^#/, '');
+
+  if (cleanId === 'feedback' || cleanId === 'feedback-section') {
+    if (typeof openFeedbackDonateModal === 'function') {
+      openFeedbackDonateModal('feedback');
+    }
+    return;
+  }
+  if (cleanId === 'donate' || cleanId === 'donate-section') {
+    if (typeof openFeedbackDonateModal === 'function') {
+      openFeedbackDonateModal('donate');
+    }
+    return;
+  }
 
   if (tabAliases[cleanId]) {
     cleanId = tabAliases[cleanId];
@@ -1062,8 +1276,26 @@ function switchMainTab(targetTabId, updateHash = true) {
     }
   }
 
-  // 4. Scroll smoothly to top
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // 4. Scroll smoothly to top or anchor
+  if (['feedback', 'feedback-section', 'donate', 'donate-section'].includes(originalTarget)) {
+    const secId = originalTarget.endsWith('-section') ? originalTarget : originalTarget + '-section';
+    setTimeout(() => {
+      const el = document.getElementById(secId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        el.classList.remove('section-target-highlight');
+        void el.offsetWidth;
+        el.classList.add('section-target-highlight');
+        setTimeout(() => el.classList.remove('section-target-highlight'), 1300);
+      }
+      const subKey = originalTarget.replace(/-section$/, '');
+      document.querySelectorAll('.faq-subnav-btn').forEach((b) => {
+        b.classList.toggle('active', b.getAttribute('data-subtab') === subKey);
+      });
+    }, 120);
+  } else {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   // 5. Special hook for Studio canvas resize
   if (cleanId === 'studio') {
@@ -1149,7 +1381,8 @@ function initMainTabs() {
           'overview', 'home', 'hero', 'pillars',
           'products', 'apps', 'roadmap',
           'download', 'download-teleport', 'download-remote',
-          'studio', 'quickstart', 'guide', 'faq'
+          'studio', 'quickstart', 'guide', 'faq',
+          'feedback', 'feedback-section', 'donate', 'donate-section'
         ];
         if (validTargets.includes(target)) {
           e.preventDefault();
@@ -1182,6 +1415,24 @@ function initMainTabs() {
   handleHash();
   window.addEventListener('resize', updateTabSlidingIndicator);
   setTimeout(updateTabSlidingIndicator, 80);
+
+  // Quan sat tu dong su thay doi kich thuoc tab bar va cac tab pill
+  if (typeof ResizeObserver !== 'undefined') {
+    const bar = document.querySelector('.main-tabs-bar');
+    if (bar) {
+      const ro = new ResizeObserver(() => {
+        updateTabSlidingIndicator();
+      });
+      ro.observe(bar);
+      bar.querySelectorAll('.main-tab-pill').forEach((pill) => ro.observe(pill));
+    }
+  }
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => {
+      updateTabSlidingIndicator();
+    });
+  }
 }
 
 // ==========================================
@@ -1202,6 +1453,9 @@ function initStudio() {
 
       btn.classList.add('active');
       btn.setAttribute('aria-selected', 'true');
+      if (typeof btn.scrollIntoView === 'function') {
+        btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
 
       const target = document.getElementById(`panel-${app}`);
       if (target) target.classList.add('active');
@@ -1640,16 +1894,24 @@ function initStudio() {
       const h = canvas.getBoundingClientRect().height;
       if (w <= 0 || h <= 0) return;
 
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+
       // 1. Wallpaper background
       const grad = ctx.createLinearGradient(0, 0, w, h);
-      grad.addColorStop(0, '#120f1b');
-      grad.addColorStop(0.5, '#0b0912');
-      grad.addColorStop(1, '#060509');
+      if (isLight) {
+        grad.addColorStop(0, '#FAF4EA');
+        grad.addColorStop(0.5, '#EFE7D8');
+        grad.addColorStop(1, '#E6DCCB');
+      } else {
+        grad.addColorStop(0, '#120f1b');
+        grad.addColorStop(0.5, '#0b0912');
+        grad.addColorStop(1, '#060509');
+      }
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, w, h);
 
       // Subtle cyber grid lines on desktop
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.025)';
+      ctx.strokeStyle = isLight ? 'rgba(42, 37, 30, 0.045)' : 'rgba(255, 255, 255, 0.025)';
       ctx.lineWidth = 1;
       const gridSize = 40;
       for (let x = 0; x < w; x += gridSize) {
@@ -1667,39 +1929,39 @@ function initStudio() {
 
       // 2. Simulated Taskbar at bottom
       const taskbarH = 34;
-      ctx.fillStyle = 'rgba(20, 17, 28, 0.95)';
+      ctx.fillStyle = isLight ? 'rgba(243, 235, 220, 0.96)' : 'rgba(20, 17, 28, 0.95)';
       ctx.fillRect(0, h - taskbarH, w, taskbarH);
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+      ctx.strokeStyle = isLight ? 'rgba(226, 214, 194, 0.9)' : 'rgba(255, 255, 255, 0.08)';
       ctx.beginPath();
       ctx.moveTo(0, h - taskbarH);
       ctx.lineTo(w, h - taskbarH);
       ctx.stroke();
 
       // Start Button Icon
-      ctx.fillStyle = '#85edca';
+      ctx.fillStyle = isLight ? '#1E7F61' : '#85edca';
       ctx.beginPath();
       ctx.roundRect(10, h - taskbarH + 7, 20, 20, 4);
       ctx.fill();
 
       // Active app tab in taskbar
-      ctx.fillStyle = 'rgba(133, 237, 202, 0.12)';
-      ctx.strokeStyle = 'rgba(133, 237, 202, 0.4)';
+      ctx.fillStyle = isLight ? '#FFFDF8' : 'rgba(133, 237, 202, 0.12)';
+      ctx.strokeStyle = isLight ? 'rgba(30, 127, 97, 0.4)' : 'rgba(133, 237, 202, 0.4)';
       ctx.beginPath();
       ctx.roundRect(38, h - taskbarH + 4, 150, 26, 4);
       ctx.fill();
       ctx.stroke();
 
-      ctx.fillStyle = '#f7f3ec';
+      ctx.fillStyle = isLight ? '#2A251E' : '#f7f3ec';
       ctx.font = '11px Segoe UI, sans-serif';
       ctx.fillText('ZCL Remote Notepad', 48, h - taskbarH + 20);
 
       // Taskbar Clock & LAN pill on right
-      ctx.fillStyle = '#85edca';
+      ctx.fillStyle = isLight ? '#1E7F61' : '#85edca';
       ctx.beginPath();
       ctx.arc(w - 95, h - taskbarH + 17, 3, 0, Math.PI * 2);
       ctx.fill();
 
-      ctx.fillStyle = '#a097ac';
+      ctx.fillStyle = isLight ? '#665B4D' : '#a097ac';
       ctx.font = '11px Cascadia Mono, monospace';
       ctx.fillText('LAN 1Gbps', w - 85, h - taskbarH + 21);
       ctx.fillText('12:00', w - 38, h - taskbarH + 21);
@@ -1711,8 +1973,10 @@ function initStudio() {
       const winY = Math.max(10, Math.min(remoteWin.y, h - taskbarH - winH - 10));
 
       // Window shadow & body
-      ctx.fillStyle = 'rgba(19, 16, 27, 0.94)';
-      ctx.strokeStyle = remoteWin.isDragging ? 'var(--mint)' : 'rgba(206, 163, 243, 0.35)';
+      ctx.fillStyle = isLight ? 'rgba(255, 253, 248, 0.98)' : 'rgba(19, 16, 27, 0.94)';
+      ctx.strokeStyle = remoteWin.isDragging 
+        ? (isLight ? '#1E7F61' : 'var(--mint)') 
+        : (isLight ? 'rgba(106, 75, 196, 0.4)' : 'rgba(206, 163, 243, 0.35)');
       ctx.lineWidth = 1.5;
       ctx.beginPath();
       ctx.roundRect(winX, winY, winW, winH, 10);
@@ -1720,7 +1984,7 @@ function initStudio() {
       ctx.stroke();
 
       // Window Titlebar
-      ctx.fillStyle = 'rgba(32, 27, 44, 0.95)';
+      ctx.fillStyle = isLight ? '#F3EBDC' : 'rgba(32, 27, 44, 0.95)';
       ctx.beginPath();
       ctx.roundRect(winX, winY, winW, 34, [10, 10, 0, 0]);
       ctx.fill();
@@ -1747,7 +2011,7 @@ function initStudio() {
         mac: currentLang === 'vi' ? 'Laptop văn phòng (macOS) · Trực tiếp' : 'Office Laptop (macOS) · Live',
         linux: currentLang === 'vi' ? 'Máy chủ gia đình (Ubuntu) · Trực tiếp' : 'Home Server (Linux) · Live'
       };
-      ctx.fillStyle = '#f7f3ec';
+      ctx.fillStyle = isLight ? '#2A251E' : '#f7f3ec';
       ctx.font = 'bold 12px Segoe UI, sans-serif';
       ctx.fillText(devTitles[currentRemoteDev] || devTitles.win, winX + 70, winY + 21);
 
@@ -1757,36 +2021,36 @@ function initStudio() {
         : (currentLang === 'vi' ? 'Xin chào từ ZCL Remote!' : 'Hello from ZCL Remote!');
 
       ctx.font = '13px Segoe UI, sans-serif';
-      ctx.fillStyle = '#85edca';
+      ctx.fillStyle = isLight ? '#0B5E47' : '#85edca';
       ctx.fillText(currentLang === 'vi' 
         ? '● Kết nối mạng nội bộ: Độ trễ 0.2ms · Chuột ăn ngay'
         : '● Local Network Direct: 0.2ms latency · Zero lag', winX + 22, winY + 65);
 
-      ctx.fillStyle = '#cea3f3';
+      ctx.fillStyle = isLight ? '#4B2E91' : '#cea3f3';
       ctx.fillText(currentLang === 'vi' 
         ? '● Tốc độ hiển thị: 60 khung hình/giây · Rất mượt mà' 
         : '● Frame rate: 60 FPS smooth motion', winX + 22, winY + 92);
 
       // User's Real-time Typed Content Box
-      ctx.fillStyle = 'rgba(8, 7, 12, 0.75)';
-      ctx.strokeStyle = 'rgba(133, 237, 202, 0.3)';
+      ctx.fillStyle = isLight ? '#F8F3EA' : 'rgba(8, 7, 12, 0.75)';
+      ctx.strokeStyle = isLight ? 'rgba(30, 127, 97, 0.35)' : 'rgba(133, 237, 202, 0.3)';
       ctx.beginPath();
       ctx.roundRect(winX + 20, winY + 115, winW - 40, 75, 6);
       ctx.fill();
       ctx.stroke();
 
-      ctx.fillStyle = '#a097ac';
+      ctx.fillStyle = isLight ? '#665B4D' : '#a097ac';
       ctx.font = '11px Cascadia Mono, monospace';
       ctx.fillText(currentLang === 'vi' ? '> Bàn phím từ xa nhận được:' : '> Remote Keystroke Input:', winX + 30, winY + 135);
 
-      ctx.fillStyle = '#ffffff';
+      ctx.fillStyle = isLight ? '#2A251E' : '#ffffff';
       ctx.font = 'bold 14px Segoe UI, sans-serif';
       ctx.fillText(typedText, winX + 30, winY + 165);
 
       // Blinking typing cursor on canvas
       if (Math.floor(Date.now() / 500) % 2 === 0) {
         const textWidth = ctx.measureText(typedText).width;
-        ctx.fillStyle = '#85edca';
+        ctx.fillStyle = isLight ? '#1E7F61' : '#85edca';
         ctx.fillRect(winX + 32 + textWidth, winY + 152, 2, 16);
       }
 
@@ -1797,7 +2061,7 @@ function initStudio() {
         for (let i = 1; i < mouseTrail.length; i++) {
           ctx.lineTo(mouseTrail[i].x, mouseTrail[i].y);
         }
-        ctx.strokeStyle = 'rgba(133, 237, 202, 0.4)';
+        ctx.strokeStyle = isLight ? 'rgba(30, 127, 97, 0.45)' : 'rgba(133, 237, 202, 0.4)';
         ctx.lineWidth = 3;
         ctx.lineCap = 'round';
         ctx.stroke();
@@ -1807,14 +2071,14 @@ function initStudio() {
       clickRipples.forEach((item) => {
         ctx.beginPath();
         ctx.arc(item.x, item.y, item.r, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(133, 237, 202, ${item.opacity})`;
+        ctx.strokeStyle = isLight ? `rgba(30, 127, 97, ${item.opacity})` : `rgba(133, 237, 202, ${item.opacity})`;
         ctx.lineWidth = 2.5;
         ctx.stroke();
       });
 
       // 6. Draw Virtual Remote Cursor
-      ctx.fillStyle = '#ffffff';
-      ctx.strokeStyle = '#09080c';
+      ctx.fillStyle = isLight ? '#1A082D' : '#ffffff';
+      ctx.strokeStyle = isLight ? '#ffffff' : '#09080c';
       ctx.lineWidth = 1.8;
       ctx.beginPath();
       ctx.moveTo(mouseX, mouseY);
@@ -2655,6 +2919,9 @@ function applyTheme(theme) {
   // Redraw studio canvas if on screen
   setTimeout(() => {
     window.dispatchEvent(new Event('resize'));
+    if (typeof drawRemoteScreen === 'function') {
+      drawRemoteScreen();
+    }
   }, 60);
 }
 
@@ -2953,9 +3220,12 @@ function initKeyboardShortcuts() {
       updateOrbitUI();
       showToast(next === 'vi' ? 'Ngôn ngữ: Tiếng Việt' : 'Language: English');
     } else if (e.key === 'Escape') {
-      const modal = document.getElementById('downloadModal');
-      if (modal && modal.classList.contains('active')) {
-        modal.classList.remove('active');
+      if (typeof closeFeedbackDonateModal === 'function') {
+        closeFeedbackDonateModal();
+      }
+      const dlModal = document.getElementById('downloadModal');
+      if (dlModal && dlModal.classList.contains('active')) {
+        dlModal.classList.remove('active');
       }
     }
   });
@@ -3251,6 +3521,7 @@ function initTabScrollFades() {
     wrapper.classList.toggle('can-scroll-right', scrollLeft < maxScroll - 8);
   }
 
+  window.updateNavTabFades = updateFades;
   wrapper.addEventListener('scroll', updateFades, { passive: true });
   window.addEventListener('resize', updateFades, { passive: true });
   setTimeout(updateFades, 200);
@@ -3561,6 +3832,573 @@ function initLiveDualTabSync() {
   }
 }
 
+// ==========================================
+// 10. FEEDBACK SYSTEM (IN-PAGE & MODAL)
+// ==========================================
+function initFeedbackSystem() {
+  const ratingTextsVi = {
+    1: 'Chưa hài lòng (1 sao)',
+    2: 'Cần cải thiện (2 sao)',
+    3: 'Bình thường (3 sao)',
+    4: 'Hài lòng (4 sao)',
+    5: 'Rất tuyệt vời (5 sao)'
+  };
+  const ratingTextsEn = {
+    1: 'Unsatisfied (1 star)',
+    2: 'Needs work (2 stars)',
+    3: 'Neutral (3 stars)',
+    4: 'Satisfied (4 stars)',
+    5: 'Outstanding (5 stars)'
+  };
+
+  function setupStars(containerId, textId) {
+    const container = document.getElementById(containerId);
+    const textEl = document.getElementById(textId);
+    if (!container) return { getRating: () => 5, reset: () => {} };
+
+    let currentRating = 5;
+    const starBtns = container.querySelectorAll('.fb-star-btn');
+
+    function updateStars(val) {
+      currentRating = val;
+      starBtns.forEach((btn) => {
+        const r = parseInt(btn.getAttribute('data-rating'), 10);
+        if (r <= val) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+      if (textEl) {
+        textEl.setAttribute('data-i18n', `fb_rating_${val}`);
+        const dict = currentLang === 'vi' ? ratingTextsVi : ratingTextsEn;
+        textEl.textContent = dict[val] || `${val} sao`;
+      }
+    }
+
+    starBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const val = parseInt(btn.getAttribute('data-rating'), 10);
+        updateStars(val);
+      });
+    });
+
+    return {
+      getRating: () => currentRating,
+      reset: () => updateStars(5)
+    };
+  }
+
+  function setupChips(groupId) {
+    const group = document.getElementById(groupId);
+    if (!group) return { getValue: () => '', setValue: () => {} };
+
+    let activeVal = '';
+    const firstActive = group.querySelector('.fb-chip.active');
+    if (firstActive) {
+      activeVal = firstActive.getAttribute('data-cat') || firstActive.getAttribute('data-app') || '';
+    }
+
+    group.querySelectorAll('.fb-chip').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        group.querySelectorAll('.fb-chip').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeVal = btn.getAttribute('data-cat') || btn.getAttribute('data-app') || '';
+      });
+    });
+
+    return {
+      getValue: () => activeVal,
+      setValue: (val) => {
+        group.querySelectorAll('.fb-chip').forEach((b) => {
+          const v = b.getAttribute('data-cat') || b.getAttribute('data-app');
+          if (v === val) b.classList.add('active');
+          else b.classList.remove('active');
+        });
+        activeVal = val;
+      }
+    };
+  }
+
+  const pageStars = setupStars('pageFbRatingStars', 'pageFbRatingText');
+  const pageCat = setupChips('pageFbCatGroup');
+  const pageApp = setupChips('pageFbAppGroup');
+
+  const modalStars = setupStars('modalFbRatingStars', 'modalFbRatingText');
+  const modalCat = setupChips('modalFbCatGroup');
+
+  function saveFeedback(entry) {
+    try {
+      const existing = JSON.parse(localStorage.getItem('zcl_user_feedbacks') || '[]');
+      existing.unshift(entry);
+      localStorage.setItem('zcl_user_feedbacks', JSON.stringify(existing.slice(0, 20)));
+    } catch (e) {
+      console.warn('LocalStorage error:', e);
+    }
+  }
+
+  window.renderUserRecentFeedbacks = renderUserRecentFeedbacks;
+  function renderUserRecentFeedbacks() {
+    const wrap = document.getElementById('pageUserFeedbacksWrap');
+    if (!wrap) return;
+    try {
+      const items = JSON.parse(localStorage.getItem('zcl_user_feedbacks') || '[]');
+      if (!items || items.length === 0) {
+        wrap.style.display = 'none';
+        wrap.innerHTML = '';
+        return;
+      }
+      wrap.style.display = 'block';
+      let html = `<div class="user-feedbacks-title">${currentLang === 'vi' ? 'Ý kiến đóng góp gần đây của bạn:' : 'Your recent submissions:'}</div><div class="user-feedbacks-list">`;
+      items.slice(0, 3).forEach((item) => {
+        const safeName = item.name ? item.name.replace(/</g, '&lt;') : (currentLang === 'vi' ? 'Ẩn danh' : 'Anonymous');
+        const safeMsg = item.message ? item.message.replace(/</g, '&lt;') : '';
+        const starSvg = '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
+        const starsHtml = starSvg.repeat(item.rating || 5);
+        html += `
+          <div class="user-feedback-pill-card">
+            <div class="ufb-header">
+              <span class="ufb-author">${safeName}</span>
+              <span class="ufb-stars">${starsHtml}</span>
+              <span class="ufb-time">${item.time || ''}</span>
+            </div>
+            <p class="ufb-msg">${safeMsg}</p>
+          </div>
+        `;
+      });
+      html += '</div>';
+      wrap.innerHTML = html;
+    } catch (err) {
+      console.warn('Feedback render error:', err);
+    }
+  }
+
+  renderUserRecentFeedbacks();
+
+  // Page Form Submission
+  const pageForm = document.getElementById('pageFeedbackForm');
+  const pageSuccess = document.getElementById('pageFbSuccessState');
+  if (pageForm && pageSuccess) {
+    pageForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const msgInput = document.getElementById('pageFbMessage');
+      const nameInput = document.getElementById('pageFbName');
+      const emailInput = document.getElementById('pageFbEmail');
+      const msg = msgInput ? msgInput.value.trim() : '';
+
+      if (!msg) {
+        if (msgInput) {
+          msgInput.focus();
+          msgInput.classList.add('input-error');
+          setTimeout(() => msgInput.classList.remove('input-error'), 2000);
+        }
+        return;
+      }
+
+      const entry = {
+        id: Date.now(),
+        rating: pageStars.getRating(),
+        category: pageCat.getValue() || 'feature',
+        targetApp: pageApp.getValue() || 'all',
+        name: nameInput ? nameInput.value.trim() : '',
+        email: emailInput ? emailInput.value.trim() : '',
+        message: msg,
+        time: new Date().toLocaleDateString(currentLang === 'vi' ? 'vi-VN' : 'en-US')
+      };
+
+      saveFeedback(entry);
+
+      // Setup action links
+      const btnMail = document.getElementById('pageFbBtnMail');
+      if (btnMail) {
+        const mailSubject = encodeURIComponent(`[ZCL Hub Feedback] ${entry.category.toUpperCase()} - ${entry.targetApp}`);
+        const mailBody = encodeURIComponent(`Đánh giá: ${entry.rating} sao\nỨng dụng: ${entry.targetApp}\nNgười gửi: ${entry.name || 'Ẩn danh'}\nEmail: ${entry.email || 'Không có'}\n\nNội dung:\n${entry.message}`);
+        btnMail.href = `mailto:hoangtungcnh@gmail.com?subject=${mailSubject}&body=${mailBody}`;
+      }
+
+      const btnCopy = document.getElementById('pageFbBtnCopy');
+      if (btnCopy) {
+        btnCopy.onclick = () => {
+          const text = `[ZCL Hub Góp ý]\nĐánh giá: ${entry.rating}/5 sao\nLoại: ${entry.category}\nỨng dụng: ${entry.targetApp}\nTên: ${entry.name || 'Ẩn danh'}\nNội dung: ${entry.message}`;
+          navigator.clipboard.writeText(text).then(() => {
+            showToast(i18n[currentLang].fb_toast_copied || 'Đã sao chép nội dung góp ý!');
+          });
+        };
+      }
+
+      pageForm.style.display = 'none';
+      pageSuccess.style.display = 'block';
+      showToast(i18n[currentLang].fb_toast_submitted || 'Đã lưu góp ý thành công!');
+      renderUserRecentFeedbacks();
+    });
+
+    const btnAnother = document.getElementById('pageFbBtnAnother');
+    if (btnAnother) {
+      btnAnother.addEventListener('click', () => {
+        pageForm.reset();
+        pageStars.reset();
+        pageForm.style.display = 'block';
+        pageSuccess.style.display = 'none';
+      });
+    }
+  }
+
+  // Modal Form Submission
+  const modalForm = document.getElementById('modalFeedbackForm');
+  const modalSuccess = document.getElementById('modalFbSuccessState');
+  if (modalForm && modalSuccess) {
+    modalForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const msgInput = document.getElementById('modalFbMessage');
+      const nameInput = document.getElementById('modalFbName');
+      const emailInput = document.getElementById('modalFbEmail');
+      const msg = msgInput ? msgInput.value.trim() : '';
+
+      if (!msg) {
+        if (msgInput) {
+          msgInput.focus();
+          msgInput.classList.add('input-error');
+          setTimeout(() => msgInput.classList.remove('input-error'), 2000);
+        }
+        return;
+      }
+
+      const entry = {
+        id: Date.now(),
+        rating: modalStars.getRating(),
+        category: modalCat.getValue() || 'feature',
+        targetApp: 'all',
+        name: nameInput ? nameInput.value.trim() : '',
+        email: emailInput ? emailInput.value.trim() : '',
+        message: msg,
+        time: new Date().toLocaleDateString(currentLang === 'vi' ? 'vi-VN' : 'en-US')
+      };
+
+      saveFeedback(entry);
+
+      const btnMail = document.getElementById('modalFbBtnMail');
+      if (btnMail) {
+        const mailSubject = encodeURIComponent(`[ZCL Hub Feedback] ${entry.category.toUpperCase()}`);
+        const mailBody = encodeURIComponent(`Đánh giá: ${entry.rating} sao\nNgười gửi: ${entry.name || 'Ẩn danh'}\nEmail: ${entry.email || 'Không có'}\n\nNội dung:\n${entry.message}`);
+        btnMail.href = `mailto:hoangtungcnh@gmail.com?subject=${mailSubject}&body=${mailBody}`;
+      }
+
+      const btnCopy = document.getElementById('modalFbBtnCopy');
+      if (btnCopy) {
+        btnCopy.onclick = () => {
+          const text = `[ZCL Hub Góp ý]\nĐánh giá: ${entry.rating}/5 sao\nLoại: ${entry.category}\nTên: ${entry.name || 'Ẩn danh'}\nNội dung: ${entry.message}`;
+          navigator.clipboard.writeText(text).then(() => {
+            showToast(i18n[currentLang].fb_toast_copied || 'Đã sao chép nội dung góp ý!');
+          });
+        };
+      }
+
+      modalForm.style.display = 'none';
+      modalSuccess.style.display = 'block';
+      showToast(i18n[currentLang].fb_toast_submitted || 'Đã lưu góp ý thành công!');
+      renderUserRecentFeedbacks();
+    });
+
+    const btnAnotherModal = document.getElementById('modalFbBtnAnother');
+    if (btnAnotherModal) {
+      btnAnotherModal.addEventListener('click', () => {
+        modalForm.reset();
+        modalStars.reset();
+        modalForm.style.display = 'block';
+        modalSuccess.style.display = 'none';
+      });
+    }
+  }
+}
+
+// ==========================================
+// 11. DONATE SYSTEM & QR LOGIC
+// ==========================================
+function initDonateSystem() {
+  const BANK_ACCOUNT = '0906279876';
+  const MOMO_ACCOUNT = '0906279876';
+  const DEFAULT_MEMO = 'ZCL Hub';
+
+  function setupDonatePicker(pickerClass, imgId, memoId) {
+    const pickers = document.querySelectorAll(pickerClass);
+    const imgEl = document.getElementById(imgId);
+    const memoEl = document.getElementById(memoId);
+
+    pickers.forEach((picker) => {
+      const pills = picker.querySelectorAll('.donate-amount-pill');
+      pills.forEach((pill) => {
+        pill.addEventListener('click', () => {
+          pills.forEach((p) => p.classList.remove('active'));
+          pill.classList.add('active');
+
+          const amount = parseInt(pill.getAttribute('data-amount') || '0', 10);
+          const memo = pill.getAttribute('data-memo') || DEFAULT_MEMO;
+
+          if (memoEl) {
+            memoEl.textContent = memo;
+            memoEl.classList.remove('memo-pop');
+            void memoEl.offsetWidth;
+            memoEl.classList.add('memo-pop');
+            setTimeout(() => memoEl.classList.remove('memo-pop'), 400);
+          }
+
+          if (imgEl) {
+            const amountParam = amount > 0 ? `&amount=${amount}` : '';
+            const newUrl = `https://img.vietqr.io/image/MB-${BANK_ACCOUNT}-compact2.png?addInfo=${encodeURIComponent(memo)}${amountParam}`;
+            imgEl.src = newUrl;
+
+            const qrWrap = imgEl.closest('.donate-qr-wrapper');
+            const qrFrame = imgEl.closest('.donate-qr-frame');
+            if (qrWrap) {
+              qrWrap.classList.remove('qr-updating');
+              void qrWrap.offsetWidth;
+              qrWrap.classList.add('qr-updating');
+              setTimeout(() => qrWrap.classList.remove('qr-updating'), 450);
+            }
+            if (qrFrame) {
+              qrFrame.classList.remove('scanning');
+              void qrFrame.offsetWidth;
+              qrFrame.classList.add('scanning');
+              setTimeout(() => qrFrame.classList.remove('scanning'), 650);
+            }
+          }
+        });
+      });
+    });
+  }
+
+  setupDonatePicker('.donate-amount-picker:not(.modal-amount-picker)', 'pageDonateQrImg', 'pageDonateMemo');
+  setupDonatePicker('.modal-amount-picker', 'modalDonateQrImg', 'modalDonateMemo');
+
+  // Copy Account Number
+  const handleCopyAcc = () => {
+    navigator.clipboard.writeText(BANK_ACCOUNT).then(() => {
+      showToast(i18n[currentLang].dn_toast_acc_copied || `Đã sao chép số tài khoản MB Bank: ${BANK_ACCOUNT}`);
+    });
+  };
+  const btnPageCopyAcc = document.getElementById('btnPageCopyAcc');
+  const btnModalCopyAcc = document.getElementById('btnModalCopyAcc');
+  if (btnPageCopyAcc) btnPageCopyAcc.addEventListener('click', handleCopyAcc);
+  if (btnModalCopyAcc) btnModalCopyAcc.addEventListener('click', handleCopyAcc);
+
+  // Copy Memo
+  const handleCopyMemo = (memoElId) => {
+    const memoEl = document.getElementById(memoElId);
+    const text = memoEl ? memoEl.textContent.trim() : DEFAULT_MEMO;
+    navigator.clipboard.writeText(text).then(() => {
+      showToast(i18n[currentLang].dn_toast_msg_copied || 'Đã sao chép nội dung: ZCL Hub');
+    });
+  };
+  const btnPageCopyMemo = document.getElementById('btnPageCopyMemo');
+  const btnModalCopyMemo = document.getElementById('btnModalCopyMemo');
+  if (btnPageCopyMemo) btnPageCopyMemo.addEventListener('click', () => handleCopyMemo('pageDonateMemo'));
+  if (btnModalCopyMemo) btnModalCopyMemo.addEventListener('click', () => handleCopyMemo('modalDonateMemo'));
+
+  // Copy MoMo
+  const handleCopyMomo = () => {
+    navigator.clipboard.writeText(MOMO_ACCOUNT).then(() => {
+      showToast(i18n[currentLang].dn_toast_momo_copied || `Đã sao chép số MoMo: ${MOMO_ACCOUNT}`);
+    });
+  };
+  const btnPageCopyMomo = document.getElementById('btnPageCopyMomo');
+  const btnModalCopyMomo = document.getElementById('btnModalCopyMomo');
+  if (btnPageCopyMomo) btnPageCopyMomo.addEventListener('click', handleCopyMomo);
+  if (btnModalCopyMomo) btnModalCopyMomo.addEventListener('click', handleCopyMomo);
+}
+
+// ==========================================
+// ==========================================
+// 12. UNIFIED FEEDBACK & DONATE MODAL SYSTEM
+// ==========================================
+function initUnifiedFeedbackDonateModal() {
+  const modal = document.getElementById('feedbackModal');
+  if (!modal) return;
+
+  const btnCloseFeedback = document.getElementById('btnFeedbackModalClose');
+  const btnCloseDonate = document.getElementById('btnDonateModalClose');
+  const tabBtnFeedback = document.getElementById('modalTabBtnFeedback');
+  const tabBtnDonate = document.getElementById('modalTabBtnDonate');
+  const panelFeedback = document.getElementById('modalPanelFeedback');
+  const panelDonate = document.getElementById('modalPanelDonate');
+
+  let currentModalTab = 'feedback';
+  let isAnimating = false;
+
+  function switchTab(targetTab) {
+    if (currentModalTab === targetTab || isAnimating) return;
+    isAnimating = true;
+
+    const isGoingToDonate = targetTab === 'donate';
+    currentModalTab = targetTab;
+
+    // Update Tab Buttons state
+    if (tabBtnFeedback && tabBtnDonate) {
+      if (isGoingToDonate) {
+        tabBtnFeedback.classList.remove('active');
+        tabBtnFeedback.setAttribute('aria-selected', 'false');
+        tabBtnDonate.classList.add('active');
+        tabBtnDonate.setAttribute('aria-selected', 'true');
+      } else {
+        tabBtnDonate.classList.remove('active');
+        tabBtnDonate.setAttribute('aria-selected', 'false');
+        tabBtnFeedback.classList.add('active');
+        tabBtnFeedback.setAttribute('aria-selected', 'true');
+      }
+    }
+
+    // Panels sliding transition
+    if (panelFeedback && panelDonate) {
+      panelFeedback.classList.remove('slide-in-right', 'slide-out-left', 'slide-in-left', 'slide-out-right');
+      panelDonate.classList.remove('slide-in-right', 'slide-out-left', 'slide-in-left', 'slide-out-right');
+
+      if (isGoingToDonate) {
+        // Feedback slides out to left, Donate slides in from right
+        panelFeedback.classList.add('slide-out-left');
+        panelDonate.classList.add('active', 'slide-in-right');
+
+        setTimeout(() => {
+          panelFeedback.classList.remove('active', 'slide-out-left');
+          panelDonate.classList.remove('slide-in-right');
+          isAnimating = false;
+        }, 290);
+      } else {
+        // Donate slides out to right, Feedback slides in from left
+        panelDonate.classList.add('slide-out-right');
+        panelFeedback.classList.add('active', 'slide-in-left');
+
+        setTimeout(() => {
+          panelDonate.classList.remove('active', 'slide-out-right');
+          panelFeedback.classList.remove('slide-in-left');
+          isAnimating = false;
+        }, 290);
+      }
+    } else {
+      isAnimating = false;
+    }
+  }
+
+  function openModal(targetTab = 'feedback') {
+    modal.classList.remove('modal-closing');
+    currentModalTab = targetTab;
+    isAnimating = false;
+
+    if (tabBtnFeedback && tabBtnDonate) {
+      if (targetTab === 'donate') {
+        tabBtnFeedback.classList.remove('active');
+        tabBtnFeedback.setAttribute('aria-selected', 'false');
+        tabBtnDonate.classList.add('active');
+        tabBtnDonate.setAttribute('aria-selected', 'true');
+      } else {
+        tabBtnDonate.classList.remove('active');
+        tabBtnDonate.setAttribute('aria-selected', 'false');
+        tabBtnFeedback.classList.add('active');
+        tabBtnFeedback.setAttribute('aria-selected', 'true');
+      }
+    }
+
+    if (panelFeedback && panelDonate) {
+      panelFeedback.classList.remove('slide-in-right', 'slide-out-left', 'slide-in-left', 'slide-out-right');
+      panelDonate.classList.remove('slide-in-right', 'slide-out-left', 'slide-in-left', 'slide-out-right');
+      if (targetTab === 'donate') {
+        panelFeedback.classList.remove('active');
+        panelDonate.classList.add('active');
+      } else {
+        panelDonate.classList.remove('active');
+        panelFeedback.classList.add('active');
+      }
+    }
+
+    modal.classList.add('active');
+  }
+
+  function closeModal() {
+    if (!modal.classList.contains('active')) return;
+    modal.classList.add('modal-closing');
+    setTimeout(() => {
+      modal.classList.remove('active', 'modal-closing');
+    }, 280);
+  }
+
+  // Header Buttons
+  const btnHeaderFeedback = document.getElementById('btnHeaderFeedback');
+  if (btnHeaderFeedback) {
+    btnHeaderFeedback.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal('feedback');
+    });
+  }
+
+  const btnHeaderDonate = document.getElementById('btnHeaderDonate');
+  if (btnHeaderDonate) {
+    btnHeaderDonate.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal('donate');
+    });
+  }
+
+  // Footer Links
+  const footerFeedback = document.getElementById('footerLinkFeedback');
+  if (footerFeedback) {
+    footerFeedback.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal('feedback');
+    });
+  }
+
+  const footerDonate = document.getElementById('footerLinkDonate');
+  if (footerDonate) {
+    footerDonate.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal('donate');
+    });
+  }
+
+  // Close Buttons
+  if (btnCloseFeedback) btnCloseFeedback.addEventListener('click', closeModal);
+  if (btnCloseDonate) btnCloseDonate.addEventListener('click', closeModal);
+
+  // Backdrop click to close
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Modal Segmented Tabs Clicks
+  if (tabBtnFeedback) {
+    tabBtnFeedback.addEventListener('click', () => switchTab('feedback'));
+  }
+  if (tabBtnDonate) {
+    tabBtnDonate.addEventListener('click', () => switchTab('donate'));
+  }
+
+  // Support data-modal-target buttons
+  modal.querySelectorAll('[data-modal-target]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const target = btn.getAttribute('data-modal-target');
+      if (target === 'feedback' || target === 'donate') {
+        switchTab(target);
+      }
+    });
+  });
+
+  // Expose globally for keyboard shortcuts and routing
+  window.openFeedbackDonateModal = openModal;
+  window.closeFeedbackDonateModal = closeModal;
+  window.switchModalTab = (from, to) => {
+    if (to === 'donateModal' || to === 'donate') {
+      openModal('donate');
+    } else {
+      openModal('feedback');
+    }
+  };
+}
+
+// Backward-compatibility aliases
+function initDonateModal() {}
+function initFeedbackModal() {}
+function initFaqSubnav() {}
+
 // 9. INITIALIZATION
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -3599,4 +4437,7 @@ document.addEventListener('DOMContentLoaded', () => {
   safeRun('TransferCalculator', initTransferCalculator);
   safeRun('FaqSearch', initFaqSearch);
   safeRun('LiveDualTabSync', initLiveDualTabSync);
+  safeRun('FeedbackSystem', initFeedbackSystem);
+  safeRun('DonateSystem', initDonateSystem);
+  safeRun('UnifiedFeedbackDonateModal', initUnifiedFeedbackDonateModal);
 });

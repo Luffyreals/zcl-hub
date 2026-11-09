@@ -170,6 +170,32 @@ class TestTabArchitecture(unittest.TestCase):
         self.assertIn('id="tabFadeRight"', self.html)
         self.assertIn('id="navTabsWrapper"', self.html)
 
+    def test_mobile_layout_optimizations(self):
+        """Verifies mobile responsive optimizations (scroll-margin-top, compact stage, modal touch targets)."""
+        with open(STYLES_CSS, "r", encoding="utf-8") as f:
+            css = f.read()
+        self.assertIn('scroll-margin-top', css)
+        self.assertIn('@media (max-width: 640px)', css)
+        self.assertIn('.visual-stage', css)
+        self.assertIn('flex-direction: row', css)
+        self.assertIn('16px !important', css)
+        self.assertIn('grid-template-areas', css)
+        self.assertIn('"apps categories"', css)
+        self.assertIn('"contact categories"', css)
+        with open(INDEX_HTML, "r", encoding="utf-8") as f:
+            html = f.read()
+        self.assertIn('footer-col-apps', html)
+        self.assertIn('footer-col-nav', html)
+        self.assertIn('footer-col-contact', html)
+
+    def test_indicator_recalculated_on_language_change(self):
+        """Verifies that setLanguage calls updateTabSlidingIndicator to prevent misalignment."""
+        with open(APP_JS, "r", encoding="utf-8") as f:
+            js = f.read()
+        set_lang_match = re.search(r'function setLanguage\(lang\)\s*\{(.*?)\n\}', js, re.DOTALL)
+        self.assertTrue(set_lang_match, "setLanguage function must exist")
+        self.assertIn("updateTabSlidingIndicator", set_lang_match.group(1), "setLanguage must invoke updateTabSlidingIndicator")
+
 
 class TestDropdownStylesAndControls(unittest.TestCase):
     """Verifies that native select dropdowns and options are styled to prevent white-on-white text."""
@@ -252,6 +278,68 @@ class TestComponentsIntegrity(unittest.TestCase):
         self.assertIn('.eco-toggle-btn', self.css)
         self.assertIn('body.eco-mode', self.css)
 
+    def test_feedback_components(self):
+        # Verify duplicate section was cleanly removed from page
+        self.assertNotIn('id="feedback-section"', self.html)
+        self.assertNotIn('id="pageFeedbackForm"', self.html)
+        # Verify modal feedback components exist
+        self.assertIn('id="feedbackModal"', self.html)
+        self.assertIn('id="btnHeaderFeedback"', self.html)
+        self.assertIn('id="modalFeedbackForm"', self.html)
+        self.assertIn('id="modalFbRatingStars"', self.html)
+        self.assertIn('id="modalFbMessage"', self.html)
+        self.assertIn('.feedback-form', self.css)
+        self.assertIn('.modal-segmented-tabs', self.css)
+        self.assertIn('.modal-tab-pill', self.css)
+
+    def test_donate_components(self):
+        # Verify duplicate section was cleanly removed from page
+        self.assertNotIn('id="donate-section"', self.html)
+        self.assertNotIn('id="pageDonateQrImg"', self.html)
+        # Verify modal donate components exist
+        self.assertIn('id="donateModal"', self.html)
+        self.assertIn('id="btnHeaderDonate"', self.html)
+        self.assertIn('id="modalDonateQrImg"', self.html)
+        self.assertIn('id="btnModalCopyAcc"', self.html)
+        self.assertIn('id="btnModalCopyMemo"', self.html)
+        self.assertIn('.donate-qr-wrapper', self.css)
+        self.assertIn('.donate-amount-pill', self.css)
+
+    def test_light_mode_optimizations(self):
+        """Verifies Light Mode color palette, step numbers contrast, icon squircles, and remote canvas adaptive colors."""
+        self.assertIn('[data-theme="light"] .qs-num', self.css)
+        self.assertIn('[data-theme="light"] .teleport-icon', self.css)
+        self.assertIn('[data-theme="light"] .remote-icon', self.css)
+        self.assertIn('[data-theme="light"] .remote-screen-stage', self.css)
+        self.assertIn('align-items: flex-start', self.css)
+        with open(APP_JS, "r", encoding="utf-8") as f:
+            js = f.read()
+        self.assertIn("const isLight = document.documentElement.getAttribute('data-theme') === 'light';", js)
+        self.assertIn("'#FAF4EA'", js)
+
+    def test_donate_and_feedback_tabs_and_i18n(self):
+        # 1. Author note removed from html
+        self.assertNotIn('<div class="donate-author-note">', self.html)
+        self.assertNotIn('dn_project_note', self.html)
+        # 2. Bank name translated with dn_bank_val
+        self.assertIn('data-i18n="dn_bank_val"', self.html)
+        # 3. Modal tab switcher exists with both targets
+        self.assertIn('.modal-segmented-tabs', self.css)
+        self.assertIn('.modal-tab-pill', self.css)
+        self.assertIn('data-modal-target="donate"', self.html)
+        self.assertIn('data-modal-target="feedback"', self.html)
+        self.assertIn('data-target-tab="feedback"', self.html)
+        self.assertIn('data-target-tab="donate"', self.html)
+        # 4. Tab animations exist in styles
+        self.assertIn('modalPanelSlideInRight', self.css)
+        self.assertIn('modalPanelSlideInLeft', self.css)
+        self.assertIn('.donate-qr-wrapper.qr-updating', self.css)
+        # 5. Modal tab order: Feedback first, Donate second
+        idx_feedback = self.html.find('id="modalTabBtnFeedback"')
+        idx_donate = self.html.find('id="modalTabBtnDonate"')
+        self.assertTrue(idx_feedback != -1 and idx_donate != -1)
+        self.assertLess(idx_feedback, idx_donate, "Feedback tab must appear before Donate tab")
+
 
 class TestPWAAndAssets(unittest.TestCase):
     """Verifies PWA manifest, service worker caching and static assets."""
@@ -274,7 +362,7 @@ class TestPWAAndAssets(unittest.TestCase):
     def test_service_worker_asset_list(self):
         with open(SW_JS, "r", encoding="utf-8") as f:
             sw = f.read()
-        self.assertIn("zcl-hub-v27", sw, "SW cache version must be updated")
+        self.assertIn("zcl-hub-v34", sw, "SW cache version must be updated")
         for asset in ["./index.html", "./404.html", "./src/styles.css", "./src/app.js", "./manifest.json", "./assets/logo.svg"]:
             self.assertIn(asset, sw, f"Service worker must cache {asset}")
 

@@ -12,7 +12,7 @@
 [![PWA Ready](https://img.shields.io/badge/PWA-ready-purple.svg)]()
 [![Platform](https://img.shields.io/badge/Windows-10%20%7C%2011-0078D6.svg)]()
 
-[Mở Trang Web](https://luffyreals.github.io/zcl-hub/) · [Dùng thử trên Web](https://luffyreals.github.io/zcl-hub/#studio) · [Tải về ứng dụng](https://luffyreals.github.io/zcl-hub/#download)
+[Mở Trang Web](https://luffyreals.github.io/zcl-hub/) · [Dùng thử trên Web](https://luffyreals.github.io/zcl-hub/#studio) · [Tải về ứng dụng](https://luffyreals.github.io/zcl-hub/#download) · [Góp ý](https://luffyreals.github.io/zcl-hub/#feedback) · [Ủng hộ](https://luffyreals.github.io/zcl-hub/#donate)
 
 </div>
 
@@ -107,9 +107,11 @@ Sau khi đẩy mã nguồn lên GitHub:
 
 ---
 
-## Tác Giả
+## Tác Giả & Ủng Hộ
 
 Phát triển bởi **Nguyễn Hoàng Tùng** ([@Luffyreals](https://github.com/Luffyreals)).
+
+Nếu ZCL Hub giúp bạn giải quyết công việc nhanh chóng và thuận tiện, hãy gửi [góp ý đóng góp](https://luffyreals.github.io/zcl-hub/#feedback) hoặc [mời tác giả một ly cà phê](https://luffyreals.github.io/zcl-hub/#donate) để tiếp thêm năng lượng phát triển nhé!
 
 ---
 

@@ -546,6 +546,64 @@
             }
           }
         ]
+      },
+      {
+        id: "suite_feedback_donate",
+        title: "6. Kiểm thử Tính Năng Góp Ý & Ủng Hộ Tác Giả (Feedback & Donate)",
+        cases: [
+          {
+            name: "Nút Góp ý (#btnHeaderFeedback) và Ủng hộ (#btnHeaderDonate) trên Header",
+            run: (win) => {
+              const fb = win.document.getElementById('btnHeaderFeedback');
+              const dn = win.document.getElementById('btnHeaderDonate');
+              return !!fb && !!dn;
+            }
+          },
+          {
+            name: "Hộp thoại Modal Góp ý & Báo lỗi (#modalFeedbackForm) sẵn sàng",
+            run: (win) => {
+              const fm = win.document.getElementById('feedbackModal');
+              const form = win.document.getElementById('modalFeedbackForm');
+              const stars = win.document.getElementById('modalFbRatingStars');
+              return !!fm && !!form && !!stars;
+            }
+          },
+          {
+            name: "Hộp thoại Modal Ủng hộ Tác giả (#modalDonateQrImg) & Nút sao chép sẵn sàng",
+            run: (win) => {
+              const dm = win.document.getElementById('donateModal');
+              const qr = win.document.getElementById('modalDonateQrImg');
+              const copyBtn = win.document.getElementById('btnModalCopyAcc');
+              return !!dm && !!qr && !!copyBtn;
+            }
+          },
+          {
+            name: "Đã gỡ bỏ các khối trùng lặp ở trang chủ (#feedback-section & #donate-section)",
+            run: (win) => {
+              const secFb = win.document.getElementById('feedback-section');
+              const secDn = win.document.getElementById('donate-section');
+              return !secFb && !secDn;
+            }
+          },
+          {
+            name: "Thanh chuyển Tab mượt mà giữa Góp ý & Ủng hộ (Thứ tự: Góp ý trước, Ủng hộ sau)",
+            run: (win) => {
+              const tabFb = win.document.getElementById('modalTabBtnFeedback');
+              const tabDn = win.document.getElementById('modalTabBtnDonate');
+              const panelFb = win.document.getElementById('modalPanelFeedback');
+              const panelDn = win.document.getElementById('modalPanelDonate');
+              return !!tabFb && !!tabDn && !!panelFb && !!panelDn;
+            }
+          },
+          {
+            name: "Tên ngân hàng MB Bank có thẻ data-i18n dn_bank_val và câu ghi chú thừa đã được gỡ",
+            run: (win) => {
+              const bankVal = win.document.querySelector('.donate-info-val[data-i18n="dn_bank_val"]');
+              const oldNote = win.document.querySelector('.donate-author-note');
+              return !!bankVal && !oldNote;
+            }
+          }
+        ]
       }
     ];
 
