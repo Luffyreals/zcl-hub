@@ -477,14 +477,6 @@ header.site-header {
   background: transparent;
 }
 
-.main-tab-pill.active svg {
-  stroke: #052016;
-}
-
-[data-theme="light"] .main-tab-pill.active svg {
-  stroke: #FFFDF8;
-}
-
 .main-tab-pill svg {
   stroke: currentColor;
   flex-shrink: 0;
@@ -492,7 +484,11 @@ header.site-header {
 }
 
 .main-tab-pill.active svg {
-  stroke: var(--mint);
+  stroke: #052016;
+}
+
+[data-theme="light"] .main-tab-pill.active svg {
+  stroke: #FFFDF8;
 }
 
 /* Right Actions (Theme Switcher + Language) */
