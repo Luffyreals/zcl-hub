@@ -64,6 +64,7 @@ hub/
 │   ├── styles.css        # Giao diện Dark Modern Tech, tối ưu máy tính & điện thoại
 │   └── app.js            # Xử lý chuyển tab, song ngữ (VI/EN) & bản dùng thử trên Web
 ├── index.html            # Trang chủ phân chia 5 tab trực quan, không dồn 1 trang
+├── 404.html              # Trang 404 tùy chỉnh Dark Modern Tech cho GitHub Pages
 ├── manifest.json         # Cấu hình PWA để cài đặt ứng dụng vào máy
 ├── sw.js                 # Service Worker lưu trữ bộ nhớ đệm dùng offline
 ├── .nojekyll             # Tương thích máy chủ tĩnh GitHub Pages

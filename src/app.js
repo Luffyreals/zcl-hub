@@ -220,33 +220,138 @@ const i18n = {
     // Studio (Dùng thử trên Web)
     studio_badge: "TRẢI NGHIỆM TRỰC TIẾP",
     studio_title: "Dùng thử ngay trên trình duyệt",
-    studio_sub: "Bạn có thể thử kéo thả file và rê thử chuột điều khiển ngay tại đây.",
-    studio_tab_tp: "Thử gửi file (Teleport)",
-    studio_tab_rm: "Thử điều khiển chuột (Remote)",
-    studio_tab_bench: "Kiểm tra tốc độ Wi-Fi",
-    studio_status_ready: "Đang kết nối",
+    studio_sub: "Trải nghiệm thực tế các tính năng kết nối trực tiếp trong phòng: gửi file siêu tốc, đồng bộ khay nhớ tạm, điều khiển máy tính mượt mà và kiểm tra tốc độ mạng.",
+    studio_tab_tp: "Thử gửi file & Khay nhớ tạm (Teleport)",
+    studio_tab_rm: "Thử điều khiển máy tính (Remote)",
+    studio_tab_bench: "Kiểm tra tốc độ Wi-Fi (Benchmark)",
+    studio_status_ready: "Mạng nội bộ trực tiếp · 2 máy sẵn sàng",
 
+    // Teleport
+    tp_send_from: "Thiết bị gửi (Laptop cá nhân)",
+    tp_send_to_label: "Gửi đến máy nhận trong phòng:",
     tp_drop_title: "Kéo thả file vào đây hoặc bấm để chọn",
-    tp_drop_sub: "File sẽ được truyền trực tiếp sang máy tính nhận trong phòng",
+    tp_drop_sub: "File sẽ được truyền trực tiếp sang máy tính nhận trong phòng mà không qua máy chủ đám mây",
+    tp_btn_browse: "Chọn file từ máy",
+    tp_preset_label: "Hoặc thử nhanh với các mẫu file:",
+    tp_preset_video: "Video 4K (2.4 GB)",
+    tp_preset_photos: "Bộ ảnh RAW (850 MB)",
+    tp_preset_doc: "Tài liệu dự án (45 MB)",
     tp_peers_title: "Máy tính phát hiện được trong phòng",
-    tp_transfer_demo: "Đang gửi đến: Laptop-LamViec",
-    tp_speed: "Tốc độ: Siêu nhanh",
-    studio_clip_title: "Thử nghiệm Đồng bộ Khay nhớ tạm hai chiều",
-    studio_clip_status: "Sẵn sàng dán",
-    studio_clip_label_a: "Máy A (Gõ nội dung cần chép):",
-    studio_clip_btn_copy: "Sao chép",
-    studio_clip_label_b: "Máy B (Tự động nhận tức thì):",
-    studio_clip_done: "Đã dán",
+    tp_transfer_demo: "Video_Du_An_4K.mov",
+    tp_speed: "Tốc độ hiện tại:",
+    tp_stat_transferred: "Đã truyền:",
+    tp_stat_speed: "Tốc độ hiện tại:",
+    tp_stat_eta: "Thời gian còn lại:",
+    tp_btn_pause: "Tạm dừng",
+    tp_btn_resume: "Tiếp tục",
+    tp_btn_cancel: "Hủy gửi",
+    tp_btn_restart: "Thử gửi lại",
+    tp_history_title: "Nhật ký truyền file gần đây:",
 
+    // Clipboard Sync
+    studio_clip_title: "Thử nghiệm Đồng bộ Khay nhớ tạm hai chiều",
+    studio_clip_sub: "Sao chép đoạn chữ, đường dẫn hay hình ảnh ở máy này là máy kia nhận được ngay tức thì chỉ sau 0.01 giây.",
+    studio_clip_status: "Sẵn sàng dán · 0.01s",
+    studio_clip_label_a: "Gõ hoặc chọn nội dung cần chép:",
+    studio_clip_btn_copy: "Sao chép sang Máy B",
+    studio_clip_label_b: "Nội dung đã nhận được:",
+    studio_clip_done: "Đã dán",
+    clip_sample_label: "Mẫu nhanh:",
+    clip_direction_toggle: "Đảo chiều",
+
+    // Remote
+    rm_target_select_label: "Máy tính điều khiển:",
     rm_ip_placeholder: "Tên hoặc mã kết nối của máy tính",
     rm_connect_btn: "Bắt đầu điều khiển",
-    rm_disconnect_btn: "Dừng lại",
+    rm_disconnect_btn: "Tạm dừng điều khiển",
     rm_fullscreen: "Toàn màn hình",
+    rm_trail_btn: "Vẽ nét chuột",
     rm_overlay_title: "Bấm để thử điều khiển chuột",
-    rm_overlay_sub: "Di chuột vào khu vực này để cảm nhận chuột ăn ngay, không hề giật lag",
+    rm_overlay_sub: "Di chuột và nhấp chuột vào khu vực này để cảm nhận chuột ăn ngay, hoàn toàn không có độ trễ",
+    rm_key_label: "Bàn phím từ xa:",
+    rm_key_clear: "Xóa",
 
-    bench_title: "Tốc độ gửi file thực tế khi dùng chung Wi-Fi",
-    bench_btn_run: "Bấm để kiểm tra tốc độ",
+    // Benchmark
+    bench_title: "Đo tốc độ truyền tải thực tế trong mạng nội bộ",
+    bench_sub: "So sánh tốc độ truyền dữ liệu trực tiếp qua Wi-Fi / Dây cáp mạng so với gửi qua Internet đám mây thông thường.",
+    bench_btn_run: "Bắt đầu đo kiểm tốc độ",
+    bench_env_label: "Chọn chuẩn mạng cần đo:",
+    bench_env_1: "Wi-Fi cơ bản (2.4GHz / Router phòng)",
+    bench_env_2: "Wi-Fi thế hệ mới (Wi-Fi 6 / 6E)",
+    bench_env_3: "Cáp mạng LAN trực tiếp (Gigabit)",
+    bench_wave_title: "Biểu đồ ổn định đường truyền theo thời gian thực:",
+    bench_metric_bw: "Băng thông đo được",
+    bench_metric_ping: "Độ trễ phản hồi",
+    bench_metric_jitter: "Độ ổn định đường truyền",
+    bench_metric_loss: "Mất gói dữ liệu",
+    bench_calc_title: "Ước tính thời gian gửi file thực tế",
+    bench_calc_sub: "Chọn dung lượng file để so sánh thời gian gửi giữa ZCL Hub và mạng Internet:",
+    bench_calc_lan: "Qua mạng nội bộ ZCL Hub (Wi-Fi 6)",
+    bench_calc_cloud: "Qua mạng Internet đám mây thông thường",
+
+    page_title: "ZCL Hub — Truyền file siêu tốc & Điều khiển máy tính",
+    chat_bubble_sent: "File đã gửi xong!",
+    chat_bubble_received: "Nhận được rồi, cực nhanh!",
+    orbit_tag_b: "Máy tính bàn B",
+    orbit_val_latency: "0.2ms (Chuột ăn ngay)",
+    orbit_val_security: "100% Trong phòng, 0 máy chủ ngoài",
+    orbit_val_route: "Sóng Wi-Fi phòng &rarr; Truyền thẳng",
+    orbit_node_pc: "Máy PC",
+    orbit_node_phone: "Điện thoại",
+    road_dev: "Đang phát triển",
+    road_desc_cast: "Chiếu màn hình và âm thanh không dây từ máy tính lên TV hoặc máy chiếu phòng họp.",
+    road_desc_chat: "Nhắn tin và gọi thoại nhanh giữa các máy cùng phòng, bảo mật tuyệt đối.",
+    road_desc_sync: "Tự động cập nhật thư mục làm việc giữa máy tính bàn và laptop cá nhân.",
+    detail_status_ready: "Sẵn sàng · v0.1.0",
+    chip_gpl: "Mã nguồn mở GPL-3.0",
+    chip_author: "Tác giả: Nguyễn Hoàng Tùng",
+    bento_badge_speed: "Tốc độ gửi file",
+    bento_badge_clip: "Khay nhớ tạm hai chiều",
+    bento_tag_clip: "Tức thì · 0s",
+    spec_val_speed: "100 MB/s – 1 GB/s (tối đa đường truyền mạng)",
+    spec_val_limit: "Không giới hạn (đã thử nghiệm tệp 150 GB)",
+    spec_val_security: "Dữ liệu đi thẳng trong phòng, 0 máy chủ ngoài",
+    spec_val_internet: "Không cần Internet, chỉ cần mạng Wi-Fi chung",
+    bento_badge_fps: "Tốc độ khung hình",
+    bento_tag_fps: "60 FPS · Mượt mà",
+    hud_mouse_instant: "Chuột: Tức thì",
+    bento_badge_latency: "Độ trễ phản hồi",
+    bento_tag_latency: "Dưới 1ms · Không trễ",
+    spec_val_fps: "60 FPS mượt mà",
+    spec_val_latency: "Dưới 1ms (phản hồi tức thì)",
+    spec_val_security_rm: "Dữ liệu truyền thẳng trong phòng, 0 máy chủ ngoài",
+    dl_req_win: "Yêu cầu: Máy tính Windows 10 hoặc Windows 11",
+    tp_send_to_label_prefix: "Gửi đến: ",
+    tp_status_transferring: "Đang truyền",
+    tp_stat_progress: "Tiến độ:",
+    tp_history_count: "2 file đã nhận",
+    tag_local_room: "100% Trong phòng",
+    clip_role_source: "Thiết bị sao chép",
+    clip_sample_link: "Liên kết",
+    clip_sample_wifi: "Mật khẩu Wi-Fi",
+    clip_sample_note: "Ghi chú việc",
+    clip_latency_tag: "0.01s (Ăn ngay)",
+    clip_role_target: "Tự động nhận",
+    remote_hud_latency: "0.2 ms (Ăn ngay)",
+    remote_hud_status: "Trực tiếp trong phòng",
+    bench_target_wifi6: "Đo trên chuẩn: Wi-Fi 6",
+    bench_wave_sub: "Ổn định 100% · Không rớt mạng",
+    bench_bw_desc: "Gửi 1 bộ phim 4K chỉ mất 2.5 giây.",
+    bench_ping_desc: "Chuột bấm ăn ngay, cảm giác như máy thật.",
+    bench_jitter_desc: "Không biến động tín hiệu, truyền ổn định liên tục.",
+    bench_loss_desc: "100% Gói tin truyền vẹn nguyên trong phòng.",
+    calc_lan_note: "Tận dụng trọn vẹn tốc độ Wi-Fi phòng, không tốn data mạng ngoài.",
+    calc_cloud_note: "Phải tải lên máy chủ ngoài, bị giới hạn tốc độ và dung lượng.",
+    qs_step1_title: "Tải ứng dụng về máy",
+    qs_step2_title: "Mở ứng dụng lên",
+    qs_step3_title: "Bắt đầu làm việc",
+    modal_smartscreen_tip: "<strong>Mẹo nhỏ:</strong> Nếu máy tính hiện cảnh báo file mới, bạn chỉ cần bấm <em>\"More info\" (Thông tin thêm)</em> &rarr; chọn <em>\"Run anyway\" (Vẫn chạy)</em> là xong.",
+    toast_downloading: "Đang tải xuống tệp cài đặt...",
+    hist_item_1_sub: "Gửi sang Laptop-LamViec · Mất 0.04 giây",
+    hist_item_2_sub: "Gửi sang May-Ban-Phong-Khach · Mất 0.45 giây",
+    clip_machine_a: "Máy A (Laptop cá nhân)",
+    clip_machine_b: "Máy B (Máy bàn làm việc)",
+    clip_time_recent: "Đồng bộ cách đây: vừa xong",
 
     // 3 Steps & FAQ
     qs_badge: "3 BƯỚC ĐƠN GIẢN",
@@ -489,33 +594,138 @@ const i18n = {
     // Studio
     studio_badge: "LIVE IN-BROWSER",
     studio_title: "Try Right in Your Browser",
-    studio_sub: "Experience file transfers and smooth mouse control without installing any files.",
-    studio_tab_tp: "Try Sending Files (Teleport)",
-    studio_tab_rm: "Try Mouse Control (Remote)",
-    studio_tab_bench: "Check Wi-Fi Speed",
-    studio_status_ready: "Connected",
+    studio_sub: "Experience local peer features in real-time: ultra-fast file transfer, two-way clipboard sync, smooth remote desktop, and network speed benchmarks.",
+    studio_tab_tp: "Try File Transfer & Clipboard (Teleport)",
+    studio_tab_rm: "Try Remote Desktop (Remote)",
+    studio_tab_bench: "Check Wi-Fi Speed (Benchmark)",
+    studio_status_ready: "Direct local network · 2 devices ready",
 
+    // Teleport
+    tp_send_from: "Sender Device (Personal Laptop)",
+    tp_send_to_label: "Send to computer in room:",
     tp_drop_title: "Drop files here or click to browse",
-    tp_drop_sub: "Files transfer directly to the receiving computer in your room",
+    tp_drop_sub: "Files transfer directly to the receiving computer in your room with no cloud server involved",
+    tp_btn_browse: "Choose file from computer",
+    tp_preset_label: "Or try instantly with preset samples:",
+    tp_preset_video: "4K Video (2.4 GB)",
+    tp_preset_photos: "RAW Photos (850 MB)",
+    tp_preset_doc: "Project Document (45 MB)",
     tp_peers_title: "Computers found in this room",
-    tp_transfer_demo: "Sending to: Laptop-Work",
-    tp_speed: "Speed: Super Fast",
-    studio_clip_title: "Live Two-Way Clipboard Sync Demo",
-    studio_clip_status: "Ready to Sync",
-    studio_clip_label_a: "PC A (Type text to copy):",
-    studio_clip_btn_copy: "Copy",
-    studio_clip_label_b: "PC B (Auto-received instantly):",
-    studio_clip_done: "Pasted",
+    tp_transfer_demo: "Video_Du_An_4K.mov",
+    tp_speed: "Current speed:",
+    tp_stat_transferred: "Transferred:",
+    tp_stat_speed: "Current speed:",
+    tp_stat_eta: "Time remaining:",
+    tp_btn_pause: "Pause",
+    tp_btn_resume: "Resume",
+    tp_btn_cancel: "Cancel",
+    tp_btn_restart: "Send Again",
+    tp_history_title: "Recent transfer history:",
 
+    // Clipboard Sync
+    studio_clip_title: "Live Two-Way Clipboard Sync Demo",
+    studio_clip_sub: "Copy text, links, or images on one PC and receive them on the other machine in 0.01s.",
+    studio_clip_status: "Ready to Sync · 0.01s",
+    studio_clip_label_a: "Type or choose text to copy:",
+    studio_clip_btn_copy: "Copy to PC B",
+    studio_clip_label_b: "Received text content:",
+    studio_clip_done: "Pasted",
+    clip_sample_label: "Quick samples:",
+    clip_direction_toggle: "Switch Direction",
+
+    // Remote
+    rm_target_select_label: "Control computer:",
     rm_ip_placeholder: "Computer name or connection code",
     rm_connect_btn: "Start Control",
-    rm_disconnect_btn: "Stop",
+    rm_disconnect_btn: "Pause Control",
     rm_fullscreen: "Fullscreen",
+    rm_trail_btn: "Mouse Trail",
     rm_overlay_title: "Click to test mouse control",
-    rm_overlay_sub: "Move your mouse in this area to feel instant 0-lag responsiveness",
+    rm_overlay_sub: "Move and click your mouse in this area to feel immediate zero-lag response",
+    rm_key_label: "Remote Keyboard:",
+    rm_key_clear: "Clear",
 
-    bench_title: "Actual Transfer Speed over Local Wi-Fi",
-    bench_btn_run: "Test Speed",
+    // Benchmark
+    bench_title: "Real-Time Local Network Speed Benchmark",
+    bench_sub: "Compare direct local Wi-Fi / LAN cable transfer speeds against conventional cloud/internet transfers.",
+    bench_btn_run: "Start Speed Test",
+    bench_env_label: "Select network environment:",
+    bench_env_1: "Standard Wi-Fi (2.4GHz / Legacy Router)",
+    bench_env_2: "Next-Gen Wi-Fi (Wi-Fi 6 / 6E)",
+    bench_env_3: "Direct LAN Cable (Gigabit)",
+    bench_wave_title: "Real-time bandwidth stability graph:",
+    bench_metric_bw: "Measured Bandwidth",
+    bench_metric_ping: "Ping Latency",
+    bench_metric_jitter: "Connection Jitter",
+    bench_metric_loss: "Packet Loss",
+    bench_calc_title: "Estimated Transfer Time Comparison",
+    bench_calc_sub: "Pick a file size to compare transfer time between ZCL Hub and Cloud/Internet:",
+    bench_calc_lan: "Via ZCL Hub (Wi-Fi 6)",
+    bench_calc_cloud: "Via Conventional Cloud / Internet",
+
+    page_title: "ZCL Hub — Ultra-Fast File Transfer & Remote Desktop Control",
+    chat_bubble_sent: "File sent successfully!",
+    chat_bubble_received: "Received! Super fast!",
+    orbit_tag_b: "Desktop PC B",
+    orbit_val_latency: "0.2ms (Zero mouse lag)",
+    orbit_val_security: "100% Local room, 0 external servers",
+    orbit_val_route: "Room Wi-Fi &rarr; Direct transfer",
+    orbit_node_pc: "Desktop PC",
+    orbit_node_phone: "Mobile Phone",
+    road_dev: "In Development",
+    road_desc_cast: "Wireless screen and audio casting from PC to meeting room TV or projector.",
+    road_desc_chat: "Fast messaging and voice calls between room computers, strictly secure.",
+    road_desc_sync: "Automatic folder sync between desktop PC and personal laptop.",
+    detail_status_ready: "Ready · v0.1.0",
+    chip_gpl: "Open Source GPL-3.0",
+    chip_author: "Author: Nguyen Hoang Tung",
+    bento_badge_speed: "Transfer Speed",
+    bento_badge_clip: "Two-Way Clipboard",
+    bento_tag_clip: "Instant · 0s",
+    spec_val_speed: "100 MB/s – 1 GB/s (Max network speed)",
+    spec_val_limit: "Unlimited (Tested up to 150 GB)",
+    spec_val_security: "Direct local data path, 0 external servers",
+    spec_val_internet: "No Internet needed, just shared local Wi-Fi",
+    bento_badge_fps: "Frame Rate",
+    bento_tag_fps: "60 FPS · Smooth",
+    hud_mouse_instant: "Mouse: Instant",
+    bento_badge_latency: "Latency",
+    bento_tag_latency: "Under 1ms · Zero Lag",
+    spec_val_fps: "Smooth 60 FPS",
+    spec_val_latency: "Under 1ms (Instant response)",
+    spec_val_security_rm: "Direct local data path, 0 external servers",
+    dl_req_win: "Requirement: Windows 10 or Windows 11 PC",
+    tp_send_to_label_prefix: "Send to: ",
+    tp_status_transferring: "Transferring",
+    tp_stat_progress: "Progress:",
+    tp_history_count: "2 files received",
+    tag_local_room: "100% Local Room",
+    clip_role_source: "Source Device",
+    clip_sample_link: "Link",
+    clip_sample_wifi: "Wi-Fi Password",
+    clip_sample_note: "Quick Note",
+    clip_latency_tag: "0.01s (Instant)",
+    clip_role_target: "Auto-Received",
+    remote_hud_latency: "0.2 ms (Zero Lag)",
+    remote_hud_status: "Direct Local LAN",
+    bench_target_wifi6: "Tested on: Wi-Fi 6",
+    bench_wave_sub: "100% Stable · Zero Packet Loss",
+    bench_bw_desc: "Transfer a 4K movie in just 2.5 seconds.",
+    bench_ping_desc: "Instant mouse response, feels like native desktop.",
+    bench_jitter_desc: "Zero signal jitter, rock-solid continuous stream.",
+    bench_loss_desc: "100% Local packets, zero external leaks.",
+    calc_lan_note: "Fully utilizes local Wi-Fi bandwidth, zero mobile data consumed.",
+    calc_cloud_note: "Requires cloud upload, constrained by internet upload speed limits.",
+    qs_step1_title: "Download the app",
+    qs_step2_title: "Open the app",
+    qs_step3_title: "Start working",
+    modal_smartscreen_tip: "<strong>Quick tip:</strong> If Windows SmartScreen shows a warning, simply click <em>\"More info\"</em> &rarr; choose <em>\"Run anyway\"</em>.",
+    toast_downloading: "Downloading installer file...",
+    hist_item_1_sub: "Sent to Laptop-LamViec · 0.04s",
+    hist_item_2_sub: "Sent to May-Ban-Phong-Khach · 0.45s",
+    clip_machine_a: "PC A (Laptop)",
+    clip_machine_b: "PC B (Desktop)",
+    clip_time_recent: "Synced: just now",
 
     // 3 Steps & FAQ
     qs_badge: "3 EASY STEPS",
@@ -591,8 +801,62 @@ function setLanguage(lang) {
   });
 
   document.documentElement.setAttribute('lang', lang);
+
+  // Update Document Title
+  if (i18n[lang] && i18n[lang].page_title) {
+    document.title = i18n[lang].page_title;
+  }
+
+  // Update Peer Select Options
+  const tpPeerSelect = document.getElementById('tpPeerSelect');
+  if (tpPeerSelect && tpPeerSelect.options.length >= 3) {
+    if (lang === 'vi') {
+      tpPeerSelect.options[0].text = 'Laptop-LamViec (Chung Wi-Fi 6 · Đã ghép nối)';
+      tpPeerSelect.options[1].text = 'May-Ban-Phong-Khach (Dây mạng LAN · 1Gbps)';
+      tpPeerSelect.options[2].text = 'MacBook-Dong-Nghiep (Wi-Fi 5GHz · Đã ghép nối)';
+    } else {
+      tpPeerSelect.options[0].text = 'Work-Laptop (Shared Wi-Fi 6 · Paired)';
+      tpPeerSelect.options[1].text = 'Living-Room-PC (LAN Cable · 1Gbps)';
+      tpPeerSelect.options[2].text = 'Colleague-MacBook (Wi-Fi 5GHz · Paired)';
+    }
+  }
+
+  const rmPeerSelect = document.getElementById('remotePeerSelect');
+  if (rmPeerSelect && rmPeerSelect.options.length >= 3) {
+    if (lang === 'vi') {
+      rmPeerSelect.options[0].text = 'Máy bàn phòng khách (Windows 11) · 1920×1080';
+      rmPeerSelect.options[1].text = 'Laptop văn phòng (macOS) · 2560×1600';
+      rmPeerSelect.options[2].text = 'Máy chủ gia đình (Ubuntu) · 1920×1080';
+    } else {
+      rmPeerSelect.options[0].text = 'Living Room Desktop (Windows 11) · 1920×1080';
+      rmPeerSelect.options[1].text = 'Office Laptop (macOS) · 2560×1600';
+      rmPeerSelect.options[2].text = 'Home Server (Ubuntu) · 1920×1080';
+    }
+  }
+
+  // Update Clipboard Machine Tags & Button
+  const clipTagSource = document.getElementById('clipLabelSourceMachine');
+  const clipTagTarget = document.getElementById('clipLabelTargetMachine');
+  const btnCopy = document.getElementById('btnTestCopy');
+  if (clipTagSource && clipTagTarget) {
+    const isDirA = typeof clipDirection === 'undefined' || clipDirection === 'A_TO_B';
+    if (isDirA) {
+      clipTagSource.innerText = lang === 'vi' ? 'Máy A (Laptop cá nhân)' : 'PC A (Laptop)';
+      clipTagTarget.innerText = lang === 'vi' ? 'Máy B (Máy bàn làm việc)' : 'PC B (Desktop)';
+      if (btnCopy) btnCopy.querySelector('span').innerText = lang === 'vi' ? 'Sao chép sang Máy B' : 'Copy to PC B';
+    } else {
+      clipTagSource.innerText = lang === 'vi' ? 'Máy B (Máy bàn làm việc)' : 'PC B (Desktop)';
+      clipTagTarget.innerText = lang === 'vi' ? 'Máy A (Laptop cá nhân)' : 'PC A (Laptop)';
+      if (btnCopy) btnCopy.querySelector('span').innerText = lang === 'vi' ? 'Sao chép sang Máy A' : 'Copy to PC A';
+    }
+  }
+
   if (typeof updateDownloadCenterUI === 'function') {
     updateDownloadCenterUI();
+  }
+
+  if (typeof window.updateCalcComparison === 'function') {
+    window.updateCalcComparison();
   }
 }
 
@@ -852,23 +1116,66 @@ function initStudio() {
   tabBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       const app = btn.getAttribute('data-app');
-      tabBtns.forEach((b) => b.classList.remove('active'));
+      tabBtns.forEach((b) => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
       panels.forEach((p) => p.classList.remove('active'));
+
       btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
 
       const target = document.getElementById(`panel-${app}`);
       if (target) target.classList.add('active');
 
       if (app === 'remote') {
         window.dispatchEvent(new Event('resize'));
+        if (typeof drawRemoteScreen === 'function') drawRemoteScreen();
+      } else if (app === 'benchmark') {
+        window.dispatchEvent(new Event('resize'));
       }
     });
   });
 
-  // Drop zone simulation
+  // ==========================================
+  // A. TELEPORT FILE TRANSFER SIMULATION
+  // ==========================================
   const dropZone = document.getElementById('dropZone');
   const fileInput = document.getElementById('fileInput');
+  const btnBrowse = document.getElementById('btnBrowseFile');
+  const peerSelect = document.getElementById('tpPeerSelect');
+  const activePeerName = document.getElementById('activePeerTargetName');
+  const connSpeedChip = document.getElementById('connSpeedChipText');
 
+  // Peer destination selection
+  if (peerSelect) {
+    peerSelect.addEventListener('change', () => {
+      const val = peerSelect.value;
+      if (val === 'laptop') {
+        if (activePeerName) activePeerName.innerText = 'Laptop-LamViec';
+        if (connSpeedChip) connSpeedChip.innerText = 'Wi-Fi 6 · 960 MB/s';
+      } else if (val === 'pc') {
+        if (activePeerName) activePeerName.innerText = 'May-Ban-Phong-Khach';
+        if (connSpeedChip) connSpeedChip.innerText = 'Dây mạng LAN · 1.18 GB/s';
+      } else {
+        if (activePeerName) activePeerName.innerText = 'MacBook-Dong-Nghiep';
+        if (connSpeedChip) connSpeedChip.innerText = 'Wi-Fi 5GHz · 450 MB/s';
+      }
+      showToast(currentLang === 'vi' 
+        ? `Đã chọn đích gửi: ${activePeerName ? activePeerName.innerText : val}` 
+        : `Target destination updated`);
+    });
+  }
+
+  // Browse File trigger
+  if (btnBrowse && fileInput) {
+    btnBrowse.addEventListener('click', (e) => {
+      e.stopPropagation();
+      fileInput.click();
+    });
+  }
+
+  // Drop zone events
   if (dropZone && fileInput) {
     dropZone.addEventListener('click', () => fileInput.click());
     dropZone.addEventListener('dragover', (e) => {
@@ -882,98 +1189,365 @@ function initStudio() {
       e.preventDefault();
       dropZone.classList.remove('dragover');
       const files = e.dataTransfer.files;
-      if (files.length > 0) simulateTransfer(files[0].name, files[0].size);
+      if (files && files.length > 0) {
+        startTransfer(files[0].name, files[0].size);
+      }
     });
     fileInput.addEventListener('change', () => {
-      if (fileInput.files.length > 0) {
-        simulateTransfer(fileInput.files[0].name, fileInput.files[0].size);
+      if (fileInput.files && fileInput.files.length > 0) {
+        startTransfer(fileInput.files[0].name, fileInput.files[0].size);
       }
     });
   }
 
-  function simulateTransfer(fileName, fileSize) {
-    const bar = document.getElementById('progressFill');
-    const pct = document.getElementById('progressPercent');
-    const metaBytes = document.getElementById('progressBytes');
-    const transferDemo = document.querySelector('[data-i18n="tp_transfer_demo"]');
+  // 1-Click Preset Files
+  const presetPills = [
+    document.getElementById('btnPresetVideo'),
+    document.getElementById('btnPresetPhotos'),
+    document.getElementById('btnPresetDoc')
+  ];
 
-    if (transferDemo) {
-      transferDemo.innerText = (currentLang === 'vi' ? 'Đang gửi file: ' : 'Sending file: ') + fileName;
+  presetPills.forEach((btn) => {
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      presetPills.forEach((p) => p && p.classList.remove('active'));
+      btn.classList.add('active');
+      const name = btn.getAttribute('data-name');
+      const size = parseInt(btn.getAttribute('data-size'), 10) || 500000000;
+      startTransfer(name, size);
+    });
+  });
+
+  // Transfer Control Engine
+  let transferInterval = null;
+  let isPaused = false;
+  let currentProgress = 80;
+  let currentFile = { name: 'Video_Du_An_4K.mov', size: 2576980377 };
+
+  const bar = document.getElementById('progressFill');
+  const pct = document.getElementById('progressPercent');
+  const metaBytes = document.getElementById('progressBytes');
+  const speedEl = document.getElementById('progressSpeed');
+  const etaEl = document.getElementById('progressEta');
+  const activeNameEl = document.getElementById('activeFileName');
+  const activeStatusTag = document.getElementById('activeTransferStatusTag');
+  const btnPause = document.getElementById('btnTransferPause');
+  const btnPauseText = document.getElementById('btnTransferPauseText');
+  const btnCancel = document.getElementById('btnTransferCancel');
+  const btnRestart = document.getElementById('btnTransferRestart');
+  const historyList = document.getElementById('transferHistoryList');
+  const historyCount = document.getElementById('historyCount');
+  let completedFileCount = 2;
+
+  function updateTransferUI(progress, currentMB, totalMB, speedMB, remainingSec) {
+    if (bar) bar.style.width = `${progress}%`;
+    if (pct) pct.innerText = `${Math.round(progress)}%`;
+
+    if (metaBytes) {
+      if (totalMB >= 1000) {
+        metaBytes.innerText = `${(currentMB / 1024).toFixed(2)} GB / ${(totalMB / 1024).toFixed(2)} GB`;
+      } else {
+        metaBytes.innerText = `${Math.round(currentMB)} MB / ${Math.round(totalMB)} MB`;
+      }
     }
 
-    let progress = 0;
-    const totalMB = Math.max(12, Math.round(fileSize / (1024 * 1024)) || 850);
-    const interval = setInterval(() => {
-      progress += 5;
-      if (progress > 100) progress = 100;
-      if (bar) bar.style.width = progress + '%';
-      if (pct) pct.innerText = progress + '%';
-      if (metaBytes) {
-        const curMB = ((totalMB * progress) / 100).toFixed(1);
-        metaBytes.innerText = `${curMB} MB / ${totalMB} MB`;
-      }
+    if (speedEl) {
+      speedEl.innerText = `${Math.round(speedMB)} MB/s`;
+    }
+
+    if (etaEl) {
       if (progress >= 100) {
-        clearInterval(interval);
-        showToast(currentLang === 'vi' ? `Đã gửi xong: ${fileName}` : `Sent successfully: ${fileName}`);
+        etaEl.innerText = currentLang === 'vi' ? 'Hoàn tất' : 'Done';
+      } else if (remainingSec < 1) {
+        etaEl.innerText = currentLang === 'vi' ? '< 1 giây' : '< 1 sec';
+      } else {
+        etaEl.innerText = `${remainingSec.toFixed(1)} ${currentLang === 'vi' ? 'giây' : 'sec'}`;
       }
-    }, 80);
+    }
   }
 
-  // Live Clipboard Sync Demo
+  function startTransfer(fileName, fileSize) {
+    if (transferInterval) clearInterval(transferInterval);
+    isPaused = false;
+    currentProgress = 0;
+    currentFile = { name: fileName, size: fileSize };
+
+    if (activeNameEl) activeNameEl.innerText = fileName;
+    if (activeStatusTag) {
+      activeStatusTag.innerText = currentLang === 'vi' ? 'Đang truyền' : 'Transferring';
+      activeStatusTag.style.background = 'rgba(133, 237, 202, 0.15)';
+      activeStatusTag.style.color = 'var(--mint)';
+    }
+    if (btnPauseText) {
+      btnPauseText.innerText = currentLang === 'vi' ? 'Tạm dừng' : 'Pause';
+    }
+
+    const totalMB = Math.max(15, Math.round(fileSize / (1024 * 1024)));
+    const baseSpeed = 950; // MB/s on Wi-Fi 6
+    const startTime = Date.now();
+
+    transferInterval = setInterval(() => {
+      if (isPaused) return;
+
+      // Realistic speed fluctuation
+      const speedJitter = baseSpeed + (Math.random() * 60 - 30);
+      currentProgress += 5.5;
+
+      if (currentProgress > 100) currentProgress = 100;
+
+      const currentMB = (totalMB * currentProgress) / 100;
+      const remainingMB = Math.max(0, totalMB - currentMB);
+      const remainingSec = remainingMB / speedJitter;
+
+      updateTransferUI(currentProgress, currentMB, totalMB, speedJitter, remainingSec);
+
+      if (currentProgress >= 100) {
+        clearInterval(transferInterval);
+        transferInterval = null;
+
+        if (activeStatusTag) {
+          activeStatusTag.innerText = currentLang === 'vi' ? 'Hoàn thành' : 'Completed';
+          activeStatusTag.style.background = 'var(--mint-dark)';
+          activeStatusTag.style.color = 'var(--mint)';
+        }
+
+        const elapsedSec = ((Date.now() - startTime) / 1000).toFixed(2);
+        showToast(currentLang === 'vi' 
+          ? `Đã gửi xong ${fileName} (${totalMB >= 1000 ? (totalMB/1024).toFixed(1) + 'GB' : totalMB + 'MB'}) sau ${elapsedSec}s!`
+          : `Successfully sent ${fileName} in ${elapsedSec}s!`);
+
+        // Add to history list
+        if (historyList) {
+          completedFileCount++;
+          if (historyCount) {
+            historyCount.innerText = `${completedFileCount} ${currentLang === 'vi' ? 'file đã nhận' : 'files received'}`;
+          }
+
+          const targetName = activePeerName ? activePeerName.innerText : 'Laptop-LamViec';
+          const sizeStr = totalMB >= 1000 ? (totalMB / 1024).toFixed(1) + ' GB' : totalMB + ' MB';
+          const item = document.createElement('div');
+          item.className = 'history-item';
+          item.innerHTML = `
+            <div class="hist-icon success">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="hist-info">
+              <span class="hist-name">${fileName} (${sizeStr})</span>
+              <span class="hist-sub">${currentLang === 'vi' ? 'Gửi sang' : 'Sent to'} ${targetName} · ${elapsedSec}s</span>
+            </div>
+            <span class="hist-badge">100% Trong phòng</span>
+          `;
+          historyList.prepend(item);
+        }
+      }
+    }, 70);
+  }
+
+  // Transfer Action Buttons
+  if (btnPause) {
+    btnPause.addEventListener('click', () => {
+      if (currentProgress >= 100) return;
+      isPaused = !isPaused;
+      if (btnPauseText) {
+        btnPauseText.innerText = isPaused 
+          ? (currentLang === 'vi' ? 'Tiếp tục' : 'Resume') 
+          : (currentLang === 'vi' ? 'Tạm dừng' : 'Pause');
+      }
+      if (activeStatusTag) {
+        activeStatusTag.innerText = isPaused 
+          ? (currentLang === 'vi' ? 'Đã tạm dừng' : 'Paused') 
+          : (currentLang === 'vi' ? 'Đang truyền' : 'Transferring');
+        activeStatusTag.style.background = isPaused ? 'rgba(255,255,255,0.1)' : 'rgba(133, 237, 202, 0.15)';
+        activeStatusTag.style.color = isPaused ? 'var(--text-muted)' : 'var(--mint)';
+      }
+    });
+  }
+
+  if (btnCancel) {
+    btnCancel.addEventListener('click', () => {
+      if (transferInterval) clearInterval(transferInterval);
+      transferInterval = null;
+      isPaused = false;
+      currentProgress = 0;
+      updateTransferUI(0, 0, Math.round(currentFile.size / (1024*1024)), 0, 0);
+      if (activeStatusTag) {
+        activeStatusTag.innerText = currentLang === 'vi' ? 'Đã hủy' : 'Cancelled';
+        activeStatusTag.style.background = 'rgba(253, 170, 179, 0.15)';
+        activeStatusTag.style.color = 'var(--pink)';
+      }
+      showToast(currentLang === 'vi' ? 'Đã dừng truyền file' : 'Transfer cancelled');
+    });
+  }
+
+  if (btnRestart) {
+    btnRestart.addEventListener('click', () => {
+      startTransfer(currentFile.name, currentFile.size);
+    });
+  }
+
+  // ==========================================
+  // B. TWO-WAY CLIPBOARD SYNC ENGINE
+  // ==========================================
   const btnCopy = document.getElementById('btnTestCopy');
   const clipInput = document.getElementById('clipInputA');
   const clipOutput = document.getElementById('clipReceivedText');
-  const clipTargetB = document.getElementById('clipTargetB');
+  const clipOutWrap = document.getElementById('clipOutputContainer');
   const clipStatusBadge = document.getElementById('clipSyncStatusBadge');
+  const btnToggleDir = document.getElementById('btnToggleClipDirection');
+  const clipArrowSvg = document.getElementById('clipArrowSvg');
+  const btnCopyReceived = document.getElementById('btnCopyReceived');
+  const clipTimeTag = document.getElementById('clipTimeTag');
+  const clipTagSource = document.getElementById('clipLabelSourceMachine');
+  const clipTagTarget = document.getElementById('clipLabelTargetMachine');
+  const sampleChips = document.querySelectorAll('.sample-chip');
 
+  let clipDirection = 'A_TO_B'; // 'A_TO_B' or 'B_TO_A'
+
+  // Sample Chips
+  sampleChips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const val = chip.getAttribute('data-clip');
+      if (clipInput && val) {
+        clipInput.value = val;
+        showToast(currentLang === 'vi' ? `Đã chọn mẫu: ${val}` : `Selected sample: ${val}`);
+      }
+    });
+  });
+
+  // Toggle Direction
+  if (btnToggleDir) {
+    btnToggleDir.addEventListener('click', () => {
+      clipDirection = clipDirection === 'A_TO_B' ? 'B_TO_A' : 'A_TO_B';
+
+      if (clipArrowSvg) {
+        clipArrowSvg.classList.toggle('reversed', clipDirection === 'B_TO_A');
+        clipArrowSvg.style.transform = '';
+      }
+
+      if (clipTagSource && clipTagTarget) {
+        if (clipDirection === 'A_TO_B') {
+          clipTagSource.innerText = currentLang === 'vi' ? 'Máy A (Laptop cá nhân)' : 'PC A (Laptop)';
+          clipTagTarget.innerText = currentLang === 'vi' ? 'Máy B (Máy bàn làm việc)' : 'PC B (Desktop)';
+          if (btnCopy) btnCopy.querySelector('span').innerText = currentLang === 'vi' ? 'Sao chép sang Máy B' : 'Copy to PC B';
+        } else {
+          clipTagSource.innerText = currentLang === 'vi' ? 'Máy B (Máy bàn làm việc)' : 'PC B (Desktop)';
+          clipTagTarget.innerText = currentLang === 'vi' ? 'Máy A (Laptop cá nhân)' : 'PC A (Laptop)';
+          if (btnCopy) btnCopy.querySelector('span').innerText = currentLang === 'vi' ? 'Sao chép sang Máy A' : 'Copy to PC A';
+        }
+      }
+
+      showToast(currentLang === 'vi' 
+        ? `Đã đảo chiều truyền: ${clipDirection === 'A_TO_B' ? 'Máy A -> Máy B' : 'Máy B -> Máy A'}` 
+        : `Switched direction: ${clipDirection === 'A_TO_B' ? 'PC A -> PC B' : 'PC B -> PC A'}`);
+    });
+  }
+
+  // Copy & Sync Trigger
   if (btnCopy && clipInput && clipOutput) {
     btnCopy.addEventListener('click', () => {
       const text = clipInput.value.trim() || (currentLang === 'vi' ? 'Tài liệu dự án 2026.docx' : 'Project Document 2026.docx');
       clipOutput.innerText = text;
 
-      if (clipTargetB) {
-        clipTargetB.classList.remove('flash-synced');
-        void clipTargetB.offsetWidth;
-        clipTargetB.classList.add('flash-synced');
+      if (clipOutWrap) {
+        clipOutWrap.classList.remove('flash-synced');
+        void clipOutWrap.offsetWidth;
+        clipOutWrap.classList.add('flash-synced');
       }
 
       if (clipStatusBadge) {
         clipStatusBadge.innerText = currentLang === 'vi' ? 'Đã đồng bộ · 0.01s' : 'Synced · 0.01s';
         setTimeout(() => {
-          clipStatusBadge.innerText = currentLang === 'vi' ? 'Sẵn sàng dán' : 'Ready to Sync';
+          clipStatusBadge.innerText = currentLang === 'vi' ? 'Sẵn sàng dán · 0.01s' : 'Ready to Sync · 0.01s';
         }, 2200);
       }
 
-      showToast(currentLang === 'vi' ? 'Đã đồng bộ khay nhớ tạm sang Máy B!' : 'Clipboard synced to PC B instantly!');
+      if (clipTimeTag) {
+        clipTimeTag.innerText = currentLang === 'vi' ? 'Đồng bộ cách đây: vừa xong' : 'Synced: just now';
+      }
+
+      // Clipboard write attempt
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).catch(() => {});
+      }
+
+      const dest = clipDirection === 'A_TO_B' 
+        ? (currentLang === 'vi' ? 'Máy B' : 'PC B') 
+        : (currentLang === 'vi' ? 'Máy A' : 'PC A');
+      showToast(currentLang === 'vi' 
+        ? `Đã đồng bộ khay nhớ tạm sang ${dest} tức thì!` 
+        : `Clipboard synced to ${dest} instantly!`);
     });
   }
 
-  // Remote Desktop Canvas Demo with Click Ripples
+  // Copy Received Text button
+  if (btnCopyReceived && clipOutput) {
+    btnCopyReceived.addEventListener('click', () => {
+      const text = clipOutput.innerText.trim();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).catch(() => {});
+      }
+      showToast(currentLang === 'vi' ? 'Đã sao chép nội dung vào khay nhớ tạm!' : 'Copied text to clipboard!');
+    });
+  }
+
+  // ==========================================
+  // C. REMOTE DESKTOP COCKPIT & CANVAS
+  // ==========================================
   const canvas = document.getElementById('remoteCanvas');
+  const stage = document.getElementById('remoteScreenStage');
   const overlay = document.getElementById('remoteOverlay');
-  if (canvas) {
+  const overlayStartBtn = document.getElementById('btnOverlayStart');
+  const btnToggleRemote = document.getElementById('btnRemoteToggle');
+  const btnToggleRemoteText = document.getElementById('btnRemoteToggleText');
+  const btnFullscreen = document.getElementById('btnRemoteFullscreen');
+  const btnTrail = document.getElementById('btnRemoteTrail');
+  const devSelect = document.getElementById('remoteDeviceSelect');
+  const coordBadge = document.getElementById('remoteCursorCoord');
+  const keyInput = document.getElementById('remoteKeyInput');
+  const btnClearKey = document.getElementById('btnRemoteClearText');
+
+  let isRemoteConnected = true;
+  let isTrailEnabled = false;
+  let mouseX = 220;
+  let mouseY = 180;
+  let mouseTrail = [];
+  let clickRipples = [];
+  let currentRemoteDev = 'win';
+
+  // Draggable simulated Remote Window state
+  let remoteWin = {
+    x: 60,
+    y: 50,
+    w: 480,
+    h: 240,
+    isDragging: false,
+    dragOffX: 0,
+    dragOffY: 0
+  };
+
+  let drawRemoteScreen = function() {};
+
+  if (canvas && stage) {
     const ctx = canvas.getContext('2d');
-    let mouseX = 140;
-    let mouseY = 140;
-    let isConnected = true;
-    let clickRipples = [];
 
     function resizeCanvas() {
       const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width * window.devicePixelRatio;
-      canvas.height = rect.height * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-      drawScreen();
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      ctx.resetTransform();
+      ctx.scale(dpr, dpr);
+      drawRemoteScreen();
     }
 
     function triggerRipple(x, y) {
       clickRipples.push({ x, y, r: 0, opacity: 1 });
       function stepRipple() {
         if (clickRipples.length === 0) return;
-        drawScreen();
+        drawRemoteScreen();
         clickRipples = clickRipples.filter((item) => item.opacity > 0.05);
         clickRipples.forEach((item) => {
-          item.r += 3.5;
+          item.r += 4;
           item.opacity *= 0.88;
         });
         if (clickRipples.length > 0) {
@@ -983,86 +1557,187 @@ function initStudio() {
       requestAnimationFrame(stepRipple);
     }
 
-    function drawScreen() {
+    drawRemoteScreen = function() {
       const w = canvas.getBoundingClientRect().width;
       const h = canvas.getBoundingClientRect().height;
+      if (w <= 0 || h <= 0) return;
 
-      // Desktop Wallpaper
+      // 1. Wallpaper background
       const grad = ctx.createLinearGradient(0, 0, w, h);
-      grad.addColorStop(0, '#100e17');
-      grad.addColorStop(1, '#08070b');
+      grad.addColorStop(0, '#120f1b');
+      grad.addColorStop(0.5, '#0b0912');
+      grad.addColorStop(1, '#060509');
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, w, h);
 
-      // Simple Desktop Window
-      const winW = Math.min(520, w - 40);
-      const winH = 260;
-      const winX = (w - winW) / 2;
-      const winY = (h - winH) / 2;
-
-      ctx.fillStyle = 'rgba(21, 18, 29, 0.9)';
-      ctx.strokeStyle = 'rgba(133, 237, 202, 0.3)';
+      // Subtle cyber grid lines on desktop
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.025)';
       ctx.lineWidth = 1;
+      const gridSize = 40;
+      for (let x = 0; x < w; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, h);
+        ctx.stroke();
+      }
+      for (let y = 0; y < h; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(w, y);
+        ctx.stroke();
+      }
+
+      // 2. Simulated Taskbar at bottom
+      const taskbarH = 34;
+      ctx.fillStyle = 'rgba(20, 17, 28, 0.95)';
+      ctx.fillRect(0, h - taskbarH, w, taskbarH);
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+      ctx.beginPath();
+      ctx.moveTo(0, h - taskbarH);
+      ctx.lineTo(w, h - taskbarH);
+      ctx.stroke();
+
+      // Start Button Icon
+      ctx.fillStyle = '#85edca';
+      ctx.beginPath();
+      ctx.roundRect(10, h - taskbarH + 7, 20, 20, 4);
+      ctx.fill();
+
+      // Active app tab in taskbar
+      ctx.fillStyle = 'rgba(133, 237, 202, 0.12)';
+      ctx.strokeStyle = 'rgba(133, 237, 202, 0.4)';
+      ctx.beginPath();
+      ctx.roundRect(38, h - taskbarH + 4, 150, 26, 4);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = '#f7f3ec';
+      ctx.font = '11px Segoe UI, sans-serif';
+      ctx.fillText('ZCL Remote Notepad', 48, h - taskbarH + 20);
+
+      // Taskbar Clock & LAN pill on right
+      ctx.fillStyle = '#85edca';
+      ctx.beginPath();
+      ctx.arc(w - 95, h - taskbarH + 17, 3, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = '#a097ac';
+      ctx.font = '11px Cascadia Mono, monospace';
+      ctx.fillText('LAN 1Gbps', w - 85, h - taskbarH + 21);
+      ctx.fillText('12:00', w - 38, h - taskbarH + 21);
+
+      // 3. Draggable App Window (ZCL Remote Notepad)
+      const winW = Math.min(remoteWin.w, w - 40);
+      const winH = Math.min(remoteWin.h, h - taskbarH - 30);
+      const winX = Math.max(10, Math.min(remoteWin.x, w - winW - 10));
+      const winY = Math.max(10, Math.min(remoteWin.y, h - taskbarH - winH - 10));
+
+      // Window shadow & body
+      ctx.fillStyle = 'rgba(19, 16, 27, 0.94)';
+      ctx.strokeStyle = remoteWin.isDragging ? 'var(--mint)' : 'rgba(206, 163, 243, 0.35)';
+      ctx.lineWidth = 1.5;
       ctx.beginPath();
       ctx.roundRect(winX, winY, winW, winH, 10);
       ctx.fill();
       ctx.stroke();
 
-      // Window Header
+      // Window Titlebar
+      ctx.fillStyle = 'rgba(32, 27, 44, 0.95)';
+      ctx.beginPath();
+      ctx.roundRect(winX, winY, winW, 34, [10, 10, 0, 0]);
+      ctx.fill();
+
+      // Traffic Lights (Close / Minimize / Maximize)
       ctx.fillStyle = '#ff5f56';
       ctx.beginPath();
-      ctx.arc(winX + 20, winY + 20, 5, 0, Math.PI * 2);
+      ctx.arc(winX + 18, winY + 17, 5, 0, Math.PI * 2);
       ctx.fill();
 
       ctx.fillStyle = '#ffbd2e';
       ctx.beginPath();
-      ctx.arc(winX + 36, winY + 20, 5, 0, Math.PI * 2);
+      ctx.arc(winX + 34, winY + 17, 5, 0, Math.PI * 2);
       ctx.fill();
 
       ctx.fillStyle = '#27c93f';
       ctx.beginPath();
-      ctx.arc(winX + 52, winY + 20, 5, 0, Math.PI * 2);
+      ctx.arc(winX + 50, winY + 17, 5, 0, Math.PI * 2);
       ctx.fill();
 
+      // Window Title Text
+      const devTitles = {
+        win: currentLang === 'vi' ? 'Máy tính phòng khách (Windows 11) · Trực tiếp' : 'Living Room PC (Windows 11) · Live',
+        mac: currentLang === 'vi' ? 'Laptop văn phòng (macOS) · Trực tiếp' : 'Office Laptop (macOS) · Live',
+        linux: currentLang === 'vi' ? 'Máy chủ gia đình (Ubuntu) · Trực tiếp' : 'Home Server (Linux) · Live'
+      };
       ctx.fillStyle = '#f7f3ec';
-      ctx.font = '13px system-ui, -apple-system, sans-serif';
-      ctx.textAlign = 'left';
+      ctx.font = 'bold 12px Segoe UI, sans-serif';
+      ctx.fillText(devTitles[currentRemoteDev] || devTitles.win, winX + 70, winY + 21);
 
-      if (currentLang === 'vi') {
-        ctx.fillText('Màn hình máy tính từ xa (Đang kết nối trực tiếp)', winX + 74, winY + 24);
+      // Window Content (Notepad Body)
+      const typedText = keyInput && keyInput.value.trim() 
+        ? keyInput.value 
+        : (currentLang === 'vi' ? 'Xin chào từ ZCL Remote!' : 'Hello from ZCL Remote!');
+
+      ctx.font = '13px Segoe UI, sans-serif';
+      ctx.fillStyle = '#85edca';
+      ctx.fillText(currentLang === 'vi' 
+        ? '● Kết nối mạng nội bộ: Độ trễ 0.2ms · Chuột ăn ngay'
+        : '● Local Network Direct: 0.2ms latency · Zero lag', winX + 22, winY + 65);
+
+      ctx.fillStyle = '#cea3f3';
+      ctx.fillText(currentLang === 'vi' 
+        ? '● Tốc độ hiển thị: 60 khung hình/giây · Rất mượt mà' 
+        : '● Frame rate: 60 FPS smooth motion', winX + 22, winY + 92);
+
+      // User's Real-time Typed Content Box
+      ctx.fillStyle = 'rgba(8, 7, 12, 0.75)';
+      ctx.strokeStyle = 'rgba(133, 237, 202, 0.3)';
+      ctx.beginPath();
+      ctx.roundRect(winX + 20, winY + 115, winW - 40, 75, 6);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = '#a097ac';
+      ctx.font = '11px Cascadia Mono, monospace';
+      ctx.fillText(currentLang === 'vi' ? '> Bàn phím từ xa nhận được:' : '> Remote Keystroke Input:', winX + 30, winY + 135);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 14px Segoe UI, sans-serif';
+      ctx.fillText(typedText, winX + 30, winY + 165);
+
+      // Blinking typing cursor on canvas
+      if (Math.floor(Date.now() / 500) % 2 === 0) {
+        const textWidth = ctx.measureText(typedText).width;
         ctx.fillStyle = '#85edca';
-        ctx.fillText('• Kết nối mượt mà qua mạng Wi-Fi chung', winX + 26, winY + 80);
-        ctx.fillStyle = '#cea3f3';
-        ctx.fillText('• Chuột bấm ăn ngay, không hề có độ trễ gián đoạn', winX + 26, winY + 112);
-        ctx.fillStyle = '#f7f3ec';
-        ctx.fillText('• Hình ảnh sắc nét, mượt mà', winX + 26, winY + 144);
-        ctx.fillStyle = '#a097ac';
-        ctx.fillText('> Bấm chuột bất kỳ để thử độ phản hồi ăn ngay!', winX + 26, winY + 190);
-      } else {
-        ctx.fillText('Remote Desktop Screen (Live local connection)', winX + 74, winY + 24);
-        ctx.fillStyle = '#85edca';
-        ctx.fillText('• Connected smoothly over local Wi-Fi', winX + 26, winY + 80);
-        ctx.fillStyle = '#cea3f3';
-        ctx.fillText('• Instant mouse feedback, zero input lag', winX + 26, winY + 112);
-        ctx.fillStyle = '#f7f3ec';
-        ctx.fillText('• Clear display and responsive control', winX + 26, winY + 144);
-        ctx.fillStyle = '#a097ac';
-        ctx.fillText('> Click anywhere to test instant mouse response!', winX + 26, winY + 190);
+        ctx.fillRect(winX + 32 + textWidth, winY + 152, 2, 16);
       }
 
-      // Draw Click Ripples
+      // 4. Mouse Trail
+      if (isTrailEnabled && mouseTrail.length > 1) {
+        ctx.beginPath();
+        ctx.moveTo(mouseTrail[0].x, mouseTrail[0].y);
+        for (let i = 1; i < mouseTrail.length; i++) {
+          ctx.lineTo(mouseTrail[i].x, mouseTrail[i].y);
+        }
+        ctx.strokeStyle = 'rgba(133, 237, 202, 0.4)';
+        ctx.lineWidth = 3;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+      }
+
+      // 5. Click Ripples
       clickRipples.forEach((item) => {
         ctx.beginPath();
         ctx.arc(item.x, item.y, item.r, 0, Math.PI * 2);
         ctx.strokeStyle = `rgba(133, 237, 202, ${item.opacity})`;
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 2.5;
         ctx.stroke();
       });
 
-      // Local cursor
+      // 6. Draw Virtual Remote Cursor
       ctx.fillStyle = '#ffffff';
-      ctx.strokeStyle = '#000000';
-      ctx.lineWidth = 1.5;
+      ctx.strokeStyle = '#09080c';
+      ctx.lineWidth = 1.8;
       ctx.beginPath();
       ctx.moveTo(mouseX, mouseY);
       ctx.lineTo(mouseX + 14, mouseY + 14);
@@ -1072,103 +1747,409 @@ function initStudio() {
       ctx.closePath();
       ctx.fill();
       ctx.stroke();
-    }
+    };
 
+    // Canvas Mouse Interaction
     canvas.addEventListener('mousemove', (e) => {
       const rect = canvas.getBoundingClientRect();
-      mouseX = e.clientX - rect.left;
-      mouseY = e.clientY - rect.top;
-      drawScreen();
+      const newX = e.clientX - rect.left;
+      const newY = e.clientY - rect.top;
+
+      if (remoteWin.isDragging) {
+        remoteWin.x = newX - remoteWin.dragOffX;
+        remoteWin.y = newY - remoteWin.dragOffY;
+      }
+
+      mouseX = newX;
+      mouseY = newY;
+
+      if (isTrailEnabled) {
+        mouseTrail.push({ x: mouseX, y: mouseY });
+        if (mouseTrail.length > 14) mouseTrail.shift();
+      }
+
+      if (coordBadge) {
+        coordBadge.innerText = `X: ${Math.round(mouseX)} · Y: ${Math.round(mouseY)}`;
+      }
+
+      drawRemoteScreen();
     });
 
-    canvas.addEventListener('click', (e) => {
+    canvas.addEventListener('mousedown', (e) => {
       const rect = canvas.getBoundingClientRect();
       const clickX = e.clientX - rect.left;
       const clickY = e.clientY - rect.top;
+
+      // Check if clicking window titlebar to drag
+      if (clickX >= remoteWin.x && clickX <= remoteWin.x + remoteWin.w &&
+          clickY >= remoteWin.y && clickY <= remoteWin.y + 34) {
+        remoteWin.isDragging = true;
+        remoteWin.dragOffX = clickX - remoteWin.x;
+        remoteWin.dragOffY = clickY - remoteWin.y;
+      }
+
       triggerRipple(clickX, clickY);
     });
 
-    function handleTouch(e) {
+    window.addEventListener('mouseup', () => {
+      if (remoteWin.isDragging) {
+        remoteWin.isDragging = false;
+        drawRemoteScreen();
+      }
+    });
+
+    // Touch support
+    canvas.addEventListener('touchstart', (e) => {
       if (e.touches && e.touches.length > 0) {
         const rect = canvas.getBoundingClientRect();
         mouseX = e.touches[0].clientX - rect.left;
         mouseY = e.touches[0].clientY - rect.top;
-        drawScreen();
-      }
-    }
-
-    canvas.addEventListener('touchstart', (e) => {
-      handleTouch(e);
-      if (e.touches && e.touches.length > 0) {
-        const rect = canvas.getBoundingClientRect();
-        triggerRipple(e.touches[0].clientX - rect.left, e.touches[0].clientY - rect.top);
+        triggerRipple(mouseX, mouseY);
       }
     }, { passive: true });
 
-    canvas.addEventListener('touchmove', handleTouch, { passive: true });
+    canvas.addEventListener('touchmove', (e) => {
+      if (e.touches && e.touches.length > 0) {
+        const rect = canvas.getBoundingClientRect();
+        mouseX = e.touches[0].clientX - rect.left;
+        mouseY = e.touches[0].clientY - rect.top;
+        drawRemoteScreen();
+      }
+    }, { passive: true });
 
-    if (overlay) {
-      overlay.addEventListener('click', () => {
-        overlay.classList.add('hidden');
+    // Device target selector
+    if (devSelect) {
+      devSelect.addEventListener('change', () => {
+        currentRemoteDev = devSelect.value;
+        drawRemoteScreen();
+        showToast(currentLang === 'vi' 
+          ? `Đã chuyển sang màn hình: ${devSelect.options[devSelect.selectedIndex].text}`
+          : `Switched target device display`);
+      });
+    }
+
+    // Remote Keyboard typing
+    if (keyInput) {
+      keyInput.addEventListener('input', () => {
+        drawRemoteScreen();
+      });
+    }
+
+    if (btnClearKey) {
+      btnClearKey.addEventListener('click', () => {
+        if (keyInput) keyInput.value = '';
+        drawRemoteScreen();
+      });
+    }
+
+    // Mouse Trail toggle
+    if (btnTrail) {
+      btnTrail.addEventListener('click', () => {
+        isTrailEnabled = !isTrailEnabled;
+        mouseTrail = [];
+        btnTrail.classList.toggle('active', isTrailEnabled);
+        showToast(currentLang === 'vi' 
+          ? (isTrailEnabled ? 'Đã bật hiệu ứng vẽ nét chuột' : 'Đã tắt hiệu ứng vẽ nét chuột')
+          : (isTrailEnabled ? 'Mouse trail enabled' : 'Mouse trail disabled'));
+      });
+    }
+
+    // Toggle Stream Pause / Reconnect
+    function toggleRemoteState() {
+      isRemoteConnected = !isRemoteConnected;
+      if (overlay) {
+        overlay.classList.toggle('hidden', isRemoteConnected);
+      }
+      if (btnToggleRemoteText) {
+        btnToggleRemoteText.innerText = isRemoteConnected
+          ? (currentLang === 'vi' ? 'Tạm dừng điều khiển' : 'Pause Control')
+          : (currentLang === 'vi' ? 'Tiếp tục điều khiển' : 'Resume Control');
+      }
+      showToast(currentLang === 'vi'
+        ? (isRemoteConnected ? 'Đã kết nối điều khiển màn hình từ xa' : 'Đã tạm dừng điều khiển màn hình')
+        : (isRemoteConnected ? 'Remote stream connected' : 'Remote stream paused'));
+    }
+
+    if (btnToggleRemote) btnToggleRemote.addEventListener('click', toggleRemoteState);
+    if (overlayStartBtn) overlayStartBtn.addEventListener('click', toggleRemoteState);
+
+    // Fullscreen support
+    if (btnFullscreen) {
+      btnFullscreen.addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+          if (stage.requestFullscreen) {
+            stage.requestFullscreen().catch(() => {});
+          } else if (stage.webkitRequestFullscreen) {
+            stage.webkitRequestFullscreen();
+          }
+        } else {
+          if (document.exitFullscreen) document.exitFullscreen().catch(() => {});
+        }
       });
     }
 
     window.addEventListener('resize', resizeCanvas);
-    setTimeout(resizeCanvas, 100);
+    setTimeout(resizeCanvas, 80);
   }
 
-  // Benchmark Run with Speedometer Needle Animation
+  // ==========================================
+  // D. LAN SPEED BENCHMARK & WAVEFORM CHART
+  // ==========================================
   const btnRun = document.getElementById('btnRunBenchmark');
   const gaugeNeedle = document.getElementById('gaugeNeedleGroup');
   const speedGaugeNum = document.getElementById('speedGaugeNum');
+  const targetTag = document.getElementById('benchTargetTag');
+  const waveCanvas = document.getElementById('benchWaveCanvas');
+  const calcSizeBtns = document.querySelectorAll('.calc-size-btn');
+  const calcLanTime = document.getElementById('calcTimeLan');
+  const calcCloudTime = document.getElementById('calcTimeCloud');
+  const calcBarLan = document.getElementById('calcBarLan');
+  const calcBarCloud = document.getElementById('calcBarCloud');
 
-  if (btnRun) {
-    btnRun.addEventListener('click', () => {
-      btnRun.disabled = true;
-      btnRun.innerText = currentLang === 'vi' ? 'Đang đo kiểm...' : 'Testing...';
+  const envModes = [
+    document.getElementById('btnBenchMode1'),
+    document.getElementById('btnBenchMode2'),
+    document.getElementById('btnBenchMode3')
+  ];
 
-      if (gaugeNeedle) gaugeNeedle.style.transform = 'rotate(-90deg)';
-      if (speedGaugeNum) speedGaugeNum.innerText = '0';
+  let currentBenchSpeed = 960; // Default Wi-Fi 6
+  let currentBenchEnv = 'wifi6';
+  let isBenchmarking = false;
 
-      const fills = [
-        document.getElementById('benchFill1'),
-        document.getElementById('benchFill2'),
-        document.getElementById('benchFill3')
-      ];
+  envModes.forEach((btn) => {
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      if (isBenchmarking) return;
+      envModes.forEach((b) => b && b.classList.remove('active'));
+      btn.classList.add('active');
 
-      fills.forEach((f) => {
-        if (f) f.style.width = '0%';
+      const mode = btn.getAttribute('data-mode');
+      const spd = parseInt(btn.getAttribute('data-speed'), 10) || 960;
+      currentBenchSpeed = spd;
+      currentBenchEnv = mode;
+
+      if (targetTag) {
+        targetTag.innerText = currentLang === 'vi' 
+          ? `Đo trên chuẩn: ${btn.querySelector('span').innerText}` 
+          : `Mode: ${btn.querySelector('span').innerText}`;
+      }
+
+      // Update speed preview metrics
+      updateBenchmarkMetrics(spd);
+      updateCalcComparison();
+
+      // Smoothly update gauge to preset speed
+      if (gaugeNeedle) {
+        const targetAngle = -90 + (180 * (spd / 1200));
+        gaugeNeedle.setAttribute('transform', `rotate(${targetAngle} 120 120)`);
+        gaugeNeedle.style.transform = `rotate(${targetAngle}deg)`;
+      }
+      const gaugeFill = document.getElementById('gaugeFill');
+      if (gaugeFill) {
+        const maxDash = 283;
+        const targetOffset = maxDash - (maxDash * (spd / 1200));
+        gaugeFill.style.strokeDashoffset = targetOffset.toString();
+      }
+      if (speedGaugeNum) speedGaugeNum.innerText = spd.toString();
+      showToast(currentLang === 'vi' ? 'Đã đổi chuẩn kiểm tra mạng' : 'Benchmark environment updated');
+    });
+  });
+
+  function updateBenchmarkMetrics(speed) {
+    const valBw = document.getElementById('benchValBw');
+    const descBw = document.getElementById('benchDescBw');
+    const valPing = document.getElementById('benchValPing');
+    const valJitter = document.getElementById('benchValJitter');
+    const fill1 = document.getElementById('benchFill1');
+
+    if (valBw) valBw.innerText = `${speed} MB/s`;
+    if (fill1) {
+      fill1.style.width = speed >= 1000 ? '100%' : `${Math.round((speed / 1200) * 100)}%`;
+    }
+
+    if (speed >= 1000) {
+      if (descBw) descBw.innerText = currentLang === 'vi' ? 'Gửi 1 bộ phim 4K chỉ mất 1 giây!' : 'Transfers 4K movie in 1s!';
+      if (valPing) valPing.innerText = '0.08 ms';
+      if (valJitter) valJitter.innerText = '< 0.02 ms';
+    } else if (speed >= 500) {
+      if (descBw) descBw.innerText = currentLang === 'vi' ? 'Gửi 1 bộ phim 4K chỉ mất 2.5 giây.' : 'Transfers 4K movie in 2.5s.';
+      if (valPing) valPing.innerText = '0.18 ms';
+      if (valJitter) valJitter.innerText = '< 0.05 ms';
+    } else {
+      if (descBw) descBw.innerText = currentLang === 'vi' ? 'Gửi 1 bộ phim mất khoảng 20 giây.' : 'Transfers movie in ~20s.';
+      if (valPing) valPing.innerText = '4.2 ms';
+      if (valJitter) valJitter.innerText = '0.8 ms';
+    }
+  }
+
+  // Waveform Real-time Animation Loop
+  let waveCtx = null;
+  let waveStep = 0;
+  if (waveCanvas) {
+    waveCtx = waveCanvas.getContext('2d');
+    function resizeWave() {
+      const rect = waveCanvas.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+      waveCanvas.width = rect.width * dpr;
+      waveCanvas.height = rect.height * dpr;
+      waveCtx.resetTransform();
+      waveCtx.scale(dpr, dpr);
+    }
+    window.addEventListener('resize', resizeWave);
+    setTimeout(resizeWave, 100);
+
+    function animateWave() {
+      if (!waveCanvas || !waveCtx) return;
+      const w = waveCanvas.getBoundingClientRect().width;
+      const h = waveCanvas.getBoundingClientRect().height;
+      if (w <= 0 || h <= 0) {
+        requestAnimationFrame(animateWave);
+        return;
+      }
+
+      waveCtx.clearRect(0, 0, w, h);
+      waveStep += 0.04;
+
+      // Draw horizontal grid guide
+      waveCtx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+      waveCtx.lineWidth = 1;
+      [0.25, 0.5, 0.75].forEach((ratio) => {
+        waveCtx.beginPath();
+        waveCtx.moveTo(0, h * ratio);
+        waveCtx.lineTo(w, h * ratio);
+        waveCtx.stroke();
       });
 
-      const startTime = performance.now();
-      const targetSpeed = 980;
-      const duration = 800;
+      // Flowing bandwidth line
+      waveCtx.beginPath();
+      const baselineY = h * 0.45;
+      const amp = currentBenchSpeed >= 800 ? 8 : 16;
 
-      function animateGauge(now) {
+      for (let x = 0; x <= w; x += 4) {
+        const y = baselineY + Math.sin(x * 0.02 + waveStep) * amp + Math.cos(x * 0.04 - waveStep * 0.5) * 4;
+        if (x === 0) waveCtx.moveTo(x, y);
+        else waveCtx.lineTo(x, y);
+      }
+
+      waveCtx.strokeStyle = '#85edca';
+      waveCtx.lineWidth = 2.5;
+      waveCtx.stroke();
+
+      // Soft glow under wave
+      waveCtx.lineTo(w, h);
+      waveCtx.lineTo(0, h);
+      waveCtx.closePath();
+      const areaGrad = waveCtx.createLinearGradient(0, baselineY, 0, h);
+      areaGrad.addColorStop(0, 'rgba(133, 237, 202, 0.15)');
+      areaGrad.addColorStop(1, 'rgba(133, 237, 202, 0.0)');
+      waveCtx.fillStyle = areaGrad;
+      waveCtx.fill();
+
+      requestAnimationFrame(animateWave);
+    }
+    requestAnimationFrame(animateWave);
+  }
+
+  // Run Benchmark Click with Gauge Animation
+    if (btnRun) {
+    const gaugeFill = document.getElementById('gaugeFill');
+
+    btnRun.addEventListener('click', () => {
+      isBenchmarking = true;
+      btnRun.disabled = true;
+      btnRun.innerText = currentLang === 'vi' ? 'Đang đo kiểm tốc độ...' : 'Testing Bandwidth...';
+
+      if (gaugeNeedle) {
+        gaugeNeedle.setAttribute('transform', 'rotate(-90 120 120)');
+        gaugeNeedle.style.transform = 'rotate(-90deg)';
+      }
+      if (gaugeFill) gaugeFill.style.strokeDashoffset = '283';
+      if (speedGaugeNum) speedGaugeNum.innerText = '0';
+
+      const startTime = performance.now();
+      const targetSpeed = currentBenchSpeed;
+      const duration = 1200;
+
+      function stepGauge(now) {
         const elapsed = now - startTime;
         const progress = Math.min(1, elapsed / duration);
         const ease = 1 - Math.pow(1 - progress, 3);
         const currentVal = Math.round(targetSpeed * ease);
-        const angle = -90 + (165 * ease);
 
-        if (gaugeNeedle) gaugeNeedle.style.transform = `rotate(${angle}deg)`;
+        // Map 0 -> 1200 MB/s to -90deg -> 90deg (180 deg sweep)
+        const angle = -90 + (180 * (targetSpeed / 1200) * ease);
+
+        if (gaugeNeedle) {
+          gaugeNeedle.setAttribute('transform', `rotate(${angle} 120 120)`);
+          gaugeNeedle.style.transform = `rotate(${angle}deg)`;
+        }
+        if (gaugeFill) {
+          const maxDash = 283;
+          const currentOffset = maxDash - (maxDash * (targetSpeed / 1200) * ease);
+          gaugeFill.style.strokeDashoffset = currentOffset.toString();
+        }
         if (speedGaugeNum) speedGaugeNum.innerText = currentVal.toString();
 
         if (progress < 1) {
-          requestAnimationFrame(animateGauge);
+          requestAnimationFrame(stepGauge);
         } else {
-          if (fills[0]) fills[0].style.width = '45%';
-          if (fills[1]) fills[1].style.width = '85%';
-          if (fills[2]) fills[2].style.width = '100%';
-
+          isBenchmarking = false;
           btnRun.disabled = false;
-          btnRun.innerText = currentLang === 'vi' ? 'Kiểm tra lại' : 'Test Again';
-          showToast(currentLang === 'vi' ? 'Tốc độ Wi-Fi nội bộ đạt chuẩn siêu nhanh (980 MB/s)!' : 'Wi-Fi speed test completed (980 MB/s)!');
+          btnRun.innerText = currentLang === 'vi' ? 'Đo lại' : 'Test Again';
+          updateBenchmarkMetrics(targetSpeed);
+          showToast(currentLang === 'vi' 
+            ? `Đo hoàn tất: Tốc độ mạng nội bộ đạt ${targetSpeed} MB/s!` 
+            : `Speed test complete: ${targetSpeed} MB/s!`);
         }
       }
-      requestAnimationFrame(animateGauge);
+
+      requestAnimationFrame(stepGauge);
     });
   }
+
+  // Calculator File Size Selection
+  let activeCalcSizeGB = 10;
+
+  function updateCalcComparison() {
+    if (!calcLanTime || !calcCloudTime) return;
+    const sizeGB = activeCalcSizeGB;
+    const speedMB = currentBenchSpeed;
+
+    // Local time = (size in MB) / speedMB
+    const totalMB = sizeGB * 1024;
+    const lanSec = totalMB / speedMB;
+    const cloudSec = totalMB / 10; // Cloud upload avg 10 MB/s
+
+    if (lanSec < 1) {
+      calcLanTime.innerText = currentLang === 'vi' ? '< 1 giây (Tức thì)' : '< 1s (Instant)';
+    } else {
+      calcLanTime.innerText = `${lanSec.toFixed(1)} ${currentLang === 'vi' ? 'giây' : 'seconds'}`;
+    }
+
+    const cloudMin = Math.floor(cloudSec / 60);
+    const cloudRemSec = Math.round(cloudSec % 60);
+    calcCloudTime.innerText = cloudMin > 0 
+      ? `${cloudMin} ${currentLang === 'vi' ? 'phút' : 'min'} ${cloudRemSec > 0 ? cloudRemSec + 's' : ''}` 
+      : `${cloudRemSec}s`;
+
+    if (calcBarLan) calcBarLan.style.width = '100%';
+    if (calcBarCloud) {
+      const relPct = Math.max(4, Math.min(100, Math.round((lanSec / cloudSec) * 100)));
+      calcBarCloud.style.width = `${relPct}%`;
+    }
+  }
+
+  calcSizeBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      calcSizeBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeCalcSizeGB = parseInt(btn.getAttribute('data-size'), 10) || 10;
+      updateCalcComparison();
+    });
+  });
+
+  window.updateCalcComparison = updateCalcComparison;
+  updateCalcComparison();
 }
 
 // ==========================================
@@ -1935,6 +2916,208 @@ function initBackToTop() {
 }
 
 // ==========================================
+
+// ==========================================
+// 10. DYNAMIC TECH BACKGROUND EFFECTS
+// ==========================================
+function initBackgroundEffects() {
+  const spotlight = document.getElementById('bgMouseSpotlight');
+  const canvas = document.getElementById('bgParticlesCanvas');
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // --- A. Interactive Mouse Spotlight ---
+  if (spotlight && !window.matchMedia('(hover: none)').matches) {
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let currentX = mouseX;
+    let currentY = mouseY;
+    let isVisible = false;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      if (!isVisible) {
+        isVisible = true;
+        spotlight.style.opacity = '1';
+      }
+    }, { passive: true });
+
+    document.addEventListener('mouseleave', () => {
+      isVisible = false;
+      spotlight.style.opacity = '0';
+    });
+
+    function animateSpotlight() {
+      if (isVisible) {
+        currentX += (mouseX - currentX) * 0.12;
+        currentY += (mouseY - currentY) * 0.12;
+        spotlight.style.left = `${currentX}px`;
+        spotlight.style.top = `${currentY}px`;
+      }
+      requestAnimationFrame(animateSpotlight);
+    }
+    requestAnimationFrame(animateSpotlight);
+  }
+
+  // --- B. LAN Mesh Network Nodes Canvas ---
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  let width = 0;
+  let height = 0;
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  let animationId = null;
+  let isPageVisible = !document.hidden;
+
+  function resizeCanvas() {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    ctx.scale(dpr, dpr);
+  }
+
+  resizeCanvas();
+
+  // Create lightweight network nodes (representing local machines)
+  const isMobile = window.innerWidth < 768;
+  const nodeCount = isMobile ? 22 : 42;
+  const nodes = [];
+
+  for (let i = 0; i < nodeCount; i++) {
+    nodes.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.45,
+      vy: (Math.random() - 0.5) * 0.45,
+      radius: Math.random() * 1.4 + 1.2,
+      baseAlpha: Math.random() * 0.4 + 0.35,
+      pulseSpeed: Math.random() * 0.02 + 0.01,
+      phase: Math.random() * Math.PI * 2,
+      isMint: Math.random() > 0.45
+    });
+  }
+
+  const mousePos = { x: -1000, y: -1000 };
+  window.addEventListener('mousemove', (e) => {
+    mousePos.x = e.clientX;
+    mousePos.y = e.clientY;
+  }, { passive: true });
+
+  window.addEventListener('mouseleave', () => {
+    mousePos.x = -1000;
+    mousePos.y = -1000;
+  });
+
+  function renderNodes() {
+    if (!isPageVisible) return;
+
+    ctx.clearRect(0, 0, width, height);
+
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    const mintColor = isLight ? '11, 94, 71' : '133, 237, 202';
+    const lilacColor = isLight ? '75, 46, 145' : '206, 163, 243';
+
+    const maxDist = isMobile ? 100 : 130;
+    const mouseConnectDist = 140;
+
+    // 1. Draw Mesh Connection Lines between close nodes
+    for (let i = 0; i < nodes.length; i++) {
+      const n1 = nodes[i];
+      for (let j = i + 1; j < nodes.length; j++) {
+        const n2 = nodes[j];
+        const dx = n1.x - n2.x;
+        const dy = n1.y - n2.y;
+        const dist = Math.hypot(dx, dy);
+
+        if (dist < maxDist) {
+          const alpha = (1 - dist / maxDist) * (isLight ? 0.12 : 0.18);
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(${n1.isMint ? mintColor : lilacColor}, ${alpha})`;
+          ctx.lineWidth = 0.8;
+          ctx.moveTo(n1.x, n1.y);
+          ctx.lineTo(n2.x, n2.y);
+          ctx.stroke();
+        }
+      }
+
+      // Connection line to mouse cursor
+      if (mousePos.x > 0 && mousePos.y > 0) {
+        const mDist = Math.hypot(n1.x - mousePos.x, n1.y - mousePos.y);
+        if (mDist < mouseConnectDist) {
+          const mAlpha = (1 - mDist / mouseConnectDist) * (isLight ? 0.22 : 0.3);
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(${mintColor}, ${mAlpha})`;
+          ctx.lineWidth = 1;
+          ctx.moveTo(n1.x, n1.y);
+          ctx.lineTo(mousePos.x, mousePos.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // 2. Draw and update each node
+    for (let i = 0; i < nodes.length; i++) {
+      const n = nodes[i];
+
+      if (!prefersReduced) {
+        n.x += n.vx;
+        n.y += n.vy;
+
+        // Bounce gently off borders
+        if (n.x < 0) { n.x = 0; n.vx *= -1; }
+        else if (n.x > width) { n.x = width; n.vx *= -1; }
+
+        if (n.y < 0) { n.y = 0; n.vy *= -1; }
+        else if (n.y > height) { n.y = height; n.vy *= -1; }
+
+        n.phase += n.pulseSpeed;
+      }
+
+      const pulse = 1 + Math.sin(n.phase) * 0.3;
+      const alpha = n.baseAlpha * (isLight ? 0.6 : 0.9);
+      const col = n.isMint ? mintColor : lilacColor;
+
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.radius * pulse, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${col}, ${alpha})`;
+      ctx.fill();
+    }
+
+    if (!prefersReduced) {
+      animationId = requestAnimationFrame(renderNodes);
+    }
+  }
+
+  if (!prefersReduced) {
+    animationId = requestAnimationFrame(renderNodes);
+  } else {
+    renderNodes();
+  }
+
+  // Window resize handler with debounce
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      resizeCanvas();
+      if (prefersReduced) renderNodes();
+    }, 150);
+  });
+
+  // Power save: pause when tab hidden, resume when tab active
+  document.addEventListener('visibilitychange', () => {
+    isPageVisible = !document.hidden;
+    if (isPageVisible && !prefersReduced && !animationId) {
+      animationId = requestAnimationFrame(renderNodes);
+    } else if (!isPageVisible && animationId) {
+      cancelAnimationFrame(animationId);
+      animationId = null;
+    }
+  });
+}
+
 // 9. INITIALIZATION
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -1959,4 +3142,5 @@ document.addEventListener('DOMContentLoaded', () => {
   init3DTiltCards();
   initKeyboardShortcuts();
   initBackToTop();
+  initBackgroundEffects();
 });

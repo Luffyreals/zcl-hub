@@ -19,11 +19,26 @@
 </head>
 <body>
 
-  <!-- Background Ambient Glow -->
-  <div class="ambient-glow" aria-hidden="true">
-    <div class="glow-1"></div>
-    <div class="glow-2"></div>
-    <div class="glow-3"></div>
+  <!-- ============================================== -->
+  <!-- MULTI-LAYER MODERN TECH BACKGROUND SYSTEM      -->
+  <!-- ============================================== -->
+  <div class="site-bg-effects" aria-hidden="true">
+    <!-- Layer 1: Cyber LAN Dot Matrix & Perspective Grid -->
+    <div class="bg-grid-pattern"></div>
+
+    <!-- Layer 2: Breathing Aurora Fluid Glow Orbs -->
+    <div class="ambient-glow">
+      <div class="glow-orb glow-1"></div>
+      <div class="glow-orb glow-2"></div>
+      <div class="glow-orb glow-3"></div>
+      <div class="glow-orb glow-4"></div>
+    </div>
+
+    <!-- Layer 3: Interactive Cursor Spotlight Glow -->
+    <div class="bg-mouse-spotlight" id="bgMouseSpotlight"></div>
+
+    <!-- Layer 4: Interactive LAN Mesh Nodes Particle Canvas -->
+    <canvas id="bgParticlesCanvas" class="bg-particles-canvas"></canvas>
   </div>
 
   <!-- Header (Unified Modern Nav Bar with Integrated Tabs & Theme Switcher) -->
@@ -395,8 +410,8 @@
                 <div class="arch-window">
                   <div class="arch-preview-content">
                     <div class="arch-chat-anim">
-                      <div class="arch-bubble left">File đã gửi xong!</div>
-                      <div class="arch-bubble right">Nhận được rồi, cực nhanh!</div>
+                      <div class="arch-bubble left" data-i18n="chat_bubble_sent">File đã gửi xong!</div>
+                      <div class="arch-bubble right" data-i18n="chat_bubble_received">Nhận được rồi, cực nhanh!</div>
                     </div>
                   </div>
                 </div>
@@ -457,7 +472,7 @@
                 <div class="orbit-pair-badge" id="orbitPairBadge">
                   <span class="device-tag-a" id="orbitTagA">Laptop A</span>
                   <span class="pair-arrow">&harr;</span>
-                  <span class="device-tag-b" id="orbitTagB">Máy tính bàn B</span>
+                  <span class="device-tag-b" id="orbitTagB" data-i18n="orbit_tag_b">Máy tính bàn B</span>
                 </div>
                 <span class="orbit-live-pill">
                   <span class="pulse-dot"></span>
@@ -482,7 +497,7 @@
                   </div>
                   <div class="stat-meta">
                     <span class="stat-label" data-i18n="orbit_stat_latency">Độ trễ phản hồi</span>
-                    <span class="stat-value" id="orbitStatLatency">0.2ms (Chuột ăn ngay)</span>
+                    <span class="stat-value" id="orbitStatLatency" data-i18n="orbit_val_latency">0.2ms (Chuột ăn ngay)</span>
                   </div>
                 </div>
 
@@ -492,7 +507,7 @@
                   </div>
                   <div class="stat-meta">
                     <span class="stat-label" data-i18n="orbit_stat_security">Bảo mật dữ liệu</span>
-                    <span class="stat-value" id="orbitStatSec">100% Trong phòng, 0 máy chủ ngoài</span>
+                    <span class="stat-value" id="orbitStatSec" data-i18n="orbit_val_security">100% Trong phòng, 0 máy chủ ngoài</span>
                   </div>
                 </div>
 
@@ -502,7 +517,7 @@
                   </div>
                   <div class="stat-meta">
                     <span class="stat-label" data-i18n="orbit_stat_route">Tuyến đường truyền</span>
-                    <span class="stat-value" id="orbitStatRoute">Sóng Wi-Fi phòng &rarr; Truyền thẳng</span>
+                    <span class="stat-value" id="orbitStatRoute" data-i18n="orbit_val_route">Sóng Wi-Fi phòng &rarr; Truyền thẳng</span>
                   </div>
                 </div>
               </div>
@@ -547,7 +562,7 @@
                   <div class="device-node-bubble lilac">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                   </div>
-                  <span class="node-label">Máy PC</span>
+                  <span class="node-label" data-i18n="orbit_node_pc">Máy PC</span>
                 </button>
 
                 <!-- Device 3: Smartphone (Bottom Right) -->
@@ -555,7 +570,7 @@
                   <div class="device-node-bubble pink">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
                   </div>
-                  <span class="node-label">Điện thoại</span>
+                  <span class="node-label" data-i18n="orbit_node_phone">Điện thoại</span>
                 </button>
 
                 <!-- Device 4: Tablet (Bottom Left) -->
@@ -692,19 +707,19 @@
               </div>
               <div class="roadmap-grid">
                 <div class="roadmap-item">
-                  <span class="roadmap-status">Đang phát triển</span>
+                  <span class="roadmap-status" data-i18n="road_dev">Đang phát triển</span>
                   <h4>ZCL Cast</h4>
-                  <p>Chiếu màn hình và âm thanh không dây từ máy tính lên TV hoặc máy chiếu phòng họp.</p>
+                  <p data-i18n="road_desc_cast">Chiếu màn hình và âm thanh không dây từ máy tính lên TV hoặc máy chiếu phòng họp.</p>
                 </div>
                 <div class="roadmap-item">
-                  <span class="roadmap-status planned">Lên ý tưởng</span>
+                  <span class="roadmap-status planned" data-i18n="road_plan">Lên ý tưởng</span>
                   <h4>ZCL Chat</h4>
-                  <p>Nhắn tin và gọi thoại nhanh giữa các máy cùng phòng, bảo mật tuyệt đối.</p>
+                  <p data-i18n="road_desc_chat">Nhắn tin và gọi thoại nhanh giữa các máy cùng phòng, bảo mật tuyệt đối.</p>
                 </div>
                 <div class="roadmap-item">
-                  <span class="roadmap-status planned">Lên ý tưởng</span>
+                  <span class="roadmap-status planned" data-i18n="road_plan">Lên ý tưởng</span>
                   <h4>ZCL Sync</h4>
-                  <p>Tự động cập nhật thư mục làm việc giữa máy tính bàn và laptop cá nhân.</p>
+                  <p data-i18n="road_desc_sync">Tự động cập nhật thư mục làm việc giữa máy tính bàn và laptop cá nhân.</p>
                 </div>
               </div>
             </div>
@@ -734,7 +749,7 @@
             <div class="detail-hero-content">
               <div class="detail-tag-row">
                 <span class="detail-category-badge" data-i18n="dt_tp_category">Truyền file siêu tốc &amp; Khay nhớ tạm</span>
-                <span class="detail-status-pill">Sẵn sàng · v0.1.0</span>
+                <span class="detail-status-pill" data-i18n="detail_status_ready">Sẵn sàng · v0.1.0</span>
               </div>
               <h2 class="detail-app-title">ZCL Teleport</h2>
               <p class="detail-app-lede" data-i18n="dt_tp_lede">
@@ -742,8 +757,8 @@
               </p>
               <div class="detail-meta-chips">
                 <span class="chip-item">Windows 10 / 11 (64-bit)</span>
-                <span class="chip-item">Mã nguồn mở GPL-3.0</span>
-                <span class="chip-item">Tác giả: Nguyễn Hoàng Tùng</span>
+                <span class="chip-item" data-i18n="chip_gpl">Mã nguồn mở GPL-3.0</span>
+                <span class="chip-item" data-i18n="chip_author">Tác giả: Nguyễn Hoàng Tùng</span>
               </div>
               <div class="detail-cta-row">
                 <button class="btn btn-primary btn-open-download" data-app="teleport" data-format="exe" type="button">
@@ -764,7 +779,7 @@
             <div class="visual-bento-grid" style="margin-top: 16px;">
               <div class="bento-visual-card">
                 <div class="bento-visual-header">
-                  <span class="bento-badge mint">Tốc độ gửi file</span>
+                  <span class="bento-badge mint" data-i18n="bento_badge_speed">Tốc độ gửi file</span>
                   <span class="bento-metric-tag">100MB/s – 1GB/s</span>
                 </div>
                 <div class="bento-graphic-box">
@@ -790,8 +805,8 @@
               </div>
               <div class="bento-visual-card">
                 <div class="bento-visual-header">
-                  <span class="bento-badge mint">Khay nhớ tạm hai chiều</span>
-                  <span class="bento-metric-tag">Tức thì · 0s</span>
+                  <span class="bento-badge mint" data-i18n="bento_badge_clip">Khay nhớ tạm hai chiều</span>
+                  <span class="bento-metric-tag" data-i18n="bento_tag_clip">Tức thì · 0s</span>
                 </div>
                 <div class="bento-graphic-box">
                   <div class="sim-clipboard-badge" style="margin-top: 24px; padding: 18px 20px;">
@@ -847,11 +862,11 @@
             <div class="specs-table-grid">
               <div class="spec-cell">
                 <span class="spec-label" data-i18n="spec_speed">Tốc độ truyền</span>
-                <span class="spec-value mint">100 MB/s – 1 GB/s (tối đa đường truyền mạng)</span>
+                <span class="spec-value mint" data-i18n="spec_val_speed">100 MB/s – 1 GB/s (tối đa đường truyền mạng)</span>
               </div>
               <div class="spec-cell">
                 <span class="spec-label" data-i18n="spec_limit">Dung lượng tệp</span>
-                <span class="spec-value">Không giới hạn (đã thử nghiệm tệp 150 GB)</span>
+                <span class="spec-value" data-i18n="spec_val_limit">Không giới hạn (đã thử nghiệm tệp 150 GB)</span>
               </div>
               <div class="spec-cell">
                 <span class="spec-label" data-i18n="spec_os">Hệ điều hành</span>
@@ -859,7 +874,7 @@
               </div>
               <div class="spec-cell">
                 <span class="spec-label" data-i18n="spec_security">Bảo mật</span>
-                <span class="spec-value">Dữ liệu đi thẳng trong phòng, 0 máy chủ ngoài</span>
+                <span class="spec-value" data-i18n="spec_val_security">Dữ liệu đi thẳng trong phòng, 0 máy chủ ngoài</span>
               </div>
               <div class="spec-cell">
                 <span class="spec-label" data-i18n="spec_license">Bản quyền &amp; Tác giả</span>
@@ -867,7 +882,7 @@
               </div>
               <div class="spec-cell">
                 <span class="spec-label" data-i18n="spec_internet">Kết nối Internet</span>
-                <span class="spec-value">Không cần Internet, chỉ cần mạng Wi-Fi chung</span>
+                <span class="spec-value" data-i18n="spec_val_internet">Không cần Internet, chỉ cần mạng Wi-Fi chung</span>
               </div>
             </div>
           </div>
@@ -896,7 +911,7 @@
             <div class="detail-hero-content">
               <div class="detail-tag-row">
                 <span class="detail-category-badge lilac" data-i18n="dt_rm_category">Điều khiển máy tính từ xa</span>
-                <span class="detail-status-pill lilac">Sẵn sàng · v0.1.0</span>
+                <span class="detail-status-pill lilac" data-i18n="detail_status_ready">Sẵn sàng · v0.1.0</span>
               </div>
               <h2 class="detail-app-title">ZCL Remote</h2>
               <p class="detail-app-lede" data-i18n="dt_rm_lede">
@@ -904,8 +919,8 @@
               </p>
               <div class="detail-meta-chips">
                 <span class="chip-item">Windows 10 / 11 (64-bit)</span>
-                <span class="chip-item">Mã nguồn mở GPL-3.0</span>
-                <span class="chip-item">Tác giả: Nguyễn Hoàng Tùng</span>
+                <span class="chip-item" data-i18n="chip_gpl">Mã nguồn mở GPL-3.0</span>
+                <span class="chip-item" data-i18n="chip_author">Tác giả: Nguyễn Hoàng Tùng</span>
               </div>
               <div class="detail-cta-row">
                 <button class="btn btn-lilac btn-open-download" data-app="remote" data-format="exe" type="button">
@@ -926,8 +941,8 @@
             <div class="visual-bento-grid" style="margin-top: 16px;">
               <div class="bento-visual-card">
                 <div class="bento-visual-header">
-                  <span class="bento-badge lilac">Tốc độ khung hình</span>
-                  <span class="bento-metric-tag lilac">60 FPS · Mượt mà</span>
+                  <span class="bento-badge lilac" data-i18n="bento_badge_fps">Tốc độ khung hình</span>
+                  <span class="bento-metric-tag lilac" data-i18n="bento_tag_fps">60 FPS · Mượt mà</span>
                 </div>
                 <div class="bento-graphic-box">
                   <div class="remote-screen-simulation">
@@ -941,15 +956,15 @@
                     </div>
                     <div class="sim-remote-hud">
                       <span class="hud-item"><span class="pulse-dot"></span> 60 FPS</span>
-                      <span class="hud-item">Chuột: Tức thì</span>
+                      <span class="hud-item" data-i18n="hud_mouse_instant">Chuột: Tức thì</span>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="bento-visual-card">
                 <div class="bento-visual-header">
-                  <span class="bento-badge lilac">Độ trễ phản hồi</span>
-                  <span class="bento-metric-tag lilac">Dưới 1ms · Không trễ</span>
+                  <span class="bento-badge lilac" data-i18n="bento_badge_latency">Độ trễ phản hồi</span>
+                  <span class="bento-metric-tag lilac" data-i18n="bento_tag_latency">Dưới 1ms · Không trễ</span>
                 </div>
                 <div class="bento-graphic-box">
                   <div class="sim-clipboard-badge lilac" style="margin-top: 24px; padding: 18px 20px;">
@@ -1005,11 +1020,11 @@
             <div class="specs-table-grid">
               <div class="spec-cell">
                 <span class="spec-label" data-i18n="spec_fps">Tốc độ khung hình</span>
-                <span class="spec-value lilac">60 FPS mượt mà</span>
+                <span class="spec-value lilac" data-i18n="spec_val_fps">60 FPS mượt mà</span>
               </div>
               <div class="spec-cell">
                 <span class="spec-label" data-i18n="spec_mouse">Độ trễ phản hồi</span>
-                <span class="spec-value lilac">Dưới 1ms (phản hồi tức thì)</span>
+                <span class="spec-value lilac" data-i18n="spec_val_latency">Dưới 1ms (phản hồi tức thì)</span>
               </div>
               <div class="spec-cell">
                 <span class="spec-label" data-i18n="spec_os">Hệ điều hành</span>
@@ -1017,7 +1032,7 @@
               </div>
               <div class="spec-cell">
                 <span class="spec-label" data-i18n="spec_security">Bảo mật</span>
-                <span class="spec-value">Dữ liệu truyền thẳng trong phòng, 0 máy chủ ngoài</span>
+                <span class="spec-value" data-i18n="spec_val_security_rm">Dữ liệu truyền thẳng trong phòng, 0 máy chủ ngoài</span>
               </div>
               <div class="spec-cell">
                 <span class="spec-label" data-i18n="spec_license">Bản quyền &amp; Tác giả</span>
@@ -1025,7 +1040,7 @@
               </div>
               <div class="spec-cell">
                 <span class="spec-label" data-i18n="spec_internet">Kết nối Internet</span>
-                <span class="spec-value">Không cần Internet, chỉ cần mạng Wi-Fi chung</span>
+                <span class="spec-value" data-i18n="spec_val_internet">Không cần Internet, chỉ cần mạng Wi-Fi chung</span>
               </div>
             </div>
           </div>
@@ -1071,7 +1086,7 @@
                 </p>
 
                 <div class="download-meta-info">
-                  <div>Yêu cầu: Máy tính Windows 10 hoặc Windows 11</div>
+                  <div data-i18n="dl_req_win">Yêu cầu: Máy tính Windows 10 hoặc Windows 11</div>
                 </div>
               </div>
 
@@ -1111,7 +1126,7 @@
                 </p>
 
                 <div class="download-meta-info">
-                  <div>Yêu cầu: Máy tính Windows 10 hoặc Windows 11</div>
+                  <div data-i18n="dl_req_win">Yêu cầu: Máy tính Windows 10 hoặc Windows 11</div>
                 </div>
               </div>
 
@@ -1143,217 +1158,552 @@
     <!-- ============================================== -->
     <!-- TAB 4: DÙNG THỬ TRÊN WEB (STUDIO)              -->
     <!-- ============================================== -->
-    <div class="tab-view" id="tab-studio" role="tabpanel">
+        <div class="tab-view" id="tab-studio" role="tabpanel">
       <section class="studio-section" id="studio">
         <div class="container">
           <div class="section-head">
             <span class="section-badge" data-i18n="studio_badge">TRẢI NGHIỆM TRỰC TIẾP</span>
             <h2 data-i18n="studio_title">Dùng thử ngay trên trình duyệt</h2>
-            <p data-i18n="studio_sub">Bạn có thể thử kéo thả file và rê thử chuột điều khiển ngay tại đây.</p>
+            <p data-i18n="studio_sub">Trải nghiệm thực tế các tính năng kết nối trực tiếp trong phòng: gửi file siêu tốc, đồng bộ khay nhớ tạm, điều khiển máy tính mượt mà và kiểm tra tốc độ mạng.</p>
           </div>
 
           <div class="studio-container">
-            <!-- Studio Tabs -->
+            <!-- Studio Header Tabs Bar -->
             <div class="studio-header">
-              <div class="studio-tabs">
-                <button class="studio-tab-btn active" data-app="teleport" type="button">
+              <div class="studio-tabs" role="tablist">
+                <button class="studio-tab-btn active" data-app="teleport" role="tab" aria-selected="true" type="button">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L21 16M17 20L13 16"/></svg>
-                  <span data-i18n="studio_tab_tp">Thử gửi file (Teleport)</span>
+                  <span data-i18n="studio_tab_tp">Thử gửi file &amp; Khay nhớ tạm (Teleport)</span>
                 </button>
-                <button class="studio-tab-btn" data-app="remote" type="button">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                  <span data-i18n="studio_tab_rm">Thử điều khiển chuột (Remote)</span>
+                <button class="studio-tab-btn" data-app="remote" role="tab" aria-selected="false" type="button">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  <span data-i18n="studio_tab_rm">Thử điều khiển máy tính (Remote)</span>
                 </button>
-                <button class="studio-tab-btn" data-app="benchmark" type="button">
+                <button class="studio-tab-btn" data-app="benchmark" role="tab" aria-selected="false" type="button">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                  <span data-i18n="studio_tab_bench">Kiểm tra tốc độ Wi-Fi</span>
+                  <span data-i18n="studio_tab_bench">Kiểm tra tốc độ Wi-Fi (Benchmark)</span>
                 </button>
               </div>
               <div class="studio-status-indicator">
                 <span class="pulse-dot"></span>
-                <span data-i18n="studio_status_ready">Đang kết nối</span>
+                <span id="studioMainStatus" data-i18n="studio_status_ready">Mạng nội bộ trực tiếp · 2 máy sẵn sàng</span>
               </div>
             </div>
 
             <div class="studio-content">
-              <!-- 1. Teleport Simulator Panel -->
+              <!-- ============================================== -->
+              <!-- 1. TELEPORT SIMULATOR PANEL                   -->
+              <!-- ============================================== -->
               <div class="studio-panel active" id="panel-teleport">
-                <div class="teleport-web-ui">
-                  <div class="drop-zone" id="dropZone">
-                    <input type="file" id="fileInput" style="display: none;" multiple>
-                    <div class="drop-icon">
-                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                    </div>
-                    <h4 data-i18n="tp_drop_title">Kéo thả file vào đây hoặc bấm để chọn</h4>
-                    <p style="color: var(--text-muted); font-size: 0.85rem;" data-i18n="tp_drop_sub">
-                      File sẽ được truyền trực tiếp sang máy tính nhận trong phòng
-                    </p>
-                    <button class="btn btn-primary btn-sm" type="button">Chọn file từ máy</button>
+                <!-- Top LAN Peer Connection Bar -->
+                <div class="studio-conn-bar">
+                  <div class="conn-device-item">
+                    <span class="conn-device-icon">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </span>
+                    <span class="conn-device-label" data-i18n="tp_send_from">Thiết bị gửi (Laptop cá nhân)</span>
                   </div>
 
-                  <div class="transfer-monitor">
-                    <div>
-                      <div class="peer-list-title" data-i18n="tp_peers_title">Máy tính phát hiện được trong phòng</div>
-                      
-                      <div class="peer-item">
-                        <div class="peer-info">
-                          <div class="peer-avatar">LV</div>
-                          <div>
-                            <strong>Laptop-LamViec</strong>
-                            <div style="font-size: 0.78rem; color: var(--text-dim);">Chung mạng Wi-Fi</div>
-                          </div>
-                        </div>
-                        <span class="product-pill" style="color: var(--mint);">Đã ghép nối</span>
-                      </div>
+                  <div class="conn-flow-bridge">
+                    <span class="flow-line"></span>
+                    <span class="flow-chip">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                      <span id="connSpeedChipText">Wi-Fi 6 · 960 MB/s</span>
+                    </span>
+                    <span class="flow-line"></span>
+                  </div>
 
-                      <div class="peer-item">
-                        <div class="peer-info">
-                          <div class="peer-avatar" style="background: var(--lilac-dark); color: var(--lilac);">PC</div>
-                          <div>
-                            <strong>May-Ban-Phong-Khach</strong>
-                            <div style="font-size: 0.78rem; color: var(--text-dim);">Dây mạng LAN</div>
-                          </div>
-                        </div>
-                        <button class="btn btn-secondary btn-sm" type="button">Kết nối</button>
+                  <div class="conn-target-selector">
+                    <label for="tpPeerSelect" class="sr-only" data-i18n="tp_send_to_label">Gửi đến máy nhận trong phòng:</label>
+                    <div class="custom-select-wrap">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                      <select id="tpPeerSelect" class="conn-select">
+                        <option value="laptop">Laptop-LamViec (Chung Wi-Fi 6 · Đã ghép nối)</option>
+                        <option value="pc">May-Ban-Phong-Khach (Dây mạng LAN · 1Gbps)</option>
+                        <option value="macbook">MacBook-Dong-Nghiep (Wi-Fi 5GHz · Đã ghép nối)</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bento 2 Columns: Dropzone & Active Transfer Monitor -->
+                <div class="teleport-web-ui">
+                  <!-- Left: Drop Zone & Presets -->
+                  <div class="tp-left-col">
+                    <div class="drop-zone" id="dropZone" tabindex="0" role="button" aria-label="Kéo thả hoặc chọn file để gửi">
+                      <input type="file" id="fileInput" style="display: none;" multiple>
+                      <div class="drop-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
                       </div>
+                      <h4 data-i18n="tp_drop_title">Kéo thả file vào đây hoặc bấm để chọn</h4>
+                      <p class="drop-subtext" data-i18n="tp_drop_sub">
+                        File sẽ được truyền trực tiếp sang máy tính nhận trong phòng mà không qua máy chủ đám mây
+                      </p>
+                      <button class="btn btn-primary btn-sm" id="btnBrowseFile" type="button" data-i18n="tp_btn_browse">Chọn file từ máy</button>
                     </div>
 
-                    <div class="progress-card">
-                      <div class="progress-header">
-                        <strong data-i18n="tp_transfer_demo">Đang gửi đến: Laptop-LamViec</strong>
-                        <span class="mono" id="progressPercent">82%</span>
-                      </div>
-                      <div class="progress-bar-wrap">
-                        <div class="progress-fill" id="progressFill"></div>
-                      </div>
-                      <div class="progress-meta">
-                        <span id="progressBytes">1.92 GB / 2.34 GB</span>
-                        <span id="progressSpeed" data-i18n="tp_speed">Tốc độ: Siêu nhanh</span>
+                    <!-- Preset sample files for instant 1-click test -->
+                    <div class="tp-presets-box">
+                      <span class="tp-preset-label" data-i18n="tp_preset_label">Hoặc thử nhanh với các mẫu file:</span>
+                      <div class="tp-preset-buttons">
+                        <button class="preset-pill active" id="btnPresetVideo" type="button" data-name="Video_Du_An_4K.mov" data-size="2576980377">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                          <span data-i18n="tp_preset_video">Video 4K (2.4 GB)</span>
+                        </button>
+                        <button class="preset-pill" id="btnPresetPhotos" type="button" data-name="Bo_Anh_RAW_KyNiem.zip" data-size="891289600">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                          <span data-i18n="tp_preset_photos">Bộ ảnh RAW (850 MB)</span>
+                        </button>
+                        <button class="preset-pill" id="btnPresetDoc" type="button" data-name="Bao_Cao_Tong_Ket_2026.pdf" data-size="47185920">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                          <span data-i18n="tp_preset_doc">Tài liệu dự án (45 MB)</span>
+                        </button>
                       </div>
                     </div>
+                  </div>
 
-                    <!-- Interactive Clipboard Sync Demo Box -->
-                    <div class="studio-clipboard-sync-card">
-                      <div class="clip-sync-header">
-                        <div class="clip-sync-title">
-                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
-                          <span data-i18n="studio_clip_title">Thử nghiệm Đồng bộ Khay nhớ tạm hai chiều</span>
-                        </div>
-                        <span class="clip-sync-badge" id="clipSyncStatusBadge" data-i18n="studio_clip_status">Sẵn sàng dán</span>
-                      </div>
-                      <div class="clip-sync-grid">
-                        <div class="clip-box clip-source">
-                          <label for="clipInputA" data-i18n="studio_clip_label_a">Máy A (Gõ nội dung cần chép):</label>
-                          <div class="clip-input-wrap">
-                            <input type="text" id="clipInputA" value="Tài liệu dự án 2026.docx" placeholder="Nhập chữ bất kỳ...">
-                            <button class="btn btn-primary btn-sm" id="btnTestCopy" type="button" data-i18n="studio_clip_btn_copy">Sao chép</button>
+                  <!-- Right: Live Active Transfer Console & Peer Devices -->
+                  <div class="tp-right-col">
+                    <div class="transfer-monitor">
+                      <!-- Active Transfer Card -->
+                      <div class="progress-card active-transfer-card">
+                        <div class="card-file-head">
+                          <div class="file-icon-badge">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                          </div>
+                          <div class="file-meta-wrap">
+                            <strong class="file-active-name" id="activeFileName" data-i18n="tp_transfer_demo">Video_Du_An_4K.mov</strong>
+                            <div class="file-active-dest">
+                              <span data-i18n="tp_send_to_label_prefix">Gửi đến: </span>
+                              <span id="activePeerTargetName">Laptop-LamViec</span>
+                              <span class="active-badge-tag" id="activeTransferStatusTag" data-i18n="tp_status_transferring">Đang truyền</span>
+                            </div>
                           </div>
                         </div>
-                        <div class="clip-arrow-indicator">
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                          <span class="clip-latency-tag">0.01s</span>
+
+                        <!-- Animated Progress Bar -->
+                        <div class="progress-bar-wrap">
+                          <div class="progress-fill" id="progressFill" style="width: 80%;">
+                            <span class="progress-glow-head"></span>
+                          </div>
                         </div>
-                        <div class="clip-box clip-target" id="clipTargetB">
-                          <label data-i18n="studio_clip_label_b">Máy B (Tự động nhận tức thì):</label>
-                          <div class="clip-output-wrap">
-                            <span class="clip-received-text" id="clipReceivedText">Tài liệu dự án 2026.docx</span>
-                            <span class="clip-done-badge" id="clipDoneBadge" data-i18n="studio_clip_done">Đã dán</span>
+
+                        <!-- Real-time Stats Grid -->
+                        <div class="transfer-stats-grid">
+                          <div class="stat-pill-cell">
+                            <span class="stat-cell-label" data-i18n="tp_stat_transferred">Đã truyền:</span>
+                            <span class="stat-cell-value mono" id="progressBytes">1.92 GB / 2.40 GB</span>
+                          </div>
+                          <div class="stat-pill-cell">
+                            <span class="stat-cell-label" data-i18n="tp_stat_progress">Tiến độ:</span>
+                            <span class="stat-cell-value mono mint-text" id="progressPercent">80%</span>
+                          </div>
+                          <div class="stat-pill-cell">
+                            <span class="stat-cell-label" data-i18n="tp_stat_speed">Tốc độ hiện tại:</span>
+                            <span class="stat-cell-value mono" id="progressSpeed">960 MB/s</span>
+                          </div>
+                          <div class="stat-pill-cell">
+                            <span class="stat-cell-label" data-i18n="tp_stat_eta">Thời gian còn lại:</span>
+                            <span class="stat-cell-value mono" id="progressEta">0.5 giây</span>
+                          </div>
+                        </div>
+
+                        <!-- Control Actions -->
+                        <div class="transfer-card-actions">
+                          <button class="btn btn-secondary btn-sm" id="btnTransferPause" type="button">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                            <span id="btnTransferPauseText" data-i18n="tp_btn_pause">Tạm dừng</span>
+                          </button>
+                          <button class="btn btn-secondary btn-sm" id="btnTransferCancel" type="button">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                            <span data-i18n="tp_btn_cancel">Hủy gửi</span>
+                          </button>
+                          <button class="btn btn-primary btn-sm" id="btnTransferRestart" type="button">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+                            <span data-i18n="tp_btn_restart">Thử gửi lại</span>
+                          </button>
+                        </div>
+                      </div>
+
+                      <!-- Recent Completed Transfers Log -->
+                      <div class="transfer-history-wrap">
+                        <div class="history-head">
+                          <span class="history-title" data-i18n="tp_history_title">Nhật ký truyền file gần đây:</span>
+                          <span class="history-count" id="historyCount" data-i18n="tp_history_count">2 file đã nhận</span>
+                        </div>
+                        <div class="history-list" id="transferHistoryList">
+                          <div class="history-item">
+                            <div class="hist-icon success">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            </div>
+                            <div class="hist-info">
+                              <span class="hist-name">Bo_Cai_Dat_ZCL.exe (38 MB)</span>
+                              <span class="hist-sub" data-i18n="hist_item_1_sub">Gửi sang Laptop-LamViec · Mất 0.04 giây</span>
+                            </div>
+                            <span class="hist-badge" data-i18n="tag_local_room">100% Trong phòng</span>
+                          </div>
+                          <div class="history-item">
+                            <div class="hist-icon success">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            </div>
+                            <div class="hist-info">
+                              <span class="hist-name">Album_Anh_Du_An.zip (420 MB)</span>
+                              <span class="hist-sub" data-i18n="hist_item_2_sub">Gửi sang May-Ban-Phong-Khach · Mất 0.45 giây</span>
+                            </div>
+                            <span class="hist-badge" data-i18n="tag_local_room">100% Trong phòng</span>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+
+                <!-- ============================================== -->
+                <!-- DEDICATED FULL-WIDTH TWO-WAY CLIPBOARD SYNC    -->
+                <!-- ============================================== -->
+                <div class="studio-clipboard-sync-card">
+                  <div class="clip-sync-header">
+                    <div class="clip-title-group">
+                      <div class="clip-sync-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                        <span data-i18n="studio_clip_title">Thử nghiệm Đồng bộ Khay nhớ tạm hai chiều</span>
+                      </div>
+                      <p class="clip-sync-desc" data-i18n="studio_clip_sub">
+                        Sao chép đoạn chữ, đường dẫn hay hình ảnh ở máy này là máy kia nhận được ngay tức thì chỉ sau 0.01 giây.
+                      </p>
+                    </div>
+                    <div class="clip-header-badges">
+                      <span class="clip-sync-badge" id="clipSyncStatusBadge" data-i18n="studio_clip_status">Sẵn sàng dán · 0.01s</span>
+                    </div>
+                  </div>
+
+                  <!-- Two-Way Interactive Console -->
+                  <div class="clip-sync-grid">
+                    <!-- Machine A Box -->
+                    <div class="clip-box clip-source" id="clipBoxA">
+                      <div class="clip-box-head">
+                        <div class="clip-machine-tag" id="clipTagSource">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                          <span id="clipLabelSourceMachine">Máy A (Laptop cá nhân)</span>
+                        </div>
+                        <span class="clip-role-tag" id="clipRoleSource" data-i18n="clip_role_source">Thiết bị sao chép</span>
+                      </div>
+
+                      <label for="clipInputA" class="clip-box-label" id="clipLabelA" data-i18n="studio_clip_label_a">
+                        Gõ hoặc chọn nội dung cần chép:
+                      </label>
+
+                      <div class="clip-input-wrap">
+                        <input type="text" id="clipInputA" value="Tài liệu dự án 2026.docx" placeholder="Nhập văn bản bất kỳ...">
+                        <button class="btn btn-primary btn-sm" id="btnTestCopy" type="button" data-i18n="studio_clip_btn_copy">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                          <span>Sao chép sang Máy B</span>
+                        </button>
+                      </div>
+
+                      <!-- Quick Sample Snippet Chips -->
+                      <div class="clip-samples-row">
+                        <span class="clip-samples-label" data-i18n="clip_sample_label">Mẫu nhanh:</span>
+                        <button class="sample-chip" type="button" data-clip="https://zclhub.lan/du-an-2026">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                          <span data-i18n="clip_sample_link">Liên kết</span>
+                        </button>
+                        <button class="sample-chip" type="button" data-clip="Mật khẩu Wi-Fi: ZclFastLan2026">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                          <span data-i18n="clip_sample_wifi">Mật khẩu Wi-Fi</span>
+                        </button>
+                        <button class="sample-chip" type="button" data-clip="Ghi chú: Gặp khách hàng lúc 14h chiều">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                          <span data-i18n="clip_sample_note">Ghi chú việc</span>
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- Sync Channel & Direction Switcher -->
+                    <div class="clip-arrow-indicator">
+                      <div class="clip-pulse-ring"></div>
+                      <svg class="clip-arrow-svg" id="clipArrowSvg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                      <span class="clip-latency-tag" data-i18n="clip_latency_tag">0.01s (Ăn ngay)</span>
+                      <button class="btn-direction-toggle" id="btnToggleClipDirection" type="button" title="Đảo chiều gửi nhận">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+                        <span id="clipDirText" data-i18n="clip_direction_toggle">Đảo chiều</span>
+                      </button>
+                    </div>
+
+                    <!-- Machine B Box -->
+                    <div class="clip-box clip-target" id="clipTargetB">
+                      <div class="clip-box-head">
+                        <div class="clip-machine-tag" id="clipTagTarget">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                          <span id="clipLabelTargetMachine">Máy B (Máy bàn làm việc)</span>
+                        </div>
+                        <span class="clip-role-tag target" id="clipRoleTarget" data-i18n="clip_role_target">Tự động nhận</span>
+                      </div>
+
+                      <label class="clip-box-label" id="clipLabelB" data-i18n="studio_clip_label_b">
+                        Nội dung đã nhận được:
+                      </label>
+
+                      <div class="clip-output-wrap" id="clipOutputContainer">
+                        <div class="clip-text-content">
+                          <span class="clip-received-text" id="clipReceivedText">Tài liệu dự án 2026.docx</span>
+                        </div>
+                        <div class="clip-output-actions">
+                          <span class="clip-done-badge" id="clipDoneBadge" data-i18n="studio_clip_done">Đã dán</span>
+                          <button class="btn-copy-target" id="btnCopyReceived" type="button" title="Sao chép lại vào máy này">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="clip-target-footer">
+                        <span class="clip-timestamp-tag" id="clipTimeTag">Đồng bộ cách đây: vừa xong</span>
+                        <span class="clip-secure-tag" data-i18n="tag_local_room">100% Trong phòng</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <!-- 2. Remote Simulator Panel -->
+              <!-- ============================================== -->
+              <!-- 2. REMOTE SIMULATOR PANEL                     -->
+              <!-- ============================================== -->
               <div class="studio-panel" id="panel-remote">
                 <div class="remote-web-ui">
+                  <!-- Cockpit Header Controls -->
                   <div class="remote-toolbar">
-                    <div class="remote-connection-bar">
-                      <input type="text" class="ip-input" id="remoteIpInput" value="Máy tính phòng khách" data-i18n-placeholder="rm_ip_placeholder" placeholder="Tên hoặc mã kết nối của máy tính">
-                      <button class="btn btn-lilac btn-sm" id="btnRemoteConnect" type="button" data-i18n="rm_connect_btn">Bắt đầu điều khiển</button>
-                      <button class="btn btn-secondary btn-sm" id="btnRemoteDisconnect" type="button" data-i18n="rm_disconnect_btn">Dừng lại</button>
+                    <div class="remote-left-controls">
+                      <div class="remote-select-box">
+                        <span class="control-label" data-i18n="rm_target_select_label">Máy tính điều khiển:</span>
+                        <select id="remoteDeviceSelect" class="remote-device-select">
+                          <option value="win">Máy bàn phòng khách (Windows 11) · 1920×1080</option>
+                          <option value="mac">Laptop văn phòng (macOS) · 2560×1600</option>
+                          <option value="linux">Máy chủ gia đình (Ubuntu) · 1920×1080</option>
+                        </select>
+                      </div>
+
+                      <div class="remote-hud-pills">
+                        <span class="hud-chip mint">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                          <span id="hudLatency" data-i18n="remote_hud_latency">0.2 ms (Ăn ngay)</span>
+                        </span>
+                        <span class="hud-chip lilac">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                          <span id="hudFps">60 FPS</span>
+                        </span>
+                        <span class="hud-chip blue">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                          <span id="hudStatus" data-i18n="remote_hud_status">Trực tiếp trong phòng</span>
+                        </span>
+                      </div>
                     </div>
-                    <div>
-                      <button class="btn btn-secondary btn-sm" id="btnRemoteFullscreen" type="button" data-i18n="rm_fullscreen">Toàn màn hình</button>
+
+                    <div class="remote-right-controls">
+                      <button class="btn btn-secondary btn-sm" id="btnRemoteTrail" type="button" data-i18n="rm_trail_btn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 3 7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/></svg>
+                        <span>Vẽ nét chuột</span>
+                      </button>
+                      <button class="btn btn-secondary btn-sm" id="btnRemoteFullscreen" type="button" data-i18n="rm_fullscreen">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+                        <span>Toàn màn hình</span>
+                      </button>
+                      <button class="btn btn-lilac btn-sm" id="btnRemoteToggle" type="button">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                        <span id="btnRemoteToggleText" data-i18n="rm_disconnect_btn">Tạm dừng điều khiển</span>
+                      </button>
                     </div>
                   </div>
 
-                  <div class="remote-screen-stage">
+                  <!-- Remote Desktop Canvas Stage -->
+                  <div class="remote-screen-stage" id="remoteScreenStage">
                     <canvas id="remoteCanvas" class="remote-canvas"></canvas>
 
-                    <div class="remote-hud">
-                      <div class="hud-item latency">Độ trễ: <span id="hudLatency">0 ms</span></div>
-                      <div class="hud-item fps">Độ mượt: <span id="hudFps">Rất mượt (60 khung hình/giây)</span></div>
-                    </div>
+                    <!-- Real-time Cursor Coordinates Badge -->
+                    <div class="remote-cursor-coord" id="remoteCursorCoord">X: 140 · Y: 140</div>
 
+                    <!-- Overlay when paused or initial state -->
                     <div class="remote-screen-overlay" id="remoteOverlay">
-                      <h4 style="margin-bottom: 8px;" data-i18n="rm_overlay_title">Bấm để thử điều khiển chuột</h4>
-                      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;" data-i18n="rm_overlay_sub">
-                        Di chuột vào khu vực này để cảm nhận chuột ăn ngay, không hề giật lag
+                      <div class="overlay-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                      </div>
+                      <h4 id="remoteOverlayTitle" data-i18n="rm_overlay_title">Bấm để thử điều khiển chuột</h4>
+                      <p id="remoteOverlaySub" data-i18n="rm_overlay_sub">
+                        Di chuột và nhấp chuột vào khu vực này để cảm nhận chuột ăn ngay, hoàn toàn không có độ trễ
                       </p>
-                      <button class="btn btn-lilac btn-sm" type="button">Bắt đầu thử</button>
+                      <button class="btn btn-lilac btn-sm" id="btnOverlayStart" type="button" data-i18n="rm_connect_btn">Bắt đầu điều khiển</button>
                     </div>
+                  </div>
+
+                  <!-- Virtual Keyboard Test Bar -->
+                  <div class="remote-keyboard-bar">
+                    <div class="keyboard-icon">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="6" y1="8" x2="6" y2="8.01"/><line x1="10" y1="8" x2="10" y2="8.01"/><line x1="14" y1="8" x2="14" y2="8.01"/><line x1="18" y1="8" x2="18" y2="8.01"/><line x1="6" y1="12" x2="6" y2="12.01"/><line x1="10" y1="12" x2="10" y2="12.01"/><line x1="14" y1="12" x2="14" y2="12.01"/><line x1="18" y1="12" x2="18" y2="12.01"/><line x1="8" y1="16" x2="16" y2="16"/></svg>
+                    </div>
+                    <div class="keyboard-input-wrap">
+                      <label for="remoteKeyInput" class="sr-only" data-i18n="rm_key_label">Bàn phím từ xa:</label>
+                      <input type="text" id="remoteKeyInput" placeholder="Gõ thử văn bản... (Chữ sẽ xuất hiện tức thì trên cửa sổ làm việc từ xa)" value="Xin chào từ ZCL Remote!">
+                    </div>
+                    <button class="btn btn-secondary btn-sm" id="btnRemoteClearText" type="button" data-i18n="rm_key_clear">
+                      <span>Xóa</span>
+                    </button>
                   </div>
                 </div>
               </div>
 
-              <!-- 3. Benchmark Panel -->
+              <!-- ============================================== -->
+              <!-- 3. BENCHMARK PANEL                             -->
+              <!-- ============================================== -->
               <div class="studio-panel" id="panel-benchmark">
-                <div style="text-align: center; margin-bottom: 24px;">
-                  <h4 style="font-size: 1.3rem; margin-bottom: 8px;" data-i18n="bench_title">Tốc độ gửi file thực tế khi dùng chung Wi-Fi</h4>
-                  <button class="btn btn-primary btn-sm" id="btnRunBenchmark" type="button" data-i18n="bench_btn_run">
-                    Bấm để kiểm tra tốc độ
+                <div class="bench-head-box">
+                  <h4 data-i18n="bench_title">Đo tốc độ truyền tải thực tế trong mạng nội bộ</h4>
+                  <p class="bench-sub" data-i18n="bench_sub">So sánh tốc độ truyền dữ liệu trực tiếp qua Wi-Fi / Dây cáp mạng so với gửi qua Internet đám mây thông thường.</p>
+                  
+                  <!-- Network Environment Presets Buttons -->
+                  <div class="bench-env-selector">
+                    <span class="bench-env-title" data-i18n="bench_env_label">Chọn chuẩn mạng cần đo:</span>
+                    <div class="bench-env-buttons">
+                      <button class="bench-env-btn" id="btnBenchMode1" type="button" data-mode="basic" data-speed="65">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                        <span data-i18n="bench_env_1">Wi-Fi cơ bản (2.4GHz / Router phòng)</span>
+                      </button>
+                      <button class="bench-env-btn active" id="btnBenchMode2" type="button" data-mode="wifi6" data-speed="960">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                        <span data-i18n="bench_env_2">Wi-Fi thế hệ mới (Wi-Fi 6 / 6E)</span>
+                      </button>
+                      <button class="bench-env-btn" id="btnBenchMode3" type="button" data-mode="lan" data-speed="1180">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                        <span data-i18n="bench_env_3">Cáp mạng LAN trực tiếp (Gigabit)</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <button class="btn btn-primary" id="btnRunBenchmark" type="button" data-i18n="bench_btn_run">
+                    Bắt đầu đo kiểm tốc độ
                   </button>
                 </div>
 
-                <!-- Speedometer Gauge Graphic -->
-                <div class="speedometer-wrap">
+                <!-- Speedometer Gauge & Live Waveform Grid -->
+                <div class="bench-vis-grid">
+                  <!-- Speedometer Gauge Graphic -->
                   <div class="speedometer-box">
-                    <svg class="speedometer-svg" viewBox="0 0 200 120">
-                      <path class="gauge-bg" d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="var(--border)" stroke-width="12" stroke-linecap="round"/>
-                      <path class="gauge-fill" id="gaugeFill" d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="url(#gaugeGradient)" stroke-width="12" stroke-linecap="round" stroke-dasharray="251.2" stroke-dashoffset="251.2"/>
-                      <defs>
-                        <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" stop-color="#85edca" />
-                          <stop offset="60%" stop-color="#70b8ff" />
-                          <stop offset="100%" stop-color="#cea3f3" />
-                        </linearGradient>
-                      </defs>
-                      <g id="gaugeNeedleGroup" transform="rotate(-90 100 100)">
-                        <polygon points="98,100 102,100 100,28" fill="var(--mint)"/>
-                        <circle cx="100" cy="100" r="7" fill="#FFFDF8"/>
-                        <circle cx="100" cy="100" r="4" fill="#09080c"/>
-                      </g>
-                    </svg>
+                    <div class="speedometer-gauge-wrapper">
+                      <svg class="speedometer-svg" viewBox="0 0 240 140" aria-hidden="true">
+                        <path class="gauge-bg" d="M 30 120 A 90 90 0 0 1 210 120" fill="none" stroke="var(--border)" stroke-width="14" stroke-linecap="round"/>
+                        <path class="gauge-fill" id="gaugeFill" d="M 30 120 A 90 90 0 0 1 210 120" fill="none" stroke="url(#gaugeGradient)" stroke-width="14" stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="56"/>
+                        <defs>
+                          <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#85edca" />
+                            <stop offset="50%" stop-color="#70b8ff" />
+                            <stop offset="100%" stop-color="#cea3f3" />
+                          </linearGradient>
+                        </defs>
+                        <g id="gaugeNeedleGroup" transform="rotate(54 120 120)">
+                          <polygon points="118,120 122,120 120,44" fill="var(--mint)"/>
+                          <circle cx="120" cy="120" r="8" fill="var(--mint)"/>
+                          <circle cx="120" cy="120" r="4" fill="#09080c"/>
+                        </g>
+                      </svg>
+                    </div>
                     <div class="speedometer-readout">
-                      <span class="speed-num" id="speedGaugeNum">0</span>
+                      <span class="speed-num" id="speedGaugeNum">960</span>
                       <span class="speed-unit">MB/s</span>
+                    </div>
+                    <div class="speedometer-target-tag" id="benchTargetTag" data-i18n="bench_target_wifi6">Đo trên chuẩn: Wi-Fi 6</div>
+                  </div>
+
+                  <!-- Real-time Live Bandwidth Waveform Chart -->
+                  <div class="bench-waveform-box">
+                    <div class="waveform-head">
+                      <span class="waveform-title" data-i18n="bench_wave_title">Biểu đồ ổn định đường truyền theo thời gian thực:</span>
+                      <span class="waveform-status-badge">
+                        <span class="pulse-dot"></span>
+                        <span data-i18n="bench_wave_sub">Ổn định 100% · Không rớt mạng</span>
+                      </span>
+                    </div>
+                    <div class="waveform-canvas-wrap">
+                      <canvas id="benchWaveCanvas" class="bench-wave-canvas"></canvas>
                     </div>
                   </div>
                 </div>
 
+                <!-- 4 Thong So Do Kiem Mang (Metrics Grid) -->
                 <div class="benchmark-grid">
                   <div class="bench-card">
-                    <h4>Wi-Fi thông thường</h4>
-                    <div class="bench-metric" id="benchVal1">Gửi 1 bộ phim mất 20 giây</div>
-                    <div class="bench-desc">Tốc độ router Wi-Fi gia đình thông thường.</div>
-                    <div class="bench-bar"><div class="bench-bar-fill" id="benchFill1" style="width: 45%;"></div></div>
+                    <div class="bench-card-icon mint">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    </div>
+                    <h4 data-i18n="bench_metric_bw">Băng thông đo được</h4>
+                    <div class="bench-metric mint-text" id="benchValBw">960 MB/s</div>
+                    <div class="bench-desc" id="benchDescBw" data-i18n="bench_bw_desc">Gửi 1 bộ phim 4K chỉ mất 2.5 giây.</div>
+                    <div class="bench-bar"><div class="bench-bar-fill" id="benchFill1" style="width: 82%;"></div></div>
                   </div>
 
                   <div class="bench-card">
-                    <h4>Wi-Fi thế hệ mới / Cắm dây mạng</h4>
-                    <div class="bench-metric" id="benchVal2" style="color: var(--mint);">Gửi 1 bộ phim chỉ mất 8 giây</div>
-                    <div class="bench-desc">Gửi file nhanh gấp nhiều lần so với gửi qua mạng Internet.</div>
-                    <div class="bench-bar"><div class="bench-bar-fill" id="benchFill2" style="width: 85%;"></div></div>
+                    <div class="bench-card-icon lilac">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <h4 data-i18n="bench_metric_ping">Độ trễ phản hồi</h4>
+                    <div class="bench-metric lilac-text" id="benchValPing">0.18 ms</div>
+                    <div class="bench-desc" data-i18n="bench_ping_desc">Chuột bấm ăn ngay, cảm giác như máy thật.</div>
+                    <div class="bench-bar"><div class="bench-bar-fill lilac-bar" id="benchFill2" style="width: 95%;"></div></div>
                   </div>
 
                   <div class="bench-card">
-                    <h4>Dây mạng tốc độ cao</h4>
-                    <div class="bench-metric" id="benchVal3" style="color: var(--lilac);">Gửi xong ngay lập tức</div>
-                    <div class="bench-desc">Thích hợp cho phòng làm việc dựng phim, đồ họa chuyên nghiệp.</div>
-                    <div class="bench-bar"><div class="bench-bar-fill" id="benchFill3" style="width: 100%;"></div></div>
+                    <div class="bench-card-icon pink">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <h4 data-i18n="bench_metric_jitter">Độ ổn định đường truyền</h4>
+                    <div class="bench-metric pink-text" id="benchValJitter">&lt; 0.05 ms</div>
+                    <div class="bench-desc" data-i18n="bench_jitter_desc">Không biến động tín hiệu, truyền ổn định liên tục.</div>
+                    <div class="bench-bar"><div class="bench-bar-fill pink-bar" id="benchFill3" style="width: 98%;"></div></div>
+                  </div>
+
+                  <div class="bench-card">
+                    <div class="bench-card-icon blue">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h4 data-i18n="bench_metric_loss">Mất gói dữ liệu</h4>
+                    <div class="bench-metric blue-text" id="benchValLoss">0.00%</div>
+                    <div class="bench-desc" data-i18n="bench_loss_desc">100% Gói tin truyền vẹn nguyên trong phòng.</div>
+                    <div class="bench-bar"><div class="bench-bar-fill blue-bar" id="benchFill4" style="width: 100%;"></div></div>
+                  </div>
+                </div>
+
+                <!-- Interactive File Transfer Time Calculator -->
+                <div class="bench-calc-card">
+                  <div class="calc-header">
+                    <div class="calc-title-box">
+                      <h4 data-i18n="bench_calc_title">Ước tính thời gian gửi file thực tế</h4>
+                      <p data-i18n="bench_calc_sub">Chọn dung lượng file để so sánh thời gian gửi giữa ZCL Hub và mạng Internet:</p>
+                    </div>
+                    <div class="calc-file-size-buttons">
+                      <button class="calc-size-btn" type="button" data-size="1">1 GB</button>
+                      <button class="calc-size-btn" type="button" data-size="5">5 GB</button>
+                      <button class="calc-size-btn active" type="button" data-size="10">10 GB</button>
+                      <button class="calc-size-btn" type="button" data-size="50">50 GB</button>
+                    </div>
+                  </div>
+
+                  <div class="calc-comparison-grid">
+                    <div class="calc-box lan-box">
+                      <div class="calc-box-tag mint">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        <span data-i18n="bench_calc_lan">Qua mạng nội bộ ZCL Hub (Wi-Fi 6)</span>
+                      </div>
+                      <div class="calc-time-val mint-text" id="calcTimeLan">10.4 giây</div>
+                      <div class="calc-note" data-i18n="calc_lan_note">Tận dụng trọn vẹn tốc độ Wi-Fi phòng, không tốn data mạng ngoài.</div>
+                      <div class="calc-bar-track"><div class="calc-bar-fill mint-fill" id="calcBarLan" style="width: 100%;"></div></div>
+                    </div>
+
+                    <div class="calc-box cloud-box">
+                      <div class="calc-box-tag muted">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+                        <span data-i18n="bench_calc_cloud">Qua mạng Internet đám mây thông thường</span>
+                      </div>
+                      <div class="calc-time-val" id="calcTimeCloud">16 phút 40 giây</div>
+                      <div class="calc-note" data-i18n="calc_cloud_note">Phải tải lên máy chủ ngoài, bị giới hạn tốc độ và dung lượng.</div>
+                      <div class="calc-bar-track"><div class="calc-bar-fill cloud-fill" id="calcBarCloud" style="width: 8%;"></div></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1380,21 +1730,21 @@
             <div class="qs-step">
               <div class="qs-num">1</div>
               <div class="qs-text">
-                <h4>Tải ứng dụng về máy</h4>
+                <h4 data-i18n="qs_step1_title">Tải ứng dụng về máy</h4>
                 <p data-i18n="qs_step1">Mở tab [Tải về] trên trang web này và tải file cài đặt về cho 2 chiếc máy tính cần kết nối.</p>
               </div>
             </div>
             <div class="qs-step">
               <div class="qs-num">2</div>
               <div class="qs-text">
-                <h4>Mở ứng dụng lên</h4>
+                <h4 data-i18n="qs_step2_title">Mở ứng dụng lên</h4>
                 <p data-i18n="qs_step2">Đảm bảo cả 2 máy tính cùng bắt chung 1 mạng Wi-Fi (hoặc cắm chung dây mạng), rồi mở ứng dụng lên.</p>
               </div>
             </div>
             <div class="qs-step">
               <div class="qs-num">3</div>
               <div class="qs-text">
-                <h4>Bắt đầu làm việc</h4>
+                <h4 data-i18n="qs_step3_title">Bắt đầu làm việc</h4>
                 <p data-i18n="qs_step3">Hai máy tính sẽ tự động nhìn thấy nhau. Bạn chỉ cần chọn máy và bắt đầu gửi file hoặc điều khiển ngay.</p>
               </div>
             </div>
@@ -1567,7 +1917,7 @@
         </button>
       </div>
 
-      <div class="modal-tips">
+      <div class="modal-tips" data-i18n="modal_smartscreen_tip">
         <strong>Mẹo nhỏ:</strong> Nếu máy tính hiện cảnh báo file mới, bạn chỉ cần bấm <em>"More info" (Thông tin thêm)</em> &rarr; chọn <em>"Run anyway" (Vẫn chạy)</em> là xong.
       </div>
 
@@ -1586,7 +1936,7 @@
       <span id="toastIcon">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       </span>
-      <span id="toastText">Đang tải xuống tệp cài đặt...</span>
+      <span id="toastText" data-i18n="toast_downloading">Đang tải xuống tệp cài đặt...</span>
     </div>
     <div class="toast-progress-bar" id="toastProgressBar"></div>
   </div>
