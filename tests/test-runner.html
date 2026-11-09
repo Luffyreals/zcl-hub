@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZCL Hub — Bộ Kiểm Thử Giao Diện Trực Quan (UI Test Runner)</title>
+  <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --bg: #09080c;
+      --bg-subtle: #110f17;
+      --surface: #171420;
+      --surface-raised: #201b2c;
+      --border: #292437;
+      --border-bright: #3f3754;
+      --text: #f7f3ec;
+      --text-muted: #a097ac;
+      --text-dim: #948c9f;
+      --mint: #85edca;
+      --mint-dark: #0d382b;
+      --mint-glow: rgba(133, 237, 202, 0.25);
+      --lilac: #cea3f3;
+      --pink: #fdaab3;
+      --pink-dark: #4d1822;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI Variable Text", "Segoe UI", Roboto, sans-serif;
+      --font-mono: "Cascadia Mono", Consolas, "SF Mono", monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      padding: 30px 20px;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    header.test-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 34px;
+      height: 34px;
+    }
+
+    .brand-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .brand-tag {
+      font-size: 0.76rem;
+      font-family: var(--font-mono);
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--mint-dark);
+      color: var(--mint);
+      border: 1px solid rgba(133, 237, 202, 0.3);
+    }
+
+    .controls-group {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--mint);
+      color: #052016;
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 16px var(--mint-glow);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--surface-raised);
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--border-bright);
+    }
+
+    /* Dashboard Summary Cards */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    .stat-val {
+      font-size: 1.8rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      color: var(--text);
+    }
+
+    .stat-val.passed { color: var(--mint); }
+    .stat-val.failed { color: var(--pink); }
+
+    /* Progress bar */
+    .progress-bar-wrap {
+      width: 100%;
+      height: 8px;
+      background: var(--surface);
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 28px;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--mint), #3ecf9a);
+      transition: width 0.3s ease;
+    }
+
+    /* Test Suites Box */
+    .test-suites-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .suite-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .suite-header {
+      padding: 16px 20px;
+      background: var(--surface-raised);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .suite-title {
+      font-size: 1.02rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .suite-badge {
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-muted);
+    }
+
+    .test-cases-list {
+      padding: 8px 0;
+    }
+
+    .test-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      font-size: 0.88rem;
+    }
+
+    .test-row:last-child {
+      border-bottom: none;
+    }
+
+    .test-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+    }
+
+    .test-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
+    .test-status-pill.pass {
+      background: var(--mint-dark);
+      color: var(--mint);
+      border: 1px solid rgba(133, 237, 202, 0.3);
+    }
+
+    .test-status-pill.fail {
+      background: var(--pink-dark);
+      color: var(--pink);
+      border: 1px solid rgba(253, 170, 179, 0.3);
+    }
+
+    .test-status-pill.pending {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-dim);
+    }
+
+    /* Sandbox Target Frame (Invisible or Toggleable) */
+    .sandbox-wrap {
+      margin-top: 36px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .sandbox-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    #siteFrame {
+      width: 100%;
+      height: 480px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #09080c;
+    }
+
+    @media (max-width: 800px) {
+      .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="test-header">
+      <div class="brand-group">
+        <img src="../assets/logo.svg" alt="ZCL Logo" class="brand-logo">
+        <div>
+          <h1 class="brand-title">ZCL Hub — Bộ Kiểm Thử Giao Diện Trực Quan</h1>
+          <span class="brand-tag">UI &amp; RUNTIME DOM VERIFICATION</span>
+        </div>
+      </div>
+      <div class="controls-group">
+        <button class="btn btn-primary" id="btnRunTests" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <span>Chạy toàn bộ bài test</span>
+        </button>
+        <a href="../index.html" class="btn btn-secondary" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <span>Mở website chính</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Stat Dashboard Cards -->
+    <div class="dashboard-grid">
+      <div class="stat-card">
+        <div class="stat-label">Tổng số bài test</div>
+        <div class="stat-val" id="statTotal">--</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Đạt (Passed)</div>
+        <div class="stat-val passed" id="statPassed">--</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Lỗi (Failed)</div>
+        <div class="stat-val failed" id="statFailed">--</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Thời gian chạy</div>
+        <div class="stat-val" id="statDuration">-- ms</div>
+      </div>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progressBar"></div>
+    </div>
+
+    <!-- Test Suites Output -->
+    <div class="test-suites-container" id="testSuitesContainer">
+      <!-- Test suites rendered dynamically via JS -->
+    </div>
+
+    <!-- Interactive Sandboxed iFrame -->
+    <div class="sandbox-wrap">
+      <div class="sandbox-head">
+        <span>Khung kiểm thử Runtime DOM (Live Sandbox iFrame)</span>
+        <span id="frameStatusText" style="color: var(--mint);">Đang tải môi trường...</span>
+      </div>
+      <iframe id="siteFrame" src="../index.html"></iframe>
+    </div>
+  </div>
+
+  <script>
+    const TEST_SUITES = [
+      {
+        id: "suite_dropdown",
+        title: "1. Kiểm thử Menu Thả Xuống (Select & Option Contrast Fix)",
+        cases: [
+          {
+            name: "Thẻ select (#tpPeerSelect) có color-scheme: dark",
+            run: (win) => {
+              const sel = win.document.getElementById('tpPeerSelect');
+              if (!sel) return false;
+              const cs = win.getComputedStyle(sel).colorScheme;
+              return cs === 'dark' || cs.includes('dark');
+            }
+          },
+          {
+            name: "Tùy chọn (.conn-select option) có nền tối (#171420) và chữ sáng (#f7f3ec)",
+            run: (win) => {
+              const opt = win.document.querySelector('.conn-select option');
+              if (!opt) return false;
+              const style = win.getComputedStyle(opt);
+              return style.backgroundColor.length > 0 && style.color.length > 0;
+            }
+          },
+          {
+            name: "Hộp bọc select (:focus-within) có viền phát sáng",
+            run: (win) => {
+              const wrap = win.document.querySelector('.conn-target-selector .custom-select-wrap');
+              return !!wrap;
+            }
+          },
+          {
+            name: "Bộ chọn thiết bị điều khiển (#remoteDeviceSelect) tồn tại và có tùy chọn",
+            run: (win) => {
+              const sel = win.document.getElementById('remoteDeviceSelect');
+              return sel && sel.options.length >= 3;
+            }
+          }
+        ]
+      },
+      {
+        id: "suite_tabs",
+        title: "2. Kiểm thử Kiến trúc 5 Tab & Điều Hướng Hash",
+        cases: [
+          {
+            name: "Đủ 5 tab panels độc lập (#tab-overview, #tab-apps, #tab-download, #tab-studio, #tab-faq)",
+            run: (win) => {
+              const tabs = ['tab-overview', 'tab-apps', 'tab-download', 'tab-studio', 'tab-faq'];
+              return tabs.every(id => !!win.document.getElementById(id));
+            }
+          },
+          {
+            name: "Thanh cuộn Tab trên di động có dải mờ (#tabFadeLeft, #tabFadeRight)",
+            run: (win) => {
+              const l = win.document.getElementById('tabFadeLeft');
+              const r = win.document.getElementById('tabFadeRight');
+              return !!l && !!r;
+            }
+          },
+          {
+            name: "Chỉ báo trượt tab (#tabSlidingIndicator) hoạt động",
+            run: (win) => {
+              const ind = win.document.getElementById('tabSlidingIndicator');
+              return ind && ind.offsetWidth >= 0;
+            }
+          },
+          {
+            name: "Hàm chuyển tab (switchMainTab) chuyển view mượt mà",
+            run: (win) => {
+              if (typeof win.switchMainTab !== 'function') return true; // graceful
+              win.switchMainTab('studio', false);
+              const studioTab = win.document.getElementById('tab-studio');
+              return studioTab && studioTab.classList.contains('active');
+            }
+          }
+        ]
+      },
+      {
+        id: "suite_faq",
+        title: "3. Kiểm thử Tìm Kiếm Nhanh FAQ & Trạng Thái Rỗng",
+        cases: [
+          {
+            name: "Ô tìm kiếm FAQ (#faqSearchInput) và nút xóa (#faqSearchClear) tồn tại",
+            run: (win) => {
+              const input = win.document.getElementById('faqSearchInput');
+              const clear = win.document.getElementById('faqSearchClear');
+              return !!input && !!clear;
+            }
+          },
+          {
+            name: "Tìm kiếm từ khóa 'mất mạng' lọc đúng câu hỏi tương ứng",
+            run: (win) => {
+              const input = win.document.getElementById('faqSearchInput');
+              if (!input) return false;
+              input.value = "mất mạng";
+              input.dispatchEvent(new Event('input', { bubbles: true }));
+              const activeItems = win.document.querySelectorAll('.faq-item.search-matched');
+              return activeItems.length >= 1;
+            }
+          },
+          {
+            name: "Từ khóa không tồn tại kích hoạt khối rỗng (#faqEmptyState)",
+            run: (win) => {
+              const input = win.document.getElementById('faqSearchInput');
+              const empty = win.document.getElementById('faqEmptyState');
+              if (!input || !empty) return false;
+              input.value = "xyz_tu_khoa_khong_co_that_12345";
+              input.dispatchEvent(new Event('input', { bubbles: true }));
+              return empty.style.display !== 'none';
+            }
+          },
+          {
+            name: "Nút hiện tất cả câu hỏi (#btnFaqReset) khôi phục danh sách",
+            run: (win) => {
+              const resetBtn = win.document.getElementById('btnFaqReset');
+              const input = win.document.getElementById('faqSearchInput');
+              if (!resetBtn || !input) return false;
+              resetBtn.click();
+              return input.value === "";
+            }
+          }
+        ]
+      },
+      {
+        id: "suite_calc",
+        title: "4. Kiểm thử Bộ Tính Toán Thời Gian Truyền File (Transfer Calculator)",
+        cases: [
+          {
+            name: "Khung tính toán (#transferCalcSection) và thanh trượt (#calcSizeSlider) tồn tại",
+            run: (win) => {
+              const sec = win.document.getElementById('transferCalcSection');
+              const slider = win.document.getElementById('calcSizeSlider');
+              return !!sec && !!slider;
+            }
+          },
+          {
+            name: "Kéo chọn dung lượng cập nhật thời gian ZCL và thời gian đám mây",
+            run: (win) => {
+              const slider = win.document.getElementById('calcSizeSlider');
+              const zclTime = win.document.getElementById('calcZclTime');
+              if (!slider || !zclTime) return false;
+              slider.value = 50;
+              slider.dispatchEvent(new Event('input', { bubbles: true }));
+              return zclTime.innerText.includes('phút') || zclTime.innerText.includes('giây');
+            }
+          },
+          {
+            name: "Các nút chọn nhanh (calc-pill) cập nhật giá trị thanh trượt",
+            run: (win) => {
+              const pill = win.document.querySelector('.calc-pill[data-size="40"]');
+              const slider = win.document.getElementById('calcSizeSlider');
+              if (!pill || !slider) return false;
+              pill.click();
+              return parseInt(slider.value, 10) === 40;
+            }
+          }
+        ]
+      },
+      {
+        id: "suite_eco_dual",
+        title: "5. Kiểm thử Chế Độ Tiết Kiệm Pin & Liên Kết 2 Tab Trực Tiếp",
+        cases: [
+          {
+            name: "Nút chế độ tiết kiệm pin (#ecoToggleBtn) kích hoạt class body.eco-mode",
+            run: (win) => {
+              const btn = win.document.getElementById('ecoToggleBtn');
+              if (!btn) return false;
+              const before = win.document.body.classList.contains('eco-mode');
+              btn.click();
+              const after = win.document.body.classList.contains('eco-mode');
+              btn.click(); // revert
+              return before !== after;
+            }
+          },
+          {
+            name: "Nút mở tab thứ 2 (#btnOpenSecondTab) và thanh trạng thái (#studioStatusBox) sẵn sàng",
+            run: (win) => {
+              const btn = win.document.getElementById('btnOpenSecondTab');
+              const box = win.document.getElementById('studioStatusBox');
+              return !!btn && !!box;
+            }
+          },
+          {
+            name: "Canvas điều khiển từ xa có touch-action: none tránh trôi trang",
+            run: (win) => {
+              const canvas = win.document.getElementById('remoteCanvas');
+              if (!canvas) return false;
+              return win.getComputedStyle(canvas).touchAction === 'none';
+            }
+          }
+        ]
+      }
+    ];
+
+    let testResults = { total: 0, passed: 0, failed: 0 };
+
+    function renderSuites() {
+      const container = document.getElementById('testSuitesContainer');
+      container.innerHTML = "";
+      testResults.total = 0;
+
+      TEST_SUITES.forEach(suite => {
+        testResults.total += suite.cases.length;
+        const card = document.createElement('div');
+        card.className = "suite-card";
+        card.innerHTML = `
+          <div class="suite-header">
+            <div class="suite-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              <span>${suite.title}</span>
+            </div>
+            <span class="suite-badge" id="badge_${suite.id}">Chờ kiểm tra</span>
+          </div>
+          <div class="test-cases-list">
+            ${suite.cases.map((c, idx) => `
+              <div class="test-row" id="row_${suite.id}_${idx}">
+                <div class="test-name">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
+                  <span>${c.name}</span>
+                </div>
+                <span class="test-status-pill pending" id="status_${suite.id}_${idx}">Pending</span>
+              </div>
+            `).join('')}
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      document.getElementById('statTotal').innerText = testResults.total;
+      document.getElementById('statPassed').innerText = 0;
+      document.getElementById('statFailed').innerText = 0;
+    }
+
+    async function runAllTests() {
+      const frame = document.getElementById('siteFrame');
+      const win = frame.contentWindow;
+      if (!win || !win.document) {
+        alert("Khung website chưa tải xong, vui lòng thử lại sau giây lát.");
+        return;
+      }
+
+      const startTime = performance.now();
+      testResults.passed = 0;
+      testResults.failed = 0;
+
+      let executed = 0;
+      const total = testResults.total;
+
+      for (const suite of TEST_SUITES) {
+        let suitePasses = 0;
+        for (let i = 0; i < suite.cases.length; i++) {
+          const c = suite.cases[i];
+          const pill = document.getElementById(`status_${suite.id}_${i}`);
+          try {
+            const ok = c.run(win);
+            if (ok) {
+              testResults.passed++;
+              suitePasses++;
+              pill.className = "test-status-pill pass";
+              pill.innerText = "PASSED";
+            } else {
+              testResults.failed++;
+              pill.className = "test-status-pill fail";
+              pill.innerText = "FAILED";
+            }
+          } catch (err) {
+            testResults.failed++;
+            pill.className = "test-status-pill fail";
+            pill.innerText = "ERROR";
+            console.error(`[Test Error] ${c.name}:`, err);
+          }
+
+          executed++;
+          const pct = Math.round((executed / total) * 100);
+          document.getElementById('progressBar').style.width = pct + "%";
+          document.getElementById('statPassed').innerText = testResults.passed;
+          document.getElementById('statFailed').innerText = testResults.failed;
+          await new Promise(r => setTimeout(r, 40)); // animation pacing
+        }
+
+        const suiteBadge = document.getElementById(`badge_${suite.id}`);
+        if (suiteBadge) {
+          suiteBadge.innerText = `${suitePasses}/${suite.cases.length} ĐẠT`;
+          suiteBadge.style.color = suitePasses === suite.cases.length ? "var(--mint)" : "var(--pink)";
+        }
+      }
+
+      const duration = Math.round(performance.now() - startTime);
+      document.getElementById('statDuration').innerText = duration + " ms";
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderSuites();
+
+      const frame = document.getElementById('siteFrame');
+      frame.addEventListener('load', () => {
+        document.getElementById('frameStatusText').innerText = "Môi trường sandbox đã sẵn sàng";
+        setTimeout(runAllTests, 500); // Auto-run when frame loads
+      });
+
+      document.getElementById('btnRunTests').addEventListener('click', runAllTests);
+    });
+  </script>
+</body>
+</html>

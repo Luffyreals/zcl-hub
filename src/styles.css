@@ -1779,8 +1779,18 @@ header.site-header {
   border-color: #E2D6C2;
 }
 
+.conn-target-selector .custom-select-wrap:focus-within {
+  border-color: var(--mint);
+  box-shadow: 0 0 10px var(--mint-glow);
+}
+
+[data-theme="light"] .conn-target-selector .custom-select-wrap:focus-within {
+  border-color: #1E7F61;
+  box-shadow: 0 0 10px rgba(30, 127, 97, 0.2);
+}
+
 .conn-select {
-  background: transparent;
+  background: var(--surface);
   border: none;
   color: var(--text);
   font-size: 0.85rem;
@@ -1789,10 +1799,57 @@ header.site-header {
   padding: 7px 4px;
   outline: none;
   cursor: pointer;
+  color-scheme: dark;
 }
 
 [data-theme="light"] .conn-select {
+  background: #FFFDF8;
   color: #2A251E;
+  color-scheme: light;
+}
+
+/* Universal Native Select & Option Dropdown Popup Fix */
+select,
+.conn-select,
+.remote-device-select {
+  color-scheme: dark;
+}
+
+select option,
+.conn-select option,
+.remote-device-select option {
+  background-color: #171420;
+  color: #f7f3ec;
+  font-family: inherit;
+  font-size: 0.88rem;
+  padding: 8px 12px;
+}
+
+select option:checked,
+.conn-select option:checked,
+.remote-device-select option:checked {
+  background-color: #241f30;
+  color: var(--mint);
+}
+
+[data-theme="light"] select,
+[data-theme="light"] .conn-select,
+[data-theme="light"] .remote-device-select {
+  color-scheme: light;
+}
+
+[data-theme="light"] select option,
+[data-theme="light"] .conn-select option,
+[data-theme="light"] .remote-device-select option {
+  background-color: #FFFDF8;
+  color: #2A251E;
+}
+
+[data-theme="light"] select option:checked,
+[data-theme="light"] .conn-select option:checked,
+[data-theme="light"] .remote-device-select option:checked {
+  background-color: #D9F2E6;
+  color: #0B5E47;
 }
 
 /* ================================================= */
@@ -2639,6 +2696,7 @@ header.site-header {
   font-weight: 600;
   outline: none;
   cursor: pointer;
+  color-scheme: dark;
 }
 
 [data-theme="light"] .remote-device-select {

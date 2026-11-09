@@ -895,7 +895,7 @@ function setLanguage(lang) {
     }
   }
 
-  const rmPeerSelect = document.getElementById('remotePeerSelect');
+  const rmPeerSelect = document.getElementById('remotePeerSelect') || document.getElementById('remoteDeviceSelect');
   if (rmPeerSelect && rmPeerSelect.options.length >= 3) {
     if (lang === 'vi') {
       rmPeerSelect.options[0].text = 'Máy bàn phòng khách (Windows 11) · 1920×1080';
