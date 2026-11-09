@@ -1053,12 +1053,18 @@
                   <div class="app-icon teleport-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L21 16M17 20L13 16"/></svg>
                   </div>
-                  <span class="download-badge" style="color: var(--mint);">Windows 10 / 11</span>
+                  <div class="download-card-badges">
+                    <span class="download-sync-pill" id="tpSyncBadge" title="Tự động đồng bộ từ GitHub">
+                      <span class="sync-dot"></span>
+                      <span class="sync-text" data-i18n="dl_sync_live">Bản mới nhất</span>
+                    </span>
+                    <span class="download-badge" style="color: var(--mint);">Windows 10 / 11</span>
+                  </div>
                 </div>
 
                 <h3 data-i18n="dl_tp_name">ZCL Teleport</h3>
-                <div class="download-version">
-                  <span>Phiên bản v0.1.0 · Windows 10/11</span> · <span>12.4 MB</span>
+                <div class="download-version" id="tpDownloadVersion">
+                  <span id="tpVersionText">Phiên bản v0.1.0 · Windows 10/11</span> · <span id="tpSizeText">12.4 MB</span>
                 </div>
                 <p class="desc" data-i18n="dl_tp_desc">
                   Ứng dụng gửi nhận file siêu nhanh và copy paste tức thì giữa các máy tính trong cùng mạng Wi-Fi.
@@ -1075,7 +1081,7 @@
                   <span data-i18n="dl_btn_installer">Tải bản cài đặt (.exe)</span>
                 </button>
                 <div class="download-alt-links">
-                  <a class="btn-open-download" data-app="teleport" data-format="zip" data-i18n="dl_btn_portable">Tải bản chạy ngay không cần cài (.zip - 11.8 MB)</a>
+                  <a class="btn-open-download" data-app="teleport" data-format="zip" id="tpPortableLink" data-i18n="dl_btn_portable">Tải bản chạy ngay không cần cài (.zip - 11.8 MB)</a>
                 </div>
               </div>
             </div>
@@ -1087,12 +1093,18 @@
                   <div class="app-icon remote-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                   </div>
-                  <span class="download-badge" style="color: var(--lilac);">Windows 10 / 11</span>
+                  <div class="download-card-badges">
+                    <span class="download-sync-pill remote-pill" id="rmSyncBadge" title="Tự động đồng bộ từ GitHub">
+                      <span class="sync-dot"></span>
+                      <span class="sync-text" data-i18n="dl_sync_live">Bản mới nhất</span>
+                    </span>
+                    <span class="download-badge" style="color: var(--lilac);">Windows 10 / 11</span>
+                  </div>
                 </div>
 
                 <h3 data-i18n="dl_rm_name">ZCL Remote</h3>
-                <div class="download-version">
-                  <span>Phiên bản v0.1.0 · Windows 10/11</span> · <span>16.8 MB</span>
+                <div class="download-version" id="rmDownloadVersion">
+                  <span id="rmVersionText">Phiên bản v0.1.0 · Windows 10/11</span> · <span id="rmSizeText">16.8 MB</span>
                 </div>
                 <p class="desc" data-i18n="dl_rm_desc">
                   Ứng dụng điều khiển máy tính từ xa siêu mượt. Chuột bấm ăn ngay, màn hình mượt mà không giật lag.
@@ -1109,7 +1121,7 @@
                   <span data-i18n="dl_btn_installer">Tải bản cài đặt (.exe)</span>
                 </button>
                 <div class="download-alt-links">
-                  <a class="btn-open-download" data-app="remote" data-format="zip" data-i18n="dl_btn_portable">Tải bản chạy ngay không cần cài (.zip - 15.6 MB)</a>
+                  <a class="btn-open-download" data-app="remote" data-format="zip" id="rmPortableLink" data-i18n="dl_btn_portable">Tải bản chạy ngay không cần cài (.zip - 15.6 MB)</a>
                 </div>
               </div>
             </div>
@@ -1557,6 +1569,13 @@
 
       <div class="modal-tips">
         <strong>Mẹo nhỏ:</strong> Nếu máy tính hiện cảnh báo file mới, bạn chỉ cần bấm <em>"More info" (Thông tin thêm)</em> &rarr; chọn <em>"Run anyway" (Vẫn chạy)</em> là xong.
+      </div>
+
+      <div class="modal-footer-links">
+        <a href="https://github.com/Luffyreals/zero-cloud-lan-teleport/releases" target="_blank" rel="noopener noreferrer" class="modal-github-link" id="modalGithubLink">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <span data-i18n="dl_view_release">Xem danh sách phát hành trên GitHub</span>
+        </a>
       </div>
     </div>
   </div>

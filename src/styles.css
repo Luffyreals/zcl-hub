@@ -2201,6 +2201,14 @@ footer.site-footer {
   margin-bottom: 20px;
 }
 
+.download-card-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
 .download-badge {
   font-size: 0.75rem;
   font-weight: 700;
@@ -2210,6 +2218,36 @@ footer.site-footer {
   border-radius: 999px;
   background: var(--surface-raised);
   border: 1px solid var(--border);
+}
+
+.download-sync-pill {
+  font-size: 0.74rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(133, 237, 202, 0.08);
+  border: 1px solid rgba(133, 237, 202, 0.25);
+  color: var(--mint);
+  transition: var(--transition);
+}
+
+.download-sync-pill.remote-pill {
+  background: rgba(206, 163, 243, 0.08);
+  border-color: rgba(206, 163, 243, 0.25);
+  color: var(--lilac);
+}
+
+.download-sync-pill .sync-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 8px currentColor;
+  display: inline-block;
+  animation: pulse 2s infinite;
 }
 
 .download-card h3 {
@@ -2431,6 +2469,26 @@ footer.site-footer {
 
 .modal-tips strong {
   color: var(--mint);
+}
+
+.modal-footer-links {
+  margin-top: 14px;
+  text-align: center;
+}
+
+.modal-github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.modal-github-link:hover {
+  color: var(--mint);
+  text-decoration: underline;
 }
 
 /* Toast */

@@ -208,6 +208,11 @@ const i18n = {
     dl_rm_desc: "Ứng dụng điều khiển máy tính từ xa siêu mượt. Chuột bấm ăn ngay, màn hình mượt mà không giật lag.",
     dl_btn_installer: "Tải bản cài đặt (.exe)",
     dl_btn_portable: "Tải bản chạy ngay không cần cài (.zip)",
+    dl_sync_live: "Bản mới nhất",
+    dl_sync_fallback: "Bản ổn định",
+    dl_view_release: "Xem danh sách phát hành trên GitHub",
+    dl_version_prefix: "Phiên bản",
+    dl_portable_label: "Tải bản chạy ngay không cần cài",
     pwa_title: "Cài đặt trực tiếp từ trình duyệt",
     pwa_desc: "Trang web có thể cài vào máy tính hoặc điện thoại như một ứng dụng độc lập để mở nhanh bất cứ lúc nào.",
     pwa_install_btn: "Cài đặt ZCL Hub",
@@ -472,6 +477,11 @@ const i18n = {
     dl_rm_desc: "Ultra-smooth remote desktop control with instant mouse feedback and no lag.",
     dl_btn_installer: "Download Installer (.exe)",
     dl_btn_portable: "Download Portable (.zip)",
+    dl_sync_live: "Latest build",
+    dl_sync_fallback: "Stable build",
+    dl_view_release: "View releases on GitHub",
+    dl_version_prefix: "Version",
+    dl_portable_label: "Download Portable",
     pwa_title: "Install Directly from Browser",
     pwa_desc: "Install this web app to your desktop or phone home screen for instant offline access.",
     pwa_install_btn: "Install ZCL Hub",
@@ -581,6 +591,9 @@ function setLanguage(lang) {
   });
 
   document.documentElement.setAttribute('lang', lang);
+  if (typeof updateDownloadCenterUI === 'function') {
+    updateDownloadCenterUI();
+  }
 }
 
 // ==========================================
@@ -715,6 +728,11 @@ function switchMainTab(targetTabId, updateHash = true) {
     setTimeout(() => {
       window.dispatchEvent(new Event('resize'));
     }, 60);
+  }
+
+  // 6. Tự động kiểm tra bản phát hành mới khi mở mục Tải về
+  if (cleanId === 'download' && typeof syncReleasesFromGitHub === 'function') {
+    syncReleasesFromGitHub();
   }
 }
 
@@ -1226,6 +1244,224 @@ function showToast(message, iconSvg = '<svg width="18" height="18" viewBox="0 0 
   }, 3500);
 }
 
+// ==========================================
+// 6. DOWNLOAD MANAGER & AUTOMATIC SYNC FROM GITHUB
+// ==========================================
+const DOWNLOAD_REGISTRY = {
+  teleport: {
+    name: 'ZCL Teleport',
+    repo: 'Luffyreals/zero-cloud-lan-teleport',
+    version: 'v0.1.0-alpha',
+    isLive: false,
+    releaseUrl: 'https://github.com/Luffyreals/zero-cloud-lan-teleport/releases',
+    files: {
+      exe: {
+        name: 'teleport-setup-latest-x64.exe',
+        size: '12.4 MB',
+        url: 'https://github.com/Luffyreals/zero-cloud-lan-teleport/releases/latest/download/teleport-setup-latest-x64.exe'
+      },
+      zip: {
+        name: 'teleport-gui-latest-windows-x64.zip',
+        size: '11.8 MB',
+        url: 'https://github.com/Luffyreals/zero-cloud-lan-teleport/releases/latest/download/teleport-gui-latest-windows-x64.zip'
+      }
+    }
+  },
+  remote: {
+    name: 'ZCL Remote',
+    repo: 'Luffyreals/zero-cloud-lan-remote',
+    version: 'v0.1.0-alpha',
+    isLive: false,
+    releaseUrl: 'https://github.com/Luffyreals/zero-cloud-lan-remote/releases',
+    files: {
+      exe: {
+        name: 'zcl-remote-setup-latest-x64.exe',
+        size: '16.8 MB',
+        url: 'https://github.com/Luffyreals/zero-cloud-lan-remote/releases/latest/download/zcl-remote-setup-latest-x64.exe'
+      },
+      zip: {
+        name: 'zcl-remote-gui-latest-windows-x64.zip',
+        size: '15.6 MB',
+        url: 'https://github.com/Luffyreals/zero-cloud-lan-remote/releases/latest/download/zcl-remote-gui-latest-windows-x64.zip'
+      }
+    }
+  }
+};
+
+let currentDownloadTarget = { app: 'teleport', format: 'exe' };
+
+function formatFileSize(bytes) {
+  if (!bytes || isNaN(bytes)) return '';
+  const mb = bytes / (1024 * 1024);
+  return `${mb.toFixed(1)} MB`;
+}
+
+function updateDownloadCenterUI() {
+  const isVi = currentLang === 'vi';
+
+  // Teleport card UI
+  const tpData = DOWNLOAD_REGISTRY.teleport;
+  const tpVerEl = document.getElementById('tpVersionText');
+  const tpSizeEl = document.getElementById('tpSizeText');
+  const tpZipLink = document.getElementById('tpPortableLink');
+  const tpSyncBadge = document.getElementById('tpSyncBadge');
+
+  if (tpVerEl) {
+    tpVerEl.innerText = `${isVi ? 'Phiên bản' : 'Version'} ${tpData.version} · Windows 10/11`;
+  }
+  if (tpSizeEl) {
+    tpSizeEl.innerText = tpData.files.exe.size;
+  }
+  if (tpZipLink) {
+    tpZipLink.innerText = `${isVi ? 'Tải bản chạy ngay không cần cài' : 'Download Portable'} (.zip - ${tpData.files.zip.size})`;
+  }
+  if (tpSyncBadge) {
+    const textEl = tpSyncBadge.querySelector('.sync-text');
+    if (textEl) {
+      textEl.innerText = tpData.isLive 
+        ? (isVi ? 'Bản mới nhất' : 'Latest build')
+        : (isVi ? 'Bản ổn định' : 'Stable build');
+    }
+  }
+
+  // Remote card UI
+  const rmData = DOWNLOAD_REGISTRY.remote;
+  const rmVerEl = document.getElementById('rmVersionText');
+  const rmSizeEl = document.getElementById('rmSizeText');
+  const rmZipLink = document.getElementById('rmPortableLink');
+  const rmSyncBadge = document.getElementById('rmSyncBadge');
+
+  if (rmVerEl) {
+    rmVerEl.innerText = `${isVi ? 'Phiên bản' : 'Version'} ${rmData.version} · Windows 10/11`;
+  }
+  if (rmSizeEl) {
+    rmSizeEl.innerText = rmData.files.exe.size;
+  }
+  if (rmZipLink) {
+    rmZipLink.innerText = `${isVi ? 'Tải bản chạy ngay không cần cài' : 'Download Portable'} (.zip - ${rmData.files.zip.size})`;
+  }
+  if (rmSyncBadge) {
+    const textEl = rmSyncBadge.querySelector('.sync-text');
+    if (textEl) {
+      textEl.innerText = rmData.isLive 
+        ? (isVi ? 'Bản mới nhất' : 'Latest build')
+        : (isVi ? 'Bản ổn định' : 'Stable build');
+    }
+  }
+}
+
+async function syncSingleAppReleases(appKey) {
+  const item = DOWNLOAD_REGISTRY[appKey];
+  if (!item) return;
+
+  const apiUrl = `https://api.github.com/repos/${item.repo}/releases?per_page=3`;
+  try {
+    const response = await fetch(apiUrl, {
+      headers: { 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (!response.ok) return;
+
+    const releases = await response.json();
+    if (!Array.isArray(releases) || releases.length === 0) return;
+
+    // Ưu tiên release mới nhất có assets
+    const release = releases.find((r) => Array.isArray(r.assets) && r.assets.length > 0) || releases[0];
+    if (!release) return;
+
+    if (release.tag_name) {
+      item.version = release.tag_name;
+    }
+    if (release.html_url) {
+      item.releaseUrl = release.html_url;
+    }
+
+    if (Array.isArray(release.assets) && release.assets.length > 0) {
+      // Tìm bộ cài installer exe
+      const exeAsset = release.assets.find((a) => {
+        const name = (a.name || '').toLowerCase();
+        return name.endsWith('.exe') && (name.includes('setup') || name.includes('installer') || !name.includes('cli'));
+      }) || release.assets.find((a) => (a.name || '').toLowerCase().endsWith('.exe'));
+
+      if (exeAsset) {
+        item.files.exe.name = exeAsset.name;
+        item.files.exe.url = exeAsset.browser_download_url;
+        if (exeAsset.size) {
+          item.files.exe.size = formatFileSize(exeAsset.size);
+        }
+      }
+
+      // Tìm bản chạy ngay zip (ưu tiên GUI)
+      const zipAsset = release.assets.find((a) => {
+        const name = (a.name || '').toLowerCase();
+        return name.endsWith('.zip') && (name.includes('gui') || name.includes('portable') || name.includes('windows'));
+      }) || release.assets.find((a) => (a.name || '').toLowerCase().endsWith('.zip'));
+
+      if (zipAsset) {
+        item.files.zip.name = zipAsset.name;
+        item.files.zip.url = zipAsset.browser_download_url;
+        if (zipAsset.size) {
+          item.files.zip.size = formatFileSize(zipAsset.size);
+        }
+      }
+
+      item.isLive = true;
+    }
+  } catch (err) {
+    // Khi offline hoặc gặp lỗi mạng, trang web giữ nguyên cấu hình dự phòng an toàn
+    console.warn(`[ZCL Hub] Không thể kết nối GitHub Releases cho ${appKey}:`, err);
+  }
+}
+
+async function syncReleasesFromGitHub() {
+  const CACHE_KEY = 'zcl_releases_cache_v2';
+  const CACHE_TTL_MS = 15 * 60 * 1000; // 15 phút
+
+  try {
+    const rawCache = sessionStorage.getItem(CACHE_KEY);
+    if (rawCache) {
+      const cached = JSON.parse(rawCache);
+      if (Date.now() - cached.timestamp < CACHE_TTL_MS && cached.data) {
+        Object.assign(DOWNLOAD_REGISTRY.teleport, cached.data.teleport);
+        Object.assign(DOWNLOAD_REGISTRY.remote, cached.data.remote);
+        updateDownloadCenterUI();
+        return;
+      }
+    }
+  } catch (e) {
+    // Bỏ qua lỗi cache
+  }
+
+  // Tải đồng thời thông tin từ cả 2 repository
+  await Promise.allSettled([
+    syncSingleAppReleases('teleport'),
+    syncSingleAppReleases('remote')
+  ]);
+
+  updateDownloadCenterUI();
+
+  try {
+    sessionStorage.setItem(CACHE_KEY, JSON.stringify({
+      timestamp: Date.now(),
+      data: {
+        teleport: {
+          version: DOWNLOAD_REGISTRY.teleport.version,
+          isLive: DOWNLOAD_REGISTRY.teleport.isLive,
+          releaseUrl: DOWNLOAD_REGISTRY.teleport.releaseUrl,
+          files: DOWNLOAD_REGISTRY.teleport.files
+        },
+        remote: {
+          version: DOWNLOAD_REGISTRY.remote.version,
+          isLive: DOWNLOAD_REGISTRY.remote.isLive,
+          releaseUrl: DOWNLOAD_REGISTRY.remote.releaseUrl,
+          files: DOWNLOAD_REGISTRY.remote.files
+        }
+      }
+    }));
+  } catch (e) {
+    // Bỏ qua lỗi lưu cache
+  }
+}
+
 function initDownloadModal() {
   const modal = document.getElementById('downloadModal');
   const btnClose = document.getElementById('btnModalClose');
@@ -1234,35 +1470,43 @@ function initDownloadModal() {
   const modalFileName = document.getElementById('modalFileName');
   const modalFileSize = document.getElementById('modalFileSize');
   const modalIcon = document.getElementById('modalIcon');
+  const modalGithubLink = document.getElementById('modalGithubLink');
   const btnTrigger = document.getElementById('btnTriggerDownload');
 
   if (!modal) return;
 
   function openModal(app, format = 'exe') {
+    currentDownloadTarget = { app, format };
+    const appData = DOWNLOAD_REGISTRY[app] || DOWNLOAD_REGISTRY.teleport;
+    const fileData = appData.files[format] || appData.files.exe;
+    const isVi = currentLang === 'vi';
+
     if (app === 'teleport') {
       if (modalIcon) {
         modalIcon.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L21 16M17 20L13 16"/></svg>';
         modalIcon.style.background = 'var(--mint-dark)';
         modalIcon.style.color = 'var(--mint)';
       }
-      if (modalTitle) modalTitle.innerText = currentLang === 'vi' ? 'Tải ZCL Teleport' : 'Download ZCL Teleport';
-      if (modalDesc) modalDesc.innerText = currentLang === 'vi' 
-        ? 'Bản chính thức cho máy tính Windows 10/11 — Gửi nhận file siêu tốc.' 
-        : 'Official Windows 10/11 build — Fast local file transfers.';
-      if (modalFileName) modalFileName.innerText = format === 'zip' ? 'zcl_teleport_v0.1.0_portable.zip' : 'zcl_teleport_v0.1.0_setup.exe';
-      if (modalFileSize) modalFileSize.innerText = format === 'zip' ? '11.8 MB' : '12.4 MB';
+      if (modalTitle) modalTitle.innerText = isVi ? 'Tải ZCL Teleport' : 'Download ZCL Teleport';
+      if (modalDesc) modalDesc.innerText = isVi 
+        ? `Bản ${appData.version} cho máy tính Windows 10/11 — Gửi nhận file siêu tốc.` 
+        : `Build ${appData.version} for Windows 10/11 — Fast local file transfers.`;
     } else {
       if (modalIcon) {
         modalIcon.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>';
         modalIcon.style.background = 'var(--lilac-dark)';
         modalIcon.style.color = 'var(--lilac)';
       }
-      if (modalTitle) modalTitle.innerText = currentLang === 'vi' ? 'Tải ZCL Remote' : 'Download ZCL Remote';
-      if (modalDesc) modalDesc.innerText = currentLang === 'vi' 
-        ? 'Bản chính thức cho máy tính Windows 10/11 — Điều khiển máy tính từ xa mượt mà.' 
-        : 'Official Windows 10/11 build — Smooth remote desktop.';
-      if (modalFileName) modalFileName.innerText = format === 'zip' ? 'zcl_remote_v0.1.0-alpha_portable.zip' : 'zcl_remote_v0.1.0-alpha_setup.exe';
-      if (modalFileSize) modalFileSize.innerText = format === 'zip' ? '15.6 MB' : '16.8 MB';
+      if (modalTitle) modalTitle.innerText = isVi ? 'Tải ZCL Remote' : 'Download ZCL Remote';
+      if (modalDesc) modalDesc.innerText = isVi 
+        ? `Bản ${appData.version} cho máy tính Windows 10/11 — Điều khiển máy tính từ xa mượt mà.` 
+        : `Build ${appData.version} for Windows 10/11 — Smooth remote desktop.`;
+    }
+
+    if (modalFileName) modalFileName.innerText = fileData.name;
+    if (modalFileSize) modalFileSize.innerText = fileData.size;
+    if (modalGithubLink) {
+      modalGithubLink.href = appData.releaseUrl;
     }
 
     modal.classList.add('active');
@@ -1289,21 +1533,24 @@ function initDownloadModal() {
   if (btnTrigger) {
     btnTrigger.addEventListener('click', () => {
       closeModal();
-      const fileName = modalFileName ? modalFileName.innerText : 'zcl_installer.exe';
+      const appData = DOWNLOAD_REGISTRY[currentDownloadTarget.app] || DOWNLOAD_REGISTRY.teleport;
+      const fileData = appData.files[currentDownloadTarget.format] || appData.files.exe;
+      const fileName = fileData.name;
+      const fileUrl = fileData.url;
+
       showToast(currentLang === 'vi' ? `Đang bắt đầu tải ${fileName}...` : `Starting download for ${fileName}...`);
 
+      // Kích hoạt tải tệp trực tiếp từ GitHub Releases
+      const a = document.createElement('a');
+      a.href = fileUrl;
+      a.setAttribute('download', fileName);
+      a.setAttribute('target', '_blank');
+      a.setAttribute('rel', 'noopener noreferrer');
+      document.body.appendChild(a);
+      a.click();
       setTimeout(() => {
-        const dummyContent = `# ZCL: ${fileName}\n\nCam on ban da tai ung dung ZCL!\n\nHuong dan cai dat tren Windows 10/11:\n1. Mo tep vua tai ve.\n2. Neu Windows hien thi thong bao bao ve mau xanh:\n   - Bam "More info" (Thong tin them)\n   - Chon "Run anyway" (Van chay)\n3. Khi may tinh hoi quyen truy cap mang: tick chon "Private networks" (Mang rieng tu) va Allow Access.\n\nTac gia: Nguyen Hoang Tung (@Luffyreals)\n`;
-        const blob = new Blob([dummyContent], { type: 'text/plain;charset=utf-8' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = fileName;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-      }, 500);
+        if (a.parentNode) a.parentNode.removeChild(a);
+      }, 300);
     });
   }
 }
@@ -1707,6 +1954,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initStudio();
   initFaq();
   initDownloadModal();
+  syncReleasesFromGitHub();
   initMainTabs();
   init3DTiltCards();
   initKeyboardShortcuts();
