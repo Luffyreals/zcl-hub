@@ -53,7 +53,8 @@
       </div>
 
       <!-- Center: Segmented Navigation Tabs -->
-      <nav class="nav-tabs-wrapper" aria-label="Danh mục chức năng">
+      <nav class="nav-tabs-wrapper" id="navTabsWrapper" aria-label="Danh mục chức năng">
+        <div class="nav-tabs-scroll-fade fade-left" id="tabFadeLeft" aria-hidden="true"></div>
         <div class="main-tabs-bar" role="tablist">
           <div class="tab-sliding-indicator" id="tabSlidingIndicator" aria-hidden="true"></div>
           <button class="main-tab-pill active" data-tab="tab-overview" data-key="1" role="tab" aria-selected="true" type="button">
@@ -77,11 +78,20 @@
             <span data-i18n="nav_faq">Hướng dẫn &amp; Hỏi đáp</span>
           </button>
         </div>
+        <div class="nav-tabs-scroll-fade fade-right" id="tabFadeRight" aria-hidden="true"></div>
       </nav>
 
       <!-- Right: Action Controls (Theme Mode + Language) -->
       <div class="nav-actions">
         <!-- Dark / Light Theme Toggle -->
+        <!-- Eco Mode / Low Power Mode Toggle -->
+        <button class="eco-toggle-btn" id="ecoToggleBtn" type="button" aria-label="Chế độ tiết kiệm pin / Giảm hiệu ứng" title="Chế độ tiết kiệm pin / Giảm hiệu ứng" data-i18n-title="eco_toggle">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+          </svg>
+        </button>
+
         <button class="theme-toggle-btn" id="themeToggleBtn" type="button" aria-label="Chuyển chế độ sáng / tối" title="Chuyển chế độ giao diện" data-i18n-title="theme_toggle">
           <svg class="theme-icon theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="5"></circle>
@@ -598,6 +608,120 @@
           </div>
         </div>
       </section>
+
+      <!-- ============================================== -->
+      <!-- SECTION 4: BỘ TÍNH THỜI GIAN TRUYỀN FILE TRONG PHÒNG -->
+      <!-- ============================================== -->
+      <section class="section calc-section" id="transferCalcSection">
+        <div class="container">
+          <div class="section-head">
+            <span class="section-badge" data-i18n="calc_badge">TÍNH TOÁN TỐC ĐỘ THỰC TẾ</span>
+            <h2 data-i18n="calc_title">Ước tính thời gian truyền file trong phòng</h2>
+            <p data-i18n="calc_sub">Kéo chọn dung lượng file để thấy tốc độ vượt trội khi gửi trực tiếp qua Wi-Fi chung so với việc tải lên đám mây thông thường.</p>
+          </div>
+
+          <div class="calc-bento-card">
+            <div class="calc-grid">
+              <!-- Left: Controls -->
+              <div class="calc-controls-col">
+                <!-- Size Slider -->
+                <div class="calc-group">
+                  <div class="calc-group-header">
+                    <span class="calc-label" data-i18n="calc_size_label">Chọn dung lượng file:</span>
+                    <span class="calc-size-display" id="calcSizeDisplay">15 GB</span>
+                  </div>
+                  <div class="calc-slider-wrap">
+                    <input type="range" id="calcSizeSlider" min="1" max="100" value="15" step="1" class="calc-slider" aria-label="Chọn dung lượng file tính bằng GB">
+                    <div class="calc-slider-ticks">
+                      <span>1 GB</span>
+                      <span>25 GB</span>
+                      <span>50 GB</span>
+                      <span>75 GB</span>
+                      <span>100 GB</span>
+                    </div>
+                  </div>
+                  <!-- Quick preset pills -->
+                  <div class="calc-preset-pills">
+                    <button type="button" class="calc-pill" data-size="2">2 GB (Video ngắn)</button>
+                    <button type="button" class="calc-pill active" data-size="15">15 GB (Album ảnh/phim)</button>
+                    <button type="button" class="calc-pill" data-size="40">40 GB (Video 4K / Dự án)</button>
+                    <button type="button" class="calc-pill" data-size="80">80 GB (Dữ liệu lớn)</button>
+                  </div>
+                </div>
+
+                <!-- Network Mode Buttons -->
+                <div class="calc-group" style="margin-top: 26px;">
+                  <span class="calc-label" data-i18n="calc_net_label">Chọn chuẩn mạng nội bộ trong phòng:</span>
+                  <div class="calc-net-modes">
+                    <button type="button" class="calc-net-btn" data-speed="40" data-mode="basic">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                      <span data-i18n="calc_net_basic">Wi-Fi cơ bản (~40 MB/s)</span>
+                    </button>
+                    <button type="button" class="calc-net-btn active" data-speed="110" data-mode="wifi6">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                      <span data-i18n="calc_net_wifi6">Wi-Fi tốc độ cao / 5GHz (~110 MB/s)</span>
+                    </button>
+                    <button type="button" class="calc-net-btn" data-speed="120" data-mode="lan">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                      <span data-i18n="calc_net_lan">Cáp mạng LAN (~120 MB/s)</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right: Comparison Display -->
+              <div class="calc-results-col">
+                <!-- ZCL Speed Result Box -->
+                <div class="calc-res-card zcl-card">
+                  <div class="calc-res-head">
+                    <span class="calc-res-badge mint">
+                      <span class="pulse-dot"></span>
+                      <span>ZCL Hub (Mạng nội bộ)</span>
+                    </span>
+                    <span class="calc-speed-tag" id="calcSpeedTag">~110 MB/s</span>
+                  </div>
+                  <div class="calc-res-time" id="calcZclTime">2 phút 19 giây</div>
+                  <div class="calc-bar-track">
+                    <div class="calc-bar-fill mint" id="calcZclBar" style="width: 8%;"></div>
+                  </div>
+                  <div class="calc-res-note" data-i18n="calc_zcl_note">File đi thẳng giữa 2 máy tính, không qua máy chủ trung gian.</div>
+                </div>
+
+                <!-- Traditional Cloud Speed Result Box -->
+                <div class="calc-res-card cloud-card">
+                  <div class="calc-res-head">
+                    <span class="calc-res-badge muted">
+                      <span>Mạng Internet đám mây thông thường</span>
+                    </span>
+                    <span class="calc-speed-tag muted">~5 MB/s</span>
+                  </div>
+                  <div class="calc-res-time muted" id="calcCloudTime">51 phút 12 giây</div>
+                  <div class="calc-bar-track">
+                    <div class="calc-bar-fill cloud" id="calcCloudBar" style="width: 100%;"></div>
+                  </div>
+                  <div class="calc-res-note" data-i18n="calc_cloud_note">Phải tải lên máy chủ ngoài rồi tải xuống lại, tốn thời gian gấp nhiều lần.</div>
+                </div>
+
+                <!-- Savings Banner -->
+                <div class="calc-savings-banner">
+                  <div class="savings-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                  </div>
+                  <div class="savings-text-wrap">
+                    <strong id="calcFasterBadge" data-i18n="calc_faster_badge">Nhanh hơn gấp 22 lần!</strong>
+                    <span id="calcSavingsText" data-i18n="calc_savings_text">Tiết kiệm hơn 95% thời gian chờ đợi.</span>
+                  </div>
+                  <a href="#studio" class="btn btn-primary btn-sm" data-tab="tab-studio" data-studio-tab="teleport">
+                    <span data-i18n="calc_btn_try_studio">Thử ngay</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
 
     <!-- ============================================== -->
@@ -1044,6 +1168,13 @@
               </div>
             </div>
           </div>
+
+          <div class="faq-empty-state" id="faqEmptyState" style="display: none;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+            <h4 data-i18n="faq_empty_title">Không tìm thấy câu hỏi phù hợp</h4>
+            <p data-i18n="faq_empty_sub">Thử tìm bằng từ khóa khác hoặc bấm nút bên dưới để xem toàn bộ câu hỏi.</p>
+            <button class="btn btn-secondary btn-sm" id="btnFaqReset" type="button" data-i18n="faq_btn_reset">Hiện tất cả câu hỏi</button>
+          </div>
         </div>
       </section>
     </div>
@@ -1184,9 +1315,15 @@
                   <span data-i18n="studio_tab_bench">Kiểm tra tốc độ Wi-Fi (Benchmark)</span>
                 </button>
               </div>
-              <div class="studio-status-indicator">
-                <span class="pulse-dot"></span>
-                <span id="studioMainStatus" data-i18n="studio_status_ready">Mạng nội bộ trực tiếp · 2 máy sẵn sàng</span>
+              <div class="studio-status-wrap">
+                <div class="studio-status-indicator" id="studioStatusBox">
+                  <span class="pulse-dot"></span>
+                  <span id="studioMainStatus" data-i18n="studio_status_ready">Mạng nội bộ trực tiếp · 2 máy sẵn sàng</span>
+                </div>
+                <a href="./index.html#studio" target="_blank" rel="noopener" class="btn-dual-tab-pill" id="btnOpenSecondTab" title="Mở thêm một tab nữa để trải nghiệm kết nối và truyền dữ liệu thời gian thực giữa 2 tab">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="2" width="13" height="13" rx="2"/><path d="M4 8H3a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1"/></svg>
+                  <span id="dualTabText" data-i18n="studio_open_tab_btn">Mở thêm 1 Tab thử kết nối thật</span>
+                </a>
               </div>
             </div>
 
@@ -1760,7 +1897,21 @@
             <h2 data-i18n="faq_title">Những thắc mắc thường gặp</h2>
           </div>
 
-          <div class="faq-grid">
+                    <!-- FAQ Instant Search Bar -->
+          <div class="faq-search-wrap">
+            <div class="faq-search-input-box">
+              <svg class="faq-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="faqSearchInput" class="faq-search-input" placeholder="Tìm nhanh câu trả lời (ví dụ: mất mạng, bảo vệ, tốc độ, dung lượng...)" data-i18n-placeholder="faq_search_placeholder" aria-label="Tìm kiếm câu hỏi">
+              <button class="faq-search-clear-btn" id="faqSearchClear" type="button" aria-label="Xóa từ khóa tìm kiếm" style="display: none;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+            </div>
+            <div class="faq-search-meta" id="faqSearchMeta" style="display: none;">
+              <span id="faqSearchCountText">Tìm thấy 4 câu trả lời</span>
+            </div>
+          </div>
+
+          <div class="faq-grid" id="faqGrid">
             <div class="faq-item active">
               <button class="faq-question" type="button">
                 <span data-i18n="faq_q1">Nhà tôi bị mất mạng Internet thì có dùng được không?</span>
@@ -1798,6 +1949,26 @@
               </button>
               <div class="faq-answer" data-i18n="faq_a4">
                 Nếu Windows hiện bảng thông báo màu xanh, bạn chỉ cần bấm vào chữ "More info" (Thông tin thêm) rồi chọn "Run anyway" (Vẫn chạy). Nếu máy tính hỏi quyền truy cập mạng, hãy tick chọn "Private networks" (Mạng riêng tư) để 2 máy tìm thấy nhau.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span data-i18n="faq_q5">Tốc độ gửi file tối đa là bao nhiêu và phụ thuộc vào yếu tố nào?</span>
+                <svg class="faq-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" data-i18n="faq_a5">
+                Tốc độ phụ thuộc trực tiếp vào cục phát Wi-Fi hoặc dây cáp mạng trong phòng bạn. Với Wi-Fi thông thường tốc độ đạt từ 30–80 MB/s, với Wi-Fi 6 hoặc cắm dây mạng trực tiếp có thể lên tới 100MB/s – 1GB/s. Vì truyền trực tiếp trong phòng nên tốc độ luôn nhanh gấp nhiều lần so với gửi qua mạng Internet.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span data-i18n="faq_q6">Nếu đang gửi dở file dung lượng lớn mà bị ngắt kết nối thì có phải gửi lại từ đầu không?</span>
+                <svg class="faq-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" data-i18n="faq_a6">
+                Không cần gửi lại từ đầu. Ứng dụng tự động lưu lại những phần đã truyền xong. Khi hai máy kết nối lại vào cùng mạng, ứng dụng sẽ tiếp tục truyền nốt phần còn lại, giúp bạn tiết kiệm thời gian.
               </div>
             </div>
           </div>

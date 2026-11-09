@@ -379,7 +379,44 @@ const i18n = {
     footer_author: "Tác giả",
     footer_contact: "Tác giả & Liên hệ",
     footer_rights: "Mã nguồn mở GPL-3.0. Phát triển bởi Nguyễn Hoàng Tùng.",
-    modal_btn_start: "Bắt đầu tải xuống"
+    modal_btn_start: "Bắt đầu tải xuống",
+    // Eco Mode
+    eco_toggle: "Chế độ tiết kiệm pin / Giảm hiệu ứng",
+    eco_enabled_toast: "Đã bật chế độ tiết kiệm pin (Giảm hiệu ứng nền đồ họa)",
+    eco_disabled_toast: "Đã tắt chế độ tiết kiệm pin (Bật lại hiệu ứng nền)",
+
+    // LAN Transfer Time Calculator
+    calc_badge: "TÍNH TOÁN TỐC ĐỘ THỰC TẾ",
+    calc_title: "Ước tính thời gian truyền file trong phòng",
+    calc_sub: "Kéo chọn dung lượng file để thấy tốc độ vượt trội khi gửi trực tiếp qua Wi-Fi chung so với việc tải lên đám mây thông thường.",
+    calc_size_label: "Chọn dung lượng file:",
+    calc_net_label: "Chọn chuẩn mạng nội bộ trong phòng:",
+    calc_net_basic: "Wi-Fi cơ bản (~40 MB/s)",
+    calc_net_wifi6: "Wi-Fi tốc độ cao / 5GHz (~110 MB/s)",
+    calc_net_lan: "Cáp mạng LAN (~120 MB/s)",
+    calc_zcl_note: "File đi thẳng giữa 2 máy tính, không qua máy chủ trung gian.",
+    calc_cloud_note: "Phải tải lên máy chủ ngoài rồi tải xuống lại, tốn thời gian gấp nhiều lần.",
+    calc_faster_badge: "Nhanh hơn gấp {n} lần!",
+    calc_savings_text: "Tiết kiệm hơn {p}% thời gian chờ đợi.",
+    calc_btn_try_studio: "Thử ngay",
+
+    // FAQ Instant Search & Additional Questions
+    faq_search_placeholder: "Tìm nhanh câu trả lời (ví dụ: mất mạng, bảo vệ, tốc độ, dung lượng...)",
+    faq_search_count_format: "Tìm thấy {n} câu trả lời",
+    faq_empty_title: "Không tìm thấy câu hỏi phù hợp",
+    faq_empty_sub: "Thử tìm bằng từ khóa khác hoặc bấm nút bên dưới để xem toàn bộ câu hỏi.",
+    faq_btn_reset: "Hiện tất cả câu hỏi",
+    faq_q5: "Tốc độ gửi file tối đa là bao nhiêu và phụ thuộc vào yếu tố nào?",
+    faq_a5: "Tốc độ phụ thuộc trực tiếp vào cục phát Wi-Fi hoặc dây cáp mạng trong phòng bạn. Với Wi-Fi thông thường tốc độ đạt từ 30–80 MB/s, với Wi-Fi 6 hoặc cắm dây mạng trực tiếp có thể lên tới 100MB/s – 1GB/s. Vì truyền trực tiếp trong phòng nên tốc độ luôn nhanh gấp nhiều lần so với gửi qua mạng Internet.",
+    faq_q6: "Nếu đang gửi dở file dung lượng lớn mà bị ngắt kết nối thì có phải gửi lại từ đầu không?",
+    faq_a6: "Không cần gửi lại từ đầu. Ứng dụng tự động lưu lại những phần đã truyền xong. Khi hai máy kết nối lại vào cùng mạng, ứng dụng sẽ tiếp tục truyền nốt phần còn lại, giúp bạn tiết kiệm thời gian.",
+
+    // Dual-Tab Sync in Studio
+    studio_open_tab_btn: "Mở thêm 1 Tab thử kết nối thật",
+    studio_status_dual_active: "Đang đồng bộ trực tiếp giữa 2 Tab trình duyệt (Tab A ⇄ Tab B)",
+    studio_toast_tab_detected: "Đã phát hiện 2 tab ZCL Hub mở song song! Thao tác copy và gửi file sẽ truyền qua lại tức thì.",
+    studio_toast_clipboard_received: "Đã nhận văn bản mới từ Tab bên cạnh qua kết nối nội bộ!",
+    studio_toast_file_received: "Đã nhận file từ Tab bên cạnh: ",
   },
 
   en: {
@@ -753,7 +790,44 @@ const i18n = {
     footer_author: "Author",
     footer_contact: "Author & Contact",
     footer_rights: "Open source under GPL-3.0. Developed by Nguyen Hoang Tung.",
-    modal_btn_start: "Start Download"
+    modal_btn_start: "Start Download",
+    // Eco Mode
+    eco_toggle: "Eco Mode / Reduce background effects",
+    eco_enabled_toast: "Eco mode enabled (Background effects paused)",
+    eco_disabled_toast: "Eco mode disabled (Background effects resumed)",
+
+    // LAN Transfer Time Calculator
+    calc_badge: "REAL-WORLD SPEED CALCULATOR",
+    calc_title: "Estimate file transfer time in room",
+    calc_sub: "Slide to select file size and see how direct local transfers beat slow cloud uploads.",
+    calc_size_label: "Select file size:",
+    calc_net_label: "Select local room network standard:",
+    calc_net_basic: "Basic Wi-Fi (~40 MB/s)",
+    calc_net_wifi6: "High-speed Wi-Fi / 5GHz (~110 MB/s)",
+    calc_net_lan: "Direct LAN cable (~120 MB/s)",
+    calc_zcl_note: "Transfers directly between 2 computers with no external servers.",
+    calc_cloud_note: "Uploads then downloads through cloud servers, taking much longer.",
+    calc_faster_badge: "{n}x faster!",
+    calc_savings_text: "Saves more than {p}% of waiting time.",
+    calc_btn_try_studio: "Try now",
+
+    // FAQ Instant Search & Additional Questions
+    faq_search_placeholder: "Search questions (e.g. offline, security, speed, size...)",
+    faq_search_count_format: "Found {n} answer(s)",
+    faq_empty_title: "No matching questions found",
+    faq_empty_sub: "Try searching with a different keyword or click below to view all questions.",
+    faq_btn_reset: "Show all questions",
+    faq_q5: "What is the maximum file transfer speed and what does it depend on?",
+    faq_a5: "Speed directly depends on your Wi-Fi router or network cable. Basic Wi-Fi reaches 30–80 MB/s, while Wi-Fi 6 or direct Ethernet can reach 100MB/s – 1GB/s. Being a local transfer, it is always many times faster than external internet uploads.",
+    faq_q6: "If a large file transfer is interrupted, do I have to restart from the beginning?",
+    faq_a6: "No need to restart. The application automatically retains completed chunks. Once reconnected on the same room network, transfer resumes smoothly.",
+
+    // Dual-Tab Sync in Studio
+    studio_open_tab_btn: "Open 2nd Tab for live sync",
+    studio_status_dual_active: "Live dual-tab sync active (Tab A ⇄ Tab B)",
+    studio_toast_tab_detected: "Detected 2 parallel ZCL Hub tabs! Clipboard copies and file transfers will sync live.",
+    studio_toast_clipboard_received: "Received new clipboard text from peer tab via local sync!",
+    studio_toast_file_received: "Received file from peer tab: ",
   }
 };
 
@@ -853,6 +927,10 @@ function setLanguage(lang) {
 
   if (typeof updateDownloadCenterUI === 'function') {
     updateDownloadCenterUI();
+  }
+
+  if (typeof updateTransferCalculatorUI === 'function') {
+    updateTransferCalculatorUI();
   }
 
   if (typeof window.updateCalcComparison === 'function') {
@@ -3011,7 +3089,7 @@ function initBackgroundEffects() {
   });
 
   function renderNodes() {
-    if (!isPageVisible) return;
+    if (!isPageVisible || document.body.classList.contains("eco-mode")) return;
 
     ctx.clearRect(0, 0, width, height);
 
@@ -3022,6 +3100,10 @@ function initBackgroundEffects() {
     const maxDist = isMobile ? 100 : 130;
     const mouseConnectDist = 140;
 
+    // Optimization: Skip CPU-heavy Math.hypot by checking squared distance first
+    const maxDistSq = maxDist * maxDist;
+    const mouseDistSq = mouseConnectDist * mouseConnectDist;
+
     // 1. Draw Mesh Connection Lines between close nodes
     for (let i = 0; i < nodes.length; i++) {
       const n1 = nodes[i];
@@ -3029,9 +3111,10 @@ function initBackgroundEffects() {
         const n2 = nodes[j];
         const dx = n1.x - n2.x;
         const dy = n1.y - n2.y;
-        const dist = Math.hypot(dx, dy);
+        const distSq = dx * dx + dy * dy;
 
-        if (dist < maxDist) {
+        if (distSq < maxDistSq) {
+          const dist = Math.sqrt(distSq);
           const alpha = (1 - dist / maxDist) * (isLight ? 0.12 : 0.18);
           ctx.beginPath();
           ctx.strokeStyle = `rgba(${n1.isMint ? mintColor : lilacColor}, ${alpha})`;
@@ -3044,8 +3127,11 @@ function initBackgroundEffects() {
 
       // Connection line to mouse cursor
       if (mousePos.x > 0 && mousePos.y > 0) {
-        const mDist = Math.hypot(n1.x - mousePos.x, n1.y - mousePos.y);
-        if (mDist < mouseConnectDist) {
+        const mdx = n1.x - mousePos.x;
+        const mdy = n1.y - mousePos.y;
+        const mDistSq = mdx * mdx + mdy * mdy;
+        if (mDistSq < mouseDistSq) {
+          const mDist = Math.sqrt(mDistSq);
           const mAlpha = (1 - mDist / mouseConnectDist) * (isLight ? 0.22 : 0.3);
           ctx.beginPath();
           ctx.strokeStyle = `rgba(${mintColor}, ${mAlpha})`;
@@ -3118,6 +3204,363 @@ function initBackgroundEffects() {
   });
 }
 
+
+// ==========================================
+// 11. ECO MODE & LOW-POWER TOGGLE
+// ==========================================
+let isEcoModeActive = localStorage.getItem('zcl_eco_mode') === 'true';
+
+function initEcoMode() {
+  const btnEco = document.getElementById('ecoToggleBtn');
+  if (isEcoModeActive) {
+    document.body.classList.add('eco-mode');
+  }
+
+  if (btnEco) {
+    btnEco.addEventListener('click', () => {
+      isEcoModeActive = !isEcoModeActive;
+      document.body.classList.toggle('eco-mode', isEcoModeActive);
+      localStorage.setItem('zcl_eco_mode', isEcoModeActive ? 'true' : 'false');
+
+      const isVi = currentLang === 'vi';
+      showToast(isEcoModeActive 
+        ? (isVi ? i18n.vi.eco_enabled_toast : i18n.en.eco_enabled_toast)
+        : (isVi ? i18n.eco_disabled_toast || 'Đã tắt chế độ tiết kiệm pin' : i18n.en.eco_disabled_toast));
+
+      // Wake up or pause background particles canvas
+      const canvas = document.getElementById('bgParticlesCanvas');
+      if (canvas && !isEcoModeActive && typeof window.resumeBgParticles === 'function') {
+        window.resumeBgParticles();
+      }
+    });
+  }
+}
+
+// ==========================================
+// 12. MOBILE TAB BAR SCROLL FADE INDICATOR
+// ==========================================
+function initTabScrollFades() {
+  const wrapper = document.getElementById('navTabsWrapper');
+  if (!wrapper) return;
+
+  function updateFades() {
+    const scrollLeft = wrapper.scrollLeft;
+    const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
+
+    wrapper.classList.toggle('can-scroll-left', scrollLeft > 8);
+    wrapper.classList.toggle('can-scroll-right', scrollLeft < maxScroll - 8);
+  }
+
+  wrapper.addEventListener('scroll', updateFades, { passive: true });
+  window.addEventListener('resize', updateFades, { passive: true });
+  setTimeout(updateFades, 200);
+}
+
+// ==========================================
+// 13. LAN TRANSFER TIME CALCULATOR
+// ==========================================
+let currentCalcSizeGB = 15;
+let currentCalcSpeedMBs = 110;
+
+function formatTransferTime(totalSeconds, lang = 'vi') {
+  const isVi = lang === 'vi';
+  if (totalSeconds < 1) return isVi ? 'Chưa tới 1 giây' : 'Under 1 second';
+  if (totalSeconds < 60) {
+    const sec = Math.max(1, Math.round(totalSeconds));
+    return `${sec} ${isVi ? 'giây' : 'seconds'}`;
+  }
+  const mins = Math.floor(totalSeconds / 60);
+  const remainingSecs = Math.round(totalSeconds % 60);
+  if (mins < 60) {
+    return remainingSecs > 0 
+      ? `${mins} ${isVi ? 'phút' : 'min'} ${remainingSecs} ${isVi ? 'giây' : 'sec'}`
+      : `${mins} ${isVi ? 'phút' : 'minutes'}`;
+  }
+  const hours = Math.floor(mins / 60);
+  const remainingMins = mins % 60;
+  return `${hours} ${isVi ? 'giờ' : 'hrs'} ${remainingMins} ${isVi ? 'phút' : 'min'}`;
+}
+
+function updateTransferCalculatorUI() {
+  const isVi = currentLang === 'vi';
+  const sizeDisplay = document.getElementById('calcSizeDisplay');
+  const speedTag = document.getElementById('calcSpeedTag');
+  const zclTimeEl = document.getElementById('calcZclTime');
+  const cloudTimeEl = document.getElementById('calcCloudTime');
+  const zclBar = document.getElementById('calcZclBar');
+  const cloudBar = document.getElementById('calcCloudBar');
+  const fasterBadge = document.getElementById('calcFasterBadge');
+  const savingsText = document.getElementById('calcSavingsText');
+
+  if (sizeDisplay) {
+    sizeDisplay.innerText = `${currentCalcSizeGB} GB`;
+  }
+  if (speedTag) {
+    speedTag.innerText = `~${currentCalcSpeedMBs} MB/s`;
+  }
+
+  const totalMB = currentCalcSizeGB * 1024;
+  const zclSeconds = totalMB / currentCalcSpeedMBs;
+  // Cloud assumption: broadband upload + download average roundtrip ~4.5 MB/s
+  const cloudSeconds = totalMB / 4.5;
+
+  if (zclTimeEl) {
+    zclTimeEl.innerText = formatTransferTime(zclSeconds, currentLang);
+  }
+  if (cloudTimeEl) {
+    cloudTimeEl.innerText = formatTransferTime(cloudSeconds, currentLang);
+  }
+
+  // Bar percentage
+  const ratio = Math.min(100, Math.max(5, (zclSeconds / cloudSeconds) * 100));
+  if (zclBar) zclBar.style.width = `${ratio.toFixed(1)}%`;
+  if (cloudBar) cloudBar.style.width = '100%';
+
+  const factor = Math.max(2, Math.round(cloudSeconds / zclSeconds));
+  const savingsPercent = Math.min(99, Math.round((1 - zclSeconds / cloudSeconds) * 100));
+
+  if (fasterBadge) {
+    fasterBadge.innerText = isVi ? `Nhanh hơn gấp ${factor} lần!` : `${factor}x faster!`;
+  }
+  if (savingsText) {
+    savingsText.innerText = isVi 
+      ? `Tiết kiệm hơn ${savingsPercent}% thời gian chờ đợi.` 
+      : `Saves over ${savingsPercent}% of waiting time.`;
+  }
+}
+
+function initTransferCalculator() {
+  const slider = document.getElementById('calcSizeSlider');
+  const pills = document.querySelectorAll('.calc-pill');
+  const netBtns = document.querySelectorAll('.calc-net-btn');
+
+  if (slider) {
+    slider.addEventListener('input', (e) => {
+      currentCalcSizeGB = parseInt(e.target.value, 10) || 15;
+      pills.forEach((p) => {
+        p.classList.toggle('active', parseInt(p.getAttribute('data-size'), 10) === currentCalcSizeGB);
+      });
+      updateTransferCalculatorUI();
+    });
+  }
+
+  pills.forEach((p) => {
+    p.addEventListener('click', () => {
+      const size = parseInt(p.getAttribute('data-size'), 10);
+      currentCalcSizeGB = size;
+      if (slider) slider.value = size;
+      pills.forEach((btn) => btn.classList.remove('active'));
+      p.classList.add('active');
+      updateTransferCalculatorUI();
+    });
+  });
+
+  netBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      netBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentCalcSpeedMBs = parseInt(btn.getAttribute('data-speed'), 10) || 110;
+      updateTransferCalculatorUI();
+    });
+  });
+
+  updateTransferCalculatorUI();
+}
+
+// ==========================================
+// 14. FAQ INSTANT SEARCH
+// ==========================================
+function removeVietnameseAccents(str) {
+  if (!str) return '';
+  return str
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[đĐ]/g, 'd')
+    .toLowerCase();
+}
+
+function initFaqSearch() {
+  const input = document.getElementById('faqSearchInput');
+  const clearBtn = document.getElementById('faqSearchClear');
+  const meta = document.getElementById('faqSearchMeta');
+  const countText = document.getElementById('faqSearchCountText');
+  const emptyState = document.getElementById('faqEmptyState');
+  const resetBtn = document.getElementById('btnFaqReset');
+  const faqItems = document.querySelectorAll('.faq-grid .faq-item');
+
+  if (!input) return;
+
+  function doSearch() {
+    const rawQuery = (input.value || '').trim();
+    const query = removeVietnameseAccents(rawQuery);
+
+    if (clearBtn) {
+      clearBtn.style.display = rawQuery.length > 0 ? 'flex' : 'none';
+    }
+
+    if (!query) {
+      faqItems.forEach((item) => {
+        item.classList.remove('search-hidden', 'search-matched');
+      });
+      if (meta) meta.style.display = 'none';
+      if (emptyState) emptyState.style.display = 'none';
+      return;
+    }
+
+    let matchCount = 0;
+    faqItems.forEach((item) => {
+      const qText = removeVietnameseAccents(item.querySelector('.faq-question')?.innerText || '');
+      const aText = removeVietnameseAccents(item.querySelector('.faq-answer')?.innerText || '');
+      const isMatch = qText.includes(query) || aText.includes(query);
+
+      if (isMatch) {
+        item.classList.remove('search-hidden');
+        item.classList.add('search-matched', 'active');
+        matchCount++;
+      } else {
+        item.classList.add('search-hidden');
+        item.classList.remove('search-matched');
+      }
+    });
+
+    if (meta) {
+      meta.style.display = 'block';
+      if (countText) {
+        const isVi = currentLang === 'vi';
+        countText.innerText = isVi 
+          ? `Tìm thấy ${matchCount} câu trả lời` 
+          : `Found ${matchCount} answer(s)`;
+      }
+    }
+
+    if (emptyState) {
+      emptyState.style.display = matchCount === 0 ? 'block' : 'none';
+    }
+  }
+
+  input.addEventListener('input', doSearch);
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      input.value = '';
+      doSearch();
+      input.focus();
+    });
+  }
+
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      input.value = '';
+      doSearch();
+    });
+  }
+}
+
+// ==========================================
+// 15. LIVE DUAL-TAB SYNC (BROADCASTCHANNEL)
+// ==========================================
+const ZCL_BROADCAST_CHANNEL_NAME = 'zcl_hub_p2p_channel';
+let zclLiveChannel = null;
+let hasPeerTab = false;
+const thisTabId = 'tab_' + Math.random().toString(36).substring(2, 9);
+
+function initLiveDualTabSync() {
+  if (!('BroadcastChannel' in window)) return;
+
+  try {
+    zclLiveChannel = new BroadcastChannel(ZCL_BROADCAST_CHANNEL_NAME);
+  } catch (err) {
+    console.warn('[ZCL BroadcastChannel not supported]:', err);
+    return;
+  }
+
+  const statusIndicator = document.getElementById('studioStatusBox');
+  const mainStatusText = document.getElementById('studioMainStatus');
+  const openSecondTabBtn = document.getElementById('btnOpenSecondTab');
+
+  function setDualTabActiveState(active) {
+    hasPeerTab = active;
+    if (statusIndicator) {
+      statusIndicator.classList.toggle('dual-active', active);
+    }
+    if (mainStatusText) {
+      const isVi = currentLang === 'vi';
+      if (active) {
+        mainStatusText.innerText = isVi 
+          ? i18n.vi.studio_status_dual_active 
+          : i18n.en.studio_status_dual_active;
+      } else {
+        mainStatusText.innerText = isVi 
+          ? i18n.vi.studio_status_ready 
+          : i18n.en.studio_status_ready;
+      }
+    }
+    if (openSecondTabBtn && active) {
+      openSecondTabBtn.style.borderColor = 'var(--mint)';
+      const span = openSecondTabBtn.querySelector('span');
+      if (span) {
+        span.innerText = currentLang === 'vi' ? 'Đã liên kết 2 Tab' : '2 Tabs Connected';
+      }
+    }
+  }
+
+  // Listen for peer tab messages
+  zclLiveChannel.onmessage = (event) => {
+    const data = event.data;
+    if (!data || data.fromTab === thisTabId) return;
+
+    if (data.type === 'HELLO') {
+      setDualTabActiveState(true);
+      zclLiveChannel.postMessage({ type: 'PONG', fromTab: thisTabId });
+      showToast(currentLang === 'vi' 
+        ? i18n.vi.studio_toast_tab_detected 
+        : i18n.en.studio_toast_tab_detected);
+    } else if (data.type === 'PONG') {
+      setDualTabActiveState(true);
+    } else if (data.type === 'CLIPBOARD_SYNC') {
+      const text = data.text || '';
+      const inputA = document.getElementById('clipInputA');
+      const inputB = document.getElementById('clipInputB');
+      if (inputA && inputB) {
+        inputB.value = text;
+        inputB.style.borderColor = 'var(--mint)';
+        setTimeout(() => { inputB.style.borderColor = ''; }, 1800);
+      }
+      showToast((currentLang === 'vi' ? i18n.vi.studio_toast_clipboard_received : i18n.en.studio_toast_clipboard_received) + ` "${text.substring(0, 30)}..."`);
+    } else if (data.type === 'FILE_COMPLETE') {
+      const isVi = currentLang === 'vi';
+      showToast((isVi ? i18n.vi.studio_toast_file_received : i18n.en.studio_toast_file_received) + `${data.fileName} (${data.fileSize})`);
+    } else if (data.type === 'BYE') {
+      setDualTabActiveState(false);
+    }
+  };
+
+  // Announce this tab to network
+  zclLiveChannel.postMessage({ type: 'HELLO', fromTab: thisTabId });
+
+  window.addEventListener('beforeunload', () => {
+    if (zclLiveChannel) {
+      zclLiveChannel.postMessage({ type: 'BYE', fromTab: thisTabId });
+    }
+  });
+
+  // Intercept local clipboard button click to broadcast
+  const btnCopy = document.getElementById('btnTestCopy');
+  if (btnCopy) {
+    btnCopy.addEventListener('click', () => {
+      const inputA = document.getElementById('clipInputA');
+      const text = inputA ? inputA.value : '';
+      if (zclLiveChannel && text) {
+        zclLiveChannel.postMessage({
+          type: 'CLIPBOARD_SYNC',
+          fromTab: thisTabId,
+          text: text
+        });
+      }
+    });
+  }
+}
+
 // 9. INITIALIZATION
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -3151,4 +3594,9 @@ document.addEventListener('DOMContentLoaded', () => {
   safeRun('KeyboardShortcuts', initKeyboardShortcuts);
   safeRun('BackToTop', initBackToTop);
   safeRun('BackgroundEffects', initBackgroundEffects);
+  safeRun('EcoMode', initEcoMode);
+  safeRun('TabScrollFades', initTabScrollFades);
+  safeRun('TransferCalculator', initTransferCalculator);
+  safeRun('FaqSearch', initFaqSearch);
+  safeRun('LiveDualTabSync', initLiveDualTabSync);
 });
