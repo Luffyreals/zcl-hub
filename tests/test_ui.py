@@ -476,6 +476,27 @@ class TestPWAAndAssets(unittest.TestCase):
         self.assertIn("ZCL Hub", content)
         self.assertIn("404", content)
 
+    def test_auto_update_system_components(self):
+        """Verifies automatic update system in sw.js, index.html, styles.css, and app.js."""
+        with open(SW_JS, "r", encoding="utf-8") as f:
+            sw = f.read()
+        self.assertIn("FORCE_REFRESH_CACHE", sw)
+        self.assertIn("ZCL_SW_UPDATED", sw)
+
+        with open(INDEX_HTML, "r", encoding="utf-8") as f:
+            html = f.read()
+        self.assertIn('id="autoUpdateBar"', html)
+        self.assertIn('id="toggleAutoUpdate"', html)
+        self.assertIn('id="btnCheckUpdatesNow"', html)
+        self.assertIn('id="autoUpdateBanner"', html)
+        self.assertIn('id="btnApplyAutoUpdate"', html)
+
+        with open(APP_JS, "r", encoding="utf-8") as f:
+            js = f.read()
+        self.assertIn("initAutoUpdateSystem", js)
+        self.assertIn("compareVersions", js)
+        self.assertIn("saveInstalledAppVersion", js)
+
 
 class TestJavaScriptSyntax(unittest.TestCase):
     """Verifies that app.js and sw.js contain zero JavaScript syntax errors using Node.js."""

@@ -523,6 +523,25 @@ const i18n = {
     footer_feedback: "Góp ý &amp; Báo lỗi",
     modal_close_btn: "Đóng",
     modal_close: "Đóng",
+
+    // Auto-Update System
+    au_bar_title: "Tự động cập nhật bản mới nhất",
+    au_status_active: "Đang bật tự động",
+    au_status_paused: "Đã tạm tắt",
+    au_bar_desc: "Ứng dụng sau khi cài đặt trên máy và trang ZCL Hub sẽ tự động kiểm tra, thông báo và nâng cấp lên bản mới nhất mà không cần tải lại thủ công.",
+    au_toggle_label: "Tự động kiểm tra bản mới",
+    au_btn_check_now: "Kiểm tra cập nhật ngay",
+    au_btn_checking: "Đang kiểm tra...",
+    dl_builtin_updater: "Tích hợp sẵn tự động cập nhật bản mới ngay trong phần mềm",
+    au_banner_title: "Đã có bản cập nhật mới!",
+    au_banner_desc: "Phiên bản mới nhất đã sẵn sàng để nâng cấp tự động.",
+    au_btn_apply: "Cập nhật ngay",
+    au_toast_up_to_date: "Bạn đang sử dụng phiên bản mới nhất!",
+    au_toast_update_found: "Đã tìm thấy bản cập nhật mới! Bấm Cập nhật ngay.",
+    au_toast_updated_ok: "Đã cập nhật lên phiên bản mới nhất thành công!",
+    au_installed_current: "Máy của bạn đã tải bản mới nhất ({v})",
+    au_installed_outdated: "Đã có bản mới {latest} (Bản bạn đã tải trước đó: {old})",
+    au_btn_update_app: "Cập nhật lên bản {v} (.exe)",
   },
 
   en: {
@@ -1040,6 +1059,25 @@ const i18n = {
     footer_feedback: "Feedback &amp; Issues",
     modal_close_btn: "Close",
     modal_close: "Close",
+
+    // Auto-Update System
+    au_bar_title: "Automatic Latest Version Updates",
+    au_status_active: "Auto-Update Active",
+    au_status_paused: "Paused",
+    au_bar_desc: "Installed desktop apps and ZCL Hub automatically check, notify, and upgrade to the latest release without requiring manual redownloads.",
+    au_toggle_label: "Auto-check for new releases",
+    au_btn_check_now: "Check for Updates Now",
+    au_btn_checking: "Checking...",
+    dl_builtin_updater: "Includes built-in automatic updates right inside the application",
+    au_banner_title: "A New Update is Available!",
+    au_banner_desc: "The latest release is ready for automatic upgrade.",
+    au_btn_apply: "Update Now",
+    au_toast_up_to_date: "You are already on the latest version!",
+    au_toast_update_found: "New update found! Click Update Now to upgrade.",
+    au_toast_updated_ok: "Successfully updated to the latest version!",
+    au_installed_current: "Your PC has the latest release ({v})",
+    au_installed_outdated: "New release {latest} available (Previously downloaded: {old})",
+    au_btn_update_app: "Update to {v} (.exe)",
   }
 };
 
@@ -2644,10 +2682,38 @@ if (installBtn) {
   });
 }
 
+let swRegistration = null;
+let pendingUpdateAction = null;
+
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').catch((err) => {
+    navigator.serviceWorker.register('./sw.js').then((reg) => {
+      swRegistration = reg;
+
+      // Check if an updated worker is already waiting
+      if (reg.waiting) {
+        showAutoUpdateBanner('pwa');
+      }
+
+      reg.addEventListener('updatefound', () => {
+        const newWorker = reg.installing;
+        if (!newWorker) return;
+        newWorker.addEventListener('statechange', () => {
+          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+            showAutoUpdateBanner('pwa');
+          }
+        });
+      });
+    }).catch((err) => {
       console.log('SW registration error:', err);
+    });
+
+    // Listen for messages from Service Worker (Stale-While-Revalidate updates)
+    navigator.serviceWorker.addEventListener('message', (event) => {
+      if (!event.data || !event.data.type) return;
+      if (event.data.type === 'ZCL_SW_UPDATED') {
+        showAutoUpdateBanner('pwa');
+      }
     });
   });
 }
@@ -2673,23 +2739,26 @@ function showToast(message, iconSvg = '<svg width="18" height="18" viewBox="0 0 
 // ==========================================
 // 6. DOWNLOAD MANAGER & AUTOMATIC SYNC FROM GITHUB
 // ==========================================
+const INSTALLED_APPS_STORAGE_KEY = 'zcl_installed_apps_v1';
+const AUTO_UPDATE_PREF_KEY = 'zcl_auto_update_enabled';
+
 const DOWNLOAD_REGISTRY = {
   teleport: {
     name: 'ZCL Teleport',
-    repo: 'Luffyreals/zero-cloud-lan-teleport',
+    repo: 'Nha-Cong-Dong/zero-cloud-lan-teleport',
     version: 'v0.1.0-alpha',
     isLive: false,
-    releaseUrl: 'https://github.com/Luffyreals/zero-cloud-lan-teleport/releases',
+    releaseUrl: 'https://github.com/Nha-Cong-Dong/zero-cloud-lan-teleport/releases',
     files: {
       exe: {
         name: 'teleport-setup-latest-x64.exe',
         size: '12.4 MB',
-        url: 'https://github.com/Luffyreals/zero-cloud-lan-teleport/releases/latest/download/teleport-setup-latest-x64.exe'
+        url: 'https://github.com/Nha-Cong-Dong/zero-cloud-lan-teleport/releases/latest/download/teleport-setup-latest-x64.exe'
       },
       zip: {
         name: 'teleport-gui-latest-windows-x64.zip',
         size: '11.8 MB',
-        url: 'https://github.com/Luffyreals/zero-cloud-lan-teleport/releases/latest/download/teleport-gui-latest-windows-x64.zip'
+        url: 'https://github.com/Nha-Cong-Dong/zero-cloud-lan-teleport/releases/latest/download/teleport-gui-latest-windows-x64.zip'
       }
     }
   },
@@ -2716,10 +2785,105 @@ const DOWNLOAD_REGISTRY = {
 
 let currentDownloadTarget = { app: 'teleport', format: 'exe' };
 
+function getInstalledAppsRecord() {
+  try {
+    const raw = localStorage.getItem(INSTALLED_APPS_STORAGE_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch (e) {
+    return {};
+  }
+}
+
+function saveInstalledAppVersion(appKey, version, format = 'exe') {
+  try {
+    const record = getInstalledAppsRecord();
+    record[appKey] = {
+      version,
+      format,
+      updatedAt: Date.now()
+    };
+    localStorage.setItem(INSTALLED_APPS_STORAGE_KEY, JSON.stringify(record));
+  } catch (e) {
+    // Ignore storage error
+  }
+}
+
+function compareVersions(vLatest, vInstalled) {
+  if (!vLatest || !vInstalled) return 0;
+  const cleanA = String(vLatest).trim().replace(/^v/i, '');
+  const cleanB = String(vInstalled).trim().replace(/^v/i, '');
+  if (cleanA === cleanB) return 0;
+
+  const partsA = cleanA.split(/[-.]/).map((p) => (/^\d+$/.test(p) ? parseInt(p, 10) : p));
+  const partsB = cleanB.split(/[-.]/).map((p) => (/^\d+$/.test(p) ? parseInt(p, 10) : p));
+  const len = Math.max(partsA.length, partsB.length);
+
+  for (let i = 0; i < len; i++) {
+    const a = partsA[i];
+    const b = partsB[i];
+    if (a === undefined) return -1;
+    if (b === undefined) return 1;
+    if (typeof a === 'number' && typeof b === 'number') {
+      if (a > b) return 1;
+      if (a < b) return -1;
+    } else {
+      const sA = String(a);
+      const sB = String(b);
+      if (sA > sB) return 1;
+      if (sA < sB) return -1;
+    }
+  }
+  return 0;
+}
+
 function formatFileSize(bytes) {
   if (!bytes || isNaN(bytes)) return '';
   const mb = bytes / (1024 * 1024);
   return `${mb.toFixed(1)} MB`;
+}
+
+function renderInstalledStatusForApp(appKey, statusElId, btnTextElId) {
+  const statusEl = document.getElementById(statusElId);
+  const btnTextEl = document.getElementById(btnTextElId);
+  const dict = i18n[currentLang] || i18n.vi;
+  const appData = DOWNLOAD_REGISTRY[appKey];
+  if (!appData) return false;
+
+  const installedRecord = getInstalledAppsRecord();
+  const userInstalled = installedRecord[appKey];
+
+  if (!userInstalled || !userInstalled.version) {
+    if (statusEl) statusEl.style.display = 'none';
+    if (btnTextEl && dict.dl_btn_installer) {
+      btnTextEl.innerText = dict.dl_btn_installer;
+    }
+    return false;
+  }
+
+  const cmp = compareVersions(appData.version, userInstalled.version);
+  if (statusEl) {
+    statusEl.style.display = 'block';
+    if (cmp > 0) {
+      statusEl.classList.add('has-update');
+      statusEl.innerText = (dict.au_installed_outdated || 'Đã có bản mới {latest} (Bản bạn đã tải trước đó: {old})')
+        .replace('{latest}', appData.version)
+        .replace('{old}', userInstalled.version);
+    } else {
+      statusEl.classList.remove('has-update');
+      statusEl.innerText = (dict.au_installed_current || 'Máy của bạn đã tải bản mới nhất ({v})')
+        .replace('{v}', appData.version);
+    }
+  }
+
+  if (btnTextEl) {
+    if (cmp > 0) {
+      btnTextEl.innerText = (dict.au_btn_update_app || 'Cập nhật lên bản {v} (.exe)').replace('{v}', appData.version);
+    } else if (dict.dl_btn_installer) {
+      btnTextEl.innerText = dict.dl_btn_installer;
+    }
+  }
+
+  return cmp > 0;
 }
 
 function updateDownloadCenterUI() {
@@ -2773,6 +2937,15 @@ function updateDownloadCenterUI() {
         ? (isVi ? 'Bản mới nhất' : 'Latest build')
         : (isVi ? 'Bản ổn định' : 'Stable build');
     }
+  }
+
+  const tpHasUpdate = renderInstalledStatusForApp('teleport', 'tpInstalledStatus', 'btnMainDlTeleportText');
+  const rmHasUpdate = renderInstalledStatusForApp('remote', 'rmInstalledStatus', 'btnMainDlRemoteText');
+
+  if (tpHasUpdate) {
+    showAutoUpdateBanner('teleport');
+  } else if (rmHasUpdate) {
+    showAutoUpdateBanner('remote');
   }
 }
 
@@ -2838,23 +3011,25 @@ async function syncSingleAppReleases(appKey) {
   }
 }
 
-async function syncReleasesFromGitHub() {
+async function syncReleasesFromGitHub(forceRefresh = false) {
   const CACHE_KEY = 'zcl_releases_cache_v2';
   const CACHE_TTL_MS = 15 * 60 * 1000; // 15 phút
 
-  try {
-    const rawCache = sessionStorage.getItem(CACHE_KEY);
-    if (rawCache) {
-      const cached = JSON.parse(rawCache);
-      if (Date.now() - cached.timestamp < CACHE_TTL_MS && cached.data) {
-        Object.assign(DOWNLOAD_REGISTRY.teleport, cached.data.teleport);
-        Object.assign(DOWNLOAD_REGISTRY.remote, cached.data.remote);
-        updateDownloadCenterUI();
-        return;
+  if (!forceRefresh) {
+    try {
+      const rawCache = sessionStorage.getItem(CACHE_KEY);
+      if (rawCache) {
+        const cached = JSON.parse(rawCache);
+        if (Date.now() - cached.timestamp < CACHE_TTL_MS && cached.data) {
+          Object.assign(DOWNLOAD_REGISTRY.teleport, cached.data.teleport);
+          Object.assign(DOWNLOAD_REGISTRY.remote, cached.data.remote);
+          updateDownloadCenterUI();
+          return;
+        }
       }
+    } catch (e) {
+      // Bỏ qua lỗi cache
     }
-  } catch (e) {
-    // Bỏ qua lỗi cache
   }
 
   // Tải đồng thời thông tin từ cả 2 repository
@@ -2886,6 +3061,180 @@ async function syncReleasesFromGitHub() {
   } catch (e) {
     // Bỏ qua lỗi lưu cache
   }
+}
+
+function triggerDirectFileDownload(appKey, format = 'exe') {
+  const appData = DOWNLOAD_REGISTRY[appKey] || DOWNLOAD_REGISTRY.teleport;
+  const fileData = appData.files[format] || appData.files.exe;
+  const fileName = fileData.name;
+  const fileUrl = fileData.url;
+
+  saveInstalledAppVersion(appKey, appData.version, format);
+  updateDownloadCenterUI();
+
+  showToast(currentLang === 'vi' ? `Đang bắt đầu tải ${fileName}...` : `Starting download for ${fileName}...`);
+
+  const a = document.createElement('a');
+  a.href = fileUrl;
+  a.setAttribute('download', fileName);
+  a.setAttribute('target', '_blank');
+  a.setAttribute('rel', 'noopener noreferrer');
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => {
+    if (a.parentNode) a.parentNode.removeChild(a);
+  }, 300);
+}
+
+function showAutoUpdateBanner(targetType = 'pwa') {
+  const toggleEl = document.getElementById('toggleAutoUpdate');
+  if (toggleEl && !toggleEl.checked) return;
+
+  const banner = document.getElementById('autoUpdateBanner');
+  const titleEl = document.getElementById('autoUpdateBannerTitle');
+  const descEl = document.getElementById('autoUpdateBannerDesc');
+  const dict = i18n[currentLang] || i18n.vi;
+  if (!banner) return;
+
+  pendingUpdateAction = targetType;
+
+  if (targetType === 'teleport' || targetType === 'remote') {
+    const appData = DOWNLOAD_REGISTRY[targetType];
+    if (titleEl) {
+      titleEl.innerText = currentLang === 'vi'
+        ? `Có bản cập nhật mới cho ${appData.name} (${appData.version})`
+        : `New update available for ${appData.name} (${appData.version})`;
+    }
+    if (descEl) {
+      descEl.innerText = currentLang === 'vi'
+        ? 'Bấm Cập nhật ngay để tải tự động bản nâng cấp mới nhất về máy của bạn.'
+        : 'Click Update Now to automatically download the latest upgrade to your PC.';
+    }
+  } else {
+    if (titleEl) titleEl.innerText = dict.au_banner_title || 'Đã có bản cập nhật mới!';
+    if (descEl) descEl.innerText = dict.au_banner_desc || 'Phiên bản mới nhất đã sẵn sàng để nâng cấp tự động.';
+  }
+
+  banner.style.display = 'flex';
+}
+
+function initAutoUpdateSystem() {
+  const toggleEl = document.getElementById('toggleAutoUpdate');
+  const statusPill = document.getElementById('auStatusPill');
+  const btnCheckNow = document.getElementById('btnCheckUpdatesNow');
+  const btnCheckText = document.getElementById('btnCheckUpdatesText');
+  const checkIcon = document.getElementById('auCheckIcon');
+  const banner = document.getElementById('autoUpdateBanner');
+  const btnApply = document.getElementById('btnApplyAutoUpdate');
+  const btnDismiss = document.getElementById('btnDismissAutoUpdate');
+
+  // Restore saved toggle preference
+  const savedPref = localStorage.getItem(AUTO_UPDATE_PREF_KEY);
+  const isAutoEnabled = savedPref !== 'false';
+  if (toggleEl) {
+    toggleEl.checked = isAutoEnabled;
+  }
+
+  function syncPillUI(enabled) {
+    const dict = i18n[currentLang] || i18n.vi;
+    if (!statusPill) return;
+    if (enabled) {
+      statusPill.classList.remove('paused');
+      statusPill.setAttribute('data-i18n', 'au_status_active');
+      statusPill.innerText = dict.au_status_active || 'Đang bật tự động';
+    } else {
+      statusPill.classList.add('paused');
+      statusPill.setAttribute('data-i18n', 'au_status_paused');
+      statusPill.innerText = dict.au_status_paused || 'Đã tạm tắt';
+      if (banner) banner.style.display = 'none';
+    }
+  }
+
+  syncPillUI(isAutoEnabled);
+
+  if (toggleEl) {
+    toggleEl.addEventListener('change', () => {
+      const enabled = toggleEl.checked;
+      localStorage.setItem(AUTO_UPDATE_PREF_KEY, enabled ? 'true' : 'false');
+      syncPillUI(enabled);
+      if (enabled) {
+        syncReleasesFromGitHub(true);
+      }
+    });
+  }
+
+  if (btnCheckNow) {
+    btnCheckNow.addEventListener('click', async () => {
+      const dict = i18n[currentLang] || i18n.vi;
+      btnCheckNow.disabled = true;
+      if (checkIcon) checkIcon.classList.add('spinning');
+      if (btnCheckText) btnCheckText.innerText = dict.au_btn_checking || 'Đang kiểm tra...';
+
+      // Refresh Service Worker cache and GitHub releases in parallel
+      if (swRegistration && swRegistration.active) {
+        swRegistration.active.postMessage({ type: 'FORCE_REFRESH_CACHE' });
+      }
+      if (swRegistration && typeof swRegistration.update === 'function') {
+        swRegistration.update().catch(() => {});
+      }
+
+      await syncReleasesFromGitHub(true);
+
+      setTimeout(() => {
+        btnCheckNow.disabled = false;
+        if (checkIcon) checkIcon.classList.remove('spinning');
+        if (btnCheckText) btnCheckText.innerText = dict.au_btn_check_now || 'Kiểm tra cập nhật ngay';
+
+        const tpOutdated = renderInstalledStatusForApp('teleport', 'tpInstalledStatus', 'btnMainDlTeleportText');
+        const rmOutdated = renderInstalledStatusForApp('remote', 'rmInstalledStatus', 'btnMainDlRemoteText');
+
+        if (tpOutdated || rmOutdated) {
+          showAutoUpdateBanner(tpOutdated ? 'teleport' : 'remote');
+          showToast(dict.au_toast_update_found || 'Đã tìm thấy bản cập nhật mới!');
+        } else {
+          showToast(
+            dict.au_toast_up_to_date || 'Bạn đang sử dụng phiên bản mới nhất!',
+            '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>'
+          );
+        }
+      }, 650);
+    });
+  }
+
+  if (btnApply) {
+    btnApply.addEventListener('click', () => {
+      if (banner) banner.style.display = 'none';
+      const dict = i18n[currentLang] || i18n.vi;
+
+      if (pendingUpdateAction === 'teleport' || pendingUpdateAction === 'remote') {
+        triggerDirectFileDownload(pendingUpdateAction, 'exe');
+      } else {
+        if (swRegistration && swRegistration.waiting) {
+          swRegistration.waiting.postMessage({ type: 'SKIP_WAITING' });
+        }
+        showToast(dict.au_toast_updated_ok || 'Đã cập nhật lên phiên bản mới nhất thành công!');
+        setTimeout(() => {
+          window.location.reload();
+        }, 500);
+      }
+    });
+  }
+
+  if (btnDismiss) {
+    btnDismiss.addEventListener('click', () => {
+      if (banner) banner.style.display = 'none';
+    });
+  }
+
+  // Automatic background check when user returns to tab
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible' && (!toggleEl || toggleEl.checked)) {
+      if (swRegistration && typeof swRegistration.update === 'function') {
+        swRegistration.update().catch(() => {});
+      }
+      syncReleasesFromGitHub(false);
+    }
+  });
 }
 
 function initDownloadModal() {
@@ -2959,24 +3308,7 @@ function initDownloadModal() {
   if (btnTrigger) {
     btnTrigger.addEventListener('click', () => {
       closeModal();
-      const appData = DOWNLOAD_REGISTRY[currentDownloadTarget.app] || DOWNLOAD_REGISTRY.teleport;
-      const fileData = appData.files[currentDownloadTarget.format] || appData.files.exe;
-      const fileName = fileData.name;
-      const fileUrl = fileData.url;
-
-      showToast(currentLang === 'vi' ? `Đang bắt đầu tải ${fileName}...` : `Starting download for ${fileName}...`);
-
-      // Kích hoạt tải tệp trực tiếp từ GitHub Releases
-      const a = document.createElement('a');
-      a.href = fileUrl;
-      a.setAttribute('download', fileName);
-      a.setAttribute('target', '_blank');
-      a.setAttribute('rel', 'noopener noreferrer');
-      document.body.appendChild(a);
-      a.click();
-      setTimeout(() => {
-        if (a.parentNode) a.parentNode.removeChild(a);
-      }, 300);
+      triggerDirectFileDownload(currentDownloadTarget.app, currentDownloadTarget.format);
     });
   }
 }
@@ -4589,6 +4921,7 @@ document.addEventListener('DOMContentLoaded', () => {
       setLanguage(btn.getAttribute('data-lang'));
       if (typeof updateConsoleEnvUI === 'function') updateConsoleEnvUI();
       if (typeof updateOrbitUI === 'function') updateOrbitUI();
+      if (typeof updateDownloadCenterUI === 'function') updateDownloadCenterUI();
     });
   });
 
@@ -4598,6 +4931,7 @@ document.addEventListener('DOMContentLoaded', () => {
   safeRun('Studio', initStudio);
   safeRun('Faq', initFaq);
   safeRun('DownloadModal', initDownloadModal);
+  safeRun('AutoUpdateSystem', initAutoUpdateSystem);
   safeRun('GitHubReleases', syncReleasesFromGitHub);
   safeRun('3DTiltCards', init3DTiltCards);
   safeRun('KeyboardShortcuts', initKeyboardShortcuts);

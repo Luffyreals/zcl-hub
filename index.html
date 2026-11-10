@@ -1206,6 +1206,41 @@
             <p data-i18n="dl_sub">Miễn phí hoàn toàn. Không cần tài khoản, tải về và dùng ngay.</p>
           </div>
 
+          <!-- Auto-Update Control & Status Bar -->
+          <div class="auto-update-bar" id="autoUpdateBar">
+            <div class="auto-update-info">
+              <div class="auto-update-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 4 23 10 17 10"></polyline>
+                  <polyline points="1 20 1 14 7 14"></polyline>
+                  <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                </svg>
+              </div>
+              <div class="auto-update-text">
+                <div class="auto-update-title-row">
+                  <strong data-i18n="au_bar_title">Tự động cập nhật bản mới nhất</strong>
+                  <span class="auto-update-pill" id="auStatusPill" data-i18n="au_status_active">Đang bật tự động</span>
+                </div>
+                <p id="auBarDesc" data-i18n="au_bar_desc">Ứng dụng sau khi cài đặt trên máy và trang ZCL Hub sẽ tự động kiểm tra, thông báo và nâng cấp lên bản mới nhất mà không cần tải lại thủ công.</p>
+              </div>
+            </div>
+            <div class="auto-update-actions">
+              <label class="au-toggle-label" for="toggleAutoUpdate">
+                <input type="checkbox" id="toggleAutoUpdate" checked>
+                <span class="au-toggle-slider"></span>
+                <span class="au-toggle-text" data-i18n="au_toggle_label">Tự động kiểm tra bản mới</span>
+              </label>
+              <button class="btn btn-secondary btn-sm" id="btnCheckUpdatesNow" type="button">
+                <svg class="au-check-icon" id="auCheckIcon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 4 23 10 17 10"></polyline>
+                  <polyline points="1 20 1 14 7 14"></polyline>
+                  <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                </svg>
+                <span id="btnCheckUpdatesText" data-i18n="au_btn_check_now">Kiểm tra cập nhật ngay</span>
+              </button>
+            </div>
+          </div>
+
           <div class="download-grid">
             <!-- Teleport Download Card -->
             <div class="download-card teleport" id="download-teleport">
@@ -1233,13 +1268,18 @@
 
                 <div class="download-meta-info">
                   <div data-i18n="dl_req_win">Yêu cầu: Máy tính Windows 10 hoặc Windows 11</div>
+                  <div class="dl-autoupdate-feature">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span data-i18n="dl_builtin_updater">Tích hợp sẵn tự động cập nhật bản mới ngay trong phần mềm</span>
+                  </div>
+                  <div class="dl-installed-status" id="tpInstalledStatus" style="display: none;"></div>
                 </div>
               </div>
 
               <div class="download-actions-wrap">
-                <button class="btn-download-main teleport btn-open-download" data-app="teleport" data-format="exe" type="button">
+                <button class="btn-download-main teleport btn-open-download" id="btnMainDlTeleport" data-app="teleport" data-format="exe" type="button">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                  <span data-i18n="dl_btn_installer">Tải bản cài đặt (.exe)</span>
+                  <span id="btnMainDlTeleportText" data-i18n="dl_btn_installer">Tải bản cài đặt (.exe)</span>
                 </button>
                 <div class="download-alt-links">
                   <a class="btn-open-download" data-app="teleport" data-format="zip" id="tpPortableLink" data-i18n="dl_btn_portable">Tải bản chạy ngay không cần cài (.zip - 11.8 MB)</a>
@@ -1273,13 +1313,18 @@
 
                 <div class="download-meta-info">
                   <div data-i18n="dl_req_win">Yêu cầu: Máy tính Windows 10 hoặc Windows 11</div>
+                  <div class="dl-autoupdate-feature lilac">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span data-i18n="dl_builtin_updater">Tích hợp sẵn tự động cập nhật bản mới ngay trong phần mềm</span>
+                  </div>
+                  <div class="dl-installed-status" id="rmInstalledStatus" style="display: none;"></div>
                 </div>
               </div>
 
               <div class="download-actions-wrap">
-                <button class="btn-download-main remote btn-open-download" data-app="remote" data-format="exe" type="button">
+                <button class="btn-download-main remote btn-open-download" id="btnMainDlRemote" data-app="remote" data-format="exe" type="button">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                  <span data-i18n="dl_btn_installer">Tải bản cài đặt (.exe)</span>
+                  <span id="btnMainDlRemoteText" data-i18n="dl_btn_installer">Tải bản cài đặt (.exe)</span>
                 </button>
                 <div class="download-alt-links">
                   <a class="btn-open-download" data-app="remote" data-format="zip" id="rmPortableLink" data-i18n="dl_btn_portable">Tải bản chạy ngay không cần cài (.zip - 15.6 MB)</a>
@@ -2111,7 +2156,7 @@
       </div>
 
       <div class="modal-footer-links">
-        <a href="https://github.com/Luffyreals/zero-cloud-lan-teleport/releases" target="_blank" rel="noopener noreferrer" class="modal-github-link" id="modalGithubLink">
+        <a href="https://github.com/Nha-Cong-Dong/zero-cloud-lan-teleport/releases" target="_blank" rel="noopener noreferrer" class="modal-github-link" id="modalGithubLink">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           <span data-i18n="dl_view_release">Xem danh sách phát hành trên GitHub</span>
         </a>
@@ -2425,6 +2470,27 @@
           <span data-i18n="ty_btn_feedback">Gửi thêm lời nhắn / Góp ý</span>
         </button>
       </div>
+    </div>
+  </div>
+
+  <!-- Floating Auto-Update Notification Banner -->
+  <div class="update-banner-float" id="autoUpdateBanner" role="status" aria-live="polite" style="display: none;">
+    <div class="update-banner-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="23 4 23 10 17 10"></polyline>
+        <polyline points="1 20 1 14 7 14"></polyline>
+        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+      </svg>
+    </div>
+    <div class="update-banner-body">
+      <strong id="autoUpdateBannerTitle" data-i18n="au_banner_title">Đã có bản cập nhật mới!</strong>
+      <span id="autoUpdateBannerDesc" data-i18n="au_banner_desc">Phiên bản mới nhất đã sẵn sàng để nâng cấp tự động.</span>
+    </div>
+    <div class="update-banner-actions">
+      <button type="button" class="btn btn-primary btn-sm" id="btnApplyAutoUpdate">
+        <span id="btnApplyAutoUpdateText" data-i18n="au_btn_apply">Cập nhật ngay</span>
+      </button>
+      <button type="button" class="update-banner-close" id="btnDismissAutoUpdate" aria-label="Đóng" title="Đóng" data-i18n-title="modal_close_btn">&times;</button>
     </div>
   </div>
 
