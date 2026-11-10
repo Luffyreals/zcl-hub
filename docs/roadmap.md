@@ -14,10 +14,11 @@ Tài liệu này ghi nhận kế hoạch phát triển và mở rộng bộ ứn
   * Điều khiển máy tính từ xa siêu mượt qua mạng nội bộ.
   * Công nghệ phản hồi chuột tức thì không độ trễ.
   * Nút dừng khẩn cấp (Kill-switch) giúp máy được điều khiển luôn giữ quyền tự chủ.
-* [x] **ZCL Mind (v0.1.0-alpha — Đang phát triển)**:
+* [ ] **ZCL Mind (Đang phát triển)**:
   * Trợ lý thấu hiểu cá nhân chạy 100% trên máy tính cá nhân.
   * Bản đồ thấu hiểu 6 chiều: hồ sơ, thói quen, lịch trình, mối quan hệ, tính cách, điểm mạnh/yếu.
   * Tối ưu chạy trực tiếp bằng bộ vi xử lý (CPU), không cần card đồ họa, 100% offline.
+  * Bản đầu tiên dành cho Windows 10/11.
 * [x] **ZCL Hub Portal & Web Studio**:
   * Trang giới thiệu đa tab độc lập, giao diện Dark Modern Tech.
   * Mô phỏng dùng thử gửi file và điều khiển chuột ngay trên trình duyệt mà không cần cài đặt.
@@ -35,7 +36,7 @@ Tài liệu này ghi nhận kế hoạch phát triển và mở rộng bộ ứn
 * **Mục tiêu**: Máy tính lưu trữ kho kiến thức cá nhân hoặc gia đình, các thiết bị khác trong phòng kết nối qua Wi-Fi chung để tra cứu và hỏi đáp.
 
 ### 3. Mở rộng hỗ trợ hệ điều hành
-* Dự kiến phát triển thêm phiên bản cho máy tính Mac (macOS), Linux và thiết bị di động.
+* Bản đầu tiên chỉ dành cho Windows 10/11. Sau đó mới phát triển thêm phiên bản cho máy tính Mac (macOS), Linux và thiết bị di động.
 
 ---
 
