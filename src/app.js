@@ -69,14 +69,10 @@ const i18n = {
     arch_sub: "Được thiết kế cho nhu cầu làm việc hàng ngày trong phòng: truyền file siêu tốc, điều khiển máy tính và kết nối tức thì.",
     arch_z1: "VÙNG 01 · GỬI FILE",
     arch_z2: "VÙNG 02 · ĐIỀU KHIỂN",
-    arch_z3: "VÙNG 03 · CHIẾU MÀN HÌNH",
-    arch_z4: "VÙNG 04 · NHẮN TIN",
-    arch_z5: "VÙNG 05 · ĐỒNG BỘ",
+    arch_z3: "VÙNG 03 · TRỢ LÝ THẤU HIỂU",
     arch_desc_tp: "Gửi nhận file dung lượng không giới hạn và copy-paste tức thì giữa hai máy tính cùng phòng.",
     arch_desc_rm: "Điều khiển máy tính từ xa mượt mà như ngồi trước máy thật, chuột bấm ăn ngay không giật lag.",
-    arch_desc_cast: "Chiếu màn hình và âm thanh không dây từ máy tính lên TV hoặc máy chiếu phòng họp.",
-    arch_desc_chat: "Nhắn tin và gọi thoại nhanh giữa các máy cùng phòng, bảo mật riêng tư tuyệt đối.",
-    arch_desc_sync: "Tự động sao lưu và đồng bộ hai chiều thư mục làm việc giữa máy bàn và laptop.",
+    arch_desc_mind: "Trợ lý thấu hiểu cá nhân chạy 100% trên máy. Tự động ghi nhớ thói quen, lịch trình, mối quan hệ và tính cách trong phòng.",
     arch_explore: "Khám phá",
     road_dev: "Đang phát triển",
     road_plan: "Lên ý tưởng",
@@ -108,6 +104,7 @@ const i18n = {
     store_catalog_sub: "Chọn một ứng dụng bên dưới để xem trang giới thiệu chi tiết, thông số và trải nghiệm.",
     store_btn_view_teleport: "Xem trang chi tiết Teleport",
     store_btn_view_remote: "Xem trang chi tiết Remote",
+    store_btn_view_mind: "Xem trang chi tiết Mind",
     store_back_catalog: "Quay lại Kho ứng dụng",
     crumb_store: "Kho ứng dụng",
 
@@ -143,6 +140,20 @@ const i18n = {
     dt_rm_f3_desc: "Kể cả khi bị đứt cáp quang biển hoặc mất kết nối mạng ngoài, hai máy tính kết nối cùng Wi-Fi vẫn điều khiển nhau trơn tru.",
     dt_rm_f4_title: "Bảo mật cao & Ngắt kết nối khẩn cấp",
     dt_rm_f4_desc: "Luôn hiển thị thông báo xin phép trước khi kết nối, kèm thanh ngắt kết nối một chạm an toàn tuyệt đối bất cứ lúc nào.",
+
+    // Dedicated App: Mind
+    dt_mind_category: "Trợ lý thấu hiểu cá nhân & Trí nhớ nội bộ",
+    dt_mind_lede: "Trợ lý cá nhân hóa chạy 100% trên máy tính, tự động ghi nhớ thói quen, lịch trình, tính cách và các mối quan hệ mà không cần kết nối Internet.",
+    dt_mind_btn_dl: "Tải bản cài đặt Mind (.exe)",
+    dt_mind_showcase_title: "Trình diễn trực quan tính năng ZCL Mind",
+    dt_mind_f1_title: "Bản đồ thấu hiểu 6 chiều",
+    dt_mind_f1_desc: "Tự động phân loại và lưu giữ sâu sắc về bản thân, thói quen, kế hoạch làm việc, tính cách và mạng lưới quan hệ.",
+    dt_mind_f2_title: "Kết hợp thu thập thông minh",
+    dt_mind_f2_desc: "Có sẵn biểu mẫu nhập nhanh lúc bắt đầu và tự động nhận biết, cập nhật thêm thói quen mới qua từng câu trò chuyện thường ngày.",
+    dt_mind_f3_title: "Hoạt động 100% bằng CPU trên máy",
+    dt_mind_f3_desc: "Tối ưu hóa chạy êm ái trên các dòng chip máy tính phổ thông, không cần card đồ họa rời, phản hồi tức thì dưới 1.5 giây.",
+    dt_mind_f4_title: "Toàn quyền kiểm soát và riêng tư",
+    dt_mind_f4_desc: "Dữ liệu tuyệt đối không rời khỏi máy tính. Người dùng có toàn quyền xem, sửa hoặc xóa bất kỳ thông tin nào máy đã ghi nhớ.",
 
     // Specifications
     dt_specs_title: "Thông số kỹ thuật thực tế",
@@ -196,6 +207,15 @@ const i18n = {
     rm_btn_dl: "Tải Remote (.exe)",
     rm_btn_dl_view: "Xem trong mục Tải về",
     rm_btn_web: "Dùng thử trên Web",
+
+    mind_status: "Đang phát triển",
+    mind_title: "ZCL Mind",
+    mind_desc: "Trợ lý thấu hiểu cá nhân chạy 100% trên máy tính. Tự động ghi nhớ thói quen, sở thích, lịch trình, mối quan hệ và tính cách mà không gửi dữ liệu ra ngoài.",
+    mind_f1: "Hồ sơ thấu hiểu 6 chiều: thói quen, sở thích, lịch trình, mối quan hệ, tính cách, điểm mạnh/yếu",
+    mind_f2: "Kết hợp biểu mẫu nhập nhanh ban đầu và tự động bóc tách thông tin khi trò chuyện hàng ngày",
+    mind_f3: "Hoạt động 100% bằng bộ vi xử lý máy tính (CPU), không cần Internet, bảo mật tuyệt đối",
+    mind_btn_dl: "Tải Mind (.exe)",
+    mind_btn_dl_view: "Xem trong mục Tải về",
     road_title: "Các ứng dụng dự kiến ra mắt",
 
     // Download Center
@@ -206,6 +226,8 @@ const i18n = {
     dl_tp_desc: "Ứng dụng gửi nhận file siêu nhanh và copy paste tức thì giữa các máy tính trong cùng mạng Wi-Fi.",
     dl_rm_name: "ZCL Remote",
     dl_rm_desc: "Ứng dụng điều khiển máy tính từ xa siêu mượt. Chuột bấm ăn ngay, màn hình mượt mà không giật lag.",
+    dl_mind_name: "ZCL Mind",
+    dl_mind_desc: "Ứng dụng trợ lý thấu hiểu cá nhân chạy trực tiếp trên máy. Tự động ghi nhớ thói quen, lịch trình, 100% riêng tư không qua Internet.",
     dl_btn_installer: "Tải bản cài đặt (.exe)",
     dl_btn_portable: "Tải bản chạy ngay không cần cài (.zip)",
     dl_sync_live: "Bản mới nhất",
@@ -605,14 +627,10 @@ const i18n = {
     arch_sub: "Engineered for daily room workflows: ultra-fast file transfer, remote desktop control, and instant peer sync.",
     arch_z1: "ZONE 01 · FILE TRANSFER",
     arch_z2: "ZONE 02 · REMOTE CONTROL",
-    arch_z3: "ZONE 03 · SCREEN CAST",
-    arch_z4: "ZONE 04 · LOCAL CHAT",
-    arch_z5: "ZONE 05 · FOLDER SYNC",
+    arch_z3: "ZONE 03 · PERSONAL ASSISTANT",
     arch_desc_tp: "Send unlimited size files and instant 2-way clipboard sync between room PCs.",
     arch_desc_rm: "Fluid remote PC control with 0ms instant mouse response, feels like sitting in front of the real machine.",
-    arch_desc_cast: "Cast desktop screen and audio wirelessly to conference TVs or projectors.",
-    arch_desc_chat: "Direct peer chat and quick voice between room computers with zero cloud routing.",
-    arch_desc_sync: "Automatic bidirectional folder sync between your desktop and laptop in local LAN.",
+    arch_desc_mind: "Private personal assistant running 100% on your machine. Automatically remembers habits, schedule, relationships, and traits.",
     arch_explore: "Explore",
     road_dev: "In Development",
     road_plan: "Planned",
@@ -644,6 +662,7 @@ const i18n = {
     store_catalog_sub: "Choose an application below to view detailed features, specifications, and demo.",
     store_btn_view_teleport: "View Teleport Page",
     store_btn_view_remote: "View Remote Page",
+    store_btn_view_mind: "View Mind Page",
     store_back_catalog: "Back to App Store",
     crumb_store: "App Store",
 
@@ -679,6 +698,20 @@ const i18n = {
     dt_rm_f3_desc: "Even during broadband or undersea cable outages, your local Wi-Fi devices remain fully connected.",
     dt_rm_f4_title: "High privacy & one-touch disconnect",
     dt_rm_f4_desc: "Always requires permission before connecting, featuring an emergency disconnect bar for complete safety.",
+
+    // Dedicated App: Mind
+    dt_mind_category: "Personal Understanding & Local Memory Assistant",
+    dt_mind_lede: "Personal assistant running 100% on your PC, remembering habits, schedules, personality traits, and relationships without internet.",
+    dt_mind_btn_dl: "Download Mind Installer (.exe)",
+    dt_mind_showcase_title: "Visual Demonstration of ZCL Mind",
+    dt_mind_f1_title: "6-Dimensional Persona Map",
+    dt_mind_f1_desc: "Automatically organizes and retains deep memory of identity, habits, schedule, personality, and relationships.",
+    dt_mind_f2_title: "Hybrid Smart Capture",
+    dt_mind_f2_desc: "Features a quick initial onboarding questionnaire plus ongoing automatic extraction through everyday natural conversation.",
+    dt_mind_f3_title: "100% CPU-Powered On-Device",
+    dt_mind_f3_desc: "Optimized for standard desktop and laptop processors without requiring a discrete GPU, responding in under 1.5 seconds.",
+    dt_mind_f4_title: "Complete User Ownership & Privacy",
+    dt_mind_f4_desc: "Data strictly never leaves your machine. Users maintain full control to inspect, edit, or delete any recorded item at any time.",
 
     // Specifications
     dt_specs_title: "Technical Specifications",
@@ -732,6 +765,15 @@ const i18n = {
     rm_btn_dl: "Download Remote (.exe)",
     rm_btn_dl_view: "View in Download Center",
     rm_btn_web: "Try on Web",
+
+    mind_status: "In Development",
+    mind_title: "ZCL Mind",
+    mind_desc: "Personal assistant running 100% on your PC. Automatically remembers habits, schedule, relationships, and personality with zero cloud routing.",
+    mind_f1: "6-dimensional understanding: habits, schedule, relationships, personality, strengths & weaknesses",
+    mind_f2: "Combines quick onboarding questionnaire with ongoing natural conversation extraction",
+    mind_f3: "Operates 100% on local CPU, no internet required, completely private and secure",
+    mind_btn_dl: "Download Mind (.exe)",
+    mind_btn_dl_view: "View in Download Center",
     road_title: "Upcoming Applications",
 
     // Download Center
@@ -742,6 +784,8 @@ const i18n = {
     dl_tp_desc: "High-speed file transfer and instant clipboard synchronization across local computers.",
     dl_rm_name: "ZCL Remote",
     dl_rm_desc: "Ultra-smooth remote desktop control with instant mouse feedback and no lag.",
+    dl_mind_name: "ZCL Mind",
+    dl_mind_desc: "Private personal assistant running directly on your PC. Remembers habits, routines, relationships, 100% offline.",
     dl_btn_installer: "Download Installer (.exe)",
     dl_btn_portable: "Download Portable (.zip)",
     dl_sync_live: "Latest build",
@@ -1208,10 +1252,12 @@ function showAppDetail(appName, updateHash = true) {
   const catalogView = document.getElementById('appsCatalogView');
   const teleportView = document.getElementById('appDetailTeleport');
   const remoteView = document.getElementById('appDetailRemote');
+  const mindView = document.getElementById('appDetailMind');
 
   if (catalogView) catalogView.classList.remove('active-app-view');
   if (teleportView) teleportView.classList.remove('active-app-view');
   if (remoteView) remoteView.classList.remove('active-app-view');
+  if (mindView) mindView.classList.remove('active-app-view');
 
   if (appName === 'teleport') {
     if (teleportView) teleportView.classList.add('active-app-view');
@@ -1219,6 +1265,9 @@ function showAppDetail(appName, updateHash = true) {
   } else if (appName === 'remote') {
     if (remoteView) remoteView.classList.add('active-app-view');
     if (updateHash) history.pushState(null, '', '#apps/remote');
+  } else if (appName === 'mind') {
+    if (mindView) mindView.classList.add('active-app-view');
+    if (updateHash) history.pushState(null, '', '#apps/mind');
   } else {
     if (catalogView) catalogView.classList.add('active-app-view');
     if (updateHash) history.pushState(null, '', '#apps');
@@ -1268,6 +1317,9 @@ function switchMainTab(targetTabId, updateHash = true) {
   } else if (cleanId === 'apps/remote' || cleanId === 'remote') {
     cleanId = 'apps';
     subApp = 'remote';
+  } else if (cleanId === 'apps/mind' || cleanId === 'mind') {
+    cleanId = 'apps';
+    subApp = 'mind';
   } else if (cleanId === 'apps') {
     subApp = null;
   }
@@ -1283,6 +1335,7 @@ function switchMainTab(targetTabId, updateHash = true) {
     'download': 'download',
     'download-teleport': 'download',
     'download-remote': 'download',
+    'download-mind': 'download',
     'studio': 'studio',
     'quickstart': 'faq',
     'guide': 'faq',
@@ -2780,6 +2833,25 @@ const DOWNLOAD_REGISTRY = {
         url: 'https://github.com/Luffyreals/zero-cloud-lan-remote/releases/latest/download/zcl-remote-gui-latest-windows-x64.zip'
       }
     }
+  },
+  mind: {
+    name: 'ZCL Mind',
+    repo: 'Luffyreals/zero-cloud-lan-mind',
+    version: 'v0.1.0-alpha',
+    isLive: false,
+    releaseUrl: 'https://github.com/Luffyreals/zero-cloud-lan-mind/releases',
+    files: {
+      exe: {
+        name: 'zcl-mind-setup-latest-x64.exe',
+        size: '2.1 GB',
+        url: 'https://github.com/Luffyreals/zero-cloud-lan-mind/releases/latest/download/zcl-mind-setup-latest-x64.exe'
+      },
+      zip: {
+        name: 'zcl-mind-portable-windows-x64.zip',
+        size: '1.9 GB',
+        url: 'https://github.com/Luffyreals/zero-cloud-lan-mind/releases/latest/download/zcl-mind-portable-windows-x64.zip'
+      }
+    }
   }
 };
 
@@ -2939,13 +3011,41 @@ function updateDownloadCenterUI() {
     }
   }
 
+  // Mind card UI
+  const mindData = DOWNLOAD_REGISTRY.mind;
+  const mindVerEl = document.getElementById('mindVersionText');
+  const mindSizeEl = document.getElementById('mindSizeText');
+  const mindZipLink = document.getElementById('mindPortableLink');
+  const mindSyncBadge = document.getElementById('mindSyncBadge');
+
+  if (mindVerEl) {
+    mindVerEl.innerText = `${isVi ? 'Phiên bản' : 'Version'} ${mindData.version} · Windows 10/11`;
+  }
+  if (mindSizeEl) {
+    mindSizeEl.innerText = mindData.files.exe.size;
+  }
+  if (mindZipLink) {
+    mindZipLink.innerText = `${isVi ? 'Tải bản chạy ngay không cần cài' : 'Download Portable'} (.zip - ${mindData.files.zip.size})`;
+  }
+  if (mindSyncBadge) {
+    const textEl = mindSyncBadge.querySelector('.sync-text');
+    if (textEl) {
+      textEl.innerText = mindData.isLive 
+        ? (isVi ? 'Bản mới nhất' : 'Latest build')
+        : (isVi ? 'Bản ổn định' : 'Stable build');
+    }
+  }
+
   const tpHasUpdate = renderInstalledStatusForApp('teleport', 'tpInstalledStatus', 'btnMainDlTeleportText');
   const rmHasUpdate = renderInstalledStatusForApp('remote', 'rmInstalledStatus', 'btnMainDlRemoteText');
+  const mindHasUpdate = renderInstalledStatusForApp('mind', 'mindInstalledStatus', 'btnMainDlMindText');
 
   if (tpHasUpdate) {
     showAutoUpdateBanner('teleport');
   } else if (rmHasUpdate) {
     showAutoUpdateBanner('remote');
+  } else if (mindHasUpdate) {
+    showAutoUpdateBanner('mind');
   }
 }
 
@@ -3266,6 +3366,16 @@ function initDownloadModal() {
       if (modalDesc) modalDesc.innerText = isVi 
         ? `Bản ${appData.version} cho máy tính Windows 10/11 — Gửi nhận file siêu tốc.` 
         : `Build ${appData.version} for Windows 10/11 — Fast local file transfers.`;
+    } else if (app === 'mind') {
+      if (modalIcon) {
+        modalIcon.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2a4 4 0 0 0-4 4c0 1.5.8 2.8 2 3.5"/><path d="M12 22a4 4 0 0 0 4-4c0-1.5-.8-2.8-2-3.5"/><path d="M2 12a4 4 0 0 0 4 4c1.5 0 2.8-.8 3.5-2"/><path d="M22 12a4 4 0 0 0-4-4c-1.5 0-2.8.8-3.5 2"/><path d="M5 5l3 3"/><path d="M19 19l-3-3"/><path d="M5 19l3-3"/><path d="M19 5l-3 3"/></svg>';
+        modalIcon.style.background = 'var(--pink-dark)';
+        modalIcon.style.color = 'var(--pink)';
+      }
+      if (modalTitle) modalTitle.innerText = isVi ? 'Tải ZCL Mind' : 'Download ZCL Mind';
+      if (modalDesc) modalDesc.innerText = isVi 
+        ? `Bản ${appData.version} cho máy tính Windows 10/11 — Trợ lý thấu hiểu cá nhân chạy 100% trên máy.` 
+        : `Build ${appData.version} for Windows 10/11 — Private local personal assistant.`;
     } else {
       if (modalIcon) {
         modalIcon.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>';

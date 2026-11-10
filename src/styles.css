@@ -757,6 +757,18 @@ header.site-header {
   box-shadow: 0 8px 28px rgba(206, 163, 243, 0.45);
 }
 
+.btn-pink {
+  background: linear-gradient(135deg, var(--pink) 0%, #f77c8e 100%);
+  color: #2b0b14;
+  font-weight: 700;
+  box-shadow: 0 4px 20px var(--pink-glow);
+}
+
+.btn-pink:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(253, 170, 179, 0.45);
+}
+
 .btn-ghost {
   background: transparent;
   color: var(--text-muted);
@@ -1603,6 +1615,12 @@ header.site-header {
   border-top: 4px solid var(--lilac);
 }
 
+.card-mind {
+  border-top: 4px solid var(--pink);
+}
+
+.card-mind .feature-list li svg { color: var(--pink); }
+
 .card-top {
   display: flex;
   justify-content: space-between;
@@ -1630,6 +1648,12 @@ header.site-header {
   background: var(--lilac-dark);
   color: var(--lilac);
   border: 1px solid var(--lilac);
+}
+
+.mind-icon {
+  background: var(--pink-dark);
+  color: var(--pink);
+  border: 1px solid var(--pink);
 }
 
 .product-pill {
@@ -3942,6 +3966,10 @@ footer.site-footer {
   border-top: 4px solid var(--lilac);
 }
 
+.download-card.mind {
+  border-top: 4px solid var(--pink);
+}
+
 .download-card-header {
   display: flex;
   justify-content: space-between;
@@ -4061,6 +4089,29 @@ footer.site-footer {
 .btn-download-main.remote:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 28px rgba(206, 163, 243, 0.45);
+}
+
+.btn-download-main.mind {
+  background: linear-gradient(135deg, var(--pink) 0%, #f77c8e 100%);
+  color: #2b0b14;
+  box-shadow: 0 4px 20px var(--pink-glow);
+}
+
+.btn-download-main.mind:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(253, 170, 179, 0.45);
+}
+
+[data-theme="light"] .btn-download-main.mind {
+  background: linear-gradient(135deg, #A1234D 0%, #7d1739 100%);
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 18px rgba(161, 35, 77, 0.28);
+}
+
+[data-theme="light"] .btn-download-main.mind:hover {
+  background: linear-gradient(135deg, #871a3e 0%, #63102c 100%);
+  color: #FFFFFF !important;
+  box-shadow: 0 6px 24px rgba(161, 35, 77, 0.38);
 }
 
 [data-theme="light"] .btn-download-main.teleport {
@@ -5931,6 +5982,11 @@ footer.site-footer {
   box-shadow: 0 16px 40px rgba(206, 163, 243, 0.15);
 }
 
+.arch-card-mind:hover {
+  border-color: rgba(253, 170, 179, 0.5);
+  box-shadow: 0 16px 40px rgba(253, 170, 179, 0.15);
+}
+
 .arch-card-pill {
   display: flex;
   align-items: center;
@@ -6118,6 +6174,30 @@ footer.site-footer {
   gap: 6px;
 }
 
+.arch-mind-anim {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.arch-mind-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+}
+
+.arch-mind-tag {
+  font-size: 0.68rem;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(253, 170, 179, 0.15);
+  color: var(--pink);
+  border: 1px solid rgba(253, 170, 179, 0.3);
+  font-weight: 600;
+}
+
 .arch-bubble {
   font-size: 0.68rem;
   padding: 4px 8px;
@@ -6198,6 +6278,18 @@ footer.site-footer {
   background: var(--lilac);
   color: #1a082d;
   box-shadow: 0 4px 14px var(--lilac-glow);
+}
+
+.arch-explore-btn.pink {
+  background: rgba(253, 170, 179, 0.12);
+  color: var(--pink);
+  border: 1px solid rgba(253, 170, 179, 0.3);
+}
+
+.arch-explore-btn.pink:hover {
+  background: var(--pink);
+  color: #2b0b14;
+  box-shadow: 0 4px 14px var(--pink-glow);
 }
 
 [data-theme="light"] .arch-explore-btn.mint {

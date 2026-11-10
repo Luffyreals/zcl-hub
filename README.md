@@ -33,8 +33,7 @@
 | :--- | :--- | :--- | :--- |
 | **ZCL Teleport** | Gửi nhận file lớn và đồng bộ văn bản nhanh giữa 2 máy | Thử nghiệm v0.1 | [Tải về](https://luffyreals.github.io/zcl-hub/#download) |
 | **ZCL Remote** | Điều khiển máy tính từ xa siêu mượt qua Wi-Fi | Thử nghiệm v0.1 | [Tải về](https://luffyreals.github.io/zcl-hub/#download) |
-| **ZCL Cast** | Chiếu màn hình không dây lên TV hoặc máy chiếu | Đang phát triển | Sắp ra mắt |
-| **ZCL Chat** | Nhắn tin và gọi thoại nội bộ an toàn | Lên ý tưởng | Sắp ra mắt |
+| **ZCL Mind** | Trợ lý thấu hiểu cá nhân, thói quen & lịch trình chạy trên máy | Đang phát triển | Sắp ra mắt |
 
 ---
 
@@ -44,7 +43,7 @@ Toàn bộ tài liệu chi tiết được lưu trong thư mục [`docs/`](docs/
 - [**Hướng dẫn sử dụng chi tiết**](docs/user-guide.md): Từng bước tải, cài đặt và kết nối hai máy tính.
 - [**Nguyên lý hoạt động**](docs/architecture.md): Cách truyền file và điều khiển chuột mượt mà qua Wi-Fi chung.
 - [**Hỏi đáp & Xử lý sự cố**](docs/faq.md): Tường lửa Windows, mạng riêng tư và mẹo đạt tốc độ cao nhất.
-- [**Lộ trình phát triển**](docs/roadmap.md): Kế hoạch cho ZCL Cast, ZCL Chat và ZCL Sync.
+- [**Lộ trình phát triển**](docs/roadmap.md): Kế hoạch hoàn thiện và nâng cấp bộ sản phẩm.
 
 ---
 
