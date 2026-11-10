@@ -11,7 +11,7 @@ Tại đây, bạn sẽ tìm thấy toàn bộ hướng dẫn sử dụng, nguy�
 * [**Hướng dẫn sử dụng (User Guide)**](user-guide.md): Hướng dẫn chi tiết từng bước tải về, cài đặt và kết nối hai máy tính để gửi file và điều khiển từ xa.
 * [**Nguyên lý hoạt động (Architecture)**](architecture.md): Giải thích cách các máy tính tìm thấy nhau và kết nối trực tiếp trong mạng Wi-Fi chung mà không cần đến Internet.
 * [**Hỏi đáp & Xử lý sự cố (FAQ & Troubleshooting)**](faq.md): Các câu hỏi thường gặp về tốc độ, tường lửa Windows, mạng riêng tư và hướng dẫn khắc phục khi không tìm thấy máy.
-* [**Lộ trình phát triển (Roadmap)**](roadmap.md): Kế hoạch nâng cấp và phát triển các ứng dụng tiếp theo như ZCL Cast, ZCL Chat và ZCL Sync.
+* [**Lộ trình phát triển (Roadmap)**](roadmap.md): Kế hoạch nâng cấp và phát triển bộ ứng dụng ZCL Teleport, ZCL Remote và ZCL Mind.
 
 ---
 
