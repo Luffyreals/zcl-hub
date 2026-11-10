@@ -20,4 +20,4 @@ Tại đây, bạn sẽ tìm thấy toàn bộ hướng dẫn sử dụng, nguy�
 * **Tác giả**: Nguyễn Hoàng Tùng ([@Luffyreals](https://github.com/Luffyreals))
 * **Giấy phép**:
   * **ZCL Hub & ZCL Teleport**: Mã nguồn mở theo giấy phép [GNU General Public License v3.0 (GPL-3.0)](../LICENSE).
-  * **ZCL Remote & ZCL Mind**: Phần mềm miễn phí, mã nguồn đóng (**All Rights Reserved**).
+  * **ZCL Remote & ZCL Mind**: Phần mềm miễn phí, độc quyền.

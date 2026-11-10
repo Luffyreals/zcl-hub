@@ -433,7 +433,7 @@ class TestPWAAndAssets(unittest.TestCase):
     def test_service_worker_asset_list(self):
         with open(SW_JS, "r", encoding="utf-8") as f:
             sw = f.read()
-        self.assertIn("zcl-hub-v38", sw, "SW cache version must be updated")
+        self.assertIn("zcl-hub-v39", sw, "SW cache version must be updated")
         for asset in ["./index.html", "./404.html", "./src/styles.css", "./src/app.js", "./manifest.json", "./assets/logo.svg"]:
             self.assertIn(asset, sw, f"Service worker must cache {asset}")
 

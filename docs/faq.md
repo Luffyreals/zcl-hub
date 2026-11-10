@@ -40,4 +40,4 @@ Nếu hai máy không tự động nhìn thấy tên của nhau, hãy kiểm tra
 * **Tác giả dự án**: Nguyễn Hoàng Tùng ([@Luffyreals](https://github.com/Luffyreals))
 * **Giấy phép**:
   * **ZCL Hub & ZCL Teleport**: Mã nguồn mở tự do theo giấy phép **GPL-3.0**.
-  * **ZCL Remote & ZCL Mind**: Phần mềm miễn phí, mã nguồn đóng thuộc bản quyền của Nguyễn Hoàng Tùng (**All Rights Reserved**).
+  * **ZCL Remote & ZCL Mind**: Phần mềm miễn phí, độc quyền thuộc bản quyền của Nguyễn Hoàng Tùng.
