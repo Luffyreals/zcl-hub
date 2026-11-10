@@ -1,6 +1,15 @@
-# Gemini & Antigravity Local Cache
+# Gemini & Antigravity Agent Configurations
+gemini.md
+GEMINI.md
+CLAUDE.md
+AGENTS.md
 .gemini/
+.claude/
+.agent/
+.agents/
+agents/
 subagents/
+*.agent.md
 
 # Operating System Files
 .DS_Store
