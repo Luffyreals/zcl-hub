@@ -560,12 +560,14 @@
             }
           },
           {
-            name: "Hộp thoại Modal Góp ý & Báo lỗi (#modalFeedbackForm) sẵn sàng",
+            name: "Hộp thoại Modal Góp ý & Báo lỗi (#modalFeedbackForm, #modalFbAppGroup, #modalFbBtnCopy) sẵn sàng",
             run: (win) => {
               const fm = win.document.getElementById('feedbackModal');
               const form = win.document.getElementById('modalFeedbackForm');
               const stars = win.document.getElementById('modalFbRatingStars');
-              return !!fm && !!form && !!stars;
+              const appGroup = win.document.getElementById('modalFbAppGroup');
+              const copyBtn = win.document.getElementById('modalFbBtnCopy');
+              return !!fm && !!form && !!stars && !!appGroup && !!copyBtn;
             }
           },
           {

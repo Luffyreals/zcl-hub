@@ -20,5 +20,6 @@ desktop.ini
 *.log
 tmp/
 temp/
+scratch/
 __pycache__/
 *.pyc

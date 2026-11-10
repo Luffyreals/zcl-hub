@@ -33,6 +33,10 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+  // Pass non-GET requests (e.g. POST AJAX forms) directly to the network
+  if (event.request.method !== 'GET') {
+    return;
+  }
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       return (

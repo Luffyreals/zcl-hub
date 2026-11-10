@@ -287,10 +287,22 @@ class TestComponentsIntegrity(unittest.TestCase):
         self.assertIn('id="btnHeaderFeedback"', self.html)
         self.assertIn('id="modalFeedbackForm"', self.html)
         self.assertIn('id="modalFbRatingStars"', self.html)
+        self.assertIn('id="modalFbAppGroup"', self.html)
         self.assertIn('id="modalFbMessage"', self.html)
+        self.assertIn('id="modalFbBtnCopy"', self.html)
         self.assertIn('.feedback-form', self.css)
         self.assertIn('.modal-segmented-tabs', self.css)
         self.assertIn('.modal-tab-pill', self.css)
+        self.assertIn('.spin-icon', self.css)
+        self.assertIn('@keyframes fbSpin', self.css)
+
+        # Verify automated email dispatch via FormSubmit in app.js
+        with open(APP_JS, "r", encoding="utf-8") as f:
+            js = f.read()
+        self.assertIn("https://formsubmit.co/ajax/hoangtungcnh@gmail.com", js)
+        self.assertIn("setupChips('modalFbAppGroup')", js)
+        self.assertIn("modalFbBtnCopy", js)
+        self.assertIn("fb_toast_sent", js)
 
     def test_donate_components(self):
         # Verify duplicate section was cleanly removed from page

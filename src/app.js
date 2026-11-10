@@ -453,8 +453,9 @@ const i18n = {
     fb_email_label: "Email liên hệ (tùy chọn):",
     fb_email_ph: "email@cuaban.com",
     fb_btn_submit: "Gửi ý kiến đóng góp",
+    fb_submitting: "Đang gửi góp ý...",
     fb_success_title: "Cảm ơn bạn đã gửi đóng góp!",
-    fb_success_desc: "Ý kiến của bạn đã được ghi nhận vào hệ thống. Bạn cũng có thể gửi nhanh qua Email hoặc thảo luận cùng tác giả trên GitHub.",
+    fb_success_desc: "Ý kiến của bạn đã được gửi trực tiếp đến tác giả qua email. Cảm ơn bạn đã đồng hành hoàn thiện ZCL Hub!",
     fb_btn_mail: "Gửi email cho tác giả",
     fb_btn_github: "Mở thảo luận GitHub",
     fb_btn_copy: "Sao chép nội dung",
@@ -468,6 +469,7 @@ const i18n = {
     fb_testi_3_text: "Giao diện tối rất hiện đại, trực quan. Thao tác copy ở máy này dán sang máy kia siêu tiện lợi khi làm việc văn phòng.",
     fb_testi_3_author: "Nguyễn Phương Linh · Quản lý dự án",
     fb_toast_submitted: "Đã lưu góp ý của bạn thành công!",
+    fb_toast_sent: "Đã gửi ý kiến đóng góp đến tác giả thành công!",
     fb_toast_copied: "Đã sao chép nội dung góp ý vào khay nhớ tạm!",
     fb_modal_title: "Góp ý &amp; Báo lỗi",
     fb_modal_desc: "Đóng góp ý kiến trực tiếp giúp ZCL Hub ngày càng hoàn thiện hơn.",
@@ -968,8 +970,9 @@ const i18n = {
     fb_email_label: "Contact email (optional):",
     fb_email_ph: "yourname@domain.com",
     fb_btn_submit: "Submit Feedback",
+    fb_submitting: "Sending feedback...",
     fb_success_title: "Thank You for Your Feedback!",
-    fb_success_desc: "Your thoughts have been logged into the system. You can also send a direct email or join GitHub discussions.",
+    fb_success_desc: "Your feedback has been sent directly to the author via email. Thank you for helping improve ZCL Hub!",
     fb_btn_mail: "Send Email to Author",
     fb_btn_github: "Open GitHub Discussion",
     fb_btn_copy: "Copy Content",
@@ -983,6 +986,7 @@ const i18n = {
     fb_testi_3_text: "Sleek dark interface, completely intuitive. Copying on one PC and pasting instantly onto another makes daily work a breeze.",
     fb_testi_3_author: "Phuong Linh · Project Manager",
     fb_toast_submitted: "Feedback saved successfully!",
+    fb_toast_sent: "Feedback sent directly to author successfully!",
     fb_toast_copied: "Copied feedback content to clipboard!",
     fb_modal_title: "Feedback &amp; Issues",
     fb_modal_desc: "Share your thoughts to help ZCL Hub improve continuously.",
@@ -2077,16 +2081,29 @@ function initStudio() {
         ? keyInput.value 
         : (currentLang === 'vi' ? 'Xin chào từ ZCL Remote!' : 'Hello from ZCL Remote!');
 
-      ctx.font = '13px Segoe UI, sans-serif';
-      ctx.fillStyle = isLight ? '#0B5E47' : '#85edca';
-      ctx.fillText(currentLang === 'vi' 
-        ? '● Kết nối mạng nội bộ: Độ trễ 0.2ms · Chuột ăn ngay'
-        : '● Local Network Direct: 0.2ms latency · Zero lag', winX + 22, winY + 65);
+      if (winW < 360) {
+        ctx.font = '11px Segoe UI, sans-serif';
+        ctx.fillStyle = isLight ? '#0B5E47' : '#85edca';
+        ctx.fillText(currentLang === 'vi' 
+          ? '● Độ trễ 0.2ms · Chuột ăn ngay'
+          : '● 0.2ms latency · Zero lag', winX + 16, winY + 60);
 
-      ctx.fillStyle = isLight ? '#4B2E91' : '#cea3f3';
-      ctx.fillText(currentLang === 'vi' 
-        ? '● Tốc độ hiển thị: 60 khung hình/giây · Rất mượt mà' 
-        : '● Frame rate: 60 FPS smooth motion', winX + 22, winY + 92);
+        ctx.fillStyle = isLight ? '#4B2E91' : '#cea3f3';
+        ctx.fillText(currentLang === 'vi' 
+          ? '● Tốc độ: 60 FPS · Mượt mà' 
+          : '● Speed: 60 FPS · Smooth', winX + 16, winY + 82);
+      } else {
+        ctx.font = '13px Segoe UI, sans-serif';
+        ctx.fillStyle = isLight ? '#0B5E47' : '#85edca';
+        ctx.fillText(currentLang === 'vi' 
+          ? '● Kết nối mạng nội bộ: Độ trễ 0.2ms · Chuột ăn ngay'
+          : '● Local Network Direct: 0.2ms latency · Zero lag', winX + 22, winY + 65);
+
+        ctx.fillStyle = isLight ? '#4B2E91' : '#cea3f3';
+        ctx.fillText(currentLang === 'vi' 
+          ? '● Tốc độ hiển thị: 60 khung hình/giây · Rất mượt mà' 
+          : '● Frame rate: 60 FPS smooth motion', winX + 22, winY + 92);
+      }
 
       // User's Real-time Typed Content Box
       ctx.fillStyle = isLight ? '#F8F3EA' : 'rgba(8, 7, 12, 0.75)';
@@ -3922,7 +3939,7 @@ function initLiveDualTabSync() {
 }
 
 // ==========================================
-// 10. FEEDBACK SYSTEM (IN-PAGE & MODAL)
+// 10. FEEDBACK SYSTEM (MODAL & DIRECT SUBMISSION)
 // ==========================================
 function initFeedbackSystem() {
   const ratingTextsVi = {
@@ -4009,12 +4026,9 @@ function initFeedbackSystem() {
     };
   }
 
-  const pageStars = setupStars('pageFbRatingStars', 'pageFbRatingText');
-  const pageCat = setupChips('pageFbCatGroup');
-  const pageApp = setupChips('pageFbAppGroup');
-
   const modalStars = setupStars('modalFbRatingStars', 'modalFbRatingText');
   const modalCat = setupChips('modalFbCatGroup');
+  const modalApp = setupChips('modalFbAppGroup');
 
   function saveFeedback(entry) {
     try {
@@ -4026,121 +4040,18 @@ function initFeedbackSystem() {
     }
   }
 
-  window.renderUserRecentFeedbacks = renderUserRecentFeedbacks;
-  function renderUserRecentFeedbacks() {
-    const wrap = document.getElementById('pageUserFeedbacksWrap');
-    if (!wrap) return;
-    try {
-      const items = JSON.parse(localStorage.getItem('zcl_user_feedbacks') || '[]');
-      if (!items || items.length === 0) {
-        wrap.style.display = 'none';
-        wrap.innerHTML = '';
-        return;
-      }
-      wrap.style.display = 'block';
-      let html = `<div class="user-feedbacks-title">${currentLang === 'vi' ? 'Ý kiến đóng góp gần đây của bạn:' : 'Your recent submissions:'}</div><div class="user-feedbacks-list">`;
-      items.slice(0, 3).forEach((item) => {
-        const safeName = item.name ? item.name.replace(/</g, '&lt;') : (currentLang === 'vi' ? 'Ẩn danh' : 'Anonymous');
-        const safeMsg = item.message ? item.message.replace(/</g, '&lt;') : '';
-        const starSvg = '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
-        const starsHtml = starSvg.repeat(item.rating || 5);
-        html += `
-          <div class="user-feedback-pill-card">
-            <div class="ufb-header">
-              <span class="ufb-author">${safeName}</span>
-              <span class="ufb-stars">${starsHtml}</span>
-              <span class="ufb-time">${item.time || ''}</span>
-            </div>
-            <p class="ufb-msg">${safeMsg}</p>
-          </div>
-        `;
-      });
-      html += '</div>';
-      wrap.innerHTML = html;
-    } catch (err) {
-      console.warn('Feedback render error:', err);
-    }
-  }
-
-  renderUserRecentFeedbacks();
-
-  // Page Form Submission
-  const pageForm = document.getElementById('pageFeedbackForm');
-  const pageSuccess = document.getElementById('pageFbSuccessState');
-  if (pageForm && pageSuccess) {
-    pageForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const msgInput = document.getElementById('pageFbMessage');
-      const nameInput = document.getElementById('pageFbName');
-      const emailInput = document.getElementById('pageFbEmail');
-      const msg = msgInput ? msgInput.value.trim() : '';
-
-      if (!msg) {
-        if (msgInput) {
-          msgInput.focus();
-          msgInput.classList.add('input-error');
-          setTimeout(() => msgInput.classList.remove('input-error'), 2000);
-        }
-        return;
-      }
-
-      const entry = {
-        id: Date.now(),
-        rating: pageStars.getRating(),
-        category: pageCat.getValue() || 'feature',
-        targetApp: pageApp.getValue() || 'all',
-        name: nameInput ? nameInput.value.trim() : '',
-        email: emailInput ? emailInput.value.trim() : '',
-        message: msg,
-        time: new Date().toLocaleDateString(currentLang === 'vi' ? 'vi-VN' : 'en-US')
-      };
-
-      saveFeedback(entry);
-
-      // Setup action links
-      const btnMail = document.getElementById('pageFbBtnMail');
-      if (btnMail) {
-        const mailSubject = encodeURIComponent(`[ZCL Hub Feedback] ${entry.category.toUpperCase()} - ${entry.targetApp}`);
-        const mailBody = encodeURIComponent(`Đánh giá: ${entry.rating} sao\nỨng dụng: ${entry.targetApp}\nNgười gửi: ${entry.name || 'Ẩn danh'}\nEmail: ${entry.email || 'Không có'}\n\nNội dung:\n${entry.message}`);
-        btnMail.href = `mailto:hoangtungcnh@gmail.com?subject=${mailSubject}&body=${mailBody}`;
-      }
-
-      const btnCopy = document.getElementById('pageFbBtnCopy');
-      if (btnCopy) {
-        btnCopy.onclick = () => {
-          const text = `[ZCL Hub Góp ý]\nĐánh giá: ${entry.rating}/5 sao\nLoại: ${entry.category}\nỨng dụng: ${entry.targetApp}\nTên: ${entry.name || 'Ẩn danh'}\nNội dung: ${entry.message}`;
-          navigator.clipboard.writeText(text).then(() => {
-            showToast(i18n[currentLang].fb_toast_copied || 'Đã sao chép nội dung góp ý!');
-          });
-        };
-      }
-
-      pageForm.style.display = 'none';
-      pageSuccess.style.display = 'block';
-      showToast(i18n[currentLang].fb_toast_submitted || 'Đã lưu góp ý thành công!');
-      renderUserRecentFeedbacks();
-    });
-
-    const btnAnother = document.getElementById('pageFbBtnAnother');
-    if (btnAnother) {
-      btnAnother.addEventListener('click', () => {
-        pageForm.reset();
-        pageStars.reset();
-        pageForm.style.display = 'block';
-        pageSuccess.style.display = 'none';
-      });
-    }
-  }
+  window.renderUserRecentFeedbacks = function() {}; // Safe stub for language switch compatibility
 
   // Modal Form Submission
   const modalForm = document.getElementById('modalFeedbackForm');
   const modalSuccess = document.getElementById('modalFbSuccessState');
   if (modalForm && modalSuccess) {
-    modalForm.addEventListener('submit', (e) => {
+    modalForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const msgInput = document.getElementById('modalFbMessage');
       const nameInput = document.getElementById('modalFbName');
       const emailInput = document.getElementById('modalFbEmail');
+      const submitBtn = document.getElementById('modalFbSubmitBtn');
       const msg = msgInput ? msgInput.value.trim() : '';
 
       if (!msg) {
@@ -4152,40 +4063,129 @@ function initFeedbackSystem() {
         return;
       }
 
+      const catLabelsVi = { feature: 'Đề xuất tính năng', bug: 'Báo lỗi trải nghiệm', review: 'Chia sẻ cảm nhận', other: 'Khác' };
+      const catLabelsEn = { feature: 'Feature request', bug: 'Bug report', review: 'User experience', other: 'Other' };
+      const appLabelsVi = { all: 'ZCL Hub (Chung)', teleport: 'ZCL Teleport (Truyền file)', remote: 'ZCL Remote (Điều khiển)', studio: 'Dùng thử Web' };
+      const appLabelsEn = { all: 'ZCL Hub (General)', teleport: 'ZCL Teleport (Transfer)', remote: 'ZCL Remote (Control)', studio: 'Web Studio' };
+
+      const selectedCat = modalCat.getValue() || 'feature';
+      const selectedApp = modalApp.getValue() || 'all';
+
+      const catLabel = (currentLang === 'vi' ? catLabelsVi : catLabelsEn)[selectedCat] || selectedCat;
+      const appLabel = (currentLang === 'vi' ? appLabelsVi : appLabelsEn)[selectedApp] || selectedApp;
+
       const entry = {
         id: Date.now(),
         rating: modalStars.getRating(),
-        category: modalCat.getValue() || 'feature',
-        targetApp: 'all',
+        category: selectedCat,
+        categoryLabel: catLabel,
+        targetApp: selectedApp,
+        targetAppLabel: appLabel,
         name: nameInput ? nameInput.value.trim() : '',
         email: emailInput ? emailInput.value.trim() : '',
         message: msg,
         time: new Date().toLocaleDateString(currentLang === 'vi' ? 'vi-VN' : 'en-US')
       };
 
+      // 1. Luôn lưu vào LocalStorage để làm bản sao lưu trên thiết bị
       saveFeedback(entry);
 
+      // 2. Cấu hình sẵn liên kết gửi Email trực tiếp
       const btnMail = document.getElementById('modalFbBtnMail');
       if (btnMail) {
-        const mailSubject = encodeURIComponent(`[ZCL Hub Feedback] ${entry.category.toUpperCase()}`);
-        const mailBody = encodeURIComponent(`Đánh giá: ${entry.rating} sao\nNgười gửi: ${entry.name || 'Ẩn danh'}\nEmail: ${entry.email || 'Không có'}\n\nNội dung:\n${entry.message}`);
+        const mailSubject = encodeURIComponent(`[ZCL Hub Góp ý] ${entry.categoryLabel} - ${entry.targetAppLabel}`);
+        const mailBody = encodeURIComponent(`Đánh giá: ${entry.rating}/5 sao\nPhân loại: ${entry.categoryLabel}\nỨng dụng: ${entry.targetAppLabel}\nNgười gửi: ${entry.name || 'Ẩn danh'}\nEmail liên hệ: ${entry.email || 'Không có'}\n\nNội dung góp ý:\n${entry.message}`);
         btnMail.href = `mailto:hoangtungcnh@gmail.com?subject=${mailSubject}&body=${mailBody}`;
       }
 
+      // 3. Nút sao chép nội dung góp ý
       const btnCopy = document.getElementById('modalFbBtnCopy');
       if (btnCopy) {
         btnCopy.onclick = () => {
-          const text = `[ZCL Hub Góp ý]\nĐánh giá: ${entry.rating}/5 sao\nLoại: ${entry.category}\nTên: ${entry.name || 'Ẩn danh'}\nNội dung: ${entry.message}`;
+          const text = `[ZCL Hub Góp ý]\nĐánh giá: ${entry.rating}/5 sao\nPhân loại: ${entry.categoryLabel}\nỨng dụng: ${entry.targetAppLabel}\nNgười gửi: ${entry.name || (currentLang === 'vi' ? 'Ẩn danh' : 'Anonymous')}\nEmail: ${entry.email || (currentLang === 'vi' ? 'Không có' : 'None')}\n\nNội dung:\n${entry.message}`;
           navigator.clipboard.writeText(text).then(() => {
-            showToast(i18n[currentLang].fb_toast_copied || 'Đã sao chép nội dung góp ý!');
+            showToast(i18n[currentLang].fb_toast_copied || 'Đã sao chép nội dung góp ý vào khay nhớ tạm!');
           });
         };
       }
 
+      // 4. Cập nhật nút sang trạng thái đang gửi
+      const originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+          <svg class="spin-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="2" x2="12" y2="6"></line>
+            <line x1="12" y1="18" x2="12" y2="22"></line>
+            <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
+            <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
+            <line x1="2" y1="12" x2="6" y2="12"></line>
+            <line x1="18" y1="12" x2="22" y2="12"></line>
+            <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line>
+            <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
+          </svg>
+          <span>${i18n[currentLang].fb_submitting || (currentLang === 'vi' ? 'Đang gửi góp ý...' : 'Sending feedback...')}</span>
+        `;
+      }
+
+      // 5. Gửi trực tiếp đến hộp thư của tác giả (FormSubmit AJAX)
+      let networkSent = false;
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/hoangtungcnh@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            "Họ tên": entry.name || (currentLang === 'vi' ? 'Ẩn danh' : 'Anonymous'),
+            "Email liên hệ": entry.email || (currentLang === 'vi' ? 'Không có' : 'None'),
+            "Đánh giá": `${entry.rating}/5 sao`,
+            "Loại phản hồi": entry.categoryLabel,
+            "Ứng dụng liên quan": entry.targetAppLabel,
+            "Nội dung góp ý": entry.message,
+            "Thời gian gửi": new Date().toLocaleString(currentLang === 'vi' ? 'vi-VN' : 'en-US'),
+            "_subject": `[ZCL Hub Góp ý] ${entry.categoryLabel} - ${entry.targetAppLabel} (${entry.rating} sao)`,
+            "_template": "table",
+            "_captcha": "false"
+          })
+        });
+
+        if (response.ok) {
+          networkSent = true;
+        }
+      } catch (err) {
+        console.warn('FormSubmit AJAX network error or offline mode:', err);
+        networkSent = false;
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHtml;
+        }
+      }
+
+      // 6. Hiển thị trạng thái thành công
+      const successDesc = modalSuccess.querySelector('.fb-success-desc');
+      if (successDesc) {
+        if (networkSent) {
+          successDesc.textContent = currentLang === 'vi'
+            ? 'Ý kiến của bạn đã được gửi trực tiếp đến hộp thư của tác giả thành công! Cảm ơn bạn rất nhiều vì đã giúp ZCL Hub ngày càng hoàn thiện hơn.'
+            : 'Your feedback has been sent directly to the author\'s inbox successfully! Thank you for helping improve ZCL Hub.';
+        } else {
+          successDesc.textContent = currentLang === 'vi'
+            ? 'Ý kiến của bạn đã được lưu vào máy. Nếu thiết bị đang trong mạng nội bộ không có kết nối internet, bạn có thể bấm nút Gửi email hoặc Sao chép nội dung bên dưới.'
+            : 'Your feedback has been saved locally. If you are offline in a local network, you can use the buttons below to email or copy the content.';
+        }
+      }
+
       modalForm.style.display = 'none';
       modalSuccess.style.display = 'block';
-      showToast(i18n[currentLang].fb_toast_submitted || 'Đã lưu góp ý thành công!');
-      renderUserRecentFeedbacks();
+
+      if (networkSent) {
+        showToast(i18n[currentLang].fb_toast_sent || (currentLang === 'vi' ? 'Đã gửi góp ý đến tác giả thành công!' : 'Feedback sent to author successfully!'));
+      } else {
+        showToast(i18n[currentLang].fb_toast_submitted || 'Đã lưu góp ý thành công!');
+      }
     });
 
     const btnAnotherModal = document.getElementById('modalFbBtnAnother');
@@ -4193,6 +4193,8 @@ function initFeedbackSystem() {
       btnAnotherModal.addEventListener('click', () => {
         modalForm.reset();
         modalStars.reset();
+        modalCat.setValue('feature');
+        modalApp.setValue('all');
         modalForm.style.display = 'block';
         modalSuccess.style.display = 'none';
       });

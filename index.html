@@ -2222,18 +2222,18 @@
             <!-- 4. Textarea -->
             <div class="fb-form-group">
               <label class="fb-label" for="modalFbMessage" data-i18n="fb_msg_label">Nội dung phản hồi hoặc mô tả lỗi:</label>
-              <textarea id="modalFbMessage" class="fb-textarea" rows="3" placeholder="Hãy viết cảm nhận, tính năng bạn mong muốn hoặc chi tiết lỗi gặp phải..." data-i18n-placeholder="fb_msg_ph" required></textarea>
+              <textarea id="modalFbMessage" name="message" class="fb-textarea" rows="3" placeholder="Hãy viết cảm nhận, tính năng bạn mong muốn hoặc chi tiết lỗi gặp phải..." data-i18n-placeholder="fb_msg_ph" required></textarea>
             </div>
 
             <!-- 5. Name & Email -->
             <div class="fb-form-row">
               <div class="fb-form-group">
                 <label class="fb-label" for="modalFbName" data-i18n="fb_name_label">Họ tên hoặc biệt danh (tùy chọn):</label>
-                <input type="text" id="modalFbName" class="fb-input" placeholder="Ví dụ: Minh Quân, Thu Hà..." data-i18n-placeholder="fb_name_ph">
+                <input type="text" id="modalFbName" name="name" class="fb-input" placeholder="Ví dụ: Minh Quân, Thu Hà..." data-i18n-placeholder="fb_name_ph">
               </div>
               <div class="fb-form-group">
                 <label class="fb-label" for="modalFbEmail" data-i18n="fb_email_label">Email liên hệ (tùy chọn):</label>
-                <input type="email" id="modalFbEmail" class="fb-input" placeholder="email@cuaban.com" data-i18n-placeholder="fb_email_ph">
+                <input type="email" id="modalFbEmail" name="email" class="fb-input" placeholder="email@cuaban.com" data-i18n-placeholder="fb_email_ph">
               </div>
             </div>
 
@@ -2256,6 +2256,10 @@
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 <span data-i18n="fb_btn_mail">Gửi email cho tác giả</span>
               </a>
+              <button type="button" class="btn btn-secondary btn-sm" id="modalFbBtnCopy">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span data-i18n="fb_btn_copy">Sao chép nội dung</span>
+              </button>
               <a href="https://github.com/Luffyreals/zcl-hub/issues" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
                 <span data-i18n="fb_btn_github">Mở thảo luận GitHub</span>
