@@ -306,14 +306,31 @@ class TestComponentsIntegrity(unittest.TestCase):
         self.assertIn('.donate-amount-pill', self.css)
 
     def test_light_mode_optimizations(self):
-        """Verifies Light Mode color palette, step numbers contrast, icon squircles, and remote canvas adaptive colors."""
+        """Verifies Light Mode color palette, step numbers contrast, icon squircles, inner interfaces, and remote canvas adaptive colors."""
         self.assertIn('[data-theme="light"] .qs-num', self.css)
         self.assertIn('[data-theme="light"] .teleport-icon', self.css)
         self.assertIn('[data-theme="light"] .remote-icon', self.css)
         self.assertIn('[data-theme="light"] .remote-screen-stage', self.css)
+        self.assertIn('[data-theme="light"] .arch-window', self.css)
+        self.assertIn('[data-theme="light"] .remote-screen-simulation', self.css)
+        self.assertIn('[data-theme="light"] .bento-graphic-box', self.css)
+        self.assertNotIn('#1E1A16', self.css)
+        self.assertIn('[data-theme="light"] .arch-window', self.css)
         self.assertIn('align-items: flex-start', self.css)
+        
+        # Verify brand logo crisp rendering without blur filter
+        self.assertIn('.brand.active .brand-logo', self.css)
+        self.assertIn('image-rendering: crisp-edges;', self.css)
+
+        # Verify logo.svg precision
+        with open("assets/logo.svg", "r", encoding="utf-8") as f:
+            logo_svg = f.read()
+        self.assertIn('shape-rendering="geometricPrecision"', logo_svg)
+
+        # Verify app.js global drawRemoteScreen hook
         with open(APP_JS, "r", encoding="utf-8") as f:
             js = f.read()
+        self.assertIn("window.drawRemoteScreen", js)
         self.assertIn("const isLight = document.documentElement.getAttribute('data-theme') === 'light';", js)
         self.assertIn("'#FAF4EA'", js)
 
@@ -340,6 +357,48 @@ class TestComponentsIntegrity(unittest.TestCase):
         self.assertTrue(idx_feedback != -1 and idx_donate != -1)
         self.assertLess(idx_feedback, idx_donate, "Feedback tab must appear before Donate tab")
 
+    def test_donation_confirmation_and_thank_you_modal(self):
+        """Verifies payment confirmation button, thank-you pop-up, i18n and responsive styles without persistent history."""
+        # 1. HTML elements
+        self.assertIn('id="btnConfirmDonation"', self.html)
+        self.assertIn('data-i18n="dn_btn_confirm"', self.html)
+        self.assertNotIn('id="donateConfirmedBanner"', self.html)
+        self.assertNotIn('id="btnReopenThankYou"', self.html)
+        self.assertIn('id="donateThankYouModal"', self.html)
+        self.assertIn('id="thankYouModalTitle"', self.html)
+        self.assertIn('id="btnThankYouModalClose"', self.html)
+        self.assertIn('id="btnThankYouBackHome"', self.html)
+        self.assertIn('id="btnThankYouLeaveMsg"', self.html)
+
+        # 2. CSS classes & animations
+        self.assertIn('.btn-donate-confirm', self.css)
+        self.assertNotIn('.donate-already-banner', self.css)
+        self.assertIn('.modal-card-thankyou', self.css)
+        self.assertIn('.thankyou-heart-wrap', self.css)
+        self.assertIn('.thankyou-heart-icon', self.css)
+        self.assertIn('heartBeatPulse', self.css)
+        self.assertIn('[data-theme="light"] .btn-donate-confirm', self.css)
+        self.assertIn('[data-theme="light"] .modal-card-thankyou', self.css)
+
+        # 3. JavaScript logic and i18n keys
+        with open(APP_JS, "r", encoding="utf-8") as f:
+            js = f.read()
+        self.assertIn('initThankYouModal', js)
+        self.assertIn('openThankYouModal', js)
+        self.assertIn('closeThankYouModal', js)
+        self.assertIn('dn_btn_confirm:', js)
+        self.assertIn('ty_title:', js)
+        self.assertIn('ty_message:', js)
+        self.assertIn('ty_subtitle:', js)
+        self.assertIn('Thank you for supporting us', js)
+
+        # 4. Ensure thank-you modal does NOT mention individual author name
+        ty_modal_start = self.html.find('id="donateThankYouModal"')
+        ty_modal_end = self.html.find('</div>\n  </div>', ty_modal_start)
+        ty_modal_html = self.html[ty_modal_start:ty_modal_end]
+        self.assertNotIn("Nguyễn Hoàng Tùng", ty_modal_html)
+        self.assertNotIn("Nguyen Hoang Tung", ty_modal_html)
+
 
 class TestPWAAndAssets(unittest.TestCase):
     """Verifies PWA manifest, service worker caching and static assets."""
@@ -362,9 +421,41 @@ class TestPWAAndAssets(unittest.TestCase):
     def test_service_worker_asset_list(self):
         with open(SW_JS, "r", encoding="utf-8") as f:
             sw = f.read()
-        self.assertIn("zcl-hub-v34", sw, "SW cache version must be updated")
+        self.assertIn("zcl-hub-v38", sw, "SW cache version must be updated")
         for asset in ["./index.html", "./404.html", "./src/styles.css", "./src/app.js", "./manifest.json", "./assets/logo.svg"]:
             self.assertIn(asset, sw, f"Service worker must cache {asset}")
+
+    def test_light_mode_color_contrast(self):
+        """Verifies high contrast text and buttons in light mode (no dark text on dark green/purple buttons)."""
+        with open(STYLES_CSS, "r", encoding="utf-8") as f:
+            css = f.read()
+        self.assertIn('[data-theme="light"] .btn-download-main.teleport', css)
+        self.assertIn('[data-theme="light"] .btn-download-main.remote', css)
+        self.assertIn('[data-theme="light"] .main-tab-pill.active', css)
+        self.assertIn('[data-theme="light"] .tab-sliding-indicator', css)
+        self.assertIn('[data-theme="light"] .arch-explore-btn.mint:hover', css)
+        self.assertIn('[data-theme="light"] .btn-console-pill.mint:hover', css)
+
+        with open(APP_JS, "r", encoding="utf-8") as f:
+            js = f.read()
+        self.assertIn("cleanId === 'overview'", js, "Must sync brand active status on tab switch")
+
+    def test_remote_start_control_and_auto_scaling(self):
+        """Verifies initial Start Control overlay behavior and fluid auto-scaling CSS rules."""
+        with open(APP_JS, "r", encoding="utf-8") as f:
+            js = f.read()
+        self.assertIn("let isRemoteConnected = false;", js, "Remote must be disconnected initially so first click connects")
+        self.assertIn("function setRemoteControlState", js, "Must have dedicated setRemoteControlState handler")
+        self.assertIn("setRemoteControlState(true);", js, "Overlay start button must explicitly connect")
+        self.assertIn("rm_resume_btn", js, "Must have resume button translation key")
+
+        # Verify auto-scaling CSS
+        with open(STYLES_CSS, "r", encoding="utf-8") as f:
+            css = f.read()
+        self.assertIn("aspect-ratio: 16 / 9.5", css, "Remote stage must have responsive aspect-ratio")
+        self.assertIn("repeat(auto-fit, minmax(min(100%, 205px), 1fr))", css, "Arch cards must use fluid auto-fit")
+        self.assertIn("repeat(auto-fit, minmax(min(100%, 340px), 1fr))", css, "Download grid must use fluid auto-fit")
+        self.assertIn("repeat(auto-fit, minmax(min(100%, 260px), 1fr))", css, "Quickstart steps must use fluid auto-fit")
 
     def test_404_page_valid(self):
         self.assertTrue(os.path.exists(PAGE_404))

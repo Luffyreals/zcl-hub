@@ -9,7 +9,7 @@
   <meta name="color-scheme" content="dark">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="src/styles.css?v=34">
+  <link rel="stylesheet" href="src/styles.css?v=38">
 
   <!-- Open Graph -->
   <meta property="og:title" content="ZCL Hub — Truyền file siêu tốc &amp; Điều khiển máy tính">
@@ -1660,8 +1660,8 @@
                         <span data-i18n="rm_fullscreen">Toàn màn hình</span>
                       </button>
                       <button class="btn btn-lilac btn-sm" id="btnRemoteToggle" type="button">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-                        <span id="btnRemoteToggleText" data-i18n="rm_disconnect_btn">Tạm dừng điều khiển</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                        <span id="btnRemoteToggleText" data-i18n="rm_connect_btn">Bắt đầu điều khiển</span>
                       </button>
                     </div>
                   </div>
@@ -2335,6 +2335,18 @@
             </div>
           </div>
 
+          <!-- Nút xác nhận thanh toán chuyển khoản -->
+          <div class="donate-confirm-box">
+            <button type="button" class="btn btn-donate-confirm" id="btnConfirmDonation">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <span data-i18n="dn_btn_confirm">Tôi đã chuyển khoản · Xác nhận ủng hộ</span>
+            </button>
+            <span class="donate-confirm-hint" data-i18n="dn_confirm_hint">Bấm sau khi bạn đã hoàn tất quét mã QR hoặc chuyển khoản thành công</span>
+          </div>
+
           <div class="donate-modal-footer-channels">
             <div class="donate-channel-pill">
               <span>MoMo: <strong>0906279876</strong></span>
@@ -2352,6 +2364,66 @@
     </div>
   </div>
 
+  <!-- Dedicated Thank You / Tri Ân Pop-up Modal -->
+  <div class="modal-overlay" id="donateThankYouModal" role="dialog" aria-modal="true" aria-labelledby="thankYouModalTitle">
+    <div class="modal-card modal-card-thankyou">
+      <button class="modal-close" id="btnThankYouModalClose" type="button" aria-label="Đóng" title="Đóng" data-i18n-title="modal_close_btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="thankyou-heart-wrap">
+        <div class="thankyou-heart-aura" aria-hidden="true"></div>
+        <div class="thankyou-heart-icon">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+      </div>
+
+      <span class="thankyou-badge" data-i18n="ty_badge">TRI ÂN ĐỒNG HÀNH</span>
+      <h3 class="thankyou-title" id="thankYouModalTitle" data-i18n="ty_title">Cảm ơn bạn đã ủng hộ chúng tôi!</h3>
+      <p class="thankyou-subtitle" data-i18n="ty_subtitle">Thank you for supporting us · Cảm ơn bạn đã đồng hành cùng ZCL Hub</p>
+
+      <div class="thankyou-message-box">
+        <p class="thankyou-text" data-i18n="ty_message">
+          Mọi sự tiếp sức và đồng hành quý báu của bạn là nguồn động lực to lớn giúp ZCL Hub tiếp tục được duy trì và phát triển hoàn toàn miễn phí, mượt mà và độc lập cho cộng đồng.
+        </p>
+      </div>
+
+      <div class="thankyou-author-card">
+        <div class="thankyou-author-avatar">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+        </div>
+        <div class="thankyou-author-info">
+          <strong class="thankyou-author-name" data-i18n="ty_project_name">ZCL Hub</strong>
+          <span class="thankyou-author-role" data-i18n="ty_project_role">Dự án mã nguồn mở vì cộng đồng</span>
+        </div>
+        <span class="thankyou-license-tag">GPL-3.0</span>
+      </div>
+
+      <div class="thankyou-actions">
+        <button type="button" class="btn btn-primary thankyou-btn-main" id="btnThankYouBackHome">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          <span data-i18n="ty_btn_home">Quay lại trang chính</span>
+        </button>
+        <button type="button" class="btn btn-secondary thankyou-btn-sub" id="btnThankYouLeaveMsg">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          <span data-i18n="ty_btn_feedback">Gửi thêm lời nhắn / Góp ý</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
     <!-- Toast Notification -->
   <div class="toast-msg" id="toastMsg">
     <div class="toast-content">
@@ -2363,6 +2435,6 @@
     <div class="toast-progress-bar" id="toastProgressBar"></div>
   </div>
 
-  <script src="src/app.js?v=34"></script>
+  <script src="src/app.js?v=38"></script>
 </body>
 </html>

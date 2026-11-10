@@ -264,6 +264,7 @@ const i18n = {
     rm_ip_placeholder: "Tên hoặc mã kết nối của máy tính",
     rm_connect_btn: "Bắt đầu điều khiển",
     rm_disconnect_btn: "Tạm dừng điều khiển",
+    rm_resume_btn: "Tiếp tục điều khiển",
     rm_fullscreen: "Toàn màn hình",
     rm_trail_btn: "Vẽ nét chuột",
     rm_overlay_title: "Bấm để thử điều khiển chuột",
@@ -501,9 +502,25 @@ const i18n = {
     dn_toast_momo_copied: "Đã sao chép số MoMo: 0906279876",
     dn_modal_title: "Ủng hộ dự án ZCL Hub",
     dn_modal_desc: "Quét mã VietQR để tiếp sức cho dự án ZCL Hub.",
+    dn_btn_confirm: "Tôi đã chuyển khoản · Xác nhận ủng hộ",
+    dn_confirm_hint: "Bấm sau khi bạn đã hoàn tất quét mã QR hoặc chuyển khoản thành công",
+    dn_already_thanked: "Bạn đã tiếp sức cho ZCL Hub · Cảm ơn bạn rất nhiều!",
+    dn_view_thank_you: "Xem lại thư cảm ơn",
+    ty_badge: "TRI ÂN ĐỒNG HÀNH",
+    ty_title: "Cảm ơn bạn đã ủng hộ chúng tôi!",
+    ty_subtitle: "Thank you for supporting us · Cảm ơn bạn đã đồng hành cùng ZCL Hub",
+    ty_message: "Mọi sự tiếp sức và đồng hành quý báu của bạn là nguồn động lực to lớn giúp ZCL Hub tiếp tục được duy trì và phát triển hoàn toàn miễn phí, mượt mà và độc lập cho cộng đồng.",
+    ty_project_name: "ZCL Hub",
+    ty_project_role: "Dự án mã nguồn mở vì cộng đồng",
+    ty_author_name: "ZCL Hub",
+    ty_author_role: "Dự án mã nguồn mở vì cộng đồng",
+    ty_btn_home: "Quay lại trang chính",
+    ty_btn_feedback: "Gửi thêm lời nhắn / Góp ý",
+    ty_toast: "Cảm ơn bạn đã ủng hộ ZCL Hub!",
     footer_donate: "Ủng hộ dự án (Donate)",
     footer_feedback: "Góp ý &amp; Báo lỗi",
     modal_close_btn: "Đóng",
+    modal_close: "Đóng",
   },
 
   en: {
@@ -762,6 +779,7 @@ const i18n = {
     rm_ip_placeholder: "Computer name or connection code",
     rm_connect_btn: "Start Control",
     rm_disconnect_btn: "Pause Control",
+    rm_resume_btn: "Resume Control",
     rm_fullscreen: "Fullscreen",
     rm_trail_btn: "Mouse Trail",
     rm_overlay_title: "Click to test mouse control",
@@ -999,9 +1017,25 @@ const i18n = {
     dn_toast_momo_copied: "Copied MoMo number: 0906279876",
     dn_modal_title: "Support ZCL Hub",
     dn_modal_desc: "Scan VietQR to support ZCL Hub development.",
+    dn_btn_confirm: "I have transferred · Confirm Support",
+    dn_confirm_hint: "Click after you have completed the QR scan or bank transfer",
+    dn_already_thanked: "You have supported ZCL Hub · Thank you so much!",
+    dn_view_thank_you: "View thank you letter",
+    ty_badge: "HEARTFELT GRATITUDE",
+    ty_title: "Thank you for supporting us!",
+    ty_subtitle: "Thank you for supporting us · We truly appreciate your support!",
+    ty_message: "Your generous support and trust mean the world to us. It fuels the continuous development of ZCL Hub — keeping it ultra-fast, completely free, and private for everyone.",
+    ty_project_name: "ZCL Hub",
+    ty_project_role: "Open Source Community Project",
+    ty_author_name: "ZCL Hub",
+    ty_author_role: "Open Source Community Project",
+    ty_btn_home: "Back to Home",
+    ty_btn_feedback: "Leave a note / Feedback",
+    ty_toast: "Thank you for supporting ZCL Hub!",
     footer_donate: "Donate &amp; Sponsor",
     footer_feedback: "Feedback &amp; Issues",
     modal_close_btn: "Close",
+    modal_close: "Close",
   }
 };
 
@@ -1265,6 +1299,15 @@ function switchMainTab(targetTabId, updateHash = true) {
     }
   });
 
+  // Update brand active status
+  document.querySelectorAll('.brand').forEach((brand) => {
+    if (cleanId === 'overview') {
+      brand.classList.add('active');
+    } else {
+      brand.classList.remove('active');
+    }
+  });
+
   updateTabSlidingIndicator();
 
   // 3. Update URL hash
@@ -1301,6 +1344,9 @@ function switchMainTab(targetTabId, updateHash = true) {
   if (cleanId === 'studio') {
     setTimeout(() => {
       window.dispatchEvent(new Event('resize'));
+      if (typeof window.drawRemoteScreen === 'function') {
+        window.drawRemoteScreen();
+      }
     }, 60);
   }
 
@@ -1461,8 +1507,10 @@ function initStudio() {
       if (target) target.classList.add('active');
 
       if (app === 'remote') {
-        window.dispatchEvent(new Event('resize'));
-        if (typeof drawRemoteScreen === 'function') drawRemoteScreen();
+        setTimeout(() => {
+          window.dispatchEvent(new Event('resize'));
+          if (typeof window.drawRemoteScreen === 'function') window.drawRemoteScreen();
+        }, 50);
       } else if (app === 'benchmark') {
         window.dispatchEvent(new Event('resize'));
       }
@@ -1838,7 +1886,7 @@ function initStudio() {
   const keyInput = document.getElementById('remoteKeyInput');
   const btnClearKey = document.getElementById('btnRemoteClearText');
 
-  let isRemoteConnected = true;
+  let isRemoteConnected = false;
   let isTrailEnabled = false;
   let mouseX = 220;
   let mouseY = 180;
@@ -1857,7 +1905,10 @@ function initStudio() {
     dragOffY: 0
   };
 
-  let drawRemoteScreen = function() {};
+  window.drawRemoteScreen = function() {};
+  const drawRemoteScreen = function() {
+    if (typeof window.drawRemoteScreen === 'function') window.drawRemoteScreen();
+  };
 
   if (canvas && stage) {
     const ctx = canvas.getContext('2d');
@@ -1889,7 +1940,7 @@ function initStudio() {
       requestAnimationFrame(stepRipple);
     }
 
-    drawRemoteScreen = function() {
+    window.drawRemoteScreen = function() {
       const w = canvas.getBoundingClientRect().width;
       const h = canvas.getBoundingClientRect().height;
       if (w <= 0 || h <= 0) return;
@@ -1966,11 +2017,13 @@ function initStudio() {
       ctx.fillText('LAN 1Gbps', w - 85, h - taskbarH + 21);
       ctx.fillText('12:00', w - 38, h - taskbarH + 21);
 
-      // 3. Draggable App Window (ZCL Remote Notepad)
-      const winW = Math.min(remoteWin.w, w - 40);
-      const winH = Math.min(remoteWin.h, h - taskbarH - 30);
-      const winX = Math.max(10, Math.min(remoteWin.x, w - winW - 10));
-      const winY = Math.max(10, Math.min(remoteWin.y, h - taskbarH - winH - 10));
+      // 3. Draggable App Window (ZCL Remote Notepad) - Fluid Auto-Scaled
+      const targetW = Math.min(remoteWin.w, Math.max(220, w - 24));
+      const targetH = Math.min(remoteWin.h, Math.max(150, h - taskbarH - 20));
+      const winW = Math.min(targetW, w - 16);
+      const winH = Math.min(targetH, h - taskbarH - 16);
+      const winX = Math.max(8, Math.min(remoteWin.x, w - winW - 8));
+      const winY = Math.max(8, Math.min(remoteWin.y, h - taskbarH - winH - 8));
 
       // Window shadow & body
       ctx.fillStyle = isLight ? 'rgba(255, 253, 248, 0.98)' : 'rgba(19, 16, 27, 0.94)';
@@ -2005,15 +2058,19 @@ function initStudio() {
       ctx.arc(winX + 50, winY + 17, 5, 0, Math.PI * 2);
       ctx.fill();
 
-      // Window Title Text
+      // Window Title Text - Auto-compact on narrow viewports
       const devTitles = {
         win: currentLang === 'vi' ? 'Máy tính phòng khách (Windows 11) · Trực tiếp' : 'Living Room PC (Windows 11) · Live',
         mac: currentLang === 'vi' ? 'Laptop văn phòng (macOS) · Trực tiếp' : 'Office Laptop (macOS) · Live',
         linux: currentLang === 'vi' ? 'Máy chủ gia đình (Ubuntu) · Trực tiếp' : 'Home Server (Linux) · Live'
       };
+      let titleStr = devTitles[currentRemoteDev] || devTitles.win;
+      if (winW < 360) {
+        titleStr = currentLang === 'vi' ? 'PC Phòng khách · Trực tiếp' : 'Living Room PC · Live';
+      }
       ctx.fillStyle = isLight ? '#2A251E' : '#f7f3ec';
-      ctx.font = 'bold 12px Segoe UI, sans-serif';
-      ctx.fillText(devTitles[currentRemoteDev] || devTitles.win, winX + 70, winY + 21);
+      ctx.font = 'bold 11px Segoe UI, sans-serif';
+      ctx.fillText(titleStr, winX + 66, winY + 21);
 
       // Window Content (Notepad Body)
       const typedText = keyInput && keyInput.value.trim() 
@@ -2196,24 +2253,53 @@ function initStudio() {
       });
     }
 
-    // Toggle Stream Pause / Reconnect
-    function toggleRemoteState() {
-      isRemoteConnected = !isRemoteConnected;
+    // Toggle Stream Pause / Reconnect with robust state handling
+    function setRemoteControlState(connected, silent = false) {
+      isRemoteConnected = Boolean(connected);
       if (overlay) {
         overlay.classList.toggle('hidden', isRemoteConnected);
       }
       if (btnToggleRemoteText) {
+        const langDict = i18n[currentLang] || i18n.vi;
+        const i18nKey = isRemoteConnected ? 'rm_disconnect_btn' : 'rm_resume_btn';
+        btnToggleRemoteText.setAttribute('data-i18n', i18nKey);
         btnToggleRemoteText.innerText = isRemoteConnected
-          ? (currentLang === 'vi' ? 'Tạm dừng điều khiển' : 'Pause Control')
-          : (currentLang === 'vi' ? 'Tiếp tục điều khiển' : 'Resume Control');
+          ? (langDict['rm_disconnect_btn'] || (currentLang === 'vi' ? 'Tạm dừng điều khiển' : 'Pause Control'))
+          : (langDict['rm_resume_btn'] || (currentLang === 'vi' ? 'Tiếp tục điều khiển' : 'Resume Control'));
       }
-      showToast(currentLang === 'vi'
-        ? (isRemoteConnected ? 'Đã kết nối điều khiển màn hình từ xa' : 'Đã tạm dừng điều khiển màn hình')
-        : (isRemoteConnected ? 'Remote stream connected' : 'Remote stream paused'));
+      if (btnToggleRemote) {
+        const iconSvg = btnToggleRemote.querySelector('svg');
+        if (iconSvg) {
+          iconSvg.innerHTML = isRemoteConnected
+            ? '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>'
+            : '<polygon points="5 3 19 12 5 21 5 3"/>';
+        }
+      }
+      if (!silent) {
+        showToast(currentLang === 'vi'
+          ? (isRemoteConnected ? 'Đã kết nối điều khiển màn hình từ xa' : 'Đã tạm dừng điều khiển màn hình')
+          : (isRemoteConnected ? 'Remote stream connected' : 'Remote stream paused'));
+      }
+    }
+
+    function toggleRemoteState() {
+      setRemoteControlState(!isRemoteConnected);
     }
 
     if (btnToggleRemote) btnToggleRemote.addEventListener('click', toggleRemoteState);
-    if (overlayStartBtn) overlayStartBtn.addEventListener('click', toggleRemoteState);
+    if (overlayStartBtn) {
+      overlayStartBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setRemoteControlState(true);
+      });
+    }
+    if (overlay) {
+      overlay.addEventListener('click', (e) => {
+        if (!e.target.closest('button')) {
+          setRemoteControlState(true);
+        }
+      });
+    }
 
     // Fullscreen support
     if (btnFullscreen) {
@@ -2919,10 +3005,10 @@ function applyTheme(theme) {
   // Redraw studio canvas if on screen
   setTimeout(() => {
     window.dispatchEvent(new Event('resize'));
-    if (typeof drawRemoteScreen === 'function') {
-      drawRemoteScreen();
+    if (typeof window.drawRemoteScreen === 'function') {
+      window.drawRemoteScreen();
     }
-  }, 60);
+  }, 50);
 }
 
 function initThemeToggle() {
@@ -3222,6 +3308,9 @@ function initKeyboardShortcuts() {
     } else if (e.key === 'Escape') {
       if (typeof closeFeedbackDonateModal === 'function') {
         closeFeedbackDonateModal();
+      }
+      if (typeof closeThankYouModal === 'function') {
+        closeThankYouModal();
       }
       const dlModal = document.getElementById('downloadModal');
       if (dlModal && dlModal.classList.contains('active')) {
@@ -4204,6 +4293,29 @@ function initDonateSystem() {
   const btnModalCopyMomo = document.getElementById('btnModalCopyMomo');
   if (btnPageCopyMomo) btnPageCopyMomo.addEventListener('click', handleCopyMomo);
   if (btnModalCopyMomo) btnModalCopyMomo.addEventListener('click', handleCopyMomo);
+
+  // Confirm Donation -> Open Thank You Modal
+  const btnConfirm = document.getElementById('btnConfirmDonation');
+  try {
+    localStorage.removeItem('zcl_hub_donation_confirmed');
+  } catch (e) {}
+
+  if (btnConfirm) {
+    btnConfirm.addEventListener('click', () => {
+      if (typeof window.closeFeedbackDonateModal === 'function') {
+        window.closeFeedbackDonateModal();
+      }
+
+      setTimeout(() => {
+        if (typeof window.openThankYouModal === 'function') {
+          window.openThankYouModal();
+        }
+      }, 200);
+
+      const msg = (i18n[currentLang] && i18n[currentLang].ty_toast) || 'Cảm ơn bạn đã ủng hộ ZCL Hub!';
+      showToast(msg);
+    });
+  }
 }
 
 // ==========================================
@@ -4394,6 +4506,63 @@ function initUnifiedFeedbackDonateModal() {
   };
 }
 
+// ==========================================
+// 13. THANK YOU / DONATION APPRECIATION MODAL
+// ==========================================
+function initThankYouModal() {
+  const tyModal = document.getElementById('donateThankYouModal');
+  if (!tyModal) return;
+
+  const btnClose = document.getElementById('btnThankYouModalClose');
+  const btnBackHome = document.getElementById('btnThankYouBackHome');
+  const btnLeaveMsg = document.getElementById('btnThankYouLeaveMsg');
+
+  function openThankYouModal() {
+    tyModal.classList.remove('modal-closing');
+    tyModal.classList.add('active');
+  }
+
+  function closeThankYouModal() {
+    if (!tyModal.classList.contains('active')) return;
+    tyModal.classList.add('modal-closing');
+    setTimeout(() => {
+      tyModal.classList.remove('active', 'modal-closing');
+    }, 280);
+  }
+
+  if (btnClose) btnClose.addEventListener('click', closeThankYouModal);
+
+  tyModal.addEventListener('click', (e) => {
+    if (e.target === tyModal) {
+      closeThankYouModal();
+    }
+  });
+
+  if (btnBackHome) {
+    btnBackHome.addEventListener('click', () => {
+      closeThankYouModal();
+      if (typeof switchMainTab === 'function') {
+        switchMainTab('overview', true);
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  if (btnLeaveMsg) {
+    btnLeaveMsg.addEventListener('click', () => {
+      closeThankYouModal();
+      setTimeout(() => {
+        if (typeof window.openFeedbackDonateModal === 'function') {
+          window.openFeedbackDonateModal('feedback');
+        }
+      }, 200);
+    });
+  }
+
+  window.openThankYouModal = openThankYouModal;
+  window.closeThankYouModal = closeThankYouModal;
+}
+
 // Backward-compatibility aliases
 function initDonateModal() {}
 function initFeedbackModal() {}
@@ -4440,4 +4609,5 @@ document.addEventListener('DOMContentLoaded', () => {
   safeRun('FeedbackSystem', initFeedbackSystem);
   safeRun('DonateSystem', initDonateSystem);
   safeRun('UnifiedFeedbackDonateModal', initUnifiedFeedbackDonateModal);
+  safeRun('ThankYouModal', initThankYouModal);
 });
