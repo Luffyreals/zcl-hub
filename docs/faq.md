@@ -27,7 +27,7 @@ Nếu hai máy không tự động nhìn thấy tên của nhau, hãy kiểm tra
 
 ### Tình huống 2: Windows hiển thị cảnh báo bảo vệ khi mở file lần đầu
 * Đây là cơ chế bảo vệ mặc định của Windows SmartScreen khi phát hiện một file mới tải về từ web mà chưa có chữ ký số doanh nghiệp đắt tiền từ Microsoft.
-* **Cách mở**: Bấm vào dòng chữ **"More info" (Thông tin thêm)** -> sau đó bấm **"Run anyway" (Vẫn chạy)**. Ứng dụng là mã nguồn mở 100% và an toàn tuyệt đối.
+* **Cách mở**: Bấm vào dòng chữ **"More info" (Thông tin thêm)** -> sau đó bấm **"Run anyway" (Vẫn chạy)**. Ứng dụng hoàn toàn sạch và an toàn tuyệt đối.
 
 ### Tình huống 3: Làm sao để đạt tốc độ truyền file nhanh nhất?
 * **Dùng dây mạng LAN**: Cắm dây mạng trực tiếp vào cổng mạng trên máy tính sẽ cho tốc độ kịch trần (từ 100 MB/s đến 280 MB/s, gửi 10 GB chỉ mất khoảng 30 giây đến 1 phút).
@@ -38,4 +38,6 @@ Nếu hai máy không tự động nhìn thấy tên của nhau, hãy kiểm tra
 ## 3. Bản quyền & Đóng góp
 
 * **Tác giả dự án**: Nguyễn Hoàng Tùng ([@Luffyreals](https://github.com/Luffyreals))
-* **Giấy phép**: Mã nguồn mở tự do theo giấy phép **GPL-3.0**. Bạn có toàn quyền sử dụng, nghiên cứu và chia sẻ cho bạn bè.
+* **Giấy phép**:
+  * **ZCL Hub & ZCL Teleport**: Mã nguồn mở tự do theo giấy phép **GPL-3.0**.
+  * **ZCL Remote & ZCL Mind**: Phần mềm miễn phí, mã nguồn đóng thuộc bản quyền của Nguyễn Hoàng Tùng (**All Rights Reserved**).

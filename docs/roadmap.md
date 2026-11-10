@@ -43,4 +43,5 @@ Tài liệu này ghi nhận kế hoạch phát triển và mở rộng bộ ứn
 ## Tác giả
 
 Phát triển bởi **Nguyễn Hoàng Tùng** ([@Luffyreals](https://github.com/Luffyreals)).
-Mã nguồn mở theo giấy phép **GPL-3.0**.
+* **ZCL Hub & ZCL Teleport**: Mã nguồn mở theo giấy phép **GPL-3.0**.
+* **ZCL Remote & ZCL Mind**: Phần mềm miễn phí, mã nguồn đóng (**All Rights Reserved**).

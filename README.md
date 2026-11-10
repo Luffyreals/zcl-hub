@@ -29,11 +29,11 @@
 
 ## Các Ứng Dụng
 
-| Ứng dụng | Chức năng | Trạng thái | Tải về |
-| :--- | :--- | :--- | :--- |
-| **ZCL Teleport** | Gửi nhận file lớn và đồng bộ văn bản nhanh giữa 2 máy | Thử nghiệm v0.1 | [Tải về](https://luffyreals.github.io/zcl-hub/#download) |
-| **ZCL Remote** | Điều khiển máy tính từ xa siêu mượt qua Wi-Fi | Thử nghiệm v0.1 | [Tải về](https://luffyreals.github.io/zcl-hub/#download) |
-| **ZCL Mind** | Trợ lý thấu hiểu cá nhân, thói quen & lịch trình chạy trên máy | Đang phát triển | Sắp ra mắt |
+| Ứng dụng | Chức năng | Giấy phép | Trạng thái | Tải về |
+| :--- | :--- | :--- | :--- | :--- |
+| **ZCL Teleport** | Gửi nhận file lớn và đồng bộ văn bản nhanh giữa 2 máy | Mã nguồn mở (`GPL-3.0`) | Thử nghiệm v0.1 | [Tải về](https://luffyreals.github.io/zcl-hub/#download) |
+| **ZCL Remote** | Điều khiển máy tính từ xa siêu mượt qua Wi-Fi | Mã nguồn đóng (`All Rights Reserved`) | Thử nghiệm v0.1 | [Tải về](https://luffyreals.github.io/zcl-hub/#download) |
+| **ZCL Mind** | Trợ lý thấu hiểu cá nhân, thói quen & lịch trình chạy trên máy | Mã nguồn đóng (`All Rights Reserved`) | Đang phát triển | Sắp ra mắt |
 
 ---
 
@@ -116,4 +116,5 @@ Nếu ZCL Hub giúp bạn giải quyết công việc nhanh chóng và thuận t
 
 ## Giấy Phép
 
-Dự án phát hành dưới giấy phép mã nguồn mở **GNU General Public License v3.0 (GPL-3.0)**. Xem tệp [LICENSE](LICENSE) để biết thêm chi tiết.
+- **ZCL Hub & ZCL Teleport:** Phát hành dưới giấy phép mã nguồn mở **GNU General Public License v3.0 (GPL-3.0)**. Xem tệp [LICENSE](LICENSE) để biết thêm chi tiết.
+- **ZCL Remote & ZCL Mind:** Phần mềm miễn phí, mã nguồn đóng. Bản quyền thuộc Nguyễn Hoàng Tùng (**All Rights Reserved**).

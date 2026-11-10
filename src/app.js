@@ -327,6 +327,8 @@ const i18n = {
     road_desc_sync: "Tự động cập nhật thư mục làm việc giữa máy tính bàn và laptop cá nhân.",
     detail_status_ready: "Sẵn sàng · v0.1.0",
     chip_gpl: "Mã nguồn mở GPL-3.0",
+    chip_proprietary: "Mã nguồn đóng · Miễn phí",
+    spec_val_license_closed: "Độc quyền (All Rights Reserved) · Nguyễn Hoàng Tùng (@Luffyreals)",
     chip_author: "Tác giả: Nguyễn Hoàng Tùng",
     bento_badge_speed: "Tốc độ gửi file",
     bento_badge_clip: "Khay nhớ tạm hai chiều",
@@ -885,6 +887,8 @@ const i18n = {
     road_desc_sync: "Automatic folder sync between desktop PC and personal laptop.",
     detail_status_ready: "Ready · v0.1.0",
     chip_gpl: "Open Source GPL-3.0",
+    chip_proprietary: "Closed Source · Free",
+    spec_val_license_closed: "Proprietary (All Rights Reserved) · Nguyen Hoang Tung (@Luffyreals)",
     chip_author: "Author: Nguyen Hoang Tung",
     bento_badge_speed: "Transfer Speed",
     bento_badge_clip: "Two-Way Clipboard",
@@ -2817,39 +2821,41 @@ const DOWNLOAD_REGISTRY = {
   },
   remote: {
     name: 'ZCL Remote',
-    repo: 'Luffyreals/zero-cloud-lan-remote',
+    repo: 'Luffyreals/zcl-hub',
+    assetPrefix: 'zcl-remote',
     version: 'v0.1.0-alpha',
     isLive: false,
-    releaseUrl: 'https://github.com/Luffyreals/zero-cloud-lan-remote/releases',
+    releaseUrl: 'https://github.com/Luffyreals/zcl-hub/releases',
     files: {
       exe: {
         name: 'zcl-remote-setup-latest-x64.exe',
         size: '16.8 MB',
-        url: 'https://github.com/Luffyreals/zero-cloud-lan-remote/releases/latest/download/zcl-remote-setup-latest-x64.exe'
+        url: 'https://github.com/Luffyreals/zcl-hub/releases/latest/download/zcl-remote-setup-latest-x64.exe'
       },
       zip: {
         name: 'zcl-remote-gui-latest-windows-x64.zip',
         size: '15.6 MB',
-        url: 'https://github.com/Luffyreals/zero-cloud-lan-remote/releases/latest/download/zcl-remote-gui-latest-windows-x64.zip'
+        url: 'https://github.com/Luffyreals/zcl-hub/releases/latest/download/zcl-remote-gui-latest-windows-x64.zip'
       }
     }
   },
   mind: {
     name: 'ZCL Mind',
-    repo: 'Luffyreals/zero-cloud-lan-mind',
+    repo: 'Luffyreals/zcl-hub',
+    assetPrefix: 'zcl-mind',
     version: 'v0.1.0-alpha',
     isLive: false,
-    releaseUrl: 'https://github.com/Luffyreals/zero-cloud-lan-mind/releases',
+    releaseUrl: 'https://github.com/Luffyreals/zcl-hub/releases',
     files: {
       exe: {
         name: 'zcl-mind-setup-latest-x64.exe',
         size: '2.1 GB',
-        url: 'https://github.com/Luffyreals/zero-cloud-lan-mind/releases/latest/download/zcl-mind-setup-latest-x64.exe'
+        url: 'https://github.com/Luffyreals/zcl-hub/releases/latest/download/zcl-mind-setup-latest-x64.exe'
       },
       zip: {
         name: 'zcl-mind-portable-windows-x64.zip',
         size: '1.9 GB',
-        url: 'https://github.com/Luffyreals/zero-cloud-lan-mind/releases/latest/download/zcl-mind-portable-windows-x64.zip'
+        url: 'https://github.com/Luffyreals/zcl-hub/releases/latest/download/zcl-mind-portable-windows-x64.zip'
       }
     }
   }
@@ -3063,8 +3069,15 @@ async function syncSingleAppReleases(appKey) {
     const releases = await response.json();
     if (!Array.isArray(releases) || releases.length === 0) return;
 
-    // Ưu tiên release mới nhất có assets
-    const release = releases.find((r) => Array.isArray(r.assets) && r.assets.length > 0) || releases[0];
+    const prefix = (item.assetPrefix || '').toLowerCase();
+    const matchesAppAsset = (a) => {
+      const name = (a.name || '').toLowerCase();
+      return !prefix || name.includes(prefix) || name.includes(appKey);
+    };
+
+    // Ưu tiên release mới nhất có assets của đúng ứng dụng
+    const release = releases.find((r) => Array.isArray(r.assets) && r.assets.some(matchesAppAsset))
+      || (!prefix ? (releases.find((r) => Array.isArray(r.assets) && r.assets.length > 0) || releases[0]) : null);
     if (!release) return;
 
     if (release.tag_name) {
@@ -3075,11 +3088,12 @@ async function syncSingleAppReleases(appKey) {
     }
 
     if (Array.isArray(release.assets) && release.assets.length > 0) {
+      const appAssets = release.assets.filter(matchesAppAsset);
       // Tìm bộ cài installer exe
-      const exeAsset = release.assets.find((a) => {
+      const exeAsset = appAssets.find((a) => {
         const name = (a.name || '').toLowerCase();
         return name.endsWith('.exe') && (name.includes('setup') || name.includes('installer') || !name.includes('cli'));
-      }) || release.assets.find((a) => (a.name || '').toLowerCase().endsWith('.exe'));
+      }) || appAssets.find((a) => (a.name || '').toLowerCase().endsWith('.exe'));
 
       if (exeAsset) {
         item.files.exe.name = exeAsset.name;
@@ -3090,10 +3104,10 @@ async function syncSingleAppReleases(appKey) {
       }
 
       // Tìm bản chạy ngay zip (ưu tiên GUI)
-      const zipAsset = release.assets.find((a) => {
+      const zipAsset = appAssets.find((a) => {
         const name = (a.name || '').toLowerCase();
         return name.endsWith('.zip') && (name.includes('gui') || name.includes('portable') || name.includes('windows'));
-      }) || release.assets.find((a) => (a.name || '').toLowerCase().endsWith('.zip'));
+      }) || appAssets.find((a) => (a.name || '').toLowerCase().endsWith('.zip'));
 
       if (zipAsset) {
         item.files.zip.name = zipAsset.name;
