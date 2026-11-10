@@ -1,8 +1,5 @@
-# Gemini & Antigravity Agent Configurations
-gemini.md
-GEMINI.md
+# Gemini & Antigravity Local Cache
 .gemini/
-.agents/
 subagents/
 
 # Operating System Files
