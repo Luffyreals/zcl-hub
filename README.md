@@ -31,7 +31,7 @@
 
 | Ứng dụng | Chức năng | Giấy phép | Trạng thái | Tải về |
 | :--- | :--- | :--- | :--- | :--- |
-| **ZCL Teleport** | Gửi nhận file lớn và đồng bộ văn bản nhanh giữa 2 máy | Mã nguồn mở (`GPL-3.0`) | Thử nghiệm v0.1 | [Tải về](https://luffyreals.github.io/zcl-hub/#download) |
+| **ZCL Teleport** | Gửi nhận file lớn và đồng bộ văn bản nhanh giữa 2 máy | Mã nguồn mở (`GPL-3.0`) | Chính thức v1.2 | [Tải về](https://luffyreals.github.io/zcl-hub/#download) |
 | **ZCL Remote** | Điều khiển máy tính từ xa siêu mượt qua Wi-Fi | Miễn phí (`Độc quyền`) | Thử nghiệm v0.1 | [Tải về](https://luffyreals.github.io/zcl-hub/#download) |
 | **ZCL Mind** | Trợ lý thấu hiểu cá nhân, thói quen & lịch trình chạy trên máy | Miễn phí (`Độc quyền`) | Đang phát triển | Sắp ra mắt |
 

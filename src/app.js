@@ -2803,19 +2803,19 @@ const DOWNLOAD_REGISTRY = {
   teleport: {
     name: 'ZCL Teleport',
     repo: 'Nha-Cong-Dong/zero-cloud-lan-teleport',
-    version: 'v0.1.0-alpha',
-    isLive: false,
+    version: 'v1.2.0',
+    isLive: true,
     releaseUrl: 'https://github.com/Nha-Cong-Dong/zero-cloud-lan-teleport/releases',
     files: {
       exe: {
-        name: 'teleport-setup-latest-x64.exe',
-        size: '12.4 MB',
-        url: 'https://github.com/Nha-Cong-Dong/zero-cloud-lan-teleport/releases/latest/download/teleport-setup-latest-x64.exe'
+        name: 'teleport-setup-1.2.0-x64.exe',
+        size: '12.5 MB',
+        url: 'https://github.com/Nha-Cong-Dong/zero-cloud-lan-teleport/releases/download/v1.2.0/teleport-setup-1.2.0-x64.exe'
       },
       zip: {
-        name: 'teleport-gui-latest-windows-x64.zip',
-        size: '11.8 MB',
-        url: 'https://github.com/Nha-Cong-Dong/zero-cloud-lan-teleport/releases/latest/download/teleport-gui-latest-windows-x64.zip'
+        name: 'teleport-gui-1.2.0-windows-x64.zip',
+        size: '12.1 MB',
+        url: 'https://github.com/Nha-Cong-Dong/zero-cloud-lan-teleport/releases/download/v1.2.0/teleport-gui-1.2.0-windows-x64.zip'
       }
     }
   },
