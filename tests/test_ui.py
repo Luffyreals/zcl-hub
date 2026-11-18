@@ -91,6 +91,45 @@ class TestStrictRules(unittest.TestCase):
         for term in jargon:
             self.assertNotIn(term, self.html, f"Found jargon '{term}' in index.html")
 
+    def test_docs_and_pages_strict_compliance(self):
+        """Verifies 404.html, README.md, and docs/*.md have 0 emojis, no forbidden terms, and mention all 3 ZCL apps."""
+        emoji_pattern = re.compile(r'[\u2600-\u27BF\U0001F300-\U0001FAFF]')
+        forbidden_competitors = ["TeamViewer", "AnyDesk", "UltraViewer"]
+        forbidden_phrases = ["hệ sinh thái", "ecosystem", "Bộ Ứng Dụng Mạng Nội Bộ Zero-Cloud LAN"]
+
+        target_files = [
+            ("404.html", PAGE_404),
+            ("README.md", os.path.join(REPO_ROOT, "README.md")),
+            ("docs/README.md", os.path.join(REPO_ROOT, "docs", "README.md")),
+            ("docs/user-guide.md", os.path.join(REPO_ROOT, "docs", "user-guide.md")),
+            ("docs/architecture.md", os.path.join(REPO_ROOT, "docs", "architecture.md")),
+            ("docs/faq.md", os.path.join(REPO_ROOT, "docs", "faq.md")),
+            ("docs/roadmap.md", os.path.join(REPO_ROOT, "docs", "roadmap.md")),
+        ]
+
+        for label, path in target_files:
+            self.assertTrue(os.path.exists(path), f"Missing expected doc/page: {label}")
+            with open(path, "r", encoding="utf-8") as f:
+                content = f.read()
+            self.assertEqual(len(emoji_pattern.findall(content)), 0, f"Found emojis in {label}")
+            for comp in forbidden_competitors:
+                self.assertFalse(re.search(re.escape(comp), content, re.IGNORECASE), f"Found competitor '{comp}' in {label}")
+            for phrase in forbidden_phrases:
+                self.assertFalse(re.search(re.escape(phrase), content, re.IGNORECASE), f"Found forbidden phrase '{phrase}' in {label}")
+
+        app_doc_files = [
+            ("README.md", os.path.join(REPO_ROOT, "README.md")),
+            ("docs/user-guide.md", os.path.join(REPO_ROOT, "docs", "user-guide.md")),
+            ("docs/architecture.md", os.path.join(REPO_ROOT, "docs", "architecture.md")),
+            ("docs/faq.md", os.path.join(REPO_ROOT, "docs", "faq.md")),
+            ("docs/roadmap.md", os.path.join(REPO_ROOT, "docs", "roadmap.md")),
+        ]
+        for label, path in app_doc_files:
+            with open(path, "r", encoding="utf-8") as f:
+                content = f.read()
+            for app_name in ("ZCL Teleport", "ZCL Remote", "ZCL Mind"):
+                self.assertIn(app_name, content, f"{label} must mention {app_name}")
+
 
 class TestI18nCompleteness(unittest.TestCase):
     """Verifies that all text keys in index.html have 100% parity across VI and EN."""
@@ -496,6 +535,41 @@ class TestPWAAndAssets(unittest.TestCase):
         self.assertIn("initAutoUpdateSystem", js)
         self.assertIn("compareVersions", js)
         self.assertIn("saveInstalledAppVersion", js)
+
+    def test_upgraded_ui_and_mind_integration(self):
+        """Verifies FAQ empty state placement, Teleport v1.2.0 parity, overview pillars, Mind simulator, and Light Mode pink styles."""
+        with open(INDEX_HTML, "r", encoding="utf-8") as f:
+            html = f.read()
+        with open(STYLES_CSS, "r", encoding="utf-8") as f:
+            css = f.read()
+        with open(APP_JS, "r", encoding="utf-8") as f:
+            js = f.read()
+
+        # 1. #faqEmptyState must reside inside #tab-faq, NOT inside #appDetailRemote
+        idx_remote_end = html.find('id="appDetailMind"')
+        idx_tab_faq = html.find('id="tab-faq"')
+        idx_faq_empty = html.find('id="faqEmptyState"')
+        self.assertTrue(idx_tab_faq != -1 and idx_faq_empty != -1)
+        self.assertGreater(idx_faq_empty, idx_tab_faq, "#faqEmptyState must be inside #tab-faq")
+        self.assertGreater(idx_faq_empty, idx_remote_end, "#faqEmptyState must not be inside #appDetailRemote")
+
+        # 2. Teleport v1.2.0 status & detail badge
+        self.assertIn('detail_status_tp_ready', html)
+        self.assertIn('tp_status: "Bản chính thức"', js)
+        self.assertIn('tp_status: "Official release"', js)
+        self.assertIn('detail_status_tp_ready: "Sẵn sàng · v1.2.0"', js)
+
+        # 3. Overview 4 pillars strip
+        self.assertIn('class="overview-pillars-strip"', html)
+        self.assertIn('class="pillars-bento-grid"', html)
+        self.assertIn('.overview-pillars-strip', css)
+
+        # 4. ZCL Mind Web Studio simulator & Light Mode pink styles
+        self.assertIn('id="panel-mind"', html)
+        self.assertIn('initMindSimulator', js)
+        self.assertIn('[data-theme="light"] .mind-icon', css)
+        self.assertIn('[data-theme="light"] .btn-pink', css)
+        self.assertIn('[data-theme="light"] .arch-explore-btn.pink', css)
 
 
 class TestJavaScriptSyntax(unittest.TestCase):

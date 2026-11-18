@@ -13,6 +13,9 @@
 ### Q3: Dữ liệu của tôi có bị ai xem lén không?
 **Trả lời**: Tuyệt đối an toàn. Dữ liệu chỉ đi thẳng trực tiếp giữa 2 chiếc máy tính trong phòng. Ứng dụng không có máy chủ lưu trữ trên đám mây, không yêu cầu tạo tài khoản và không theo dõi hành vi sử dụng của bạn.
 
+### Q4: Trợ lý ZCL Mind lưu thông tin của tôi ở đâu và có cần máy tính cấu hình mạnh không?
+**Trả lời**: Toàn bộ dữ liệu ghi nhớ của **ZCL Mind** được lưu trữ 100% ngay trên ổ cứng máy tính của bạn và tuyệt đối không gửi ra máy chủ bên ngoài. Ứng dụng được tối ưu chạy trực tiếp bằng bộ vi xử lý (CPU) trên máy tính Windows 10 hoặc Windows 11 thông thường (khuyến nghị RAM từ 8GB trở lên) mà không cần card đồ họa rời.
+
 ---
 
 ## 2. Xử lý các tình huống thường gặp

@@ -55,16 +55,26 @@ Tài liệu này hướng dẫn bạn cách sử dụng các ứng dụng ZCL đ
 
 ---
 
-## 5. Dùng thử trực tiếp trên trình duyệt (Web Studio)
+## 5. Hướng dẫn sử dụng ZCL Mind (Trợ lý thấu hiểu cá nhân)
+
+**ZCL Mind** là trợ lý thấu hiểu cá nhân chạy 100% trên máy tính Windows 10/11 (khuyến nghị RAM từ 8GB trở lên) mà không cần kết nối Internet:
+1. Mở ZCL Mind trên máy tính. Trong lần đầu sử dụng, bạn có thể điền nhanh biểu mẫu giới thiệu cơ bản hoặc trò chuyện ngay.
+2. Qua các câu trò chuyện thường ngày, ứng dụng tự động nhận biết và sắp xếp thông tin vào **Bản đồ thấu hiểu 6 chiều**: hồ sơ cá nhân, thói quen, lịch trình, mối quan hệ, tính cách và điểm mạnh/điểm cần lưu ý.
+3. Mọi dữ liệu đều nằm gọn trên máy tính của bạn; bạn có toàn quyền xem lại, chỉnh sửa hoặc xóa bất kỳ ghi nhớ nào bất cứ lúc nào.
+
+---
+
+## 6. Dùng thử trực tiếp trên trình duyệt (Web Studio)
 
 Nếu chưa muốn tải phần mềm về máy, bạn có thể chuyển sang tab **Dùng thử trên Web** ngay trên trang web ZCL Hub:
 * **Thử gửi file**: Thử kéo thả một file bất kỳ để quan sát cách phần mềm tính toán dung lượng và truyền nhận.
 * **Thử di chuột điều khiển**: Di chuột vào khung màn hình máy tính giả lập để cảm nhận độ mượt mà.
 * **Đo tốc độ Wi-Fi**: Bấm nút kiểm tra để xem tốc độ gửi file giữa các máy tính khi kết nối chung mạng.
+* **Thử trợ lý cá nhân (Mind)**: Nhập một câu chia sẻ bất kỳ hoặc chọn tình huống mẫu để xem ZCL Mind tự động phân tích và cập nhật vào bản đồ thấu hiểu 6 chiều ngay trên trình duyệt.
 
 ---
 
-## 6. Cài đặt trang web làm ứng dụng độc lập (PWA)
+## 7. Cài đặt trang web làm ứng dụng độc lập (PWA)
 
 Trang web ZCL Hub hỗ trợ chuẩn PWA hiện đại:
 * Trên trình duyệt Chrome hoặc Edge trên máy tính: Bấm vào biểu tượng cài đặt ở góc phải thanh địa chỉ (hoặc bấm nút **"Cài đặt ZCL Hub"** trên trang).

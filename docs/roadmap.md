@@ -6,7 +6,7 @@ Tài liệu này ghi nhận kế hoạch phát triển và mở rộng bộ ứn
 
 ## Giai đoạn hiện tại (Hiện có)
 
-* [x] **ZCL Teleport (v0.1.0)**:
+* [x] **ZCL Teleport (v1.2.0)**:
   * Truyền file không giới hạn dung lượng với tốc độ tối đa qua Wi-Fi và dây LAN.
   * Tự động nhận diện các máy tính đang mở ứng dụng trong phòng.
   * Đồng bộ sao chép (Copy - Paste) văn bản và hình ảnh tức thì giữa 2 máy tính.

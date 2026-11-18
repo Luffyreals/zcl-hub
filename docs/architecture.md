@@ -41,7 +41,15 @@ Khi điều khiển máy tính từ xa, cảm giác khó chịu nhất là khi b
 
 ---
 
-## 4. Bảo mật và Quyền làm chủ dữ liệu
+## 4. Vì sao ZCL Mind hiểu bạn sâu sắc mà không cần Internet?
+
+Các trợ lý thông thường bắt buộc phải gửi nội dung cuộc trò chuyện của bạn lên máy chủ bên ngoài để xử lý. Với **ZCL Mind**, toàn bộ quá trình phân tích ngôn ngữ được tối ưu để chạy trực tiếp ngay trên bộ vi xử lý (CPU) phổ thông của máy tính Windows, không cần card đồ họa rời:
+* **Sổ tay thấu hiểu 6 chiều trên ổ cứng**: Hồ sơ cá nhân, thói quen, lịch trình, mối quan hệ, tính cách và điểm mạnh/điểm cần lưu ý đều được lưu cục bộ ngay trong máy tính của bạn.
+* **Phản hồi nhanh chóng và riêng tư**: Dữ liệu không bao giờ rời khỏi máy tính, đảm bảo phản hồi tức thì dưới 1.5 giây và giữ kín hoàn toàn thói quen sinh hoạt cá nhân.
+
+---
+
+## 5. Bảo mật và Quyền làm chủ dữ liệu
 
 * **Bảo mật tuyệt đối**: Toàn bộ luồng dữ liệu truyền giữa hai máy tính được mã hóa an toàn. Người ngoài cùng mạng Wi-Fi không thể xem trộm được nội dung file hay màn hình của bạn.
 * **Không lưu vết**: Ứng dụng không ghi log, không lưu trữ lịch sử lên bất kỳ máy chủ nào. Khi bạn tắt ứng dụng, mọi kết nối kết thúc hoàn toàn.

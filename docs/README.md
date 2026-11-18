@@ -6,7 +6,7 @@ Tại đây, bạn sẽ tìm thấy toàn bộ hướng dẫn sử dụng, nguy�
 
 ---
 
-## 📚 Danh mục tài liệu
+## Danh mục tài liệu
 
 * [**Hướng dẫn sử dụng (User Guide)**](user-guide.md): Hướng dẫn chi tiết từng bước tải về, cài đặt và kết nối hai máy tính để gửi file và điều khiển từ xa.
 * [**Nguyên lý hoạt động (Architecture)**](architecture.md): Giải thích cách các máy tính tìm thấy nhau và kết nối trực tiếp trong mạng Wi-Fi chung mà không cần đến Internet.
@@ -15,7 +15,7 @@ Tại đây, bạn sẽ tìm thấy toàn bộ hướng dẫn sử dụng, nguy�
 
 ---
 
-## 👤 Tác giả & Bản quyền
+## Tác giả & Bản quyền
 
 * **Tác giả**: Nguyễn Hoàng Tùng ([@Luffyreals](https://github.com/Luffyreals))
 * **Giấy phép**:

@@ -31,8 +31,8 @@
 
 | Ứng dụng | Chức năng | Giấy phép | Trạng thái | Tải về |
 | :--- | :--- | :--- | :--- | :--- |
-| **ZCL Teleport** | Gửi nhận file lớn và đồng bộ văn bản nhanh giữa 2 máy | Mã nguồn mở (`GPL-3.0`) | Chính thức v1.2 | [Tải về](https://luffyreals.github.io/zcl-hub/#download) |
-| **ZCL Remote** | Điều khiển máy tính từ xa siêu mượt qua Wi-Fi | Miễn phí (`Độc quyền`) | Thử nghiệm v0.1 | [Tải về](https://luffyreals.github.io/zcl-hub/#download) |
+| **ZCL Teleport** | Gửi nhận file lớn và đồng bộ văn bản nhanh giữa 2 máy | Mã nguồn mở (`GPL-3.0`) | Chính thức v1.2.0 | [Tải về](https://luffyreals.github.io/zcl-hub/#download) |
+| **ZCL Remote** | Điều khiển máy tính từ xa siêu mượt qua Wi-Fi | Miễn phí (`Độc quyền`) | Thử nghiệm v0.1.0 | [Tải về](https://luffyreals.github.io/zcl-hub/#download) |
 | **ZCL Mind** | Trợ lý thấu hiểu cá nhân, thói quen & lịch trình chạy trên máy | Miễn phí (`Độc quyền`) | Đang phát triển | Sắp ra mắt |
 
 ---
@@ -62,6 +62,7 @@ hub/
 ├── src/                  # Mã nguồn giao diện và xử lý
 │   ├── styles.css        # Giao diện Dark Modern Tech, tối ưu máy tính & điện thoại
 │   └── app.js            # Xử lý chuyển tab, song ngữ (VI/EN) & bản dùng thử trên Web
+├── tests/                # Bộ kiểm thử tự động (test_ui.py, test-runner.html)
 ├── index.html            # Trang chủ phân chia 5 tab trực quan, không dồn 1 trang
 ├── 404.html              # Trang 404 tùy chỉnh Dark Modern Tech cho GitHub Pages
 ├── manifest.json         # Cấu hình PWA để cài đặt ứng dụng vào máy

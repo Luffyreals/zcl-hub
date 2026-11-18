@@ -188,7 +188,7 @@ const i18n = {
     bento_badge: "CÁC ỨNG DỤNG CHÍNH",
     bento_title: "Dễ dùng · Siêu tốc · Tiện lợi",
     bento_sub: "Được thiết kế để giải quyết nhu cầu làm việc hàng ngày giữa các máy tính.",
-    tp_status: "Bản thử nghiệm",
+    tp_status: "Bản chính thức",
     tp_title: "ZCL Teleport",
     tp_desc: "Gửi nhận file dung lượng không giới hạn và sao chép dữ liệu tức thì giữa hai máy tính cùng mạng Wi-Fi.",
     tp_f1: "Gửi file phim, ảnh, tài liệu hàng chục GB chỉ trong vài giây",
@@ -326,6 +326,7 @@ const i18n = {
     road_desc_chat: "Nhắn tin và gọi thoại nhanh giữa các máy cùng phòng, bảo mật tuyệt đối.",
     road_desc_sync: "Tự động cập nhật thư mục làm việc giữa máy tính bàn và laptop cá nhân.",
     detail_status_ready: "Sẵn sàng · v0.1.0",
+    detail_status_tp_ready: "Sẵn sàng · v1.2.0",
     chip_gpl: "Mã nguồn mở GPL-3.0",
     chip_proprietary: "Miễn phí",
     spec_val_license_closed: "Độc quyền · Nguyễn Hoàng Tùng (@Luffyreals)",
@@ -566,6 +567,73 @@ const i18n = {
     au_installed_current: "Máy của bạn đã tải bản mới nhất ({v})",
     au_installed_outdated: "Đã có bản mới {latest} (Bản bạn đã tải trước đó: {old})",
     au_btn_update_app: "Cập nhật lên bản {v} (.exe)",
+
+    // ZCL Mind Showcase, Arch, Calculator & Studio Additions
+    arch_mind_tag_1: "Thói quen",
+    arch_mind_tag_2: "Lịch trình",
+    arch_mind_tag_3: "Tính cách",
+    arch_mind_tag_4: "Quan hệ",
+    arch_mind_chip: "100% Trên máy",
+
+    calc_preset_2: "2 GB (Video ngắn)",
+    calc_preset_15: "15 GB (Album ảnh/phim)",
+    calc_preset_40: "40 GB (Video 4K / Dự án)",
+    calc_preset_80: "80 GB (Dữ liệu lớn)",
+    calc_res_zcl_label: "ZCL Hub (Mạng nội bộ)",
+    calc_res_cloud_label: "Mạng Internet đám mây thông thường",
+
+    mind_btn_web: "Dùng thử trên Web",
+    dt_mind_btn_web: "Dùng thử trợ lý trên Web",
+    dt_mind_badge_map: "Bản đồ 6 chiều",
+    dt_mind_tag_local: "100% Trên máy",
+    dt_mind_dim_1: "Hồ sơ cá nhân",
+    dt_mind_dim_2: "Thói quen",
+    dt_mind_dim_3: "Lịch trình",
+    dt_mind_dim_4: "Quan hệ",
+    dt_mind_dim_5: "Tính cách",
+    dt_mind_dim_6: "Điểm mạnh / yếu",
+    dt_mind_map_desc: "Tự động phân loại và ghi nhớ sâu sắc các thói quen, lịch hẹn và lưu ý giao tiếp ngay khi trò chuyện.",
+    dt_mind_badge_cpu: "Xử lý trên CPU",
+    dt_mind_tag_fast: "&lt; 1.5s phản hồi",
+    dt_mind_cpu_desc: "Tối ưu cho chip máy tính phổ thông không cần card đồ họa rời · RAM chỉ tốn 2 – 3.5 GB",
+    spec_mind_resp_label: "Thời gian phản hồi",
+    spec_mind_resp_val: "Dưới 1.5 giây (bắt đầu gõ chữ)",
+    spec_mind_speed_label: "Tốc độ xuất chữ",
+    spec_mind_speed_val: "18 – 25 từ/giây (mượt mà)",
+    spec_mind_sec_val: "100% Trên máy, 0 máy chủ ngoài",
+    spec_mind_net_val: "Hoàn toàn không cần Internet (100% Offline)",
+    dl_req_win_mind: "Yêu cầu: Máy tính Windows 10 hoặc Windows 11 (RAM từ 8GB trở lên)",
+    dl_mind_offline_bundle: "Trọn gói sẵn sàng ngoại tuyến, tải về là chạy ngay không cần Internet",
+
+    studio_tab_mind: "Thử trợ lý cá nhân (Mind)",
+    mind_sim_badge: "TRỢ LÝ THẤU HIỂU TRÊN MÁY",
+    mind_sim_title: "Thử trò chuyện &amp; xem ZCL Mind ghi nhớ 6 chiều",
+    mind_sim_sub: "Nhập một câu chia sẻ bất kỳ hoặc chọn tình huống mẫu bên dưới. ZCL Mind tự bóc tách thông tin quan trọng ngay trên máy mà không gửi ra Internet.",
+    mind_sim_status: "100% Chạy trên máy · Phản hồi &lt; 0.8s",
+    mind_sim_input_label: "Nói chuyện hoặc chia sẻ với ZCL Mind:",
+    mind_sim_input_ph: "Ví dụ: Mỗi sáng thứ Hai tôi họp lúc 9h và thích uống trà đá không đường...",
+    mind_sim_btn_analyze: "Phân tích &amp; Ghi nhớ",
+    mind_sim_btn_reset: "Làm mới hồ sơ",
+    mind_sim_samples_label: "Tình huống mẫu:",
+    mind_sim_sample_1: "Thói quen buổi sáng",
+    mind_sim_sample_2: "Lịch họp &amp; đồng nghiệp",
+    mind_sim_sample_3: "Sở thích &amp; tính cách",
+    mind_sim_reply_label: "Phản hồi của trợ lý:",
+    mind_sim_reply_default: "Tôi đã sẵn sàng lắng nghe bạn. Mọi ghi nhớ đều được lưu an toàn ngay trên máy tính này.",
+    mind_sim_map_title: "Bản đồ thấu hiểu 6 chiều (Cập nhật trực tiếp)",
+    mind_sim_dim1_title: "Hồ sơ cá nhân",
+    mind_sim_dim1_val: "Chuyên viên thiết kế · Làm việc tại nhà",
+    mind_sim_dim2_title: "Thói quen",
+    mind_sim_dim2_val: "Làm việc tập trung buổi sáng · Ít kiểm tra điện thoại",
+    mind_sim_dim3_title: "Lịch trình",
+    mind_sim_dim3_val: "Họp tổng kết dự án vào 14:00 Thứ Năm",
+    mind_sim_dim4_title: "Quan hệ",
+    mind_sim_dim4_val: "Hay trao đổi file gốc với Minh (Máy B)",
+    mind_sim_dim5_title: "Tính cách",
+    mind_sim_dim5_val: "Gọn gàng, thích giải pháp rõ ràng và nhanh chóng",
+    mind_sim_dim6_title: "Điểm mạnh / Lưu ý",
+    mind_sim_dim6_val: "Xử lý video nhanh · Hay quên sao lưu lúc tối muộn",
+    fb_app_mind: "ZCL Mind (Trợ lý cá nhân)",
   },
 
   en: {
@@ -748,7 +816,7 @@ const i18n = {
     bento_badge: "CORE APPLICATIONS",
     bento_title: "Simple · Fast · Reliable",
     bento_sub: "Built to solve everyday workflow needs between your local computers.",
-    tp_status: "Preview build",
+    tp_status: "Official release",
     tp_title: "ZCL Teleport",
     tp_desc: "Send unlimited files and sync clipboard contents seamlessly over local Wi-Fi.",
     tp_f1: "Send movies, photos, and large archives in seconds",
@@ -886,6 +954,7 @@ const i18n = {
     road_desc_chat: "Fast messaging and voice calls between room computers, strictly secure.",
     road_desc_sync: "Automatic folder sync between desktop PC and personal laptop.",
     detail_status_ready: "Ready · v0.1.0",
+    detail_status_tp_ready: "Ready · v1.2.0",
     chip_gpl: "Open Source GPL-3.0",
     chip_proprietary: "Free",
     spec_val_license_closed: "All Rights Reserved · Nguyen Hoang Tung (@Luffyreals)",
@@ -1126,6 +1195,73 @@ const i18n = {
     au_installed_current: "Your PC has the latest release ({v})",
     au_installed_outdated: "New release {latest} available (Previously downloaded: {old})",
     au_btn_update_app: "Update to {v} (.exe)",
+
+    // ZCL Mind Showcase, Arch, Calculator & Studio Additions
+    arch_mind_tag_1: "Habits",
+    arch_mind_tag_2: "Schedule",
+    arch_mind_tag_3: "Personality",
+    arch_mind_tag_4: "Relationships",
+    arch_mind_chip: "100% On-device",
+
+    calc_preset_2: "2 GB (Short video)",
+    calc_preset_15: "15 GB (Photo/video album)",
+    calc_preset_40: "40 GB (4K video / Project)",
+    calc_preset_80: "80 GB (Large archive)",
+    calc_res_zcl_label: "ZCL Hub (Local network)",
+    calc_res_cloud_label: "Conventional cloud internet",
+
+    mind_btn_web: "Try on Web",
+    dt_mind_btn_web: "Try Assistant on Web",
+    dt_mind_badge_map: "6-Dimensional Map",
+    dt_mind_tag_local: "100% On-device",
+    dt_mind_dim_1: "Personal Profile",
+    dt_mind_dim_2: "Daily Habits",
+    dt_mind_dim_3: "Schedule",
+    dt_mind_dim_4: "Relationships",
+    dt_mind_dim_5: "Personality",
+    dt_mind_dim_6: "Strengths & Limits",
+    dt_mind_map_desc: "Automatically categorizes and retains habits, schedules, and communication preferences during natural chat.",
+    dt_mind_badge_cpu: "CPU Powered",
+    dt_mind_tag_fast: "&lt; 1.5s response",
+    dt_mind_cpu_desc: "Optimized for standard processors with no discrete GPU required · Uses only 2 – 3.5 GB RAM",
+    spec_mind_resp_label: "Response Time",
+    spec_mind_resp_val: "Under 1.5 seconds (first token)",
+    spec_mind_speed_label: "Typing Speed",
+    spec_mind_speed_val: "18 – 25 words/sec (smooth)",
+    spec_mind_sec_val: "100% On-device, 0 external servers",
+    spec_mind_net_val: "No Internet required (100% Offline)",
+    dl_req_win_mind: "Requirement: Windows 10 or Windows 11 PC (8GB+ RAM)",
+    dl_mind_offline_bundle: "Complete offline bundle included, runs right away with zero Internet",
+
+    studio_tab_mind: "Try Personal Assistant (Mind)",
+    mind_sim_badge: "ON-DEVICE PERSONAL ASSISTANT",
+    mind_sim_title: "Chat &amp; Watch ZCL Mind Update Your 6D Map",
+    mind_sim_sub: "Type any everyday note or pick a sample scenario below. ZCL Mind extracts key memories directly on your PC with zero cloud access.",
+    mind_sim_status: "100% On-device · Response &lt; 0.8s",
+    mind_sim_input_label: "Say something or share a note with ZCL Mind:",
+    mind_sim_input_ph: "e.g. Every Monday at 9 AM I have a team sync and prefer unsweetened iced tea...",
+    mind_sim_btn_analyze: "Analyze &amp; Remember",
+    mind_sim_btn_reset: "Reset Map",
+    mind_sim_samples_label: "Sample notes:",
+    mind_sim_sample_1: "Morning habit",
+    mind_sim_sample_2: "Meeting &amp; teammate",
+    mind_sim_sample_3: "Traits &amp; style",
+    mind_sim_reply_label: "Assistant reply:",
+    mind_sim_reply_default: "I am ready to listen. Every memory stays safely on this computer.",
+    mind_sim_map_title: "6-Dimensional Understanding Map (Live)",
+    mind_sim_dim1_title: "Identity",
+    mind_sim_dim1_val: "Product Designer · Works from home",
+    mind_sim_dim2_title: "Habits",
+    mind_sim_dim2_val: "Deep focus mornings · Minimal phone breaks",
+    mind_sim_dim3_title: "Schedule",
+    mind_sim_dim3_val: "Project review meeting at 2:00 PM Thursday",
+    mind_sim_dim4_title: "Relationships",
+    mind_sim_dim4_val: "Often shares raw media files with Minh (PC B)",
+    mind_sim_dim5_title: "Personality",
+    mind_sim_dim5_val: "Organized, prefers clear and direct workflows",
+    mind_sim_dim6_title: "Strengths & Notes",
+    mind_sim_dim6_val: "Fast media editing · Often forgets late-night backups",
+    fb_app_mind: "ZCL Mind (Personal Assistant)",
   }
 };
 
@@ -1516,7 +1652,7 @@ function initMainTabs() {
       const href = anchor.getAttribute('href');
       if (href && href !== '#') {
         const target = href.replace(/^#/, '');
-        if (target.startsWith('apps/') || target === 'teleport' || target === 'remote') {
+        if (target.startsWith('apps/') || target === 'teleport' || target === 'remote' || target === 'mind') {
           e.preventDefault();
           switchMainTab(target);
           return;
@@ -1525,7 +1661,7 @@ function initMainTabs() {
         const validTargets = [
           'overview', 'home', 'hero', 'pillars',
           'products', 'apps', 'roadmap',
-          'download', 'download-teleport', 'download-remote',
+          'download', 'download-teleport', 'download-remote', 'download-mind',
           'studio', 'quickstart', 'guide', 'faq',
           'feedback', 'feedback-section', 'donate', 'donate-section'
         ];
@@ -1791,19 +1927,28 @@ function initStudio() {
         }
 
         const elapsedSec = ((Date.now() - startTime) / 1000).toFixed(2);
+        const targetName = activePeerName ? activePeerName.innerText : 'Laptop-LamViec';
+        const sizeStr = totalMB >= 1000 ? (totalMB / 1024).toFixed(1) + ' GB' : totalMB + ' MB';
+
         showToast(currentLang === 'vi' 
           ? `Đã gửi xong ${fileName} (${totalMB >= 1000 ? (totalMB/1024).toFixed(1) + 'GB' : totalMB + 'MB'}) sau ${elapsedSec}s!`
           : `Successfully sent ${fileName} in ${elapsedSec}s!`);
 
+        if (typeof zclLiveChannel !== 'undefined' && zclLiveChannel) {
+          zclLiveChannel.postMessage({
+            type: 'FILE_COMPLETE',
+            fromTab: thisTabId,
+            fileName: fileName,
+            fileSize: sizeStr,
+            elapsedSec: elapsedSec,
+            targetName: targetName
+          });
+        }
+
         // Add to history list
         if (historyList) {
-          completedFileCount++;
-          if (historyCount) {
-            historyCount.innerText = `${completedFileCount} ${currentLang === 'vi' ? 'file đã nhận' : 'files received'}`;
-          }
-
-          const targetName = activePeerName ? activePeerName.innerText : 'Laptop-LamViec';
-          const sizeStr = totalMB >= 1000 ? (totalMB / 1024).toFixed(1) + ' GB' : totalMB + ' MB';
+          const safeFileName = String(fileName).replace(/[<>&"]/g, '');
+          const safeTargetName = String(targetName).replace(/[<>&"]/g, '');
           const item = document.createElement('div');
           item.className = 'history-item';
           item.innerHTML = `
@@ -1811,12 +1956,16 @@ function initStudio() {
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
             <div class="hist-info">
-              <span class="hist-name">${fileName} (${sizeStr})</span>
-              <span class="hist-sub">${currentLang === 'vi' ? 'Gửi sang' : 'Sent to'} ${targetName} · ${elapsedSec}s</span>
+              <span class="hist-name">${safeFileName} (${sizeStr})</span>
+              <span class="hist-sub">${currentLang === 'vi' ? 'Gửi sang' : 'Sent to'} ${safeTargetName} · ${elapsedSec}s</span>
             </div>
-            <span class="hist-badge">100% Trong phòng</span>
+            <span class="hist-badge">${currentLang === 'vi' ? '100% Trong phòng' : '100% In-Room'}</span>
           `;
           historyList.prepend(item);
+          completedFileCount = historyList.querySelectorAll('.history-item').length;
+          if (historyCount) {
+            historyCount.innerText = `${completedFileCount} ${currentLang === 'vi' ? 'file đã nhận' : 'files received'}`;
+          }
         }
       }
     }, 70);
@@ -2550,8 +2699,14 @@ function initStudio() {
       waveCtx.clearRect(0, 0, w, h);
       waveStep += 0.04;
 
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      const gridColor = isLight ? 'rgba(42, 37, 30, 0.08)' : 'rgba(255, 255, 255, 0.04)';
+      const waveStroke = isLight ? '#0B5E47' : '#85edca';
+      const waveGlowTop = isLight ? 'rgba(11, 94, 71, 0.16)' : 'rgba(133, 237, 202, 0.15)';
+      const waveGlowBot = isLight ? 'rgba(11, 94, 71, 0.0)' : 'rgba(133, 237, 202, 0.0)';
+
       // Draw horizontal grid guide
-      waveCtx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+      waveCtx.strokeStyle = gridColor;
       waveCtx.lineWidth = 1;
       [0.25, 0.5, 0.75].forEach((ratio) => {
         waveCtx.beginPath();
@@ -2571,7 +2726,7 @@ function initStudio() {
         else waveCtx.lineTo(x, y);
       }
 
-      waveCtx.strokeStyle = '#85edca';
+      waveCtx.strokeStyle = waveStroke;
       waveCtx.lineWidth = 2.5;
       waveCtx.stroke();
 
@@ -2580,8 +2735,8 @@ function initStudio() {
       waveCtx.lineTo(0, h);
       waveCtx.closePath();
       const areaGrad = waveCtx.createLinearGradient(0, baselineY, 0, h);
-      areaGrad.addColorStop(0, 'rgba(133, 237, 202, 0.15)');
-      areaGrad.addColorStop(1, 'rgba(133, 237, 202, 0.0)');
+      areaGrad.addColorStop(0, waveGlowTop);
+      areaGrad.addColorStop(1, waveGlowBot);
       waveCtx.fillStyle = areaGrad;
       waveCtx.fill();
 
@@ -3212,7 +3367,7 @@ function showAutoUpdateBanner(targetType = 'pwa') {
 
   pendingUpdateAction = targetType;
 
-  if (targetType === 'teleport' || targetType === 'remote') {
+  if (targetType === 'teleport' || targetType === 'remote' || targetType === 'mind') {
     const appData = DOWNLOAD_REGISTRY[targetType];
     if (titleEl) {
       titleEl.innerText = currentLang === 'vi'
@@ -3320,7 +3475,7 @@ function initAutoUpdateSystem() {
       if (banner) banner.style.display = 'none';
       const dict = i18n[currentLang] || i18n.vi;
 
-      if (pendingUpdateAction === 'teleport' || pendingUpdateAction === 'remote') {
+      if (pendingUpdateAction === 'teleport' || pendingUpdateAction === 'remote' || pendingUpdateAction === 'mind') {
         triggerDirectFileDownload(pendingUpdateAction, 'exe');
       } else {
         if (swRegistration && swRegistration.waiting) {
@@ -3457,7 +3612,7 @@ function applyTheme(theme) {
 
   const metaThemeColor = document.querySelector('meta[name="theme-color"]');
   if (metaThemeColor) {
-    metaThemeColor.setAttribute('content', isLight ? '#f8fafc' : '#09080c');
+    metaThemeColor.setAttribute('content', isLight ? '#FBF6EC' : '#09080c');
   }
 
   const metaColorScheme = document.querySelector('meta[name="color-scheme"]');
@@ -3921,7 +4076,10 @@ function initBackgroundEffects() {
   });
 
   function renderNodes() {
-    if (!isPageVisible || document.body.classList.contains("eco-mode")) return;
+    if (!isPageVisible || document.body.classList.contains("eco-mode")) {
+      animationId = null;
+      return;
+    }
 
     ctx.clearRect(0, 0, width, height);
 
@@ -4027,13 +4185,19 @@ function initBackgroundEffects() {
   // Power save: pause when tab hidden, resume when tab active
   document.addEventListener('visibilitychange', () => {
     isPageVisible = !document.hidden;
-    if (isPageVisible && !prefersReduced && !animationId) {
+    if (isPageVisible && !prefersReduced && !document.body.classList.contains('eco-mode') && !animationId) {
       animationId = requestAnimationFrame(renderNodes);
     } else if (!isPageVisible && animationId) {
       cancelAnimationFrame(animationId);
       animationId = null;
     }
   });
+
+  window.resumeBgParticles = function () {
+    if (isPageVisible && !prefersReduced && !document.body.classList.contains('eco-mode') && !animationId) {
+      animationId = requestAnimationFrame(renderNodes);
+    }
+  };
 }
 
 
@@ -4057,7 +4221,7 @@ function initEcoMode() {
       const isVi = currentLang === 'vi';
       showToast(isEcoModeActive 
         ? (isVi ? i18n.vi.eco_enabled_toast : i18n.en.eco_enabled_toast)
-        : (isVi ? i18n.eco_disabled_toast || 'Đã tắt chế độ tiết kiệm pin' : i18n.en.eco_disabled_toast));
+        : (isVi ? i18n.vi.eco_disabled_toast : i18n.en.eco_disabled_toast));
 
       // Wake up or pause background particles canvas
       const canvas = document.getElementById('bgParticlesCanvas');
@@ -4352,16 +4516,51 @@ function initLiveDualTabSync() {
       setDualTabActiveState(true);
     } else if (data.type === 'CLIPBOARD_SYNC') {
       const text = data.text || '';
-      const inputA = document.getElementById('clipInputA');
-      const inputB = document.getElementById('clipInputB');
-      if (inputA && inputB) {
-        inputB.value = text;
-        inputB.style.borderColor = 'var(--mint)';
-        setTimeout(() => { inputB.style.borderColor = ''; }, 1800);
+      const clipOut = document.getElementById('clipReceivedText');
+      const clipOutWrap = document.getElementById('clipOutputContainer');
+      const clipStatusBadge = document.getElementById('clipSyncStatusBadge');
+      const clipTimeTag = document.getElementById('clipTimeTag');
+      if (clipOut) {
+        clipOut.innerText = text;
       }
-      showToast((currentLang === 'vi' ? i18n.vi.studio_toast_clipboard_received : i18n.en.studio_toast_clipboard_received) + ` "${text.substring(0, 30)}..."`);
+      if (clipOutWrap) {
+        clipOutWrap.classList.remove('flash-synced');
+        void clipOutWrap.offsetWidth;
+        clipOutWrap.classList.add('flash-synced');
+      }
+      if (clipStatusBadge) {
+        clipStatusBadge.innerText = currentLang === 'vi' ? 'Đã đồng bộ từ Tab kia · 0.01s' : 'Synced from Peer Tab · 0.01s';
+      }
+      if (clipTimeTag) {
+        clipTimeTag.innerText = currentLang === 'vi' ? 'Đồng bộ cách đây: vừa xong' : 'Synced: just now';
+      }
+      showToast((currentLang === 'vi' ? i18n.vi.studio_toast_clipboard_received : i18n.en.studio_toast_clipboard_received) + ` "${text.substring(0, 30)}"`);
     } else if (data.type === 'FILE_COMPLETE') {
       const isVi = currentLang === 'vi';
+      const histList = document.getElementById('transferHistoryList');
+      const histCountEl = document.getElementById('historyCount');
+      if (histList) {
+        const safeName = String(data.fileName || 'file').replace(/[<>&"]/g, '');
+        const safeSize = String(data.fileSize || '').replace(/[<>&"]/g, '');
+        const safeSec = String(data.elapsedSec || '0.5').replace(/[<>&"]/g, '');
+        const item = document.createElement('div');
+        item.className = 'history-item';
+        item.innerHTML = `
+          <div class="hist-icon success">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="hist-info">
+            <span class="hist-name">${safeName} (${safeSize})</span>
+            <span class="hist-sub">${isVi ? 'Nhận từ Tab bên cạnh' : 'Received from Peer Tab'} · ${safeSec}s</span>
+          </div>
+          <span class="hist-badge">${isVi ? 'Đồng bộ trực tiếp' : 'Live Peer Sync'}</span>
+        `;
+        histList.prepend(item);
+        if (histCountEl) {
+          const totalItems = histList.querySelectorAll('.history-item').length;
+          histCountEl.innerText = `${totalItems} ${isVi ? 'file đã nhận' : 'files received'}`;
+        }
+      }
       showToast((isVi ? i18n.vi.studio_toast_file_received : i18n.en.studio_toast_file_received) + `${data.fileName} (${data.fileSize})`);
     } else if (data.type === 'BYE') {
       setDualTabActiveState(false);
@@ -4382,7 +4581,7 @@ function initLiveDualTabSync() {
   if (btnCopy) {
     btnCopy.addEventListener('click', () => {
       const inputA = document.getElementById('clipInputA');
-      const text = inputA ? inputA.value : '';
+      const text = inputA ? (inputA.value.trim() || (currentLang === 'vi' ? 'Tài liệu dự án 2026.docx' : 'Project Document 2026.docx')) : '';
       if (zclLiveChannel && text) {
         zclLiveChannel.postMessage({
           type: 'CLIPBOARD_SYNC',
@@ -4521,8 +4720,8 @@ function initFeedbackSystem() {
 
       const catLabelsVi = { feature: 'Đề xuất tính năng', bug: 'Báo lỗi trải nghiệm', review: 'Chia sẻ cảm nhận', other: 'Khác' };
       const catLabelsEn = { feature: 'Feature request', bug: 'Bug report', review: 'User experience', other: 'Other' };
-      const appLabelsVi = { all: 'ZCL Hub (Chung)', teleport: 'ZCL Teleport (Truyền file)', remote: 'ZCL Remote (Điều khiển)', studio: 'Dùng thử Web' };
-      const appLabelsEn = { all: 'ZCL Hub (General)', teleport: 'ZCL Teleport (Transfer)', remote: 'ZCL Remote (Control)', studio: 'Web Studio' };
+      const appLabelsVi = { all: 'ZCL Hub (Chung)', teleport: 'ZCL Teleport (Truyền file)', remote: 'ZCL Remote (Điều khiển)', mind: 'ZCL Mind (Trợ lý cá nhân)', studio: 'Dùng thử Web' };
+      const appLabelsEn = { all: 'ZCL Hub (General)', teleport: 'ZCL Teleport (Transfer)', remote: 'ZCL Remote (Control)', mind: 'ZCL Mind (Personal Assistant)', studio: 'Web Studio' };
 
       const selectedCat = modalCat.getValue() || 'feature';
       const selectedApp = modalApp.getValue() || 'all';
@@ -5021,6 +5220,154 @@ function initThankYouModal() {
   window.closeThankYouModal = closeThankYouModal;
 }
 
+// ==========================================
+// 14. ZCL MIND ASSISTANT SIMULATOR (STUDIO)
+// ==========================================
+function initMindSimulator() {
+  const input = document.getElementById('mindSimInput');
+  const btnAnalyze = document.getElementById('btnMindAnalyze');
+  const btnReset = document.getElementById('btnMindReset');
+  const replyText = document.getElementById('mindReplyText');
+  const replySpeed = document.getElementById('mindReplySpeed');
+  const sampleChips = document.querySelectorAll('.mind-sample-chip');
+
+  if (!input || !btnAnalyze) return;
+
+  const cards = [
+    document.getElementById('mindDimCard1'),
+    document.getElementById('mindDimCard2'),
+    document.getElementById('mindDimCard3'),
+    document.getElementById('mindDimCard4'),
+    document.getElementById('mindDimCard5'),
+    document.getElementById('mindDimCard6')
+  ];
+  const vals = [
+    document.getElementById('mindDimVal1'),
+    document.getElementById('mindDimVal2'),
+    document.getElementById('mindDimVal3'),
+    document.getElementById('mindDimVal4'),
+    document.getElementById('mindDimVal5'),
+    document.getElementById('mindDimVal6')
+  ];
+
+  const SAMPLES = {
+    habit: {
+      vi: 'Mỗi sáng 7h tôi uống cà phê đen ít đường và đọc tin công nghệ 15 phút trước khi làm việc.',
+      en: 'Every morning at 7 AM I drink unsweetened black coffee and read tech notes for 15 minutes before starting work.'
+    },
+    schedule: {
+      vi: 'Sáng thứ Hai lúc 9h30 tôi có lịch họp bàn giao file thiết kế với anh Tuấn ở phòng kế bên.',
+      en: 'On Monday at 9:30 AM I have a design file handoff meeting with Tuan from the next room.'
+    },
+    traits: {
+      vi: 'Tôi thích không gian làm việc yên tĩnh, mọi thư mục sắp xếp gọn gàng nhưng hay quên sao lưu cuối ngày.',
+      en: 'I prefer a quiet workspace with neatly organized folders, though I sometimes forget end-of-day backups.'
+    }
+  };
+
+  function highlightCard(idx) {
+    const card = cards[idx];
+    if (!card) return;
+    card.classList.remove('mind-card-updated');
+    void card.offsetWidth;
+    card.classList.add('mind-card-updated');
+    setTimeout(() => card.classList.remove('mind-card-updated'), 2200);
+  }
+
+  function analyzeText(raw) {
+    const text = (raw || '').trim();
+    const isVi = currentLang === 'vi';
+    if (!text) {
+      input.focus();
+      showToast(isVi ? 'Hãy nhập hoặc chọn một câu chia sẻ để ZCL Mind phân tích' : 'Type or pick a sample note for ZCL Mind to analyze');
+      return;
+    }
+
+    const lower = text.toLowerCase();
+    const updatedIndexes = [];
+
+    if (/(sáng|tối|cà phê|trà|chạy bộ|thói quen|mỗi|morning|coffee|tea|habit|daily|every|7h|7 am)/i.test(lower)) {
+      if (vals[1]) vals[1].innerText = text;
+      updatedIndexes.push(1);
+    }
+    if (/(họp|lịch|thứ|giờ|mai|ngày|deadline|meeting|monday|tuesday|wednesday|thursday|friday|am|pm|9h30|9:30)/i.test(lower)) {
+      if (vals[2]) vals[2].innerText = text;
+      updatedIndexes.push(2);
+    }
+    if (/(với|anh|chị|bạn|đồng nghiệp|sếp|gia đình|minh|tuấn|team|colleague|friend|family|tuan)/i.test(lower)) {
+      if (vals[3]) vals[3].innerText = text;
+      updatedIndexes.push(3);
+    }
+    if (/(thích|ghét|ưu tiên|yên tĩnh|gọn|nhanh|phong cách|prefer|like|quiet|organized|style)/i.test(lower)) {
+      if (vals[4]) vals[4].innerText = text;
+      updatedIndexes.push(4);
+    }
+    if (/(giỏi|mạnh|quên|nhắc|sao lưu|cần|lưu ý|forget|remind|backup|strength)/i.test(lower)) {
+      if (vals[5]) vals[5].innerText = text;
+      updatedIndexes.push(5);
+    }
+    if (/(tôi là|làm việc|nghề|thiết kế|kỹ sư|sinh viên|i am|work|designer|engineer)/i.test(lower)) {
+      if (vals[0]) vals[0].innerText = text;
+      updatedIndexes.push(0);
+    }
+
+    if (updatedIndexes.length === 0) {
+      if (vals[1]) vals[1].innerText = text;
+      updatedIndexes.push(1);
+    }
+
+    updatedIndexes.forEach((idx) => highlightCard(idx));
+
+    const simMs = (0.4 + Math.random() * 0.4).toFixed(1);
+    if (replySpeed) replySpeed.innerText = `${simMs}s · CPU`;
+
+    if (replyText) {
+      const dimNames = isVi
+        ? ['Hồ sơ cá nhân', 'Thói quen', 'Lịch trình', 'Quan hệ', 'Tính cách', 'Điểm mạnh / Lưu ý']
+        : ['Identity', 'Habits', 'Schedule', 'Relationships', 'Personality', 'Strengths & Notes'];
+      const labels = updatedIndexes.map((i) => dimNames[i]).join(', ');
+      replyText.innerText = isVi
+        ? `Đã ghi nhớ vào mục [${labels}] ngay trên máy tính của bạn (0 dữ liệu gửi ra ngoài).`
+        : `Saved directly to [${labels}] on your local PC (zero external cloud routing).`;
+    }
+
+    showToast(isVi ? 'ZCL Mind đã cập nhật bản đồ thấu hiểu trên máy!' : 'ZCL Mind updated your local memory map!');
+  }
+
+  sampleChips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const key = chip.getAttribute('data-sample');
+      const isVi = currentLang === 'vi';
+      if (SAMPLES[key]) {
+        const text = isVi ? SAMPLES[key].vi : SAMPLES[key].en;
+        input.value = text;
+        analyzeText(text);
+      }
+    });
+  });
+
+  btnAnalyze.addEventListener('click', () => {
+    analyzeText(input.value);
+  });
+
+  if (btnReset) {
+    btnReset.addEventListener('click', () => {
+      const dict = i18n[currentLang] || i18n.vi;
+      input.value = '';
+      vals.forEach((el, idx) => {
+        if (el && dict[`mind_sim_dim${idx + 1}_val`]) {
+          el.innerText = dict[`mind_sim_dim${idx + 1}_val`];
+        }
+      });
+      if (replyText && dict.mind_sim_reply_default) {
+        replyText.innerText = dict.mind_sim_reply_default;
+      }
+      if (replySpeed) replySpeed.innerText = '0.6s · CPU';
+      showToast(currentLang === 'vi' ? 'Đã khôi phục bản đồ 6 chiều mặc định' : 'Restored default 6D memory map');
+    });
+  }
+}
+
 // Backward-compatibility aliases
 function initDonateModal() {}
 function initFeedbackModal() {}
@@ -5070,4 +5417,5 @@ document.addEventListener('DOMContentLoaded', () => {
   safeRun('DonateSystem', initDonateSystem);
   safeRun('UnifiedFeedbackDonateModal', initUnifiedFeedbackDonateModal);
   safeRun('ThankYouModal', initThankYouModal);
+  safeRun('MindSimulator', initMindSimulator);
 });

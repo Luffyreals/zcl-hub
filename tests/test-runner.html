@@ -606,6 +606,43 @@
             }
           }
         ]
+      },
+      {
+        id: "suite_mind_pillars",
+        title: "7. Kiểm thử Dải 4 Điểm Nổi Bật & Mô Phỏng ZCL Mind (Web Studio)",
+        cases: [
+          {
+            name: "Dải 4 điểm nổi bật (.overview-pillars-strip) hiển thị đủ 4 thẻ",
+            run: (win) => {
+              const strip = win.document.querySelector('.overview-pillars-strip');
+              const cards = win.document.querySelectorAll('.overview-pillars-strip .pillar-highlight-card');
+              return !!strip && cards.length === 4;
+            }
+          },
+          {
+            name: "Tab mô phỏng ZCL Mind (#panel-mind) và đủ 6 thẻ chiều thấu hiểu tồn tại",
+            run: (win) => {
+              const panel = win.document.getElementById('panel-mind');
+              const input = win.document.getElementById('mindSimInput');
+              const btn = win.document.getElementById('btnMindAnalyze');
+              const dims = [1, 2, 3, 4, 5, 6].every(i => !!win.document.getElementById('mindDimCard' + i));
+              return !!panel && !!input && !!btn && dims;
+            }
+          },
+          {
+            name: "Phân tích câu chia sẻ trên ZCL Mind cập nhật bản đồ 6 chiều",
+            run: (win) => {
+              const input = win.document.getElementById('mindSimInput');
+              const btn = win.document.getElementById('btnMindAnalyze');
+              const val3 = win.document.getElementById('mindDimVal3');
+              if (!input || !btn || !val3) return false;
+              const sample = "Thứ Hai lúc 9h họp với team thiết kế";
+              input.value = sample;
+              btn.click();
+              return val3.innerText.includes("Thứ Hai");
+            }
+          }
+        ]
       }
     ];
 
