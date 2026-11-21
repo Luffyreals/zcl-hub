@@ -10,7 +10,7 @@ Tài liệu này ghi nhận kế hoạch phát triển và mở rộng bộ ứn
   * Truyền file không giới hạn dung lượng với tốc độ tối đa qua Wi-Fi và dây LAN.
   * Tự động nhận diện các máy tính đang mở ứng dụng trong phòng.
   * Đồng bộ sao chép (Copy - Paste) văn bản và hình ảnh tức thì giữa 2 máy tính.
-* [x] **ZCL Remote (v0.1.0-alpha)**:
+* [x] **ZCL Remote (v0.2.0)**:
   * Điều khiển máy tính từ xa siêu mượt qua mạng nội bộ.
   * Công nghệ phản hồi chuột tức thì không độ trễ.
   * Nút dừng khẩn cấp (Kill-switch) giúp máy được điều khiển luôn giữ quyền tự chủ.
@@ -42,6 +42,6 @@ Tài liệu này ghi nhận kế hoạch phát triển và mở rộng bộ ứn
 
 ## Tác giả
 
-Phát triển bởi **Nguyễn Hoàng Tùng** ([@Luffyreals](https://github.com/Luffyreals)).
+Phát triển bởi **Nguyễn Hoàng Tùng** ([@tungkernel](https://github.com/tungkernel)).
 * **ZCL Hub & ZCL Teleport**: Mã nguồn mở theo giấy phép **GPL-3.0**.
 * **ZCL Remote & ZCL Mind**: Phần mềm miễn phí, độc quyền.

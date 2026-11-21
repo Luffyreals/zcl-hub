@@ -12,7 +12,7 @@
 [![PWA Ready](https://img.shields.io/badge/PWA-ready-purple.svg)]()
 [![Platform](https://img.shields.io/badge/Windows-10%20%7C%2011-0078D6.svg)]()
 
-[Mở Trang Web](https://luffyreals.github.io/zcl-hub/) · [Dùng thử trên Web](https://luffyreals.github.io/zcl-hub/#studio) · [Tải về ứng dụng](https://luffyreals.github.io/zcl-hub/#download) · [Góp ý](https://luffyreals.github.io/zcl-hub/#feedback) · [Ủng hộ](https://luffyreals.github.io/zcl-hub/#donate)
+[Mở Trang Web](https://tungkernel.github.io/zcl-hub/) · [Dùng thử trên Web](https://tungkernel.github.io/zcl-hub/#studio) · [Tải về ứng dụng](https://tungkernel.github.io/zcl-hub/#download) · [Góp ý](https://tungkernel.github.io/zcl-hub/#feedback) · [Ủng hộ](https://tungkernel.github.io/zcl-hub/#donate)
 
 </div>
 
@@ -31,8 +31,8 @@
 
 | Ứng dụng | Chức năng | Giấy phép | Trạng thái | Tải về |
 | :--- | :--- | :--- | :--- | :--- |
-| **ZCL Teleport** | Gửi nhận file lớn và đồng bộ văn bản nhanh giữa 2 máy | Mã nguồn mở (`GPL-3.0`) | Chính thức v1.2.0 | [Tải về](https://luffyreals.github.io/zcl-hub/#download) |
-| **ZCL Remote** | Điều khiển máy tính từ xa siêu mượt qua Wi-Fi | Miễn phí (`Độc quyền`) | Thử nghiệm v0.1.0 | [Tải về](https://luffyreals.github.io/zcl-hub/#download) |
+| **ZCL Teleport** | Gửi nhận file lớn và đồng bộ văn bản nhanh giữa 2 máy | Mã nguồn mở (`GPL-3.0`) | Chính thức v1.2.0 | [Tải về](https://tungkernel.github.io/zcl-hub/#download) |
+| **ZCL Remote** | Điều khiển máy tính từ xa siêu mượt qua Wi-Fi | Miễn phí (`Độc quyền`) | Thử nghiệm v0.2.0 | [Tải về](https://tungkernel.github.io/zcl-hub/#download) |
 | **ZCL Mind** | Trợ lý thấu hiểu cá nhân, thói quen & lịch trình chạy trên máy | Miễn phí (`Độc quyền`) | Đang phát triển | Sắp ra mắt |
 
 ---
@@ -85,7 +85,7 @@ Sau đó truy cập địa chỉ: `http://localhost:8000`
 
 ---
 
-## Hướng Dẫn Xuất Bản Lên GitHub (@Luffyreals)
+## Hướng Dẫn Xuất Bản Lên GitHub (@tungkernel)
 
 Trong thư mục `hub`, bạn có thể đẩy lên repository GitHub cá nhân:
 
@@ -93,7 +93,7 @@ Trong thư mục `hub`, bạn có thể đẩy lên repository GitHub cá nhân:
 cd "C:\Users\Dell\Documents\NhaCongDong\Zero-Cloud LAN Hub\hub"
 
 # 1. Tạo liên kết với repository của bạn trên GitHub
-git remote add origin https://github.com/Luffyreals/zcl-hub.git
+git remote add origin https://github.com/tungkernel/zcl-hub.git
 
 # 2. Đẩy lên nhánh main
 git branch -M main
@@ -103,15 +103,15 @@ git push -u origin main
 Sau khi đẩy mã nguồn lên GitHub:
 1. Vào mục **Settings** của repository -> chọn thẻ **Pages**.
 2. Tại phần **Build and deployment**, chọn Branch: `main` / `root` -> bấm **Save**.
-3. Trang web sẽ tự động xuất bản tại: `https://luffyreals.github.io/zcl-hub/`.
+3. Trang web sẽ tự động xuất bản tại: `https://tungkernel.github.io/zcl-hub/`.
 
 ---
 
 ## Tác Giả & Ủng Hộ
 
-Phát triển bởi **Nguyễn Hoàng Tùng** ([@Luffyreals](https://github.com/Luffyreals)).
+Phát triển bởi **Nguyễn Hoàng Tùng** ([@tungkernel](https://github.com/tungkernel)).
 
-Nếu ZCL Hub giúp bạn giải quyết công việc nhanh chóng và thuận tiện, hãy gửi [góp ý đóng góp](https://luffyreals.github.io/zcl-hub/#feedback) hoặc [mời tác giả một ly cà phê](https://luffyreals.github.io/zcl-hub/#donate) để tiếp thêm năng lượng phát triển nhé!
+Nếu ZCL Hub giúp bạn giải quyết công việc nhanh chóng và thuận tiện, hãy gửi [góp ý đóng góp](https://tungkernel.github.io/zcl-hub/#feedback) hoặc [mời tác giả một ly cà phê](https://tungkernel.github.io/zcl-hub/#donate) để tiếp thêm năng lượng phát triển nhé!
 
 ---
 

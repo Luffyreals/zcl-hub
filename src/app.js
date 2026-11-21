@@ -1,6 +1,6 @@
 /**
  * ZCL Hub — Core Logic & Interactive Web Demo
- * Author: Nguyen Hoang Tung (@Luffyreals)
+ * Author: Nguyen Hoang Tung (@tungkernel)
  * Zero-dependency, offline-ready, bilingual (VI/EN).
  */
 
@@ -325,11 +325,11 @@ const i18n = {
     road_desc_cast: "Chiếu màn hình và âm thanh không dây từ máy tính lên TV hoặc máy chiếu phòng họp.",
     road_desc_chat: "Nhắn tin và gọi thoại nhanh giữa các máy cùng phòng, bảo mật tuyệt đối.",
     road_desc_sync: "Tự động cập nhật thư mục làm việc giữa máy tính bàn và laptop cá nhân.",
-    detail_status_ready: "Sẵn sàng · v0.1.0",
+    detail_status_ready: "Sẵn sàng · v0.2.0",
     detail_status_tp_ready: "Sẵn sàng · v1.2.0",
     chip_gpl: "Mã nguồn mở GPL-3.0",
     chip_proprietary: "Miễn phí",
-    spec_val_license_closed: "Độc quyền · Nguyễn Hoàng Tùng (@Luffyreals)",
+    spec_val_license_closed: "Độc quyền · Nguyễn Hoàng Tùng (@tungkernel)",
     chip_author: "Tác giả: Nguyễn Hoàng Tùng",
     bento_badge_speed: "Tốc độ gửi file",
     bento_badge_clip: "Khay nhớ tạm hai chiều",
@@ -953,11 +953,11 @@ const i18n = {
     road_desc_cast: "Wireless screen and audio casting from PC to meeting room TV or projector.",
     road_desc_chat: "Fast messaging and voice calls between room computers, strictly secure.",
     road_desc_sync: "Automatic folder sync between desktop PC and personal laptop.",
-    detail_status_ready: "Ready · v0.1.0",
+    detail_status_ready: "Ready · v0.2.0",
     detail_status_tp_ready: "Ready · v1.2.0",
     chip_gpl: "Open Source GPL-3.0",
     chip_proprietary: "Free",
-    spec_val_license_closed: "All Rights Reserved · Nguyen Hoang Tung (@Luffyreals)",
+    spec_val_license_closed: "All Rights Reserved · Nguyen Hoang Tung (@tungkernel)",
     chip_author: "Author: Nguyen Hoang Tung",
     bento_badge_speed: "Transfer Speed",
     bento_badge_clip: "Two-Way Clipboard",
@@ -2976,41 +2976,41 @@ const DOWNLOAD_REGISTRY = {
   },
   remote: {
     name: 'ZCL Remote',
-    repo: 'Luffyreals/zcl-hub',
+    repo: 'tungkernel/zcl-hub',
     assetPrefix: 'zcl-remote',
-    version: 'v0.1.0-alpha',
-    isLive: false,
-    releaseUrl: 'https://github.com/Luffyreals/zcl-hub/releases',
+    version: 'v0.2.0',
+    isLive: true,
+    releaseUrl: 'https://github.com/tungkernel/zcl-hub/releases/tag/v0.2.0',
     files: {
       exe: {
-        name: 'zcl-remote-setup-latest-x64.exe',
-        size: '16.8 MB',
-        url: 'https://github.com/Luffyreals/zcl-hub/releases/latest/download/zcl-remote-setup-latest-x64.exe'
+        name: 'zcl-remote-setup-0.2.0-x64.exe',
+        size: '72.0 MB',
+        url: 'https://github.com/tungkernel/zcl-hub/releases/download/v0.2.0/zcl-remote-setup-0.2.0-x64.exe'
       },
       zip: {
-        name: 'zcl-remote-gui-latest-windows-x64.zip',
-        size: '15.6 MB',
-        url: 'https://github.com/Luffyreals/zcl-hub/releases/latest/download/zcl-remote-gui-latest-windows-x64.zip'
+        name: 'zcl-remote-gui-0.2.0-windows-x64.zip',
+        size: '108.6 MB',
+        url: 'https://github.com/tungkernel/zcl-hub/releases/download/v0.2.0/zcl-remote-gui-0.2.0-windows-x64.zip'
       }
     }
   },
   mind: {
     name: 'ZCL Mind',
-    repo: 'Luffyreals/zcl-hub',
+    repo: 'tungkernel/zcl-hub',
     assetPrefix: 'zcl-mind',
     version: 'v0.1.0-alpha',
     isLive: false,
-    releaseUrl: 'https://github.com/Luffyreals/zcl-hub/releases',
+    releaseUrl: 'https://github.com/tungkernel/zcl-hub/releases',
     files: {
       exe: {
         name: 'zcl-mind-setup-latest-x64.exe',
         size: '2.1 GB',
-        url: 'https://github.com/Luffyreals/zcl-hub/releases/latest/download/zcl-mind-setup-latest-x64.exe'
+        url: 'https://github.com/tungkernel/zcl-hub/releases/latest/download/zcl-mind-setup-latest-x64.exe'
       },
       zip: {
         name: 'zcl-mind-portable-windows-x64.zip',
         size: '1.9 GB',
-        url: 'https://github.com/Luffyreals/zcl-hub/releases/latest/download/zcl-mind-portable-windows-x64.zip'
+        url: 'https://github.com/tungkernel/zcl-hub/releases/latest/download/zcl-mind-portable-windows-x64.zip'
       }
     }
   }
@@ -3230,12 +3230,13 @@ async function syncSingleAppReleases(appKey) {
       return !prefix || name.includes(prefix) || name.includes(appKey);
     };
 
-    // Ưu tiên release mới nhất có assets của đúng ứng dụng
-    const release = releases.find((r) => Array.isArray(r.assets) && r.assets.some(matchesAppAsset))
+    // Ưu tiên release chính thức (!r.prerelease) mới nhất có assets của đúng ứng dụng
+    const release = releases.find((r) => !r.prerelease && Array.isArray(r.assets) && r.assets.some(matchesAppAsset))
+      || releases.find((r) => Array.isArray(r.assets) && r.assets.some(matchesAppAsset))
       || (!prefix ? (releases.find((r) => Array.isArray(r.assets) && r.assets.length > 0) || releases[0]) : null);
     if (!release) return;
 
-    if (release.tag_name) {
+    if (release.tag_name && release.tag_name.toLowerCase() !== 'nightly') {
       item.version = release.tag_name;
     }
     if (release.html_url) {
@@ -3281,7 +3282,7 @@ async function syncSingleAppReleases(appKey) {
 }
 
 async function syncReleasesFromGitHub(forceRefresh = false) {
-  const CACHE_KEY = 'zcl_releases_cache_v2';
+  const CACHE_KEY = 'zcl_releases_cache_v3';
   const CACHE_TTL_MS = 15 * 60 * 1000; // 15 phút
 
   if (!forceRefresh) {

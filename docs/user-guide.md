@@ -15,7 +15,7 @@ Tài liệu này hướng dẫn bạn cách sử dụng các ứng dụng ZCL đ
 
 ## 2. Cách tải và cài đặt
 
-1. Mở trang web [ZCL Hub](https://luffyreals.github.io/zcl-hub/) và chọn tab **Tải về**.
+1. Mở trang web [ZCL Hub](https://tungkernel.github.io/zcl-hub/) và chọn tab **Tải về**.
 2. Chọn phiên bản bạn muốn sử dụng:
    * **Bản cài đặt (.exe)**: Tự động cài vào máy tính, có icon ngoài màn hình chính để mở bất cứ lúc nào.
    * **Bản chạy ngay (.zip)**: Tải về giải nén ra là chạy được ngay, không cần cài đặt (rất tiện khi dùng máy ở văn phòng hoặc máy công cộng).

@@ -2,7 +2,7 @@
 """
 =============================================================================
 ZCL Hub — Automated UI & Codebase Quality Test Suite
-Author: Nguyễn Hoàng Tùng (@Luffyreals)
+Author: Nguyễn Hoàng Tùng (@tungkernel)
 License: GNU General Public License v3.0 (GPL-3.0)
 =============================================================================
 This test suite verifies:
@@ -77,9 +77,9 @@ class TestStrictRules(unittest.TestCase):
         self.assertFalse(pattern.search(self.js), f"Found long identifier in app.js")
 
     def test_author_and_license_attribution(self):
-        """Author must be Nguyễn Hoàng Tùng (@Luffyreals) under GPL-3.0."""
+        """Author must be Nguyễn Hoàng Tùng (@tungkernel) under GPL-3.0."""
         self.assertIn("Nguyễn Hoàng Tùng", self.html)
-        self.assertIn("Luffyreals", self.html)
+        self.assertIn("tungkernel", self.html)
         self.assertIn("GPL-3.0", self.html)
 
     def test_no_complex_technical_jargon_in_text(self):
@@ -558,6 +558,8 @@ class TestPWAAndAssets(unittest.TestCase):
         self.assertIn('tp_status: "Bản chính thức"', js)
         self.assertIn('tp_status: "Official release"', js)
         self.assertIn('detail_status_tp_ready: "Sẵn sàng · v1.2.0"', js)
+        self.assertIn("https://github.com/tungkernel/zcl-hub/releases/download/v0.2.0/zcl-remote-setup-0.2.0-x64.exe", js)
+        self.assertIn("https://github.com/tungkernel/zcl-hub/releases/download/v0.2.0/zcl-remote-gui-0.2.0-windows-x64.zip", js)
 
         # 3. Overview 4 pillars strip
         self.assertIn('class="overview-pillars-strip"', html)
